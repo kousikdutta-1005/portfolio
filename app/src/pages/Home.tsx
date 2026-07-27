@@ -3,7 +3,21 @@ import { motion } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { ArrowRight, ArrowUpRight, Calendar } from "lucide-react"
+import { ArrowRight, ArrowUpRight } from "lucide-react"
+
+// Design system motion tokens
+const EASE_ENTER = [0, 0, 0.2, 1] as const
+const DURATION_REVEAL = 0.5
+const STAGGER = 0.1
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i: number = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: DURATION_REVEAL, ease: EASE_ENTER, delay: i * STAGGER },
+  }),
+}
 
 const PROJECTS = [
   {
@@ -51,35 +65,44 @@ export default function HomePage() {
       {/* Hero */}
       <section className="pt-24 pb-16">
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
-          <motion.div
+          <motion.h1
+            className="text-[clamp(3rem,7vw,5.5rem)] font-semibold tracking-[-0.04em] leading-[1.05]"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: EASE_ENTER }}
+          >
+            <span className="block">Kousik Dutta</span>
+            <span className="block text-muted-foreground">UX Designer</span>
+          </motion.h1>
+          <motion.p
+            className="mt-5 text-[17px] text-muted-foreground leading-relaxed max-w-[520px]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{ duration: 0.5, ease: EASE_ENTER, delay: 0.15 }}
           >
-            <h1 className="text-[clamp(3rem,7vw,5.5rem)] font-semibold tracking-[-0.04em] leading-[1.05]">
-              <span className="block">Kousik Dutta</span>
-              <span className="block text-muted-foreground">UX Designer</span>
-            </h1>
-            <p className="mt-5 text-[17px] text-muted-foreground leading-relaxed max-w-[520px]">
-              I help ambitious companies achieve their business goals by strategically designing their MVPs, optimising for growth & beyond.
-            </p>
-            <div className="flex items-center gap-4 mt-8">
-              <a
-                href="https://calendly.com/design-kousik/intro-call"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(buttonVariants({ variant: "default", size: "default" }))}
-              >
-                Schedule a call
-                <ArrowRight className="w-4 h-4" />
-              </a>
-              <Link
-                to="/about"
-                className="text-[15px] text-muted-foreground hover:text-foreground transition-colors"
-              >
-                About me →
-              </Link>
-            </div>
+            I help ambitious companies achieve their business goals by strategically designing their MVPs, optimising for growth & beyond.
+          </motion.p>
+          <motion.div
+            className="flex items-center gap-4 mt-8"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: EASE_ENTER, delay: 0.3 }}
+          >
+            <a
+              href="https://calendly.com/design-kousik/intro-call"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(buttonVariants({ variant: "default", size: "default" }))}
+            >
+              Schedule a call
+              <ArrowRight className="w-4 h-4" />
+            </a>
+            <Link
+              to="/about"
+              className="text-[15px] text-muted-foreground hover:text-foreground transition-colors"
+            >
+              About me →
+            </Link>
           </motion.div>
         </div>
       </section>
@@ -89,8 +112,9 @@ export default function HomePage() {
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
           <motion.p
             className="text-[11px] font-semibold tracking-[0.12em] uppercase text-muted-foreground mb-6"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
           >
             Industry Work
@@ -100,10 +124,11 @@ export default function HomePage() {
             {PROJECTS.map((project, i) => (
               <motion.div
                 key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: i * 0.08, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+                variants={fadeUp}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-80px" }}
               >
                 {project.external ? (
                   <a href={project.href} target="_blank" rel="noopener noreferrer" className="group block">
@@ -120,8 +145,9 @@ export default function HomePage() {
 
           <motion.div
             className="mt-6"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
           >
             <a
@@ -140,33 +166,54 @@ export default function HomePage() {
       {/* Services */}
       <section className="py-12">
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
-          <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-muted-foreground mb-2">
-            What I do
-          </p>
-          <h2 className="text-[24px] font-semibold tracking-tight mb-5">Services & Workshops</h2>
-          <div className="flex flex-wrap gap-2.5">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-muted-foreground mb-2">
+              What I do
+            </p>
+            <h2 className="text-[24px] font-semibold tracking-tight mb-5">Services & Workshops</h2>
+          </motion.div>
+          <motion.div
+            className="flex flex-wrap gap-2.5"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ staggerChildren: 0.05 }}
+          >
             {["UX Research", "UX Design", "UI Design", "Design Systems", "Motion Design"].map((s) => (
-              <Badge key={s} variant="secondary" className="text-[13px] px-4 py-2 rounded-full font-medium">
-                {s}
-              </Badge>
+              <motion.div key={s} variants={fadeUp}>
+                <Badge variant="secondary" className="text-[13px] px-4 py-2 rounded-full font-medium">
+                  {s}
+                </Badge>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Testimonials */}
       <section className="py-12 overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20 mb-6">
-          <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-muted-foreground">
+          <motion.p
+            className="text-[11px] font-semibold tracking-[0.12em] uppercase text-muted-foreground"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             Testimonials
-          </p>
+          </motion.p>
         </div>
         <div className="relative">
-          <div className="flex gap-4 animate-scroll pl-6 md:pl-10 lg:pl-20">
+          <div className="flex gap-4 animate-scroll pl-6 md:pl-10 lg:pl-20 hover:[animation-play-state:paused]">
             {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
               <div
                 key={`${t.name}-${i}`}
-                className="shrink-0 w-[300px] p-5 rounded-2xl border bg-card"
+                className="shrink-0 w-[300px] p-5 rounded-2xl border bg-card transition-shadow hover:shadow-md"
               >
                 <p className="text-[14px] leading-[1.6] mb-4">"{t.quote}"</p>
                 <div className="flex items-center gap-3">
@@ -183,7 +230,13 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="mt-12 py-20 bg-foreground text-background rounded-t-3xl">
+      <motion.section
+        className="mt-12 py-20 bg-foreground text-background rounded-t-3xl"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: EASE_ENTER }}
+      >
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
           <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-semibold tracking-[-0.03em] leading-tight">
             Let's create your<br />next big idea.
@@ -201,20 +254,26 @@ export default function HomePage() {
             <ArrowRight className="w-4 h-4" />
           </a>
         </div>
-      </section>
+      </motion.section>
     </div>
   )
 }
 
 function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
   return (
-    <div className="rounded-2xl overflow-hidden border bg-card transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-0.5">
+    <motion.div
+      className="rounded-2xl overflow-hidden border bg-card"
+      whileHover={{ y: -3, boxShadow: "0 8px 24px rgba(0,0,0,0.08)" }}
+      transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+    >
       <div className="aspect-[16/10] overflow-hidden bg-muted">
-        <img
+        <motion.img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+          className="w-full h-full object-cover"
           loading="lazy"
+          whileHover={{ scale: 1.03 }}
+          transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
         />
       </div>
       <div className="p-4 flex items-center justify-between">
@@ -225,6 +284,6 @@ function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }

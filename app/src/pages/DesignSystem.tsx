@@ -29,27 +29,24 @@ const PRINCIPLES = [
 ]
 
 const COLORS_PRIMARY = [
-  { name: "Black", hex: "#000000", var: "--black", color: "bg-black" },
-  { name: "White", hex: "#ffffff", var: "--white", color: "bg-white border" },
+  { name: "Background", hex: "#fbfbfd", var: "--color-background", color: "bg-background" },
+  { name: "Foreground", hex: "#1d1d1f", var: "--color-foreground", color: "bg-foreground" },
 ]
 
 const COLORS_NEUTRAL = [
-  { name: "Gray 900", hex: "#171616", var: "--gray-900" },
-  { name: "Gray 700", hex: "#333333", var: "--gray-700" },
-  { name: "Gray 600", hex: "#666666", var: "--gray-600" },
-  { name: "Gray 500", hex: "#5f6980", var: "--gray-500" },
-  { name: "Gray 400", hex: "#999999", var: "--gray-400" },
-  { name: "Gray 300", hex: "#c2c2c2", var: "--gray-300" },
-  { name: "Gray 200", hex: "#e0e3eb", var: "--gray-200" },
-  { name: "Gray 100", hex: "#f2f4f7", var: "--gray-100" },
-  { name: "Gray 50", hex: "#f9fafb", var: "--gray-50" },
+  { name: "Card", hex: "#ffffff", var: "--color-card" },
+  { name: "Secondary", hex: "#f5f5f7", var: "--color-secondary" },
+  { name: "Muted", hex: "#f5f5f7", var: "--color-muted" },
+  { name: "Muted FG", hex: "#6e6e73", var: "--color-muted-foreground" },
+  { name: "Border", hex: "#d2d2d7", var: "--color-border" },
+  { name: "Input", hex: "#d2d2d7", var: "--color-input" },
 ]
 
 const COLORS_SEMANTIC = [
-  { name: "Accent", hex: "#0099ff", var: "--accent" },
-  { name: "Success", hex: "#16a34a", var: "--success" },
-  { name: "Warning", hex: "#f59e0b", var: "--warning" },
-  { name: "Error", hex: "#ef4444", var: "--error" },
+  { name: "Accent", hex: "#0071e3", var: "--color-accent" },
+  { name: "Success", hex: "#34c759", var: "--color-success" },
+  { name: "Warning", hex: "#ff9f0a", var: "--color-warning" },
+  { name: "Destructive", hex: "#ff3b30", var: "--color-destructive" },
 ]
 
 const TYPE_SCALE = [
@@ -90,20 +87,18 @@ const RADII = [
 ]
 
 const EASINGS = [
-  { name: "Default", value: "cubic-bezier(0.44, 0, 0.56, 1)" },
   { name: "Enter", value: "cubic-bezier(0, 0, 0.2, 1)" },
+  { name: "Default", value: "cubic-bezier(0.25, 0.1, 0.25, 1)" },
   { name: "Exit", value: "cubic-bezier(0.4, 0, 1, 1)" },
-  { name: "Elastic", value: "elastic.out(1, 0.5)" },
-  { name: "Power", value: "power3.out" },
 ]
 
 const DURATIONS = [
   { name: "Instant", value: "100ms", usage: "Micro-feedback" },
   { name: "Fast", value: "200ms", usage: "Hover states" },
-  { name: "Normal", value: "300ms", usage: "Most transitions" },
-  { name: "Moderate", value: "500ms", usage: "Reveals" },
-  { name: "Slow", value: "800ms", usage: "Staggered lists" },
-  { name: "Dramatic", value: "1000ms", usage: "Page transitions" },
+  { name: "Normal", value: "300ms", usage: "Page transitions" },
+  { name: "Reveal", value: "500ms", usage: "Scroll reveals" },
+  { name: "Stagger", value: "100ms", usage: "Delay between items" },
+  { name: "Smooth scroll", value: "1200ms", usage: "Lenis duration" },
 ]
 
 // --- Components ---
@@ -262,12 +257,12 @@ export default function DesignSystemPage() {
             </TableHeader>
             <TableBody>
               {[
-                ["Primary text", "Black", "--black"],
-                ["Secondary text", "Gray 600", "--gray-600"],
-                ["Disabled / placeholder", "Gray 400", "--gray-400"],
-                ["Borders", "Gray 200", "--gray-200"],
-                ["Surface / cards", "Gray 50", "--gray-50"],
-                ["Interactive links", "Accent Blue", "--accent"],
+                ["Primary text", "Foreground (#1d1d1f)", "--color-foreground"],
+                ["Secondary text", "Muted FG (#6e6e73)", "--color-muted-foreground"],
+                ["Card backgrounds", "Card (#ffffff)", "--color-card"],
+                ["Borders & dividers", "Border (#d2d2d7)", "--color-border"],
+                ["Muted surfaces", "Secondary (#f5f5f7)", "--color-secondary"],
+                ["Interactive / CTA", "Accent (#0071e3)", "--color-accent"],
               ].map(([context, color, variable]) => (
                 <TableRow key={context}>
                   <TableCell className="text-[13px]">{context}</TableCell>
@@ -535,19 +530,19 @@ export default function DesignSystemPage() {
           <h3 className="text-sm font-semibold mb-3">Buttons</h3>
           <Card className="mb-6">
             <div className="p-6 bg-muted/50 flex items-center gap-3 flex-wrap">
-              <button className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full border border-foreground text-[13px] font-medium transition-colors hover:bg-primary hover:text-primary-foreground">
-                Outline Button →
+              <button className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-accent text-accent-foreground text-[15px] font-medium transition-all hover:brightness-110 active:scale-[0.98]">
+                Primary CTA →
               </button>
-              <button className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-[13px] font-medium transition-colors hover:bg-primary/90">
-                Filled Button →
+              <button className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full border border-accent text-accent text-[15px] font-medium transition-all hover:bg-accent hover:text-accent-foreground active:scale-[0.98]">
+                Outline →
               </button>
-              <button className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-white text-foreground border text-[13px] font-medium transition-colors hover:bg-muted">
-                White Button →
+              <button className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-white text-[#1d1d1f] text-[15px] font-medium transition-all hover:bg-white/90 active:scale-[0.98]">
+                Inverted →
               </button>
             </div>
             <div className="p-4 bg-[hsl(240_10%_3.9%)] border-t">
               <code className="text-[12px] font-mono text-[hsl(240_5%_64.9%)] whitespace-pre">
-                {`<button class="btn btn--outline">Outline →</button>\n<button class="btn btn--filled">Filled →</button>`}
+                {`<Button variant="default">Primary CTA →</Button>\n<Button variant="outline">Outline →</Button>\n<Button variant="inverted">Inverted →</Button>`}
               </code>
             </div>
           </Card>
