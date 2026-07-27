@@ -18,97 +18,95 @@ export function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 nav-glass">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
-        <div className="flex items-center justify-between h-12">
+      <div className="max-w-[980px] mx-auto px-6 md:px-10">
+        <div className="flex items-center justify-between h-11">
+          {/* Logo — adapts to theme */}
           <Link to="/" className="flex items-center">
             <img
               src="/assets/images/Mc2cHPK2FkFfFmWhv4umGYjMuw.png"
               alt="Kousik Dutta"
-              className="h-6 w-auto opacity-90 transition-all duration-300 dark:invert dark:brightness-200"
+              className="h-5 w-auto transition-all duration-300 dark:invert dark:brightness-200"
             />
           </Link>
-          {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-7">
+
+          {/* Desktop nav — Apple's 12px nav links */}
+          <div className="hidden md:flex items-center gap-8">
             {links.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
                 className={cn(
-                  "text-[12px] font-medium transition-all duration-200 relative",
+                  "text-[12px] font-normal transition-opacity duration-200 relative py-1",
                   location.pathname === link.to
-                    ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "text-foreground opacity-100"
+                    : "text-foreground/80 opacity-60 hover:opacity-100"
                 )}
               >
                 {link.label}
-                {location.pathname === link.to && (
-                  <motion.span
-                    layoutId="nav-indicator"
-                    className="absolute -bottom-1 left-0 right-0 h-[1.5px] bg-foreground rounded-full"
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
-                  />
-                )}
               </Link>
             ))}
             <button
               onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-              className="p-1.5 rounded-full hover:bg-white/10 dark:hover:bg-white/10 transition-colors"
+              className="p-1 rounded-full opacity-60 hover:opacity-100 transition-opacity"
               aria-label="Toggle theme"
             >
               {resolvedTheme === "dark" ? (
-                <Sun className="w-3.5 h-3.5 text-muted-foreground" />
+                <Sun className="w-3.5 h-3.5" />
               ) : (
-                <Moon className="w-3.5 h-3.5 text-muted-foreground" />
+                <Moon className="w-3.5 h-3.5" />
               )}
             </button>
           </div>
+
           {/* Mobile */}
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex md:hidden items-center gap-3">
             <button
               onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-              className="p-1.5 rounded-full hover:bg-white/10 transition-colors"
+              className="p-1 opacity-60 hover:opacity-100 transition-opacity"
               aria-label="Toggle theme"
             >
               {resolvedTheme === "dark" ? (
-                <Sun className="w-4 h-4 text-muted-foreground" />
+                <Sun className="w-4 h-4" />
               ) : (
-                <Moon className="w-4 h-4 text-muted-foreground" />
+                <Moon className="w-4 h-4" />
               )}
             </button>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="p-1.5 rounded-full hover:bg-white/10 transition-colors"
+              className="p-1 opacity-80 hover:opacity-100 transition-opacity"
               aria-label="Menu"
             >
               {mobileOpen ? (
-                <X className="w-4 h-4 text-foreground" />
+                <X className="w-4 h-4" />
               ) : (
-                <Menu className="w-4 h-4 text-foreground" />
+                <Menu className="w-4 h-4" />
               )}
             </button>
           </div>
         </div>
       </div>
+
+      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="md:hidden nav-glass border-t border-white/10 overflow-hidden"
+            transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+            className="md:hidden nav-glass overflow-hidden"
           >
-            <div className="px-6 py-3 space-y-2">
+            <div className="max-w-[980px] mx-auto px-6 py-4 space-y-1">
               {links.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
                   onClick={() => setMobileOpen(false)}
                   className={cn(
-                    "block text-[14px] py-1.5 transition-colors",
+                    "block text-[15px] py-2 transition-opacity",
                     location.pathname === link.to
                       ? "text-foreground font-medium"
-                      : "text-muted-foreground hover:text-foreground"
+                      : "text-foreground/60 hover:text-foreground"
                   )}
                 >
                   {link.label}
