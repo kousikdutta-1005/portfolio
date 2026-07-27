@@ -320,12 +320,12 @@ export default function HomePage() {
 
       {/* CTA — Envelope animation */}
       <section className="py-24 md:py-32">
-        <div className="max-w-[640px] mx-auto px-6 md:px-10">
+        <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <motion.div
             className="relative"
             initial="closed"
             whileInView="open"
-            viewport={{ once: true, margin: "-120px" }}
+            viewport={{ once: true, margin: "-80px" }}
           >
             {/* Envelope body */}
             <div className="envelope-body">
@@ -334,36 +334,36 @@ export default function HomePage() {
                 className="envelope-flap"
                 variants={{
                   closed: { rotateX: 0 },
-                  open: { rotateX: 180, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.1 } },
+                  open: { rotateX: 180, transition: { duration: 0.9, ease: [0.33, 1, 0.68, 1], delay: 0.15 } },
                 }}
               >
                 <div className="envelope-flap-front" />
                 <div className="envelope-flap-back" />
               </motion.div>
 
-              {/* Letter — slides up from inside */}
+              {/* Letter — pops up from inside the envelope */}
               <motion.div
                 className="envelope-letter"
                 variants={{
-                  closed: { y: 40, opacity: 0 },
-                  open: { y: -48, opacity: 1, transition: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1], delay: 0.5 } },
+                  closed: { y: 100, scale: 0.92 },
+                  open: { y: -60, scale: 1, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.6 } },
                 }}
               >
                 <div className="envelope-letter-inner">
                   <p className="text-[13px] font-semibold tracking-[0.02em] uppercase text-muted-foreground mb-3">
                     Get in touch
                   </p>
-                  <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold tracking-[-0.03em] leading-[1.1]">
+                  <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-[-0.03em] leading-[1.1]">
                     Let's create your<br />next big idea.
                   </h2>
-                  <p className="mt-3 text-[15px] leading-[1.6] text-muted-foreground max-w-[380px]">
+                  <p className="mt-4 text-[16px] leading-[1.6] text-muted-foreground max-w-[460px]">
                     Available for full-time roles, freelance projects, and design consulting.
                   </p>
                   <a
                     href="https://calendly.com/design-kousik/intro-call"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={cn(buttonVariants({ variant: "default", size: "default" }), "mt-6")}
+                    className={cn(buttonVariants({ variant: "default", size: "default" }), "mt-7")}
                   >
                     Schedule a call
                     <ArrowRight className="w-4 h-4 ml-1" />
