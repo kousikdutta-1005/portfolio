@@ -337,12 +337,14 @@ export default function HomePage() {
                 closed: {
                   y: 340,
                   scale: 0.94,
+                  rotateX: 8,
                   zIndex: 1,
                   transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] },
                 },
                 open: {
                   y: 0,
                   scale: 1,
+                  rotateX: 0,
                   zIndex: 10,
                   transition: { duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.15 },
                 },
