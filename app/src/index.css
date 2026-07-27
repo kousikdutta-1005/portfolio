@@ -387,6 +387,8 @@ html {
   background: linear-gradient(180deg, #ccc7bf 0%, #d8d3cb 60%, #ddd8d0 100%);
   z-index: 0;
   transform: translateZ(-4px);
+  /* V-shaped shadow under the flap — visible beneath the card */
+  filter: drop-shadow(0 8px 6px rgba(0, 0, 0, 0.15)) drop-shadow(0 20px 20px rgba(0, 0, 0, 0.1));
 }
 
 /* Fold crease line on the back flap */
@@ -402,6 +404,7 @@ html {
 
 .dark .envelope-back-flap {
   background: linear-gradient(180deg, #3e3935 0%, #454038 60%, #4a4540 100%);
+  filter: drop-shadow(0 8px 6px rgba(0, 0, 0, 0.4)) drop-shadow(0 20px 20px rgba(0, 0, 0, 0.35));
 }
 
 .dark .envelope-back-flap::after {
