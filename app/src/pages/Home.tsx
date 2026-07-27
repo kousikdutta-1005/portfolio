@@ -236,7 +236,7 @@ export default function HomePage() {
       </section>
 
       {/* Services — Apple's chip/tag style */}
-      <section className="py-20 md:py-24 section-alt rounded-[2rem] mx-4">
+      <section className="py-20 md:py-24 section-alt rounded-2xl md:rounded-[2rem] mx-4 md:mx-8 lg:mx-auto lg:max-w-[1080px]">
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <motion.div
             variants={fadeUp}
@@ -306,7 +306,7 @@ export default function HomePage() {
 
       {/* CTA — Apple's dark section with generous spacing */}
       <motion.section
-        className="py-28 md:py-36 relative overflow-hidden rounded-[2rem] mx-4 mb-4 bg-[#1d1d1f]"
+        className="py-24 md:py-36 relative overflow-hidden rounded-2xl md:rounded-[2rem] mx-4 md:mx-8 lg:mx-auto lg:max-w-[1080px] mb-4 bg-[#1d1d1f]"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -336,7 +336,7 @@ export default function HomePage() {
 
 function TestimonialCard({ t }: { t: typeof TESTIMONIALS[0] }) {
   return (
-    <div className="shrink-0 w-[320px] p-6 rounded-2xl apple-card">
+    <div className="shrink-0 w-[280px] md:w-[320px] p-5 md:p-6 rounded-2xl apple-card">
       <p className="text-[15px] leading-[1.65] text-foreground/90 mb-5">"{t.quote}"</p>
       <div className="flex items-center gap-3">
         <img src={t.avatar} alt={t.name} className="w-9 h-9 rounded-full object-cover" />
@@ -352,7 +352,7 @@ function TestimonialCard({ t }: { t: typeof TESTIMONIALS[0] }) {
 function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
   return (
     <motion.div
-      className="rounded-2xl overflow-hidden apple-card"
+      className="rounded-xl md:rounded-2xl overflow-hidden apple-card"
       whileHover={{ scale: 1.015 }}
       transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
     >
@@ -364,11 +364,11 @@ function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
           loading="lazy"
         />
       </div>
-      <div className="p-5 flex items-center justify-between">
-        <h3 className="text-[16px] font-semibold tracking-tight">{project.title}</h3>
-        <div className="flex items-center gap-1.5">
+      <div className="p-4 md:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <h3 className="text-[15px] md:text-[16px] font-semibold tracking-tight">{project.title}</h3>
+        <div className="flex items-center gap-1.5 shrink-0">
           {project.tags.slice(0, 2).map((tag) => (
-            <span key={tag} className="text-[11px] font-medium text-muted-foreground px-2.5 py-1 rounded-full bg-secondary">
+            <span key={tag} className="text-[10px] md:text-[11px] font-medium text-muted-foreground px-2 md:px-2.5 py-0.5 md:py-1 rounded-full bg-secondary whitespace-nowrap">
               {tag}
             </span>
           ))}
