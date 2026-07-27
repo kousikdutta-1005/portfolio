@@ -6,18 +6,21 @@ import { ArrowRight } from "lucide-react"
 const PROJECTS = [
   {
     title: "ThoughtSpot Mobile",
+    desc: "Redesigning the mobile analytics experience for enterprise users",
     tags: ["UX Design", "UI Design", "Motion"],
     image: "/assets/images/GLP0Z4G1xKxcD0e0TDg9EWRgzQ.png",
     href: "/case-study/thoughtspot",
   },
   {
     title: "Philips Cardiocare",
+    desc: "Building a connected cardiac monitoring ecosystem",
     tags: ["Research", "UX Design", "UI Design"],
     image: "/assets/images/NRmPx5otSD5B8RKHstn08Zcs0k.png",
     href: "/case-study/philips",
   },
   {
     title: "Airtel Live Chat",
+    desc: "Reimagining customer support with conversational AI",
     tags: ["UX Design", "UI Design"],
     image: "/assets/images/elvpFwKLIpGRQQqelaZQI5Xw.png",
     href: "https://www.behance.net/gallery/154991935/Airtel-Live-Chat-UX-Design-Casestudy",
@@ -25,6 +28,7 @@ const PROJECTS = [
   },
   {
     title: "OLX Autos Workshop",
+    desc: "Designing workshop management tools for auto dealers",
     tags: ["Workshop", "System Maps"],
     image: "/assets/images/lsO27yP1rhwECcphfDr6QnvgQ.png",
     href: "#",
@@ -43,38 +47,42 @@ const TESTIMONIALS = [
   { quote: "Kousik is good at design execution and documenting his ideas.", name: "Poornima Kapoor", role: "Lead Designer, Airtel", avatar: "/assets/images/yLQEIFzvuqW7VcwbkkFzM8Z4N6A.png" },
 ]
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.5, ease: [0, 0, 0.2, 1] },
-  }),
-}
-
 export default function HomePage() {
   return (
     <div>
-      {/* Hero */}
-      <section className="min-h-[85vh] flex items-center">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20 w-full">
+      {/* Hero — Apple-style massive whitespace */}
+      <section className="min-h-[90vh] flex items-center justify-center text-center">
+        <div className="max-w-[980px] mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0, 0, 0.2, 1] }}
+            transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            <h1 className="text-[clamp(3rem,8vw,5.5rem)] font-semibold tracking-[-0.04em] leading-[1.05]">
-              <span className="block">Kousik Dutta</span>
-              <span className="block text-muted-foreground">UX Designer</span>
+            <h1 className="text-[clamp(3.5rem,9vw,6rem)] font-semibold tracking-[-0.05em] leading-[1]">
+              Kousik Dutta
             </h1>
-            <p className="mt-6 text-[clamp(1rem,2vw,1.25rem)] text-muted-foreground leading-relaxed max-w-[560px]">
-              I help ambitious companies achieve their business goals by strategically designing their MVPs, optimising for growth & beyond.
+            <p className="mt-4 text-[clamp(1.5rem,4vw,2.5rem)] font-medium tracking-[-0.02em] text-muted-foreground">
+              UX Designer
             </p>
+          </motion.div>
+          <motion.p
+            className="mt-6 text-[17px] text-muted-foreground leading-relaxed max-w-[480px] mx-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          >
+            I help ambitious companies achieve their business goals by strategically designing their MVPs, optimising for growth & beyond.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          >
             <a
               href="https://calendly.com/design-kousik/intro-call"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-full border border-foreground text-[14px] font-medium hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
+              className="inline-flex items-center gap-2 mt-8 px-7 py-3 rounded-full bg-accent text-accent-foreground text-[14px] font-medium hover:opacity-90 transition-opacity"
             >
               Schedule a call
               <ArrowRight className="w-4 h-4" />
@@ -83,27 +91,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Projects */}
-      <section className="py-20">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
+      {/* Projects — clean grid with generous spacing */}
+      <section className="py-28">
+        <div className="max-w-[980px] mx-auto px-6">
           <motion.p
-            className="text-[11px] font-semibold tracking-[0.15em] uppercase text-muted-foreground mb-8"
+            className="text-[12px] font-medium tracking-[0.08em] uppercase text-muted-foreground mb-12"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            Industry Work
+            Selected Work
           </motion.p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-8">
             {PROJECTS.map((project, i) => (
               <motion.div
                 key={project.title}
-                custom={i}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-50px" }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ delay: i * 0.1, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
               >
                 {project.external ? (
                   <a href={project.href} target="_blank" rel="noopener noreferrer" className="group block">
@@ -119,7 +126,7 @@ export default function HomePage() {
           </div>
 
           <motion.div
-            className="mt-8"
+            className="mt-12 text-center"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -128,59 +135,32 @@ export default function HomePage() {
               href="https://www.behance.net/kousikdutta"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[14px] font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className="inline-flex items-center gap-1.5 text-accent text-[14px] font-medium hover:opacity-70 transition-opacity"
             >
-              View Academic Projects
+              View all projects
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </motion.div>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="py-16">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
-          <motion.p
-            className="text-[11px] font-semibold tracking-[0.15em] uppercase text-muted-foreground mb-3"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            Services
-          </motion.p>
-          <motion.h2
-            className="text-2xl font-semibold tracking-tight mb-6"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            Workshops
-          </motion.h2>
-          <div className="flex flex-wrap gap-2">
-            {["UX Research", "UX Design", "UI Design", "Motion"].map((s) => (
-              <Badge key={s} variant="secondary" className="text-[13px] px-4 py-1.5">{s}</Badge>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-20 bg-muted/50 overflow-hidden">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20 mb-8">
-          <p className="text-[11px] font-semibold tracking-[0.15em] uppercase text-muted-foreground">
-            Testimonials
+      {/* Testimonials — horizontal scroll */}
+      <section className="py-20 overflow-hidden">
+        <div className="max-w-[980px] mx-auto px-6 mb-10">
+          <p className="text-[12px] font-medium tracking-[0.08em] uppercase text-muted-foreground">
+            What people say
           </p>
         </div>
         <div className="relative">
-          <div className="flex gap-4 animate-scroll">
+          <div className="flex gap-5 animate-scroll px-6">
             {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
               <div
                 key={`${t.name}-${i}`}
-                className="shrink-0 w-[340px] p-5 rounded-xl border bg-card"
+                className="shrink-0 w-[320px] p-6 rounded-2xl border bg-card transition-shadow hover:shadow-md"
               >
-                <p className="text-[14px] leading-relaxed text-foreground mb-4">"{t.quote}"</p>
+                <p className="text-[14px] leading-[1.6] text-foreground mb-5">"{t.quote}"</p>
                 <div className="flex items-center gap-3">
-                  <img src={t.avatar} alt={t.name} className="w-8 h-8 rounded-full object-cover" />
+                  <img src={t.avatar} alt={t.name} className="w-9 h-9 rounded-full object-cover" />
                   <div>
                     <p className="text-[13px] font-medium">{t.name}</p>
                     <p className="text-[11px] text-muted-foreground">{t.role}</p>
@@ -193,25 +173,33 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-primary text-primary-foreground">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20 text-center">
+      <section className="py-32">
+        <div className="max-w-[980px] mx-auto px-6 text-center">
           <motion.h2
-            className="text-[clamp(2rem,5vw,3.5rem)] font-semibold tracking-[-0.03em] leading-tight mb-8"
+            className="text-[clamp(2.5rem,6vw,4rem)] font-semibold tracking-[-0.04em] leading-[1.1]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
           >
             Let's create your<br />next big idea.
           </motion.h2>
-          <a
-            href="https://calendly.com/design-kousik/intro-call"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-primary text-[14px] font-medium hover:bg-white/90 transition-colors"
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.5 }}
           >
-            Schedule a call
-            <ArrowRight className="w-4 h-4" />
-          </a>
+            <a
+              href="https://calendly.com/design-kousik/intro-call"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-8 px-7 py-3 rounded-full bg-accent text-accent-foreground text-[14px] font-medium hover:opacity-90 transition-opacity"
+            >
+              Schedule a call
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </motion.div>
         </div>
       </section>
     </div>
@@ -220,21 +208,26 @@ export default function HomePage() {
 
 function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
   return (
-    <div className="rounded-2xl border overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:border-foreground/15 group-hover:-translate-y-1">
-      <div className="aspect-[16/10] overflow-hidden bg-muted">
+    <div className="rounded-2xl overflow-hidden border bg-card transition-all duration-500 group-hover:shadow-xl group-hover:-translate-y-1">
+      <div className="aspect-[2/1] overflow-hidden">
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
           loading="lazy"
         />
       </div>
-      <div className="p-5 flex items-center justify-between">
-        <h3 className="text-[15px] font-semibold">{project.title}</h3>
-        <div className="flex gap-1.5">
-          {project.tags.map((tag) => (
-            <Badge key={tag} variant="secondary" className="text-[10px]">{tag}</Badge>
-          ))}
+      <div className="p-6">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h3 className="text-[17px] font-semibold tracking-tight">{project.title}</h3>
+            <p className="text-[14px] text-muted-foreground mt-1">{project.desc}</p>
+          </div>
+          <div className="flex gap-1.5 shrink-0 pt-1">
+            {project.tags.slice(0, 2).map((tag) => (
+              <Badge key={tag} variant="secondary" className="text-[10px] font-normal">{tag}</Badge>
+            ))}
+          </div>
         </div>
       </div>
     </div>

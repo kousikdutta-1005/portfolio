@@ -1,27 +1,30 @@
 import { Link, useLocation } from "react-router-dom"
 import { cn } from "@/lib/utils"
+import { useTheme } from "./ThemeProvider"
+import { Sun, Moon } from "lucide-react"
 
 export function Navbar() {
   const location = useLocation()
+  const { resolvedTheme, setTheme } = useTheme()
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
-        <div className="flex items-center justify-between h-16">
+    <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/50">
+      <div className="max-w-[980px] mx-auto px-6">
+        <div className="flex items-center justify-between h-12">
           <Link to="/" className="flex items-center">
             <img
               src="/assets/images/Mc2cHPK2FkFfFmWhv4umGYjMuw.png"
               alt="Kousik Dutta"
-              className="h-8 w-auto"
+              className="h-6 w-auto opacity-90"
             />
           </Link>
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-7">
             <Link
               to="/"
               className={cn(
-                "text-[13px] font-medium transition-colors relative pb-0.5",
+                "text-[12px] font-normal transition-colors",
                 location.pathname === "/"
-                  ? "text-foreground after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1.5px] after:bg-foreground"
+                  ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground"
               )}
             >
@@ -30,22 +33,36 @@ export function Navbar() {
             <Link
               to="/about"
               className={cn(
-                "text-[13px] font-medium transition-colors relative pb-0.5",
+                "text-[12px] font-normal transition-colors",
                 location.pathname === "/about"
-                  ? "text-foreground after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1.5px] after:bg-foreground"
+                  ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground"
               )}
             >
               About
             </Link>
-            <a
-              href="https://drive.google.com/file/d/1L27SS5uGNk5nGmCkft9myUSf5woNHooB/view"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors"
+            <Link
+              to="/design-system"
+              className={cn(
+                "text-[12px] font-normal transition-colors",
+                location.pathname === "/design-system"
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              )}
             >
-              Resume
-            </a>
+              Design System
+            </Link>
+            <button
+              onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+              className="p-1.5 rounded-full hover:bg-muted transition-colors"
+              aria-label="Toggle theme"
+            >
+              {resolvedTheme === "dark" ? (
+                <Sun className="w-3.5 h-3.5 text-muted-foreground" />
+              ) : (
+                <Moon className="w-3.5 h-3.5 text-muted-foreground" />
+              )}
+            </button>
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Separator } from "@/components/ui/separator"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Check, Copy } from "lucide-react"
+import { useTheme } from "@/components/ThemeProvider"
 
 // --- Data ---
 const NAV_ITEMS = [
@@ -156,13 +157,13 @@ export default function DesignSystemPage() {
   const [activeSection, setActiveSection] = useState("overview")
 
   return (
-    <div className="flex min-h-screen">
-      {/* Sidebar */}
-      <aside className="sticky top-0 h-screen w-[260px] shrink-0 border-r bg-background">
+    <div className="flex">
+      {/* Sidebar — offset for nav height */}
+      <aside className="sticky top-12 h-[calc(100vh-3rem)] w-[240px] shrink-0 border-r bg-background hidden lg:block">
         <ScrollArea className="h-full py-6">
-          <div className="px-6 pb-4">
-            <h2 className="text-[15px] font-semibold tracking-tight">Design System</h2>
-            <p className="text-[13px] text-muted-foreground mt-0.5">Kousik Dutta — Portfolio</p>
+          <div className="px-5 pb-4">
+            <h2 className="text-[14px] font-semibold tracking-tight">Design System</h2>
+            <p className="text-[12px] text-muted-foreground mt-0.5">v1.0</p>
           </div>
           <Separator className="mb-3" />
           <nav className="px-3 space-y-0.5">
@@ -172,7 +173,7 @@ export default function DesignSystemPage() {
                 href={`#${item.id}`}
                 onClick={() => setActiveSection(item.id)}
                 className={cn(
-                  "block px-3 py-1.5 text-[13px] rounded-md transition-colors",
+                  "block px-3 py-1.5 text-[12px] rounded-md transition-colors",
                   activeSection === item.id
                     ? "bg-muted font-medium text-foreground"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
@@ -182,14 +183,11 @@ export default function DesignSystemPage() {
               </a>
             ))}
           </nav>
-          <div className="px-6 pt-6">
-            <Badge variant="secondary" className="text-[11px]">v1.0</Badge>
-          </div>
         </ScrollArea>
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 max-w-[860px] px-12 py-12">
+      <main className="flex-1 max-w-[740px] px-8 lg:px-12 py-12">
 
         {/* Overview */}
         <section id="overview" className="pb-12">
