@@ -75,8 +75,13 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero — 2-column layout matching Framer site */}
-      <section className="pt-28 pb-16">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
+      <section className="pt-28 pb-16 relative">
+        {/* Subtle ambient gradient behind hero */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-accent/[0.03] blur-[120px]" />
+          <div className="absolute bottom-[-30%] left-[-10%] w-[400px] h-[400px] rounded-full bg-accent/[0.02] blur-[100px]" />
+        </div>
+        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20 relative">
           <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 lg:gap-12 items-end">
             {/* Left: Name */}
             <motion.h1
@@ -115,7 +120,7 @@ export default function HomePage() {
       </section>
 
       {/* Brand Marquee */}
-      <section className="py-8 border-t border-b overflow-hidden">
+      <section className="py-8 border-t border-border/50 overflow-hidden">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -127,7 +132,7 @@ export default function HomePage() {
                 key={`${brand.name}-${i}`}
                 src={brand.src}
                 alt={brand.name}
-                className="shrink-0 h-5 mx-10 opacity-40"
+                className="shrink-0 h-5 mx-10 opacity-40 dark:invert dark:opacity-30"
               />
             ))}
           </div>
@@ -135,7 +140,7 @@ export default function HomePage() {
       </section>
 
       {/* Projects */}
-      <section className="py-12">
+      <section className="py-16 section-subtle">
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
           <motion.p
             className="text-[11px] font-semibold tracking-[0.12em] uppercase text-muted-foreground mb-6"
@@ -191,7 +196,7 @@ export default function HomePage() {
       </section>
 
       {/* Services */}
-      <section className="py-12">
+      <section className="py-16">
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
           <motion.div
             variants={fadeUp}
@@ -213,7 +218,7 @@ export default function HomePage() {
           >
             {["UX Research", "UX Design", "UI Design", "Design Systems", "Motion Design"].map((s) => (
               <motion.div key={s} variants={fadeUp}>
-                <Badge variant="secondary" className="text-[13px] px-4 py-2 rounded-full font-medium">
+                <Badge variant="secondary" className="text-[13px] px-4 py-2 rounded-full font-medium glass-card">
                   {s}
                 </Badge>
               </motion.div>
@@ -223,7 +228,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials — 2 rows */}
-      <section className="py-12 overflow-hidden space-y-4">
+      <section className="py-16 overflow-hidden space-y-4">
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20 mb-2">
           <motion.p
             className="text-[11px] font-semibold tracking-[0.12em] uppercase text-muted-foreground"
@@ -255,17 +260,20 @@ export default function HomePage() {
 
       {/* CTA */}
       <motion.section
-        className="mt-12 py-20 bg-foreground text-background rounded-t-3xl"
+        className="mt-12 py-24 relative overflow-hidden rounded-t-3xl"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6, ease: EASE_ENTER }}
       >
-        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
-          <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-semibold tracking-[-0.03em] leading-tight">
+        {/* Gradient background for CTA */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1d1d1f] via-[#1d1d1f] to-[#2c2c2e]" />
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")" }} />
+        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20 relative">
+          <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-semibold tracking-[-0.03em] leading-tight text-white">
             Let's create your<br />next big idea.
           </h2>
-          <p className="mt-3 text-[15px] opacity-60 max-w-[400px]">
+          <p className="mt-3 text-[15px] text-white/50 max-w-[400px]">
             Available for full-time roles, freelance projects, and design consulting.
           </p>
           <a
@@ -285,10 +293,10 @@ export default function HomePage() {
 
 function TestimonialCard({ t }: { t: typeof TESTIMONIALS[0] }) {
   return (
-    <div className="shrink-0 w-[300px] p-5 rounded-2xl border bg-card transition-shadow hover:shadow-md">
+    <div className="shrink-0 w-[300px] p-5 rounded-2xl glass-card transition-all duration-300 hover:shadow-apple">
       <p className="text-[14px] leading-[1.6] mb-4">"{t.quote}"</p>
       <div className="flex items-center gap-3">
-        <img src={t.avatar} alt={t.name} className="w-8 h-8 rounded-full object-cover" />
+        <img src={t.avatar} alt={t.name} className="w-8 h-8 rounded-full object-cover ring-2 ring-white/20" />
         <div>
           <p className="text-[13px] font-medium">{t.name}</p>
           <p className="text-[11px] text-muted-foreground">{t.role}</p>
@@ -301,17 +309,17 @@ function TestimonialCard({ t }: { t: typeof TESTIMONIALS[0] }) {
 function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
   return (
     <motion.div
-      className="rounded-2xl overflow-hidden border bg-card"
-      whileHover={{ y: -3, boxShadow: "0 8px 24px rgba(0,0,0,0.08)" }}
-      transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+      className="rounded-2xl overflow-hidden glass-card shadow-apple-sm"
+      whileHover={{ y: -4, scale: 1.01 }}
+      transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
     >
-      <div className="aspect-[16/10] overflow-hidden bg-muted">
+      <div className="aspect-[16/10] overflow-hidden">
         <motion.img
           src={project.image}
           alt={project.title}
           className="w-full h-full object-cover"
           loading="lazy"
-          whileHover={{ scale: 1.03 }}
+          whileHover={{ scale: 1.04 }}
           transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
         />
       </div>
