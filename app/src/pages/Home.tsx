@@ -318,36 +318,59 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA — Frosted dark glass panel */}
-      <section className="py-20 md:py-24">
-        <div className="max-w-[980px] mx-auto px-6 md:px-10">
+      {/* CTA — Envelope animation */}
+      <section className="py-24 md:py-32">
+        <div className="max-w-[640px] mx-auto px-6 md:px-10">
           <motion.div
-            className="rounded-2xl md:rounded-[2rem] p-10 md:p-16 relative overflow-hidden"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7, ease: EASE_ENTER }}
-            style={{
-              background: "rgba(29, 29, 31, 0.95)",
-              backdropFilter: "blur(20px) saturate(180%)",
-              WebkitBackdropFilter: "blur(20px) saturate(180%)",
-            }}
+            className="relative"
+            initial="closed"
+            whileInView="open"
+            viewport={{ once: true, margin: "-120px" }}
           >
-            <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-bold tracking-[-0.03em] leading-[1.1] text-white">
-              Let's create your<br />next big idea.
-            </h2>
-            <p className="mt-4 text-[17px] leading-[1.6] text-white/50 max-w-[420px]">
-              Available for full-time roles, freelance projects, and design consulting.
-            </p>
-            <a
-              href="https://calendly.com/design-kousik/intro-call"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(buttonVariants({ variant: "inverted", size: "default" }), "mt-8")}
-            >
-              Schedule a call
-              <ArrowRight className="w-4 h-4 ml-1" />
-            </a>
+            {/* Envelope body */}
+            <div className="envelope-body">
+              {/* Envelope flap — opens on scroll */}
+              <motion.div
+                className="envelope-flap"
+                variants={{
+                  closed: { rotateX: 0 },
+                  open: { rotateX: 180, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.1 } },
+                }}
+              >
+                <div className="envelope-flap-front" />
+                <div className="envelope-flap-back" />
+              </motion.div>
+
+              {/* Letter — slides up from inside */}
+              <motion.div
+                className="envelope-letter"
+                variants={{
+                  closed: { y: 40, opacity: 0 },
+                  open: { y: -48, opacity: 1, transition: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1], delay: 0.5 } },
+                }}
+              >
+                <div className="envelope-letter-inner">
+                  <p className="text-[13px] font-semibold tracking-[0.02em] uppercase text-muted-foreground mb-3">
+                    Get in touch
+                  </p>
+                  <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold tracking-[-0.03em] leading-[1.1]">
+                    Let's create your<br />next big idea.
+                  </h2>
+                  <p className="mt-3 text-[15px] leading-[1.6] text-muted-foreground max-w-[380px]">
+                    Available for full-time roles, freelance projects, and design consulting.
+                  </p>
+                  <a
+                    href="https://calendly.com/design-kousik/intro-call"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(buttonVariants({ variant: "default", size: "default" }), "mt-6")}
+                  >
+                    Schedule a call
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </a>
+                </div>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </section>
