@@ -374,10 +374,13 @@ html {
   --cursor-opacity: 0;
 }
 
-/* Container — covers the full page as a background layer */
+/* Container — positioned in hero area, fades out below */
 .pg-container {
-  position: fixed;
-  inset: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
   z-index: 0;
   overflow: hidden;
   perspective: 2000px;
@@ -385,6 +388,8 @@ html {
   --glow-x: 50%;
   --glow-y: 50%;
   --glow-opacity: 0;
+  -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 95%);
+  mask-image: linear-gradient(to bottom, black 40%, transparent 95%);
 }
 
 /* The grid of tiles — 3D rotated for depth */
