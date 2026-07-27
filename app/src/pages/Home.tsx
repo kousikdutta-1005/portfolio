@@ -335,7 +335,7 @@ export default function HomePage() {
               className="envelope-card"
               variants={{
                 closed: {
-                  y: 340,
+                  y: 360,
                   scale: 0.94,
                   rotateX: 8,
                   zIndex: 1,
@@ -350,24 +350,39 @@ export default function HomePage() {
                 },
               }}
             >
-              <p className="text-[13px] font-semibold tracking-[0.02em] uppercase text-muted-foreground mb-3">
-                Get in touch
-              </p>
-              <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-[-0.03em] leading-[1.1]">
-                Let's create your<br />next big idea.
-              </h2>
-              <p className="mt-4 text-[16px] leading-[1.6] text-muted-foreground max-w-[460px]">
-                Available for full-time roles, freelance projects, and design consulting.
-              </p>
-              <a
-                href="https://calendly.com/design-kousik/intro-call"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(buttonVariants({ variant: "default", size: "default" }), "mt-7")}
-              >
-                Schedule a call
-                <ArrowRight className="w-4 h-4 ml-1" />
-              </a>
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
+                {/* Left — CTA content */}
+                <div>
+                  <p className="text-[13px] font-semibold tracking-[0.02em] uppercase text-muted-foreground mb-3">
+                    Get in touch
+                  </p>
+                  <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-[-0.03em] leading-[1.1]">
+                    Let's create your<br />next big idea.
+                  </h2>
+                  <p className="mt-4 text-[16px] leading-[1.6] text-muted-foreground max-w-[460px]">
+                    Available for full-time roles, freelance projects, and design consulting.
+                  </p>
+                  <a
+                    href="https://calendly.com/design-kousik/intro-call"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(buttonVariants({ variant: "default", size: "default" }), "mt-7")}
+                  >
+                    Schedule a call
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </a>
+                </div>
+
+                {/* Right — Footer links */}
+                <div className="flex flex-col items-start md:items-end gap-4 text-[13px] text-muted-foreground md:pt-1 shrink-0">
+                  <nav className="flex flex-col items-start md:items-end gap-2.5">
+                    <Link to="/" className="opacity-60 hover:opacity-100 transition-opacity">Home</Link>
+                    <Link to="/about" className="opacity-60 hover:opacity-100 transition-opacity">About</Link>
+                    <a href="https://www.linkedin.com/in/kousikdutta/" target="_blank" rel="noopener noreferrer" className="opacity-60 hover:opacity-100 transition-opacity">LinkedIn</a>
+                  </nav>
+                  <p className="opacity-40 mt-2">© {new Date().getFullYear()} Kousik Dutta</p>
+                </div>
+              </div>
             </motion.div>
 
             {/* The envelope pocket — sits in front, hides the card */}

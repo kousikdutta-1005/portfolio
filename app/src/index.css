@@ -370,12 +370,12 @@ html {
 
 .envelope-scene {
   position: relative;
-  height: 680px;
+  height: 700px;
   overflow: hidden;
   perspective: 1200px;
 }
 
-/* Back flap — V-triangle behind everything, slightly tilted for depth */
+/* Back flap — V-triangle behind everything */
 .envelope-back-flap {
   position: absolute;
   bottom: 280px;
@@ -383,34 +383,14 @@ html {
   right: 0;
   height: 180px;
   clip-path: polygon(0 100%, 50% 0%, 100% 100%);
-  /* Top-lit gradient simulates light from above */
-  background: linear-gradient(180deg, #ccc7bf 0%, #d8d3cb 60%, #ddd8d0 100%);
+  background: linear-gradient(180deg, #c4a87c 0%, #d0b48e 60%, #d6ba94 100%);
   z-index: 0;
-  transform: translateZ(-4px);
-  /* V-shaped shadow under the flap — visible beneath the card */
   filter: drop-shadow(0 8px 6px rgba(0, 0, 0, 0.15)) drop-shadow(0 20px 20px rgba(0, 0, 0, 0.1));
 }
 
-/* Fold crease line on the back flap */
-.envelope-back-flap::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to bottom left, transparent calc(50% - 0.5px), rgba(0,0,0,0.1) 50%, transparent calc(50% + 0.5px)),
-    linear-gradient(to bottom right, transparent calc(50% - 0.5px), rgba(0,0,0,0.1) 50%, transparent calc(50% + 0.5px));
-  pointer-events: none;
-}
-
 .dark .envelope-back-flap {
-  background: linear-gradient(180deg, #3e3935 0%, #454038 60%, #4a4540 100%);
+  background: linear-gradient(180deg, #4a3f30 0%, #544838 60%, #5a4e3c 100%);
   filter: drop-shadow(0 8px 6px rgba(0, 0, 0, 0.4)) drop-shadow(0 20px 20px rgba(0, 0, 0, 0.35));
-}
-
-.dark .envelope-back-flap::after {
-  background:
-    linear-gradient(to bottom left, transparent calc(50% - 0.5px), rgba(255,255,255,0.06) 50%, transparent calc(50% + 0.5px)),
-    linear-gradient(to bottom right, transparent calc(50% - 0.5px), rgba(255,255,255,0.06) 50%, transparent calc(50% + 0.5px));
 }
 
 /* The letter card — elevated, floats above the envelope */
@@ -443,7 +423,7 @@ html {
     0 32px 80px -8px rgba(0, 0, 0, 0.7);
 }
 
-/* The envelope pocket — in front, with 3D depth and layered shadows */
+/* The envelope pocket — kraft paper with V-fold panels */
 .envelope-pocket {
   position: absolute;
   bottom: 0;
@@ -451,12 +431,14 @@ html {
   right: 0;
   height: 280px;
   z-index: 3;
-  /* Top-lit gradient: lighter at top (catching light), darker at bottom */
-  background: linear-gradient(180deg, #ebe6de 0%, #e2ddd5 30%, #d8d3cb 70%, #d0cbc3 100%);
+  /* Kraft paper base with fold crease lines */
+  background:
+    linear-gradient(to bottom right, transparent calc(50% - 1px), rgba(0,0,0,0.1) calc(50% - 0.5px), rgba(0,0,0,0.1) calc(50% + 0.5px), transparent calc(50% + 1px)),
+    linear-gradient(to bottom left, transparent calc(50% - 1px), rgba(0,0,0,0.1) calc(50% - 0.5px), rgba(0,0,0,0.1) calc(50% + 0.5px), transparent calc(50% + 1px)),
+    linear-gradient(180deg, #dcc8a8 0%, #d6be9a 50%, #d0b890 100%);
   border-radius: 0 0 20px 20px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-top: none;
-  /* Multi-layer shadow for 3D elevation */
   box-shadow:
     0 -2px 4px rgba(0, 0, 0, 0.04),
     0 4px 16px rgba(0, 0, 0, 0.06),
@@ -464,36 +446,35 @@ html {
   transform-style: preserve-3d;
 }
 
-/* Diagonal fold lines — the envelope's side flap creases */
+/* Left fold panel — slightly darker triangle */
 .envelope-pocket::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  background:
-    linear-gradient(to bottom right, transparent calc(50% - 0.5px), rgba(0,0,0,0.06) 50%, transparent calc(50% + 0.5px)),
-    linear-gradient(to bottom left, transparent calc(50% - 0.5px), rgba(0,0,0,0.06) 50%, transparent calc(50% + 0.5px));
+  inset: 0;
+  clip-path: polygon(0 0, 50% 100%, 0 100%);
+  background: linear-gradient(135deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.07) 100%);
   border-radius: 0 0 20px 20px;
   pointer-events: none;
   z-index: 1;
 }
 
-/* Subtle highlight along the top edge of the pocket (light catch) */
+/* Right fold panel — slightly different shade for depth */
 .envelope-pocket::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 10%;
-  right: 10%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.5) 30%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.5) 70%, transparent 100%);
-  z-index: 2;
+  inset: 0;
+  clip-path: polygon(100% 0, 50% 100%, 100% 100%);
+  background: linear-gradient(225deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.06) 100%);
+  border-radius: 0 0 20px 20px;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .dark .envelope-pocket {
-  background: linear-gradient(180deg, #504b44 0%, #46413a 30%, #3c3732 70%, #34302b 100%);
+  background:
+    linear-gradient(to bottom right, transparent calc(50% - 1px), rgba(255,255,255,0.06) calc(50% - 0.5px), rgba(255,255,255,0.06) calc(50% + 0.5px), transparent calc(50% + 1px)),
+    linear-gradient(to bottom left, transparent calc(50% - 1px), rgba(255,255,255,0.06) calc(50% - 0.5px), rgba(255,255,255,0.06) calc(50% + 0.5px), transparent calc(50% + 1px)),
+    linear-gradient(180deg, #584c3a 0%, #504434 50%, #483e2e 100%);
   border-color: rgba(255, 255, 255, 0.05);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.04),
@@ -503,13 +484,11 @@ html {
 }
 
 .dark .envelope-pocket::before {
-  background:
-    linear-gradient(to bottom right, transparent calc(50% - 0.5px), rgba(255,255,255,0.04) 50%, transparent calc(50% + 0.5px)),
-    linear-gradient(to bottom left, transparent calc(50% - 0.5px), rgba(255,255,255,0.04) 50%, transparent calc(50% + 0.5px));
+  background: linear-gradient(135deg, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.1) 100%);
 }
 
 .dark .envelope-pocket::after {
-  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.08) 30%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.08) 70%, transparent 100%);
+  background: linear-gradient(225deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.08) 100%);
 }
 
 /* V-shaped inner shadow at the pocket opening — depth inside the envelope */
