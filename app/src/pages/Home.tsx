@@ -112,10 +112,10 @@ export default function HomePage() {
   return (
     <div className="overflow-hidden relative">
       <div className="absolute top-0 left-0 right-0 bottom-0 pointer-events-none overflow-hidden" style={{ zIndex: -1, minHeight: "100%" }} aria-hidden="true">
-        <div className="absolute top-[200px] left-[-100px] w-[700px] h-[700px] rounded-full blur-[120px]" style={{ background: "rgba(0, 113, 227, 0.07)" }} />
-        <div className="absolute top-[900px] right-[-150px] w-[600px] h-[600px] rounded-full blur-[100px]" style={{ background: "rgba(94, 92, 230, 0.05)" }} />
-        <div className="absolute top-[1800px] left-[10%] w-[800px] h-[800px] rounded-full blur-[140px]" style={{ background: "rgba(255, 159, 10, 0.04)" }} />
-        <div className="absolute top-[2800px] right-[5%] w-[500px] h-[500px] rounded-full blur-[110px]" style={{ background: "rgba(0, 113, 227, 0.05)" }} />
+        <div className="absolute top-[200px] left-[-100px] w-[700px] h-[700px] rounded-full blur-[100px]" style={{ background: "rgba(0, 113, 227, 0.12)" }} />
+        <div className="absolute top-[900px] right-[-150px] w-[600px] h-[600px] rounded-full blur-[80px]" style={{ background: "rgba(94, 92, 230, 0.09)" }} />
+        <div className="absolute top-[1800px] left-[10%] w-[800px] h-[800px] rounded-full blur-[120px]" style={{ background: "rgba(255, 159, 10, 0.08)" }} />
+        <div className="absolute top-[2800px] right-[5%] w-[500px] h-[500px] rounded-full blur-[90px]" style={{ background: "rgba(0, 113, 227, 0.09)" }} />
       </div>
       {/* Hero — Apple-style: big bold type, generous breathing room */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-24">
