@@ -1,7 +1,20 @@
 import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight } from "lucide-react"
+import { buttonVariants } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
+import {
+  ArrowUpRight,
+  MagnifyingGlass,
+  PencilSimple,
+  Lightbulb,
+  Cube,
+  Play,
+  ArrowRight,
+  Quotes,
+  CalendarBlank,
+  BehanceLogo,
+} from "@phosphor-icons/react"
 
 const PROJECTS = [
   {
@@ -31,6 +44,14 @@ const PROJECTS = [
   },
 ]
 
+const SERVICES = [
+  { icon: MagnifyingGlass, label: "UX Research" },
+  { icon: PencilSimple, label: "UX Design" },
+  { icon: Lightbulb, label: "UI Design" },
+  { icon: Cube, label: "Design Systems" },
+  { icon: Play, label: "Motion Design" },
+]
+
 const TESTIMONIALS = [
   { quote: "He has a strong understanding of product design and platform thinking.", name: "Alok Kumar", role: "Director (Design), Vedantu", avatar: "/assets/images/7fVFQW1WlW9URfSAH5RgMjT6lJA.png" },
   { quote: "He deeply understands user needs and values, making his solutions impactful.", name: "Pooja Kurup", role: "Product Designer, Philips", avatar: "/assets/images/nOMEfjkKW0HQZULIlhVnG39Fs.png" },
@@ -47,7 +68,7 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero — left-aligned, compact */}
-      <section className="pt-20 pb-16">
+      <section className="pt-24 pb-16">
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -61,20 +82,29 @@ export default function HomePage() {
             <p className="mt-5 text-[17px] text-muted-foreground leading-relaxed max-w-[520px]">
               I help ambitious companies achieve their business goals by strategically designing their MVPs, optimising for growth & beyond.
             </p>
-            <a
-              href="https://calendly.com/design-kousik/intro-call"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-7 px-6 py-2.5 rounded-full border border-foreground/20 text-[14px] font-medium hover:bg-foreground hover:text-background transition-all duration-200"
-            >
-              Schedule a call
-              <ArrowRight className="w-3.5 h-3.5" />
-            </a>
+            <div className="flex items-center gap-3 mt-8">
+              <a
+                href="https://calendly.com/design-kousik/intro-call"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(buttonVariants({ variant: "default", size: "default" }))}
+              >
+                <CalendarBlank weight="bold" className="w-4 h-4" />
+                Schedule a call
+              </a>
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-1 text-[15px] text-accent hover:text-accent/80 transition-colors font-medium"
+              >
+                Learn more
+                <ArrowRight weight="bold" className="w-3.5 h-3.5" />
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Projects — 2-column grid like Framer site */}
+      {/* Projects — 2-column grid */}
       <section className="py-12">
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
           <motion.p
@@ -118,25 +148,29 @@ export default function HomePage() {
               href="https://www.behance.net/kousikdutta"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[14px] text-muted-foreground hover:text-foreground transition-colors"
+              className="inline-flex items-center gap-1.5 text-[14px] text-accent hover:text-accent/80 font-medium transition-colors"
             >
+              <BehanceLogo weight="bold" className="w-4 h-4" />
               View Academic Projects
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight weight="bold" className="w-3 h-3" />
             </a>
           </motion.div>
         </div>
       </section>
 
-      {/* Services — compact */}
+      {/* Services — with icons */}
       <section className="py-12">
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
           <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-muted-foreground mb-2">
-            Services
+            What I do
           </p>
-          <h2 className="text-[24px] font-semibold tracking-tight mb-4">Workshops</h2>
-          <div className="flex flex-wrap gap-2">
-            {["UX Research", "UX Design", "UI Design", "Motion"].map((s) => (
-              <Badge key={s} variant="secondary" className="text-[13px] px-4 py-1.5 rounded-full">{s}</Badge>
+          <h2 className="text-[24px] font-semibold tracking-tight mb-5">Services & Workshops</h2>
+          <div className="flex flex-wrap gap-2.5">
+            {SERVICES.map((s) => (
+              <Badge key={s.label} variant="secondary" className="text-[13px] px-4 py-2 rounded-full gap-1.5 font-medium">
+                <s.icon weight="bold" className="w-3.5 h-3.5 text-accent" />
+                {s.label}
+              </Badge>
             ))}
           </div>
         </div>
@@ -156,7 +190,8 @@ export default function HomePage() {
                 key={`${t.name}-${i}`}
                 className="shrink-0 w-[300px] p-5 rounded-2xl border bg-card"
               >
-                <p className="text-[14px] leading-[1.6] mb-4">"{t.quote}"</p>
+                <Quotes weight="fill" className="w-5 h-5 text-accent/40 mb-2" />
+                <p className="text-[14px] leading-[1.6] mb-4">{t.quote}</p>
                 <div className="flex items-center gap-3">
                   <img src={t.avatar} alt={t.name} className="w-8 h-8 rounded-full object-cover" />
                   <div>
@@ -176,14 +211,17 @@ export default function HomePage() {
           <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-semibold tracking-[-0.03em] leading-tight">
             Let's create your<br />next big idea.
           </h2>
+          <p className="mt-3 text-[15px] opacity-60 max-w-[400px]">
+            Available for full-time roles, freelance projects, and design consulting.
+          </p>
           <a
             href="https://calendly.com/design-kousik/intro-call"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mt-6 px-6 py-2.5 rounded-full bg-background text-foreground text-[14px] font-medium hover:opacity-90 transition-opacity"
+            className={cn(buttonVariants({ variant: "inverted", size: "default" }), "mt-6")}
           >
+            <CalendarBlank weight="bold" className="w-4 h-4" />
             Schedule a call
-            <ArrowRight className="w-3.5 h-3.5" />
           </a>
         </div>
       </section>
@@ -194,7 +232,7 @@ export default function HomePage() {
 function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
   return (
     <div className="rounded-2xl overflow-hidden border bg-card transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-0.5">
-      <div className="aspect-[16/10] overflow-hidden">
+      <div className="aspect-[16/10] overflow-hidden bg-muted">
         <img
           src={project.image}
           alt={project.title}
@@ -204,10 +242,11 @@ function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
       </div>
       <div className="p-4 flex items-center justify-between">
         <h3 className="text-[15px] font-semibold tracking-tight">{project.title}</h3>
-        <div className="flex gap-1.5">
+        <div className="flex items-center gap-1.5">
           {project.tags.map((tag) => (
             <Badge key={tag} variant="secondary" className="text-[10px] font-normal rounded-full">{tag}</Badge>
           ))}
+          <ArrowUpRight weight="bold" className="w-3.5 h-3.5 text-muted-foreground ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
         </div>
       </div>
     </div>
