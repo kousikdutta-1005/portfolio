@@ -155,18 +155,22 @@ function ColorSwatch({ name, hex, variable }: { name: string; hex: string; varia
 // --- Main Page ---
 export default function DesignSystemPage() {
   const [activeSection, setActiveSection] = useState("overview")
+  const { resolvedTheme } = useTheme()
 
   return (
     <div className="flex">
-      {/* Sidebar — offset for nav height */}
-      <aside className="sticky top-12 h-[calc(100vh-3rem)] w-[240px] shrink-0 border-r bg-background hidden lg:block">
-        <ScrollArea className="h-full py-6">
-          <div className="px-5 pb-4">
-            <h2 className="text-[14px] font-semibold tracking-tight">Design System</h2>
-            <p className="text-[12px] text-muted-foreground mt-0.5">v1.0</p>
+      {/* Sidebar */}
+      <aside className="sticky top-12 h-[calc(100vh-3rem)] w-[220px] shrink-0 border-r bg-background hidden lg:block">
+        <ScrollArea className="h-full py-5">
+          <div className="px-4 pb-3">
+            <h2 className="text-[13px] font-semibold tracking-tight">Design System</h2>
+            <div className="flex items-center gap-2 mt-1">
+              <Badge variant="secondary" className="text-[10px]">v1.0</Badge>
+              <span className="text-[10px] text-muted-foreground capitalize">{resolvedTheme} mode</span>
+            </div>
           </div>
-          <Separator className="mb-3" />
-          <nav className="px-3 space-y-0.5">
+          <Separator className="mb-2" />
+          <nav className="px-2 space-y-0.5">
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.id}
@@ -187,7 +191,7 @@ export default function DesignSystemPage() {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 max-w-[740px] px-8 lg:px-12 py-12">
+      <main className="flex-1 max-w-[720px] px-6 lg:px-10 py-8">
 
         {/* Overview */}
         <section id="overview" className="pb-12">

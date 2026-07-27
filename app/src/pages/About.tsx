@@ -27,87 +27,71 @@ const VALUES = [
 export default function AboutPage() {
   return (
     <div>
-      {/* Hero */}
-      <section className="min-h-[80vh] flex items-center justify-center text-center">
-        <div className="max-w-[980px] mx-auto px-6">
+      {/* Hero — left-aligned */}
+      <section className="pt-20 pb-12">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            <h1 className="text-[clamp(3rem,7vw,5rem)] font-semibold tracking-[-0.04em] leading-[1.05]">
+            <h1 className="text-[clamp(2.5rem,6vw,4.5rem)] font-semibold tracking-[-0.04em] leading-[1.1]">
               Design that<br />drives growth.
             </h1>
-          </motion.div>
-          <motion.p
-            className="mt-6 text-[17px] text-muted-foreground leading-relaxed max-w-[480px] mx-auto"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-          >
-            I help ambitious companies achieve their business goals by strategically designing their MVPs, optimising for growth & beyond.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-          >
+            <p className="mt-5 text-[17px] text-muted-foreground leading-relaxed max-w-[520px]">
+              I help ambitious companies achieve their business goals by strategically designing their MVPs, optimising for growth & beyond.
+            </p>
             <a
               href="https://drive.google.com/file/d/1L27SS5uGNk5nGmCkft9myUSf5woNHooB/view"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-8 px-7 py-3 rounded-full bg-accent text-accent-foreground text-[14px] font-medium hover:opacity-90 transition-opacity"
+              className="inline-flex items-center gap-2 mt-7 px-6 py-2.5 rounded-full border border-foreground/20 text-[14px] font-medium hover:bg-foreground hover:text-background transition-all duration-200"
             >
               Download resume
-              <Download className="w-4 h-4" />
+              <Download className="w-3.5 h-3.5" />
             </a>
           </motion.div>
         </div>
       </section>
 
       {/* Photo Grid */}
-      <section className="pb-24">
-        <div className="max-w-[980px] mx-auto px-6">
+      <section className="pb-12">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
           <motion.div
-            className="grid grid-cols-3 gap-3 rounded-2xl overflow-hidden"
-            initial={{ opacity: 0, y: 20 }}
+            className="grid grid-cols-3 gap-3"
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{ duration: 0.6 }}
           >
-            <img src="/assets/images/ruT6GHFIiPerqY8LNYaz4FCFSxo.png" alt="Kousik working" className="w-full h-52 object-cover rounded-xl" />
-            <img src="/assets/images/sdo2Gvh8uiuifu2p675NabVbw.png" alt="Design process" className="w-full h-52 object-cover rounded-xl" />
-            <img src="/assets/images/8LPRSiOjoKRFuwtCYe9vWT2eM.png" alt="Presentation" className="w-full h-52 object-cover rounded-xl" />
+            <img src="/assets/images/ruT6GHFIiPerqY8LNYaz4FCFSxo.png" alt="Kousik working" className="w-full h-48 object-cover rounded-xl" />
+            <img src="/assets/images/sdo2Gvh8uiuifu2p675NabVbw.png" alt="Design process" className="w-full h-48 object-cover rounded-xl" />
+            <img src="/assets/images/8LPRSiOjoKRFuwtCYe9vWT2eM.png" alt="Presentation" className="w-full h-48 object-cover rounded-xl" />
           </motion.div>
         </div>
       </section>
 
       {/* Experience */}
-      <section className="py-24">
-        <div className="max-w-[980px] mx-auto px-6">
-          <motion.p
-            className="text-[12px] font-medium tracking-[0.08em] uppercase text-muted-foreground mb-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
+      <section className="py-12">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
+          <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-muted-foreground mb-5">
             Experience
-          </motion.p>
+          </p>
           <div className="space-y-0">
             {EXPERIENCE.map((exp, i) => (
               <motion.div
                 key={exp.company}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.5 }}
-                className="flex items-center justify-between py-5 border-b last:border-b-0"
+                transition={{ delay: i * 0.06, duration: 0.4 }}
+                className="flex items-center justify-between py-4 border-b last:border-b-0"
               >
                 <div>
-                  <h3 className="text-[16px] font-medium">{exp.role}</h3>
-                  <p className="text-[14px] text-muted-foreground mt-0.5">{exp.company}</p>
+                  <h3 className="text-[15px] font-medium">{exp.role}</h3>
+                  <p className="text-[13px] text-muted-foreground">{exp.company}</p>
                 </div>
-                <span className="text-[13px] font-mono text-muted-foreground">{exp.period}</span>
+                <span className="text-[12px] font-mono text-muted-foreground">{exp.period}</span>
               </motion.div>
             ))}
           </div>
@@ -115,29 +99,24 @@ export default function AboutPage() {
       </section>
 
       {/* Awards */}
-      <section className="py-24 bg-muted/50">
-        <div className="max-w-[980px] mx-auto px-6">
-          <motion.p
-            className="text-[12px] font-medium tracking-[0.08em] uppercase text-muted-foreground mb-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
+      <section className="py-12">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
+          <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-muted-foreground mb-5">
             Recognition
-          </motion.p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          </p>
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
             {AWARDS.map((award, i) => (
               <motion.div
                 key={award.title}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.5 }}
+                transition={{ delay: i * 0.06, duration: 0.4 }}
               >
-                <Card className="h-full hover:shadow-sm transition-shadow">
-                  <CardContent className="p-5">
-                    <h3 className="text-[14px] font-semibold">{award.title}</h3>
-                    {award.sub && <p className="text-[13px] text-muted-foreground mt-1">{award.sub}</p>}
+                <Card className="h-full">
+                  <CardContent className="p-4">
+                    <h3 className="text-[13px] font-semibold">{award.title}</h3>
+                    {award.sub && <p className="text-[12px] text-muted-foreground mt-0.5">{award.sub}</p>}
                   </CardContent>
                 </Card>
               </motion.div>
@@ -147,37 +126,27 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-24">
-        <div className="max-w-[980px] mx-auto px-6">
-          <motion.p
-            className="text-[12px] font-medium tracking-[0.08em] uppercase text-muted-foreground mb-3"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
+      <section className="py-12">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
+          <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-muted-foreground mb-2">
             Why choose me
-          </motion.p>
-          <motion.h2
-            className="text-[clamp(1.8rem,4vw,2.5rem)] font-semibold tracking-[-0.03em] mb-10"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          </p>
+          <h2 className="text-[24px] font-semibold tracking-tight mb-6">
             Design that moves metrics.
-          </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {VALUES.map((v, i) => (
               <motion.div
                 key={v.title}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
+                transition={{ delay: i * 0.08, duration: 0.4 }}
               >
-                <Card className="h-full hover:shadow-sm transition-shadow">
-                  <CardContent className="p-6">
-                    <h3 className="text-[15px] font-semibold mb-2">{v.title}</h3>
-                    <p className="text-[14px] text-muted-foreground leading-relaxed">{v.desc}</p>
+                <Card className="h-full">
+                  <CardContent className="p-5">
+                    <h3 className="text-[14px] font-semibold mb-1.5">{v.title}</h3>
+                    <p className="text-[13px] text-muted-foreground leading-relaxed">{v.desc}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -187,32 +156,20 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-32">
-        <div className="max-w-[980px] mx-auto px-6 text-center">
-          <motion.h2
-            className="text-[clamp(2.5rem,6vw,4rem)] font-semibold tracking-[-0.04em] leading-[1.1]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+      <section className="mt-8 py-20 bg-foreground text-background rounded-t-3xl">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
+          <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-semibold tracking-[-0.03em] leading-tight">
             Let's create your<br />next big idea.
-          </motion.h2>
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+          </h2>
+          <a
+            href="https://calendly.com/design-kousik/intro-call"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-6 px-6 py-2.5 rounded-full bg-background text-foreground text-[14px] font-medium hover:opacity-90 transition-opacity"
           >
-            <a
-              href="https://calendly.com/design-kousik/intro-call"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-8 px-7 py-3 rounded-full bg-accent text-accent-foreground text-[14px] font-medium hover:opacity-90 transition-opacity"
-            >
-              Schedule a call
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </motion.div>
+            Schedule a call
+            <ArrowRight className="w-3.5 h-3.5" />
+          </a>
         </div>
       </section>
     </div>
