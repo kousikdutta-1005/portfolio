@@ -26,9 +26,9 @@ const staggerContainer = {
 }
 
 const BRANDS = [
-  { name: "ThoughtSpot", src: "/assets/brands/thoughtspot.svg", height: 40 },
+  { name: "ThoughtSpot", src: "/assets/brands/thoughtspot.svg", height: 48 },
   { name: "Philips", src: "/assets/brands/philips.svg", height: 32 },
-  { name: "Airtel", src: "/assets/brands/airtel.svg", height: 36 },
+  { name: "Airtel", src: "/assets/brands/airtel.svg", height: 44 },
   { name: "Vedantu", src: "/assets/brands/vedantu.svg", height: 36 },
   { name: "Precisely", src: "/assets/brands/precisely.svg", height: 36 },
 ]
