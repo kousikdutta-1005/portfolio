@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { ArrowRight, ArrowUpRight } from "lucide-react"
+import { useState, useEffect } from "react"
 
 // Apple HIG motion: spring-based, purposeful, natural physics
 const EASE_ENTER = [0.25, 0.1, 0.25, 1] as const
@@ -74,6 +75,36 @@ const TESTIMONIALS = [
   { quote: "Kousik is good at design execution and documenting his ideas.", name: "Poornima Kapoor", role: "Lead Designer, Airtel", avatar: "/assets/images/yLQEIFzvuqW7VcwbkkFzM8Z4N6A.png" },
 ]
 
+const ROLES = ["Product Designer", "UX Engineer", "Design Strategist"]
+
+function RotatingRoles() {
+  const [index, setIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % ROLES.length)
+    }, 2800)
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <div className="h-[28px] overflow-hidden relative">
+      <AnimatePresence mode="wait">
+        <motion.span
+          key={ROLES[index]}
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -20, opacity: 0 }}
+          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+          className="absolute text-[18px] font-semibold tracking-tight text-foreground"
+        >
+          {ROLES[index]}
+        </motion.span>
+      </AnimatePresence>
+    </div>
+  )
+}
+
 export default function HomePage() {
   const row1 = TESTIMONIALS.slice(0, 5)
   const row2 = TESTIMONIALS.slice(5)
@@ -83,8 +114,8 @@ export default function HomePage() {
       {/* Hero — Apple-style: big bold type, generous breathing room */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-24">
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-8 lg:gap-16 items-end">
-            {/* Left: Name — Apple uses very large, bold display type */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-end">
+            {/* Left: Name + animated role */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -94,23 +125,18 @@ export default function HomePage() {
                 <span className="block">Kousik</span>
                 <span className="block text-gradient">Dutta.</span>
               </h1>
-              <motion.p
-                className="mt-4 text-[15px] text-muted-foreground tracking-wide"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >
-                Product Designer · UX Engineer
-              </motion.p>
             </motion.div>
 
-            {/* Right: Description + CTA — Apple's secondary content is smaller, lighter */}
+            {/* Right: Role cycle + Description + CTA */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: EASE_ENTER, delay: 0.15 }}
               className="pb-2"
             >
+              <div className="mb-4">
+                <RotatingRoles />
+              </div>
               <p className="text-[17px] leading-[1.65] text-muted-foreground">
                 I help ambitious companies achieve their business goals by strategically designing their MVPs, optimising for growth & beyond.
               </p>
