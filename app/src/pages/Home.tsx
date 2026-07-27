@@ -19,6 +19,8 @@ const fadeUp = {
   }),
 }
 
+const BRANDS = ["ThoughtSpot", "Philips", "OLX", "Airtel", "Vedantu", "Precisely"]
+
 const PROJECTS = [
   {
     title: "ThoughtSpot Mobile",
@@ -60,51 +62,69 @@ const TESTIMONIALS = [
 ]
 
 export default function HomePage() {
+  const row1 = TESTIMONIALS.slice(0, 5)
+  const row2 = TESTIMONIALS.slice(5)
+
   return (
     <div>
-      {/* Hero */}
-      <section className="pt-24 pb-16">
+      {/* Hero — 2-column layout matching Framer site */}
+      <section className="pt-28 pb-16">
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
-          <motion.h1
-            className="text-[clamp(3rem,7vw,5.5rem)] font-semibold tracking-[-0.04em] leading-[1.05]"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: EASE_ENTER }}
-          >
-            <span className="block">Kousik Dutta</span>
-            <span className="block text-muted-foreground">UX Designer</span>
-          </motion.h1>
-          <motion.p
-            className="mt-5 text-[17px] text-muted-foreground leading-relaxed max-w-[520px]"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: EASE_ENTER, delay: 0.15 }}
-          >
-            I help ambitious companies achieve their business goals by strategically designing their MVPs, optimising for growth & beyond.
-          </motion.p>
-          <motion.div
-            className="flex items-center gap-4 mt-8"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: EASE_ENTER, delay: 0.3 }}
-          >
-            <a
-              href="https://calendly.com/design-kousik/intro-call"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(buttonVariants({ variant: "default", size: "default" }))}
+          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 lg:gap-12 items-end">
+            {/* Left: Name */}
+            <motion.h1
+              className="text-[clamp(3rem,7vw,5.5rem)] font-semibold tracking-[-0.04em] leading-[1.05]"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: EASE_ENTER }}
             >
-              Schedule a call
-              <ArrowRight className="w-4 h-4" />
-            </a>
-            <Link
-              to="/about"
-              className="text-[15px] text-muted-foreground hover:text-foreground transition-colors"
+              <span className="block">Kousik Dutta</span>
+              <span className="block text-muted-foreground">UX Designer</span>
+            </motion.h1>
+
+            {/* Right: Description + CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: EASE_ENTER, delay: 0.2 }}
             >
-              About me →
-            </Link>
-          </motion.div>
+              <p className="text-[17px] text-muted-foreground leading-relaxed">
+                I help ambitious companies achieve their business goals by strategically designing their MVPs, optimising for growth & beyond.
+              </p>
+              <div className="flex items-center gap-4 mt-6">
+                <a
+                  href="https://calendly.com/design-kousik/intro-call"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(buttonVariants({ variant: "outline", size: "default" }))}
+                >
+                  Schedule a call
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </motion.div>
+          </div>
         </div>
+      </section>
+
+      {/* Brand Marquee */}
+      <section className="py-8 border-t border-b overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <div className="flex animate-brand-scroll">
+            {[...BRANDS, ...BRANDS, ...BRANDS].map((brand, i) => (
+              <span
+                key={`${brand}-${i}`}
+                className="shrink-0 px-10 text-[18px] font-semibold text-muted-foreground/50 tracking-tight whitespace-nowrap"
+              >
+                {brand}
+              </span>
+            ))}
+          </div>
+        </motion.div>
       </section>
 
       {/* Projects */}
@@ -195,9 +215,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-12 overflow-hidden">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20 mb-6">
+      {/* Testimonials — 2 rows */}
+      <section className="py-12 overflow-hidden space-y-4">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20 mb-2">
           <motion.p
             className="text-[11px] font-semibold tracking-[0.12em] uppercase text-muted-foreground"
             variants={fadeUp}
@@ -208,22 +228,19 @@ export default function HomePage() {
             Testimonials
           </motion.p>
         </div>
+        {/* Row 1 — scrolls left */}
         <div className="relative">
-          <div className="flex gap-4 animate-scroll pl-6 md:pl-10 lg:pl-20 hover:[animation-play-state:paused]">
-            {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
-              <div
-                key={`${t.name}-${i}`}
-                className="shrink-0 w-[300px] p-5 rounded-2xl border bg-card transition-shadow hover:shadow-md"
-              >
-                <p className="text-[14px] leading-[1.6] mb-4">"{t.quote}"</p>
-                <div className="flex items-center gap-3">
-                  <img src={t.avatar} alt={t.name} className="w-8 h-8 rounded-full object-cover" />
-                  <div>
-                    <p className="text-[13px] font-medium">{t.name}</p>
-                    <p className="text-[11px] text-muted-foreground">{t.role}</p>
-                  </div>
-                </div>
-              </div>
+          <div className="flex gap-4 animate-scroll-left pl-6 md:pl-10 lg:pl-20 hover:[animation-play-state:paused]">
+            {[...row1, ...row1, ...row1].map((t, i) => (
+              <TestimonialCard key={`r1-${t.name}-${i}`} t={t} />
+            ))}
+          </div>
+        </div>
+        {/* Row 2 — scrolls right */}
+        <div className="relative">
+          <div className="flex gap-4 animate-scroll-right pl-6 md:pl-10 lg:pl-20 hover:[animation-play-state:paused]">
+            {[...row2, ...row1, ...row2, ...row1].map((t, i) => (
+              <TestimonialCard key={`r2-${t.name}-${i}`} t={t} />
             ))}
           </div>
         </div>
@@ -255,6 +272,21 @@ export default function HomePage() {
           </a>
         </div>
       </motion.section>
+    </div>
+  )
+}
+
+function TestimonialCard({ t }: { t: typeof TESTIMONIALS[0] }) {
+  return (
+    <div className="shrink-0 w-[300px] p-5 rounded-2xl border bg-card transition-shadow hover:shadow-md">
+      <p className="text-[14px] leading-[1.6] mb-4">"{t.quote}"</p>
+      <div className="flex items-center gap-3">
+        <img src={t.avatar} alt={t.name} className="w-8 h-8 rounded-full object-cover" />
+        <div>
+          <p className="text-[13px] font-medium">{t.name}</p>
+          <p className="text-[11px] text-muted-foreground">{t.role}</p>
+        </div>
+      </div>
     </div>
   )
 }

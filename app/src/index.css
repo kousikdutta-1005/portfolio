@@ -86,16 +86,35 @@
 }
 
 /* Testimonial infinite scroll */
-@keyframes scroll {
+@keyframes scroll-left {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-.animate-scroll {
-  animation: scroll 40s linear infinite;
+@keyframes scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
 }
 
-.animate-scroll:hover {
+@keyframes brand-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.33%); }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 35s linear infinite;
+}
+
+.animate-scroll-right {
+  animation: scroll-right 40s linear infinite;
+}
+
+.animate-brand-scroll {
+  animation: brand-scroll 20s linear infinite;
+}
+
+.animate-scroll-left:hover,
+.animate-scroll-right:hover {
   animation-play-state: paused;
 }
 
