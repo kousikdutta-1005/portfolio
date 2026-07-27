@@ -26,11 +26,11 @@ const staggerContainer = {
 }
 
 const BRANDS = [
-  { name: "ThoughtSpot", src: "/assets/brands/thoughtspot.svg", height: 56 },
-  { name: "Philips", src: "/assets/brands/philips.svg", height: 36 },
-  { name: "Airtel", src: "/assets/brands/airtel.svg", height: 30 },
-  { name: "Vedantu", src: "/assets/brands/vedantu.svg", height: 28 },
-  { name: "Precisely", src: "/assets/brands/precisely.svg", height: 44 },
+  { name: "ThoughtSpot", src: "/assets/brands/thoughtspot.svg", height: 40 },
+  { name: "Philips", src: "/assets/brands/philips.svg", height: 22 },
+  { name: "Airtel", src: "/assets/brands/airtel.svg", height: 28 },
+  { name: "Vedantu", src: "/assets/brands/vedantu.svg", height: 26 },
+  { name: "Precisely", src: "/assets/brands/precisely.svg", height: 28 },
 ]
 
 const PROJECTS = [
