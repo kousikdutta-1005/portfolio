@@ -2,47 +2,34 @@ import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import {
-  ArrowRight,
-  DownloadSimple,
-  CalendarBlank,
-  Trophy,
-  Medal,
-  Star,
-  Target,
-  Lightning,
-  GitBranch,
-  CheckCircle,
-  Briefcase,
-  GraduationCap,
-} from "@phosphor-icons/react"
+import { ArrowRight, Download } from "lucide-react"
 
 const EXPERIENCE = [
-  { period: "2024 — Present", role: "UX Designer", company: "Precisely", icon: Briefcase },
-  { period: "2023 — 2024", role: "Product Designer", company: "ThoughtSpot", icon: Briefcase },
-  { period: "2022 — 2024", role: "Freelance Designer", company: "Multiple Brands", icon: Lightning },
-  { period: "2021 — 2023", role: "Internships", company: "Philips, Olx, Airtel, Vedantu", icon: GraduationCap },
+  { period: "2024 — Present", role: "UX Designer", company: "Precisely" },
+  { period: "2023 — 2024", role: "Product Designer", company: "ThoughtSpot" },
+  { period: "2022 — 2024", role: "Freelance Designer", company: "Multiple Brands" },
+  { period: "2021 — 2023", role: "Internships", company: "Philips, Olx, Airtel, Vedantu" },
 ]
 
 const AWARDS = [
-  { title: "2X University Gold Medal", sub: "Best Design & Overall Student", icon: Medal },
-  { title: "Winner", sub: "D'source Design Challenge 2022", icon: Trophy },
-  { title: "CII Young Designer Awards 2022", sub: "", icon: Star },
-  { title: "Honorable Mention", sub: "Student Service Design Challenge 2022", icon: Trophy },
-  { title: "Design Excellence Award", sub: "Dean's List 2021", icon: Star },
+  { title: "2X University Gold Medal", sub: "Best Design & Overall Student" },
+  { title: "Winner", sub: "D'source Design Challenge 2022" },
+  { title: "CII Young Designer Awards 2022", sub: "" },
+  { title: "Honorable Mention", sub: "Student Service Design Challenge 2022" },
+  { title: "Design Excellence Award", sub: "Dean's List 2021" },
 ]
 
 const VALUES = [
-  { title: "Outcome-first", desc: "We set a scorecard together & design to move it, not just ship screens.", icon: Target },
-  { title: "Fast, honest loops", desc: "You get quick drafts, clear trade-offs, weekly progress you can see & test.", icon: Lightning },
-  { title: "Systems that scale", desc: "I leave patterns, tokens, & docs so teams ship faster with consistent quality.", icon: GitBranch },
-  { title: "Built for reality", desc: "I handle edge cases, accessibility, and clean handoff so engineering moves smoothly.", icon: CheckCircle },
+  { title: "Outcome-first", desc: "We set a scorecard together & design to move it, not just ship screens." },
+  { title: "Fast, honest loops", desc: "You get quick drafts, clear trade-offs, weekly progress you can see & test." },
+  { title: "Systems that scale", desc: "I leave patterns, tokens, & docs so teams ship faster with consistent quality." },
+  { title: "Built for reality", desc: "I handle edge cases, accessibility, and clean handoff so engineering moves smoothly." },
 ]
 
 export default function AboutPage() {
   return (
     <div>
-      {/* Hero — left-aligned */}
+      {/* Hero */}
       <section className="pt-24 pb-12">
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
           <motion.div
@@ -56,25 +43,23 @@ export default function AboutPage() {
             <p className="mt-5 text-[17px] text-muted-foreground leading-relaxed max-w-[520px]">
               I help ambitious companies achieve their business goals by strategically designing their MVPs, optimising for growth & beyond.
             </p>
-            <div className="flex items-center gap-3 mt-8">
+            <div className="flex items-center gap-4 mt-8">
               <a
                 href="https://drive.google.com/file/d/1L27SS5uGNk5nGmCkft9myUSf5woNHooB/view"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(buttonVariants({ variant: "default", size: "default" }))}
               >
-                <DownloadSimple weight="bold" className="w-4 h-4" />
                 Download resume
+                <Download className="w-4 h-4" />
               </a>
               <a
                 href="https://calendly.com/design-kousik/intro-call"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-[15px] text-accent hover:text-accent/80 transition-colors font-medium"
+                className="text-[15px] text-accent hover:underline hover:underline-offset-4 transition-all"
               >
-                <CalendarBlank weight="bold" className="w-3.5 h-3.5" />
-                Book a call
-                <ArrowRight weight="bold" className="w-3 h-3" />
+                Book a call →
               </a>
             </div>
           </motion.div>
@@ -114,14 +99,9 @@ export default function AboutPage() {
                 transition={{ delay: i * 0.06, duration: 0.4 }}
                 className="flex items-center justify-between py-4 border-b last:border-b-0"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center">
-                    <exp.icon weight="bold" className="w-4 h-4 text-accent" />
-                  </div>
-                  <div>
-                    <h3 className="text-[15px] font-medium">{exp.role}</h3>
-                    <p className="text-[13px] text-muted-foreground">{exp.company}</p>
-                  </div>
+                <div>
+                  <h3 className="text-[15px] font-medium">{exp.role}</h3>
+                  <p className="text-[13px] text-muted-foreground">{exp.company}</p>
                 </div>
                 <span className="text-[12px] font-mono text-muted-foreground">{exp.period}</span>
               </motion.div>
@@ -145,9 +125,8 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.06, duration: 0.4 }}
               >
-                <Card className="h-full hover:border-accent/30 transition-colors">
+                <Card className="h-full">
                   <CardContent className="p-4">
-                    <award.icon weight="fill" className="w-5 h-5 text-accent mb-2" />
                     <h3 className="text-[13px] font-semibold">{award.title}</h3>
                     {award.sub && <p className="text-[12px] text-muted-foreground mt-0.5">{award.sub}</p>}
                   </CardContent>
@@ -176,9 +155,8 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08, duration: 0.4 }}
               >
-                <Card className="h-full hover:border-accent/30 transition-colors">
+                <Card className="h-full">
                   <CardContent className="p-5">
-                    <v.icon weight="bold" className="w-5 h-5 text-accent mb-2" />
                     <h3 className="text-[14px] font-semibold mb-1.5">{v.title}</h3>
                     <p className="text-[13px] text-muted-foreground leading-relaxed">{v.desc}</p>
                   </CardContent>
@@ -204,8 +182,8 @@ export default function AboutPage() {
             rel="noopener noreferrer"
             className={cn(buttonVariants({ variant: "inverted", size: "default" }), "mt-6")}
           >
-            <CalendarBlank weight="bold" className="w-4 h-4" />
             Schedule a call
+            <ArrowRight className="w-4 h-4" />
           </a>
         </div>
       </section>

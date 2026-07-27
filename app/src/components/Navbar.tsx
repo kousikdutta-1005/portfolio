@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom"
 import { cn } from "@/lib/utils"
 import { useTheme } from "./ThemeProvider"
-import { Sun, Moon, List } from "@phosphor-icons/react"
+import { Sun, Moon, Menu } from "lucide-react"
 import { useState } from "react"
 
 export function Navbar() {
@@ -33,16 +33,13 @@ export function Navbar() {
                 key={link.to}
                 to={link.to}
                 className={cn(
-                  "text-[12px] font-medium transition-colors relative",
+                  "text-[12px] font-medium transition-colors",
                   location.pathname === link.to
                     ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground"
                 )}
               >
                 {link.label}
-                {location.pathname === link.to && (
-                  <span className="absolute -bottom-[1px] left-0 right-0 h-[1.5px] bg-accent rounded-full" />
-                )}
               </Link>
             ))}
             <button
@@ -51,13 +48,13 @@ export function Navbar() {
               aria-label="Toggle theme"
             >
               {resolvedTheme === "dark" ? (
-                <Sun weight="bold" className="w-3.5 h-3.5 text-muted-foreground" />
+                <Sun className="w-3.5 h-3.5 text-muted-foreground" />
               ) : (
-                <Moon weight="bold" className="w-3.5 h-3.5 text-muted-foreground" />
+                <Moon className="w-3.5 h-3.5 text-muted-foreground" />
               )}
             </button>
           </div>
-          {/* Mobile menu button */}
+          {/* Mobile */}
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
@@ -65,9 +62,9 @@ export function Navbar() {
               aria-label="Toggle theme"
             >
               {resolvedTheme === "dark" ? (
-                <Sun weight="bold" className="w-4 h-4 text-muted-foreground" />
+                <Sun className="w-4 h-4 text-muted-foreground" />
               ) : (
-                <Moon weight="bold" className="w-4 h-4 text-muted-foreground" />
+                <Moon className="w-4 h-4 text-muted-foreground" />
               )}
             </button>
             <button
@@ -75,12 +72,11 @@ export function Navbar() {
               className="p-1.5 rounded-full hover:bg-muted transition-colors"
               aria-label="Menu"
             >
-              <List weight="bold" className="w-4 h-4 text-foreground" />
+              <Menu className="w-4 h-4 text-foreground" />
             </button>
           </div>
         </div>
       </div>
-      {/* Mobile menu dropdown */}
       {mobileOpen && (
         <div className="md:hidden glass border-t border-border/50 px-6 py-3 space-y-2">
           {links.map((link) => (
@@ -91,7 +87,7 @@ export function Navbar() {
               className={cn(
                 "block text-[14px] py-1.5 transition-colors",
                 location.pathname === link.to
-                  ? "text-accent font-medium"
+                  ? "text-foreground font-medium"
                   : "text-muted-foreground hover:text-foreground"
               )}
             >

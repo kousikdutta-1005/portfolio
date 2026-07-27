@@ -3,18 +3,7 @@ import { motion } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import {
-  ArrowUpRight,
-  MagnifyingGlass,
-  PencilSimple,
-  Lightbulb,
-  Cube,
-  Play,
-  ArrowRight,
-  Quotes,
-  CalendarBlank,
-  BehanceLogo,
-} from "@phosphor-icons/react"
+import { ArrowRight, ArrowUpRight, Calendar } from "lucide-react"
 
 const PROJECTS = [
   {
@@ -44,14 +33,6 @@ const PROJECTS = [
   },
 ]
 
-const SERVICES = [
-  { icon: MagnifyingGlass, label: "UX Research" },
-  { icon: PencilSimple, label: "UX Design" },
-  { icon: Lightbulb, label: "UI Design" },
-  { icon: Cube, label: "Design Systems" },
-  { icon: Play, label: "Motion Design" },
-]
-
 const TESTIMONIALS = [
   { quote: "He has a strong understanding of product design and platform thinking.", name: "Alok Kumar", role: "Director (Design), Vedantu", avatar: "/assets/images/7fVFQW1WlW9URfSAH5RgMjT6lJA.png" },
   { quote: "He deeply understands user needs and values, making his solutions impactful.", name: "Pooja Kurup", role: "Product Designer, Philips", avatar: "/assets/images/nOMEfjkKW0HQZULIlhVnG39Fs.png" },
@@ -67,7 +48,7 @@ const TESTIMONIALS = [
 export default function HomePage() {
   return (
     <div>
-      {/* Hero — left-aligned, compact */}
+      {/* Hero */}
       <section className="pt-24 pb-16">
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
           <motion.div
@@ -82,29 +63,28 @@ export default function HomePage() {
             <p className="mt-5 text-[17px] text-muted-foreground leading-relaxed max-w-[520px]">
               I help ambitious companies achieve their business goals by strategically designing their MVPs, optimising for growth & beyond.
             </p>
-            <div className="flex items-center gap-3 mt-8">
+            <div className="flex items-center gap-4 mt-8">
               <a
                 href="https://calendly.com/design-kousik/intro-call"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(buttonVariants({ variant: "default", size: "default" }))}
               >
-                <CalendarBlank weight="bold" className="w-4 h-4" />
                 Schedule a call
+                <ArrowRight className="w-4 h-4" />
               </a>
               <Link
                 to="/about"
-                className="inline-flex items-center gap-1 text-[15px] text-accent hover:text-accent/80 transition-colors font-medium"
+                className="text-[15px] text-muted-foreground hover:text-foreground transition-colors"
               >
-                Learn more
-                <ArrowRight weight="bold" className="w-3.5 h-3.5" />
+                About me →
               </Link>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Projects — 2-column grid */}
+      {/* Projects */}
       <section className="py-12">
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
           <motion.p
@@ -148,17 +128,16 @@ export default function HomePage() {
               href="https://www.behance.net/kousikdutta"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[14px] text-accent hover:text-accent/80 font-medium transition-colors"
+              className="inline-flex items-center gap-1.5 text-[14px] text-accent hover:underline hover:underline-offset-4 transition-all"
             >
-              <BehanceLogo weight="bold" className="w-4 h-4" />
-              View Academic Projects
-              <ArrowRight weight="bold" className="w-3 h-3" />
+              View all projects
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </motion.div>
         </div>
       </section>
 
-      {/* Services — with icons */}
+      {/* Services */}
       <section className="py-12">
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
           <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-muted-foreground mb-2">
@@ -166,10 +145,9 @@ export default function HomePage() {
           </p>
           <h2 className="text-[24px] font-semibold tracking-tight mb-5">Services & Workshops</h2>
           <div className="flex flex-wrap gap-2.5">
-            {SERVICES.map((s) => (
-              <Badge key={s.label} variant="secondary" className="text-[13px] px-4 py-2 rounded-full gap-1.5 font-medium">
-                <s.icon weight="bold" className="w-3.5 h-3.5 text-accent" />
-                {s.label}
+            {["UX Research", "UX Design", "UI Design", "Design Systems", "Motion Design"].map((s) => (
+              <Badge key={s} variant="secondary" className="text-[13px] px-4 py-2 rounded-full font-medium">
+                {s}
               </Badge>
             ))}
           </div>
@@ -190,8 +168,7 @@ export default function HomePage() {
                 key={`${t.name}-${i}`}
                 className="shrink-0 w-[300px] p-5 rounded-2xl border bg-card"
               >
-                <Quotes weight="fill" className="w-5 h-5 text-accent/40 mb-2" />
-                <p className="text-[14px] leading-[1.6] mb-4">{t.quote}</p>
+                <p className="text-[14px] leading-[1.6] mb-4">"{t.quote}"</p>
                 <div className="flex items-center gap-3">
                   <img src={t.avatar} alt={t.name} className="w-8 h-8 rounded-full object-cover" />
                   <div>
@@ -205,7 +182,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA — dark section */}
+      {/* CTA */}
       <section className="mt-12 py-20 bg-foreground text-background rounded-t-3xl">
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
           <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-semibold tracking-[-0.03em] leading-tight">
@@ -220,8 +197,8 @@ export default function HomePage() {
             rel="noopener noreferrer"
             className={cn(buttonVariants({ variant: "inverted", size: "default" }), "mt-6")}
           >
-            <CalendarBlank weight="bold" className="w-4 h-4" />
             Schedule a call
+            <ArrowRight className="w-4 h-4" />
           </a>
         </div>
       </section>
@@ -246,7 +223,6 @@ function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
           {project.tags.map((tag) => (
             <Badge key={tag} variant="secondary" className="text-[10px] font-normal rounded-full">{tag}</Badge>
           ))}
-          <ArrowUpRight weight="bold" className="w-3.5 h-3.5 text-muted-foreground ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
         </div>
       </div>
     </div>
