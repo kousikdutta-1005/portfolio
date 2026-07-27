@@ -22,10 +22,10 @@ const NAV_ITEMS = [
 ]
 
 const PRINCIPLES = [
-  { icon: "◎", title: "Clarity", desc: "Every element serves a purpose. Typography does the heavy lifting — the interface disappears so the work speaks for itself." },
-  { icon: "◫", title: "Consistency", desc: "Repeatable patterns create trust. Spacing, color, and type follow strict scales." },
-  { icon: "▲", title: "Hierarchy", desc: "Guide the eye naturally. Size, weight, and space create clear reading paths." },
-  { icon: "✦", title: "Delight", desc: "Subtle animations and micro-interactions reward attention without being distracting." },
+  { icon: "◎", title: "Clarity", desc: "Text is legible at every size, icons are precise, adornments are subtle and appropriate. Every element focuses purpose." },
+  { icon: "◫", title: "Deference", desc: "Fluid motion and crisp interfaces help people understand content. The UI steps back — content fills the screen." },
+  { icon: "▲", title: "Depth", desc: "Distinct visual layers and realistic motion convey hierarchy. Translucency hints at more, shadows create spatial relationships." },
+  { icon: "✦", title: "Consistency", desc: "Repeatable patterns create trust. Spacing, color, and type follow strict scales aligned to Apple's 8pt grid." },
 ]
 
 const COLORS_PRIMARY = [
@@ -37,8 +37,8 @@ const COLORS_NEUTRAL = [
   { name: "Card", hex: "#ffffff", var: "--color-card" },
   { name: "Secondary", hex: "#f5f5f7", var: "--color-secondary" },
   { name: "Muted", hex: "#f5f5f7", var: "--color-muted" },
-  { name: "Muted FG", hex: "#6e6e73", var: "--color-muted-foreground" },
-  { name: "Border", hex: "#d2d2d7", var: "--color-border" },
+  { name: "Muted FG", hex: "#86868b", var: "--color-muted-foreground" },
+  { name: "Border", hex: "rgba(0,0,0,0.04)", var: "--color-border" },
   { name: "Input", hex: "#d2d2d7", var: "--color-input" },
 ]
 
@@ -50,15 +50,14 @@ const COLORS_SEMANTIC = [
 ]
 
 const TYPE_SCALE = [
-  { name: "Display", size: "86px", weight: "600", tracking: "-0.04em", leading: "1.05", sample: "Design System" },
-  { name: "Heading 1", size: "68px", weight: "600", tracking: "-0.04em", leading: "1.05", sample: "Portfolio" },
-  { name: "Heading 2", size: "48px", weight: "600", tracking: "-0.04em", leading: "1.1", sample: "Section Title" },
-  { name: "Heading 3", size: "40px", weight: "600", tracking: "-0.03em", leading: "1.15", sample: "Subsection" },
-  { name: "Heading 4", size: "28px", weight: "600", tracking: "-0.02em", leading: "1.2", sample: "Card Title" },
-  { name: "Body Large", size: "20px", weight: "400", tracking: "0", leading: "1.6", sample: "Large body text for emphasis" },
-  { name: "Body", size: "16px", weight: "400", tracking: "0", leading: "1.6", sample: "Default paragraph text" },
-  { name: "Caption", size: "13px", weight: "500", tracking: "0", leading: "1.4", sample: "Caption text" },
-  { name: "Label", size: "12px", weight: "600", tracking: "0.4em", leading: "1.3", sample: "LABEL TEXT" },
+  { name: "Display", size: "96px", weight: "700", tracking: "-0.04em", leading: "1.02", sample: "Kousik" },
+  { name: "Heading 1", size: "64px", weight: "700", tracking: "-0.03em", leading: "1.05", sample: "Portfolio" },
+  { name: "Heading 2", size: "32px", weight: "700", tracking: "-0.02em", leading: "1.15", sample: "Section Title" },
+  { name: "Heading 3", size: "28px", weight: "600", tracking: "-0.02em", leading: "1.2", sample: "Subsection" },
+  { name: "Body Large", size: "17px", weight: "400", tracking: "0", leading: "1.65", sample: "Primary body text (Apple's default)" },
+  { name: "Body", size: "15px", weight: "400", tracking: "0", leading: "1.6", sample: "Secondary body text" },
+  { name: "Caption", size: "13px", weight: "600", tracking: "0.02em", leading: "1.4", sample: "SECTION LABEL" },
+  { name: "Footnote", size: "12px", weight: "400", tracking: "0", leading: "1.4", sample: "Footer & metadata" },
 ]
 
 const SPACING = [
@@ -73,32 +72,33 @@ const SPACING = [
 
 const SHADOWS = [
   { level: 0, label: "None", value: "none" },
-  { level: 1, label: "SM", value: "0 1px 3px rgba(0,0,0,0.04)" },
-  { level: 2, label: "MD", value: "0 4px 12px rgba(0,0,0,0.06)" },
-  { level: 3, label: "LG", value: "0 8px 24px rgba(0,0,0,0.08)" },
-  { level: 4, label: "XL", value: "0 20px 60px rgba(0,0,0,0.08)" },
+  { level: 1, label: "Apple SM", value: "0 0.5px 1px rgba(0,0,0,0.02), 0 2px 4px rgba(0,0,0,0.02), 0 4px 16px rgba(0,0,0,0.04)" },
+  { level: 2, label: "Apple MD", value: "0 2px 4px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.04), 0 12px 32px rgba(0,0,0,0.06)" },
+  { level: 3, label: "Apple LG (Hover)", value: "0 2px 4px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.04), 0 12px 40px rgba(0,0,0,0.08)" },
 ]
 
 const RADII = [
   { label: "Small", value: "12px", style: { borderRadius: "12px" } },
-  { label: "Medium", value: "24px", style: { borderRadius: "24px" } },
-  { label: "Large", value: "32px", style: { borderRadius: "32px" } },
-  { label: "Full", value: "50%", style: { borderRadius: "50%" } },
+  { label: "Medium", value: "16px", style: { borderRadius: "16px" } },
+  { label: "Large", value: "20px", style: { borderRadius: "20px" } },
+  { label: "XL (Sections)", value: "32px", style: { borderRadius: "32px" } },
+  { label: "Full (Pills)", value: "9999px", style: { borderRadius: "9999px" } },
 ]
 
 const EASINGS = [
-  { name: "Enter", value: "cubic-bezier(0, 0, 0.2, 1)" },
-  { name: "Default", value: "cubic-bezier(0.25, 0.1, 0.25, 1)" },
-  { name: "Exit", value: "cubic-bezier(0.4, 0, 1, 1)" },
+  { name: "Apple Default", value: "cubic-bezier(0.25, 0.1, 0.25, 1)" },
+  { name: "Enter (Decelerate)", value: "cubic-bezier(0, 0, 0.2, 1)" },
+  { name: "Exit (Accelerate)", value: "cubic-bezier(0.4, 0, 1, 1)" },
+  { name: "Spring", value: "type: spring, stiffness: 300, damping: 30" },
 ]
 
 const DURATIONS = [
-  { name: "Instant", value: "100ms", usage: "Micro-feedback" },
-  { name: "Fast", value: "200ms", usage: "Hover states" },
-  { name: "Normal", value: "300ms", usage: "Page transitions" },
-  { name: "Reveal", value: "500ms", usage: "Scroll reveals" },
-  { name: "Stagger", value: "100ms", usage: "Delay between items" },
-  { name: "Smooth scroll", value: "1200ms", usage: "Lenis duration" },
+  { name: "Micro", value: "100ms", usage: "Button press feedback" },
+  { name: "Fast", value: "200ms", usage: "Hover states, toggles" },
+  { name: "Normal", value: "400ms", usage: "Card transitions, scale" },
+  { name: "Reveal", value: "600ms", usage: "Scroll reveal (fadeUp)" },
+  { name: "Stagger", value: "80ms", usage: "Delay between siblings" },
+  { name: "Smooth scroll", value: "1200ms", usage: "Lenis page scroll" },
 ]
 
 // --- Components ---
@@ -193,8 +193,9 @@ export default function DesignSystemPage() {
           <Badge variant="secondary" className="mb-4">Overview</Badge>
           <h1 className="text-3xl font-bold tracking-tight mb-3">Design System</h1>
           <p className="text-muted-foreground text-[15px] leading-relaxed max-w-[560px] mb-10">
-            A comprehensive guide to the visual language, components, and patterns that power this portfolio.
-            Every element communicates with clarity, precision, and delight.
+            Built on Apple's Human Interface Guidelines — Clarity, Deference, and Depth.
+            No visible borders. Shadow-based elevation. SF Pro typography. Spring-based motion.
+            Every element communicates with precision and restraint.
           </p>
 
           <h2 className="text-lg font-semibold mb-4">Core Principles</h2>

@@ -1,27 +1,27 @@
+import { Link } from "react-router-dom"
+
 export function Footer() {
   return (
-    <footer className="border-t py-6">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-6">
+    <footer className="py-8">
+      <div className="max-w-[980px] mx-auto px-6 md:px-10">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[13px] text-muted-foreground">
+          <p className="opacity-60">© {new Date().getFullYear()} Kousik Dutta</p>
+          <nav className="flex items-center gap-6">
+            <Link to="/" className="opacity-60 hover:opacity-100 transition-opacity">
+              Home
+            </Link>
+            <Link to="/about" className="opacity-60 hover:opacity-100 transition-opacity">
+              About
+            </Link>
             <a
               href="https://www.linkedin.com/in/kousikdutta/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[12px] text-muted-foreground hover:text-foreground transition-colors"
+              className="opacity-60 hover:opacity-100 transition-opacity"
             >
               LinkedIn
             </a>
-            <a
-              href="https://www.behance.net/kousikdutta"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[12px] text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Behance
-            </a>
-          </div>
-          <p className="text-[11px] text-muted-foreground">© 2025 Kousik Dutta</p>
+          </nav>
         </div>
       </div>
     </footer>

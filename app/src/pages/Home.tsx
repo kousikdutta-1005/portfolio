@@ -57,7 +57,8 @@ const PROJECTS = [
     title: "OLX Autos Workshop",
     tags: ["Workshop", "System Maps"],
     image: "/assets/images/lsO27yP1rhwECcphfDr6QnvgQ.png",
-    href: "#",
+    href: "https://drive.google.com/file/d/1qahC8wyxudzjzuO9Zrtvk9e6Tz2UO9Cx/view?usp=drive_link",
+    external: true,
   },
 ]
 
@@ -194,7 +195,7 @@ export default function HomePage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-[15px] font-medium text-accent hover:underline hover:underline-offset-4 transition-all"
             >
-              View all projects
+              View Academic Projects
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </motion.div>
@@ -211,10 +212,10 @@ export default function HomePage() {
             viewport={{ once: true }}
           >
             <p className="text-[13px] font-semibold tracking-[0.02em] uppercase text-muted-foreground mb-1.5">
-              Capabilities
+              Services
             </p>
             <h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-8">
-              What I do
+              What I bring to the table
             </h2>
           </motion.div>
           <motion.div
@@ -224,7 +225,7 @@ export default function HomePage() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {["UX Research", "UX Design", "UI Design", "Design Systems", "Motion Design", "Prototyping", "Workshop Facilitation"].map((s) => (
+            {["Workshops", "UX Research", "UX Design", "UI Design", "Motion"].map((s) => (
               <motion.div key={s} variants={fadeUp}>
                 <Badge variant="secondary" className="text-[14px] px-5 py-2.5 rounded-full font-medium bg-background dark:bg-background/80">
                   {s}
