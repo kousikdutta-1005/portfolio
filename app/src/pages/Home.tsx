@@ -19,7 +19,14 @@ const fadeUp = {
   }),
 }
 
-const BRANDS = ["ThoughtSpot", "Philips", "OLX", "Airtel", "Vedantu", "Precisely"]
+const BRANDS = [
+  { name: "ThoughtSpot", src: "/assets/brands/thoughtspot.svg" },
+  { name: "Philips", src: "/assets/brands/philips.svg" },
+  { name: "OLX", src: "/assets/brands/olx.svg" },
+  { name: "Airtel", src: "/assets/brands/airtel.svg" },
+  { name: "Vedantu", src: "/assets/brands/vedantu.svg" },
+  { name: "Precisely", src: "/assets/brands/precisely.svg" },
+]
 
 const PROJECTS = [
   {
@@ -114,14 +121,14 @@ export default function HomePage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <div className="flex animate-brand-scroll">
+          <div className="flex items-center animate-brand-scroll">
             {[...BRANDS, ...BRANDS, ...BRANDS].map((brand, i) => (
-              <span
-                key={`${brand}-${i}`}
-                className="shrink-0 px-10 text-[18px] font-semibold text-muted-foreground/50 tracking-tight whitespace-nowrap"
-              >
-                {brand}
-              </span>
+              <img
+                key={`${brand.name}-${i}`}
+                src={brand.src}
+                alt={brand.name}
+                className="shrink-0 h-5 mx-10 opacity-40"
+              />
             ))}
           </div>
         </motion.div>
