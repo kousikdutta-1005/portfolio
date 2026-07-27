@@ -28,7 +28,6 @@ const staggerContainer = {
 const BRANDS = [
   { name: "ThoughtSpot", src: "/assets/brands/thoughtspot.svg" },
   { name: "Philips", src: "/assets/brands/philips.svg" },
-  { name: "OLX", src: "/assets/brands/olx.svg" },
   { name: "Airtel", src: "/assets/brands/airtel.svg" },
   { name: "Vedantu", src: "/assets/brands/vedantu.svg" },
   { name: "Precisely", src: "/assets/brands/precisely.svg" },
@@ -174,7 +173,7 @@ export default function HomePage() {
                 key={`${brand.name}-${i}`}
                 src={brand.src}
                 alt={brand.name}
-                className="shrink-0 h-4 mx-12 opacity-30 dark:invert dark:opacity-20 grayscale"
+                className="shrink-0 h-7 mx-10 brand-logo-light object-contain"
               />
             ))}
           </div>

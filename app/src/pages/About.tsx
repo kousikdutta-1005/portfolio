@@ -1,15 +1,14 @@
 import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { ArrowRight, Download } from "lucide-react"
 
-const EASE_ENTER = [0, 0, 0.2, 1] as const
-const DURATION_REVEAL = 0.5
+const EASE_ENTER = [0.25, 0.1, 0.25, 1] as const
+const DURATION_REVEAL = 0.6
 const STAGGER = 0.08
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 20 },
   visible: (i: number = 0) => ({
     opacity: 1,
     y: 0,
@@ -48,18 +47,18 @@ export default function AboutPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="pt-24 pb-12">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
+      <section className="pt-32 pb-16 md:pt-40 md:pb-20">
+        <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <motion.h1
-            className="text-[clamp(2.5rem,6vw,4.5rem)] font-semibold tracking-[-0.04em] leading-[1.1]"
+            className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold tracking-[-0.04em] leading-[1.08]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: EASE_ENTER }}
           >
-            Design that<br />drives growth.
+            Design that<br /><span className="text-gradient">drives growth.</span>
           </motion.h1>
           <motion.p
-            className="mt-5 text-[17px] text-muted-foreground leading-relaxed max-w-[520px]"
+            className="mt-5 text-[17px] text-muted-foreground leading-[1.65] max-w-[520px]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: EASE_ENTER, delay: 0.15 }}
@@ -79,13 +78,13 @@ export default function AboutPage() {
               className={cn(buttonVariants({ variant: "default", size: "default" }))}
             >
               Download resume
-              <Download className="w-4 h-4" />
+              <Download className="w-4 h-4 ml-1" />
             </a>
             <a
               href="https://calendly.com/design-kousik/intro-call"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[15px] text-accent hover:underline hover:underline-offset-4 transition-all"
+              className="text-[15px] font-medium text-accent hover:underline hover:underline-offset-4 transition-all"
             >
               Book a call →
             </a>
@@ -94,10 +93,10 @@ export default function AboutPage() {
       </section>
 
       {/* Photo Grid */}
-      <section className="pb-12">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
+      <section className="pb-16">
+        <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <motion.div
-            className="grid grid-cols-3 gap-3"
+            className="grid grid-cols-3 gap-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -112,8 +111,8 @@ export default function AboutPage() {
                 key={img.alt}
                 src={img.src}
                 alt={img.alt}
-                className="w-full h-48 object-cover rounded-xl"
-                initial={{ opacity: 0, scale: 0.95 }}
+                className="w-full h-48 md:h-56 object-cover rounded-xl md:rounded-2xl"
+                initial={{ opacity: 0, scale: 0.96 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, ease: EASE_ENTER, delay: i * 0.1 }}
@@ -124,10 +123,10 @@ export default function AboutPage() {
       </section>
 
       {/* Experience */}
-      <section className="py-12">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
+      <section className="py-16 md:py-20">
+        <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <motion.p
-            className="text-[11px] font-semibold tracking-[0.12em] uppercase text-muted-foreground mb-5"
+            className="text-[13px] font-semibold tracking-[0.02em] uppercase text-muted-foreground mb-6"
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -146,13 +145,13 @@ export default function AboutPage() {
               <motion.div
                 key={exp.company}
                 variants={fadeUp}
-                className="flex items-center justify-between py-4 border-b last:border-b-0"
+                className="flex items-center justify-between py-5 border-b border-border/50 last:border-b-0"
               >
                 <div>
-                  <h3 className="text-[15px] font-medium">{exp.role}</h3>
-                  <p className="text-[13px] text-muted-foreground">{exp.company}</p>
+                  <h3 className="text-[16px] font-semibold tracking-tight">{exp.role}</h3>
+                  <p className="text-[14px] text-muted-foreground mt-0.5">{exp.company}</p>
                 </div>
-                <span className="text-[12px] font-mono text-muted-foreground">{exp.period}</span>
+                <span className="text-[13px] text-muted-foreground">{exp.period}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -160,10 +159,10 @@ export default function AboutPage() {
       </section>
 
       {/* Awards */}
-      <section className="py-12">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
+      <section className="py-16 md:py-20">
+        <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <motion.p
-            className="text-[11px] font-semibold tracking-[0.12em] uppercase text-muted-foreground mb-5"
+            className="text-[13px] font-semibold tracking-[0.02em] uppercase text-muted-foreground mb-6"
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -172,7 +171,7 @@ export default function AboutPage() {
             Recognition
           </motion.p>
           <motion.div
-            className="grid grid-cols-2 lg:grid-cols-3 gap-3"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -180,12 +179,10 @@ export default function AboutPage() {
           >
             {AWARDS.map((award) => (
               <motion.div key={award.title} variants={fadeUp}>
-                <Card className="h-full transition-shadow hover:shadow-md">
-                  <CardContent className="p-4">
-                    <h3 className="text-[13px] font-semibold">{award.title}</h3>
-                    {award.sub && <p className="text-[12px] text-muted-foreground mt-0.5">{award.sub}</p>}
-                  </CardContent>
-                </Card>
+                <div className="h-full p-5 rounded-2xl apple-card">
+                  <h3 className="text-[14px] font-semibold">{award.title}</h3>
+                  {award.sub && <p className="text-[13px] text-muted-foreground mt-1">{award.sub}</p>}
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -193,23 +190,23 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-12">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
+      <section className="py-16 md:py-20">
+        <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-muted-foreground mb-2">
+            <p className="text-[13px] font-semibold tracking-[0.02em] uppercase text-muted-foreground mb-1.5">
               Why choose me
             </p>
-            <h2 className="text-[24px] font-semibold tracking-tight mb-6">
+            <h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-8">
               Design that moves metrics.
             </h2>
           </motion.div>
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-3"
+            className="grid grid-cols-1 md:grid-cols-2 gap-4"
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -217,12 +214,10 @@ export default function AboutPage() {
           >
             {VALUES.map((v) => (
               <motion.div key={v.title} variants={fadeUp}>
-                <Card className="h-full transition-shadow hover:shadow-md">
-                  <CardContent className="p-5">
-                    <h3 className="text-[14px] font-semibold mb-1.5">{v.title}</h3>
-                    <p className="text-[13px] text-muted-foreground leading-relaxed">{v.desc}</p>
-                  </CardContent>
-                </Card>
+                <div className="h-full p-6 rounded-2xl glass-card">
+                  <h3 className="text-[15px] font-semibold mb-2">{v.title}</h3>
+                  <p className="text-[14px] text-muted-foreground leading-relaxed">{v.desc}</p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -230,31 +225,38 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <motion.section
-        className="mt-8 py-20 bg-foreground text-background rounded-t-3xl"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6, ease: EASE_ENTER }}
-      >
-        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
-          <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-semibold tracking-[-0.03em] leading-tight">
-            Let's create your<br />next big idea.
-          </h2>
-          <p className="mt-3 text-[15px] opacity-60 max-w-[400px]">
-            Available for full-time roles, freelance projects, and design consulting.
-          </p>
-          <a
-            href="https://calendly.com/design-kousik/intro-call"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(buttonVariants({ variant: "inverted", size: "default" }), "mt-6")}
+      <section className="py-16 md:py-20">
+        <div className="max-w-[980px] mx-auto px-6 md:px-10">
+          <motion.div
+            className="rounded-2xl md:rounded-[2rem] p-10 md:p-16 relative overflow-hidden"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, ease: EASE_ENTER }}
+            style={{
+              background: "rgba(29, 29, 31, 0.95)",
+              backdropFilter: "blur(20px) saturate(180%)",
+              WebkitBackdropFilter: "blur(20px) saturate(180%)",
+            }}
           >
-            Schedule a call
-            <ArrowRight className="w-4 h-4" />
-          </a>
+            <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-bold tracking-[-0.03em] leading-[1.1] text-white">
+              Let's create your<br />next big idea.
+            </h2>
+            <p className="mt-4 text-[17px] leading-[1.6] text-white/50 max-w-[420px]">
+              Available for full-time roles, freelance projects, and design consulting.
+            </p>
+            <a
+              href="https://calendly.com/design-kousik/intro-call"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(buttonVariants({ variant: "inverted", size: "default" }), "mt-8")}
+            >
+              Schedule a call
+              <ArrowRight className="w-4 h-4 ml-1" />
+            </a>
+          </motion.div>
         </div>
-      </motion.section>
+      </section>
     </div>
   )
 }
