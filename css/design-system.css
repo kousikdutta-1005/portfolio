@@ -1,0 +1,854 @@
+/* ============================================
+   DESIGN SYSTEM DOCUMENTATION — Layout & Styles
+   ============================================ */
+
+/* --- Doc Layout --- */
+.ds-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+/* --- Sidebar --- */
+.ds-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  overflow-y: auto;
+  background: #fafafa;
+  border-right: 1px solid var(--gray-200);
+  padding: 32px 0;
+  z-index: 100;
+}
+
+.ds-sidebar::-webkit-scrollbar { width: 4px; }
+.ds-sidebar::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 4px; }
+
+.ds-sidebar__logo {
+  padding: 0 24px 24px;
+  border-bottom: 1px solid var(--gray-200);
+  margin-bottom: 16px;
+}
+
+.ds-sidebar__logo h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: -0.02em;
+}
+
+.ds-sidebar__logo span {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray-400);
+  display: block;
+  margin-top: 2px;
+}
+
+.ds-nav-group {
+  padding: 0 16px;
+  margin-bottom: 8px;
+}
+
+.ds-nav-group__title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  padding: 12px 8px 6px;
+}
+
+.ds-nav-link {
+  display: block;
+  font-size: 13px;
+  font-weight: 450;
+  color: var(--gray-600);
+  padding: 7px 8px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.ds-nav-link:hover {
+  color: var(--black);
+  background: var(--gray-100);
+}
+
+.ds-nav-link.active {
+  color: var(--black);
+  background: var(--gray-200);
+  font-weight: 550;
+}
+
+/* --- Main Content --- */
+.ds-main {
+  grid-column: 2;
+  padding: 48px 64px 96px;
+  max-width: 960px;
+}
+
+/* --- Page Header --- */
+.ds-page-header {
+  margin-bottom: 64px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.ds-page-header h1 {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  color: var(--black);
+  margin-bottom: 16px;
+}
+
+.ds-page-header p {
+  font-size: 18px;
+  color: var(--gray-600);
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.ds-version-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: var(--black);
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+/* --- Section --- */
+.ds-section {
+  margin-bottom: 72px;
+  scroll-margin-top: 32px;
+}
+
+.ds-section__title {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--black);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.ds-section__desc {
+  font-size: 16px;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 640px;
+}
+
+.ds-subsection {
+  margin-bottom: 48px;
+}
+
+.ds-subsection__title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  margin-bottom: 6px;
+}
+
+.ds-subsection__desc {
+  font-size: 14px;
+  color: var(--gray-500);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* --- Divider --- */
+.ds-divider {
+  height: 1px;
+  background: var(--gray-200);
+  margin: 48px 0;
+}
+
+/* --- Token Display --- */
+.ds-token-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.ds-token-card {
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.ds-token-card__preview {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ds-token-card__info {
+  padding: 12px 16px;
+  border-top: 1px solid var(--gray-200);
+}
+
+.ds-token-card__name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--black);
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+.ds-token-card__value {
+  font-size: 12px;
+  color: var(--gray-500);
+  margin-top: 2px;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+/* Color swatch specific */
+.ds-color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.ds-color-swatch {
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.ds-color-swatch__color {
+  height: 72px;
+  position: relative;
+}
+
+.ds-color-swatch__color::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.ds-color-swatch__info {
+  padding: 10px 14px;
+}
+
+.ds-color-swatch__name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.ds-color-swatch__hex {
+  font-size: 11px;
+  color: var(--gray-500);
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  margin-top: 1px;
+}
+
+.ds-color-swatch__var {
+  font-size: 10px;
+  color: var(--gray-400);
+  font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+/* --- Typography Specimen --- */
+.ds-type-specimen {
+  margin-bottom: 24px;
+  padding: 24px;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  background: var(--white);
+}
+
+.ds-type-specimen__example {
+  margin-bottom: 16px;
+  color: var(--black);
+}
+
+.ds-type-specimen__meta {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding-top: 12px;
+  border-top: 1px solid var(--gray-100);
+}
+
+.ds-type-specimen__meta-item {
+  font-size: 12px;
+  color: var(--gray-500);
+  font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+.ds-type-specimen__meta-item strong {
+  color: var(--gray-700);
+  font-weight: 600;
+}
+
+/* --- Spacing Scale --- */
+.ds-spacing-scale {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ds-spacing-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ds-spacing-item__bar {
+  height: 24px;
+  background: var(--black);
+  border-radius: 4px;
+  opacity: 0.12;
+  flex-shrink: 0;
+}
+
+.ds-spacing-item__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--black);
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  white-space: nowrap;
+  min-width: 100px;
+}
+
+.ds-spacing-item__value {
+  font-size: 12px;
+  color: var(--gray-500);
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  white-space: nowrap;
+}
+
+/* --- Shadow Display --- */
+.ds-shadow-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+.ds-shadow-card {
+  height: 120px;
+  background: var(--white);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-600);
+}
+
+/* --- Radius Display --- */
+.ds-radius-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.ds-radius-card {
+  aspect-ratio: 1;
+  background: var(--gray-100);
+  border: 2px solid var(--gray-300);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.ds-radius-card__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--black);
+  font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+.ds-radius-card__value {
+  font-size: 11px;
+  color: var(--gray-500);
+}
+
+/* --- Motion / Easing Curve --- */
+.ds-easing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.ds-easing-card {
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 20px;
+  background: var(--white);
+}
+
+.ds-easing-card__preview {
+  height: 80px;
+  margin-bottom: 16px;
+  position: relative;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.ds-easing-card__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--black);
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+}
+
+.ds-easing-card:hover .ds-easing-card__dot {
+  left: calc(100% - 12px);
+}
+
+.ds-easing-card__name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.ds-easing-card__value {
+  font-size: 11px;
+  color: var(--gray-500);
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  margin-top: 2px;
+}
+
+/* --- Duration Scale --- */
+.ds-duration-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.ds-duration-card {
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 16px;
+  background: var(--white);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.ds-duration-card:hover {
+  border-color: var(--black);
+}
+
+.ds-duration-card__bar-track {
+  height: 4px;
+  background: var(--gray-100);
+  border-radius: 2px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.ds-duration-card__bar {
+  height: 100%;
+  background: var(--black);
+  border-radius: 2px;
+  width: 0;
+  transition-timing-function: ease;
+}
+
+.ds-duration-card:hover .ds-duration-card__bar {
+  width: 100%;
+}
+
+.ds-duration-card__name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.ds-duration-card__value {
+  font-size: 11px;
+  color: var(--gray-500);
+  font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+/* --- Component Showcase --- */
+.ds-showcase {
+  border: 1px solid var(--gray-200);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  background: var(--white);
+}
+
+.ds-showcase__preview {
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  min-height: 120px;
+}
+
+.ds-showcase__preview--dark {
+  background: var(--gray-900);
+}
+
+.ds-showcase__preview--gray {
+  background: var(--gray-50);
+}
+
+.ds-showcase__preview--left {
+  justify-content: flex-start;
+}
+
+.ds-showcase__preview--col {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ds-showcase__code {
+  border-top: 1px solid var(--gray-200);
+  padding: 16px 20px;
+  background: #f8f9fb;
+}
+
+.ds-showcase__code pre {
+  font-size: 12px;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  color: var(--gray-700);
+  white-space: pre-wrap;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.ds-showcase__label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  padding: 12px 20px 0;
+}
+
+/* --- Rules/Guidelines Table --- */
+.ds-rules {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+}
+
+.ds-rules th {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 2px solid var(--gray-200);
+}
+
+.ds-rules td {
+  font-size: 14px;
+  color: var(--gray-700);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--gray-100);
+  vertical-align: top;
+}
+
+.ds-rules td:first-child {
+  font-weight: 600;
+  color: var(--black);
+  white-space: nowrap;
+}
+
+.ds-rules code {
+  font-size: 12px;
+  background: var(--gray-100);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  color: var(--gray-700);
+}
+
+/* --- Do / Don't --- */
+.ds-dos-donts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.ds-do, .ds-dont {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--gray-200);
+}
+
+.ds-do__header, .ds-dont__header {
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.ds-do__header {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-bottom: 2px solid #4caf50;
+}
+
+.ds-dont__header {
+  background: #fce4ec;
+  color: #c62828;
+  border-bottom: 2px solid #e53935;
+}
+
+.ds-do__body, .ds-dont__body {
+  padding: 16px;
+  font-size: 14px;
+  color: var(--gray-700);
+  line-height: 1.6;
+}
+
+/* --- Principle Cards --- */
+.ds-principle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.ds-principle-card {
+  padding: 24px;
+  border-radius: 16px;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+}
+
+.ds-principle-card__icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.ds-principle-card__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 6px;
+}
+
+.ds-principle-card__desc {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+
+/* --- Breakpoint Table --- */
+.ds-breakpoint-bar {
+  display: flex;
+  align-items: end;
+  gap: 8px;
+  margin-bottom: 32px;
+  height: 120px;
+}
+
+.ds-breakpoint-bar__item {
+  flex: 1;
+  background: var(--gray-100);
+  border: 1px solid var(--gray-200);
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 12px 8px;
+  position: relative;
+}
+
+.ds-breakpoint-bar__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.ds-breakpoint-bar__value {
+  font-size: 10px;
+  color: var(--gray-500);
+  font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+/* --- Accessibility Contrast --- */
+.ds-contrast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.ds-contrast-card {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--gray-200);
+}
+
+.ds-contrast-card__preview {
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.ds-contrast-card__info {
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--gray-200);
+}
+
+.ds-contrast-card__ratio {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.ds-contrast-card__level {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.ds-contrast-card__level--aaa {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.ds-contrast-card__level--aa {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+/* --- Note/Callout --- */
+.ds-note {
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: #f0f4ff;
+  border-left: 3px solid #3b82f6;
+  margin-bottom: 24px;
+}
+
+.ds-note p {
+  font-size: 14px;
+  color: #1e3a5f;
+  line-height: 1.5;
+}
+
+.ds-note strong {
+  font-weight: 600;
+}
+
+/* --- Inline Code --- */
+.ds-code {
+  font-size: 12px;
+  background: var(--gray-100);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  color: var(--gray-700);
+}
+
+/* --- Animation Demo --- */
+.ds-animation-demo {
+  border: 1px solid var(--gray-200);
+  border-radius: 16px;
+  padding: 40px;
+  margin-bottom: 24px;
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.ds-animation-demo__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--black);
+  color: var(--white);
+  cursor: pointer;
+  border: none;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+/* --- Grid Visualization --- */
+.ds-grid-viz {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.ds-grid-viz__cell {
+  background: var(--gray-100);
+  border: 1px dashed var(--gray-300);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-500);
+}
+
+/* --- Interactive State Demo --- */
+.ds-state-demo {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.ds-state-demo__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.ds-state-demo__label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .ds-layout {
+    grid-template-columns: 1fr;
+  }
+  .ds-sidebar {
+    display: none;
+  }
+  .ds-main {
+    grid-column: 1;
+    padding: 32px 24px 64px;
+  }
+}
