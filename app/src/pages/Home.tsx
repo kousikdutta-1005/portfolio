@@ -235,37 +235,39 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Services — Apple's chip/tag style */}
-      <section className="py-20 md:py-24 section-alt rounded-2xl md:rounded-[2rem] mx-4 md:mx-8 lg:mx-auto lg:max-w-[1080px]">
+      {/* Services — Frosted glass panel */}
+      <section className="py-20 md:py-24">
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <p className="text-[13px] font-semibold tracking-[0.02em] uppercase text-muted-foreground mb-1.5">
-              Services
-            </p>
-            <h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-8">
-              What I bring to the table
-            </h2>
-          </motion.div>
-          <motion.div
-            className="flex flex-wrap gap-3"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {["Workshops", "UX Research", "UX Design", "UI Design", "Motion"].map((s) => (
-              <motion.div key={s} variants={fadeUp}>
-                <Badge variant="secondary" className="text-[14px] px-5 py-2.5 rounded-full font-medium bg-background dark:bg-background/80">
-                  {s}
-                </Badge>
-              </motion.div>
-            ))}
-          </motion.div>
+          <div className="glass-card rounded-2xl md:rounded-[2rem] p-8 md:p-12">
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <p className="text-[13px] font-semibold tracking-[0.02em] uppercase text-muted-foreground mb-1.5">
+                Services
+              </p>
+              <h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-8">
+                What I bring to the table
+              </h2>
+            </motion.div>
+            <motion.div
+              className="flex flex-wrap gap-3"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              {["Workshops", "UX Research", "UX Design", "UI Design", "Motion"].map((s) => (
+                <motion.div key={s} variants={fadeUp}>
+                  <Badge variant="secondary" className="text-[14px] px-5 py-2.5 rounded-full font-medium bg-background/80 dark:bg-background/40 backdrop-blur-sm">
+                    {s}
+                  </Badge>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -304,32 +306,39 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA — Apple's dark section with generous spacing */}
-      <motion.section
-        className="py-24 md:py-36 relative overflow-hidden rounded-2xl md:rounded-[2rem] mx-4 md:mx-8 lg:mx-auto lg:max-w-[1080px] mb-4 bg-[#1d1d1f]"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.7, ease: EASE_ENTER }}
-      >
-        <div className="max-w-[980px] mx-auto px-6 md:px-10 relative z-10">
-          <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-bold tracking-[-0.03em] leading-[1.1] text-white">
-            Let's create your<br />next big idea.
-          </h2>
-          <p className="mt-4 text-[17px] leading-[1.6] text-white/50 max-w-[420px]">
-            Available for full-time roles, freelance projects, and design consulting.
-          </p>
-          <a
-            href="https://calendly.com/design-kousik/intro-call"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(buttonVariants({ variant: "inverted", size: "default" }), "mt-8")}
+      {/* CTA — Frosted dark glass panel */}
+      <section className="py-20 md:py-24">
+        <div className="max-w-[980px] mx-auto px-6 md:px-10">
+          <motion.div
+            className="rounded-2xl md:rounded-[2rem] p-10 md:p-16 relative overflow-hidden"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, ease: EASE_ENTER }}
+            style={{
+              background: "rgba(29, 29, 31, 0.95)",
+              backdropFilter: "blur(20px) saturate(180%)",
+              WebkitBackdropFilter: "blur(20px) saturate(180%)",
+            }}
           >
-            Schedule a call
-            <ArrowRight className="w-4 h-4 ml-1" />
-          </a>
+            <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-bold tracking-[-0.03em] leading-[1.1] text-white">
+              Let's create your<br />next big idea.
+            </h2>
+            <p className="mt-4 text-[17px] leading-[1.6] text-white/50 max-w-[420px]">
+              Available for full-time roles, freelance projects, and design consulting.
+            </p>
+            <a
+              href="https://calendly.com/design-kousik/intro-call"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(buttonVariants({ variant: "inverted", size: "default" }), "mt-8")}
+            >
+              Schedule a call
+              <ArrowRight className="w-4 h-4 ml-1" />
+            </a>
+          </motion.div>
         </div>
-      </motion.section>
+      </section>
     </div>
   )
 }
