@@ -26,11 +26,11 @@ const staggerContainer = {
 }
 
 const BRANDS = [
-  { name: "ThoughtSpot", src: "/assets/brands/thoughtspot.svg" },
-  { name: "Philips", src: "/assets/brands/philips.svg" },
-  { name: "Airtel", src: "/assets/brands/airtel.svg" },
-  { name: "Vedantu", src: "/assets/brands/vedantu.svg" },
-  { name: "Precisely", src: "/assets/brands/precisely.svg" },
+  { name: "ThoughtSpot", src: "/assets/brands/thoughtspot.svg", height: 20 },
+  { name: "Philips", src: "/assets/brands/philips.svg", height: 18 },
+  { name: "Airtel", src: "/assets/brands/airtel.svg", height: 20 },
+  { name: "Vedantu", src: "/assets/brands/vedantu.svg", height: 20 },
+  { name: "Precisely", src: "/assets/brands/precisely.svg", height: 20 },
 ]
 
 const PROJECTS = [
@@ -173,7 +173,8 @@ export default function HomePage() {
                 key={`${brand.name}-${i}`}
                 src={brand.src}
                 alt={brand.name}
-                className="shrink-0 h-7 mx-10 brand-logo-light object-contain"
+                className="shrink-0 mx-10 brand-logo-light"
+                style={{ height: brand.height }}
               />
             ))}
           </div>
