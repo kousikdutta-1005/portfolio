@@ -94,6 +94,14 @@ export default function HomePage() {
                 <span className="block">Kousik</span>
                 <span className="block text-gradient">Dutta.</span>
               </h1>
+              <motion.p
+                className="mt-4 text-[15px] text-muted-foreground tracking-wide"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                Product Designer · UX Engineer
+              </motion.p>
             </motion.div>
 
             {/* Right: Description + CTA — Apple's secondary content is smaller, lighter */}
