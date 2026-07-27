@@ -368,116 +368,127 @@ html {
 
 /* ─── Envelope CTA Animation ─── */
 
-.envelope-body {
+.envelope-scene {
   position: relative;
-  perspective: 1000px;
-  padding-top: 80px;
-  min-height: 320px;
+  height: 680px;
+  overflow: hidden;
 }
 
-/* Envelope back (the pocket) — fully opaque */
-.envelope-body::before {
-  content: "";
+/* Back flap — V-triangle that seamlessly connects to the pocket */
+.envelope-back-flap {
   position: absolute;
-  bottom: 0;
+  bottom: 280px;
   left: 0;
   right: 0;
-  height: 60%;
-  background: #e8e8ed;
-  border-radius: 0 0 1.25rem 1.25rem;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-top: none;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
-  z-index: 4;
+  height: 180px;
+  clip-path: polygon(0 100%, 50% 0%, 100% 100%);
+  background: #ddd8d0;
+  z-index: 0;
 }
 
-.dark .envelope-body::before {
-  background: #2c2c2e;
-  border-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
-}
-
-/* Inner shadow at the top of the pocket */
-.envelope-body::after {
+/* Fold crease line on the back flap */
+.envelope-back-flap::after {
   content: "";
   position: absolute;
-  bottom: 0;
-  left: 1px;
-  right: 1px;
-  height: 58%;
-  background: linear-gradient(180deg, rgba(0,0,0,0.04) 0%, transparent 20%);
-  border-radius: 0 0 1.25rem 1.25rem;
-  z-index: 5;
+  inset: 0;
+  background:
+    linear-gradient(to bottom left, transparent calc(50% - 0.5px), rgba(0,0,0,0.08) 50%, transparent calc(50% + 0.5px)),
+    linear-gradient(to bottom right, transparent calc(50% - 0.5px), rgba(0,0,0,0.08) 50%, transparent calc(50% + 0.5px));
   pointer-events: none;
 }
 
-.dark .envelope-body::after {
-  background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, transparent 20%);
+.dark .envelope-back-flap {
+  background: #4a4540;
 }
 
-/* The flap (top triangle) */
-.envelope-flap {
+.dark .envelope-back-flap::after {
+  background:
+    linear-gradient(to bottom left, transparent calc(50% - 0.5px), rgba(255,255,255,0.06) 50%, transparent calc(50% + 0.5px)),
+    linear-gradient(to bottom right, transparent calc(50% - 0.5px), rgba(255,255,255,0.06) 50%, transparent calc(50% + 0.5px));
+}
+
+/* The letter card — z-index animated by Framer Motion */
+.envelope-card {
   position: absolute;
-  top: 22%;
-  left: 0;
-  right: 0;
-  height: 45%;
-  z-index: 6;
-  transform-style: preserve-3d;
-  transform-origin: top center;
-}
-
-.envelope-flap-front,
-.envelope-flap-back {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
-}
-
-.envelope-flap-front {
-  clip-path: polygon(0 0, 50% 100%, 100% 0);
-  background: #d4d4d9;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-
-.dark .envelope-flap-front {
-  background: #3a3a3c;
-}
-
-.envelope-flap-back {
-  clip-path: polygon(0 0, 50% 100%, 100% 0);
-  background: #c8c8cd;
-  transform: rotateX(180deg);
-}
-
-.dark .envelope-flap-back {
-  background: #1c1c1e;
-}
-
-/* The letter card — starts inside the pocket, pops up */
-.envelope-letter {
-  position: relative;
-  z-index: 3;
-  margin: 0 auto;
-  width: 88%;
-}
-
-.envelope-letter-inner {
+  bottom: 260px;
+  left: 5%;
+  right: 5%;
   background: #ffffff;
-  border-radius: 1rem;
-  padding: 2.5rem 2.75rem;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 44px 48px;
   box-shadow:
-    0 4px 16px rgba(0, 0, 0, 0.08),
+    0 4px 16px rgba(0, 0, 0, 0.06),
     0 16px 48px rgba(0, 0, 0, 0.1);
 }
 
-.dark .envelope-letter-inner {
-  background: #1c1c1e;
-  border-color: rgba(255, 255, 255, 0.1);
+.dark .envelope-card {
+  background: #28282a;
   box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
     0 4px 16px rgba(0, 0, 0, 0.5),
-    0 16px 48px rgba(0, 0, 0, 0.5);
+    0 16px 48px rgba(0, 0, 0, 0.6);
+}
+
+/* The envelope pocket — in front, hides the card */
+.envelope-pocket {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 280px;
+  z-index: 3;
+  background: linear-gradient(180deg, #e8e3db 0%, #e0dbd3 40%, #d8d3cb 100%);
+  border-radius: 0 0 20px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: none;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* Diagonal fold lines — the envelope's side flaps */
+.envelope-pocket::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background:
+    linear-gradient(to bottom right, transparent calc(50% - 0.5px), rgba(0,0,0,0.05) 50%, transparent calc(50% + 0.5px)),
+    linear-gradient(to bottom left, transparent calc(50% - 0.5px), rgba(0,0,0,0.05) 50%, transparent calc(50% + 0.5px));
+  border-radius: 0 0 20px 20px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dark .envelope-pocket {
+  background: linear-gradient(180deg, #4a4540 0%, #403b36 40%, #38332e 100%);
+  border-color: rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.dark .envelope-pocket::before {
+  background:
+    linear-gradient(to bottom right, transparent calc(50% - 0.5px), rgba(255,255,255,0.04) 50%, transparent calc(50% + 0.5px)),
+    linear-gradient(to bottom left, transparent calc(50% - 0.5px), rgba(255,255,255,0.04) 50%, transparent calc(50% + 0.5px));
+}
+
+/* Inner shadow at the pocket opening — depth at the mouth */
+.envelope-pocket-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.dark .envelope-pocket-shadow {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, transparent 100%);
 }
 
 /* ─── Interactive Perspective Grid ─── */

@@ -322,54 +322,55 @@ export default function HomePage() {
       <section className="py-24 md:py-32">
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <motion.div
-            className="relative"
+            className="envelope-scene"
             initial="closed"
             whileInView="open"
-            viewport={{ once: true, margin: "-80px" }}
+            viewport={{ amount: 0.3 }}
           >
-            {/* Envelope body */}
-            <div className="envelope-body">
-              {/* Envelope flap — opens on scroll */}
-              <motion.div
-                className="envelope-flap"
-                variants={{
-                  closed: { rotateX: 0 },
-                  open: { rotateX: 180, transition: { duration: 0.9, ease: [0.33, 1, 0.68, 1], delay: 0.15 } },
-                }}
-              >
-                <div className="envelope-flap-front" />
-                <div className="envelope-flap-back" />
-              </motion.div>
+            {/* Back flap — decorative V-shape behind everything */}
+            <div className="envelope-back-flap" />
 
-              {/* Letter — pops up from inside the envelope */}
-              <motion.div
-                className="envelope-letter"
-                variants={{
-                  closed: { y: 100, scale: 0.92 },
-                  open: { y: -60, scale: 1, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.6 } },
-                }}
+            {/* The letter card — slides up from inside the pocket */}
+            <motion.div
+              className="envelope-card"
+              variants={{
+                closed: {
+                  y: 340,
+                  scale: 0.94,
+                  zIndex: 1,
+                  transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] },
+                },
+                open: {
+                  y: 0,
+                  scale: 1,
+                  zIndex: 10,
+                  transition: { duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.15 },
+                },
+              }}
+            >
+              <p className="text-[13px] font-semibold tracking-[0.02em] uppercase text-muted-foreground mb-3">
+                Get in touch
+              </p>
+              <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-[-0.03em] leading-[1.1]">
+                Let's create your<br />next big idea.
+              </h2>
+              <p className="mt-4 text-[16px] leading-[1.6] text-muted-foreground max-w-[460px]">
+                Available for full-time roles, freelance projects, and design consulting.
+              </p>
+              <a
+                href="https://calendly.com/design-kousik/intro-call"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(buttonVariants({ variant: "default", size: "default" }), "mt-7")}
               >
-                <div className="envelope-letter-inner">
-                  <p className="text-[13px] font-semibold tracking-[0.02em] uppercase text-muted-foreground mb-3">
-                    Get in touch
-                  </p>
-                  <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-[-0.03em] leading-[1.1]">
-                    Let's create your<br />next big idea.
-                  </h2>
-                  <p className="mt-4 text-[16px] leading-[1.6] text-muted-foreground max-w-[460px]">
-                    Available for full-time roles, freelance projects, and design consulting.
-                  </p>
-                  <a
-                    href="https://calendly.com/design-kousik/intro-call"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={cn(buttonVariants({ variant: "default", size: "default" }), "mt-7")}
-                  >
-                    Schedule a call
-                    <ArrowRight className="w-4 h-4 ml-1" />
-                  </a>
-                </div>
-              </motion.div>
+                Schedule a call
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </a>
+            </motion.div>
+
+            {/* The envelope pocket — sits in front, hides the card */}
+            <div className="envelope-pocket">
+              <div className="envelope-pocket-shadow" />
             </div>
           </motion.div>
         </div>
