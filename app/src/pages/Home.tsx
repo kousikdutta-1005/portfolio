@@ -5,6 +5,8 @@ import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { ArrowRight, ArrowUpRight } from "lucide-react"
 import { useState, useEffect } from "react"
+import { PerspectiveGrid } from "@/components/PerspectiveGrid"
+import { PageTransition } from "@/components/PageTransition"
 
 // Apple HIG motion: spring-based, purposeful, natural physics
 const EASE_ENTER = [0.25, 0.1, 0.25, 1] as const
@@ -28,7 +30,7 @@ const staggerContainer = {
 const BRANDS = [
   { name: "ThoughtSpot", src: "/assets/brands/thoughtspot.svg", height: 40 },
   { name: "Philips", src: "/assets/brands/philips.svg", height: 22 },
-  { name: "Airtel", src: "/assets/brands/airtel.svg", height: 28 },
+  { name: "Airtel", src: "/assets/brands/airtel.svg", height: 24 },
   { name: "Vedantu", src: "/assets/brands/vedantu.svg", height: 26 },
   { name: "Precisely", src: "/assets/brands/precisely.svg", height: 28 },
 ]
@@ -109,6 +111,7 @@ export default function HomePage() {
   const row2 = TESTIMONIALS.slice(5)
 
   return (
+    <PageTransition>
     <div className="overflow-hidden relative">
       <div className="absolute top-0 left-0 right-0 bottom-0 pointer-events-none overflow-hidden" style={{ zIndex: -1, minHeight: "100%" }} aria-hidden="true">
         <div className="absolute top-[200px] left-[-100px] w-[700px] h-[700px] rounded-full blur-[100px]" style={{ background: "rgba(0, 113, 227, 0.12)" }} />
@@ -117,8 +120,11 @@ export default function HomePage() {
         <div className="absolute top-[2800px] right-[5%] w-[500px] h-[500px] rounded-full blur-[90px]" style={{ background: "rgba(0, 113, 227, 0.09)" }} />
       </div>
       {/* Hero — Apple-style: big bold type, generous breathing room */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-24">
-        <div className="max-w-[980px] mx-auto px-6 md:px-10">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-24 relative overflow-hidden isolate">
+        {/* Interactive perspective grid background */}
+        <PerspectiveGrid className="hero-grid" gridSize={28} fadeRadius={72} />
+
+        <div className="max-w-[980px] mx-auto px-6 md:px-10 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left: Name + animated role */}
             <motion.div
@@ -346,6 +352,7 @@ export default function HomePage() {
         </div>
       </section>
     </div>
+    </PageTransition>
   )
 }
 
@@ -367,7 +374,7 @@ function TestimonialCard({ t }: { t: typeof TESTIMONIALS[0] }) {
 function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
   return (
     <motion.div
-      className="rounded-xl md:rounded-2xl overflow-hidden apple-card"
+      className="rounded-2xl overflow-hidden apple-card"
       whileHover={{ scale: 1.015 }}
       transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
     >
@@ -379,11 +386,11 @@ function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
           loading="lazy"
         />
       </div>
-      <div className="p-4 md:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-        <h3 className="text-[15px] md:text-[16px] font-semibold tracking-tight">{project.title}</h3>
+      <div className="p-5 flex items-center justify-between gap-3">
+        <h3 className="text-[15px] font-semibold tracking-tight">{project.title}</h3>
         <div className="flex items-center gap-1.5 shrink-0">
           {project.tags.slice(0, 2).map((tag) => (
-            <span key={tag} className="text-[10px] md:text-[11px] font-medium text-muted-foreground px-2 md:px-2.5 py-0.5 md:py-1 rounded-full bg-secondary whitespace-nowrap">
+            <span key={tag} className="text-[11px] font-medium text-muted-foreground px-2.5 py-1 rounded-full bg-secondary/60 whitespace-nowrap">
               {tag}
             </span>
           ))}

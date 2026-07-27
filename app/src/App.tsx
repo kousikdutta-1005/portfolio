@@ -5,6 +5,8 @@ import { SmoothScroll } from "./components/SmoothScroll"
 import HomePage from "./pages/Home"
 import AboutPage from "./pages/About"
 import DesignSystem from "./pages/DesignSystem"
+import ThoughtSpotPage from "./pages/ThoughtSpot"
+import PhilipsPage from "./pages/Philips"
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/design-system" element={<DesignSystem />} />
+            <Route path="/case-study/thoughtspot" element={<ThoughtSpotPage />} />
+            <Route path="/case-study/philips" element={<PhilipsPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

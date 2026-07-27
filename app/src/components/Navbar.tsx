@@ -25,7 +25,12 @@ export function Navbar() {
             <img
               src="/assets/images/Mc2cHPK2FkFfFmWhv4umGYjMuw.png"
               alt="Kousik Dutta"
-              className="h-5 w-auto transition-all duration-300 dark:invert dark:brightness-200"
+              className="h-5 w-auto dark:hidden"
+            />
+            <img
+              src="/assets/images/QOXQB7tAox2fGvQW3EkxuXzBGLg.png"
+              alt="Kousik Dutta"
+              className="h-5 w-auto hidden dark:block"
             />
           </Link>
 

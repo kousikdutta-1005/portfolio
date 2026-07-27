@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { ArrowRight, Download } from "lucide-react"
+import { PageTransition } from "@/components/PageTransition"
 
 const EASE_ENTER = [0.25, 0.1, 0.25, 1] as const
 const DURATION_REVEAL = 0.6
@@ -45,7 +46,15 @@ const VALUES = [
 
 export default function AboutPage() {
   return (
-    <div>
+    <PageTransition>
+    <div className="overflow-hidden relative">
+      {/* Background orbs */}
+      <div className="absolute top-0 left-0 right-0 bottom-0 pointer-events-none overflow-hidden" style={{ zIndex: -1 }} aria-hidden="true">
+        <div className="absolute top-[100px] right-[-80px] w-[600px] h-[600px] rounded-full blur-[100px]" style={{ background: "rgba(94, 92, 230, 0.1)" }} />
+        <div className="absolute top-[800px] left-[-120px] w-[500px] h-[500px] rounded-full blur-[80px]" style={{ background: "rgba(255, 159, 10, 0.08)" }} />
+        <div className="absolute top-[1600px] right-[5%] w-[700px] h-[700px] rounded-full blur-[120px]" style={{ background: "rgba(0, 113, 227, 0.07)" }} />
+      </div>
+
       {/* Hero */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-20">
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
@@ -111,7 +120,7 @@ export default function AboutPage() {
                 key={img.alt}
                 src={img.src}
                 alt={img.alt}
-                className="w-full h-48 md:h-56 object-cover rounded-xl md:rounded-2xl"
+                className="w-full h-48 md:h-56 object-cover rounded-xl md:rounded-2xl frost-media"
                 initial={{ opacity: 0, scale: 0.96 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -258,5 +267,6 @@ export default function AboutPage() {
         </div>
       </section>
     </div>
+    </PageTransition>
   )
 }
