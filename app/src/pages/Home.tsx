@@ -114,7 +114,7 @@ export default function HomePage() {
       {/* Hero — Apple-style: big bold type, generous breathing room */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-24">
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-end">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left: Name + animated role */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -132,7 +132,6 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: EASE_ENTER, delay: 0.15 }}
-              className="pb-2"
             >
               <div className="mb-4">
                 <RotatingRoles />
