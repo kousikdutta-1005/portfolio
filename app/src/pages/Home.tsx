@@ -123,8 +123,8 @@ export default function HomePage() {
         <div className="absolute top-[2800px] right-[5%] w-[500px] h-[500px] rounded-full blur-[90px]" style={{ background: "rgba(0, 113, 227, 0.09)" }} />
       </div>
       {/* Hero — Apple-style: big bold type, generous breathing room */}
-      <section className="pt-32 pb-20 md:pt-44 md:pb-28 relative min-h-[70vh] flex items-center">
-        <div className="max-w-[980px] mx-auto px-6 md:px-10 relative z-10 w-full">
+      <section className="pt-32 pb-20 md:pt-44 md:pb-28 relative min-h-[70vh] flex items-center pointer-events-none">
+        <div className="max-w-[980px] mx-auto px-6 md:px-10 relative z-10 w-full pointer-events-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left: Name + animated role */}
             <motion.div
