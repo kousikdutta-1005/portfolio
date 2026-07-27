@@ -1,51 +1,88 @@
-import { useEffect, useRef, useState, useMemo } from "react"
+import { useEffect, useRef, useCallback } from "react"
 
 interface PerspectiveGridProps {
   className?: string
   gridSize?: number
-  fadeRadius?: number
 }
 
 /**
- * Interactive 3D grid that tiles light up on hover.
- * Inspired by Apple's spatial aesthetic — subtle, ambient, responsive.
+ * Interactive 3D perspective grid with cursor-proximity lighting.
+ * Tiles near the cursor glow — creating an ambient, reactive background.
  */
-export function PerspectiveGrid({ className = "", gridSize = 32, fadeRadius = 75 }: PerspectiveGridProps) {
-  const [mounted, setMounted] = useState(false)
+export function PerspectiveGrid({ className = "", gridSize = 30 }: PerspectiveGridProps) {
   const containerRef = useRef<HTMLDivElement>(null)
+  const tilesRef = useRef<HTMLDivElement>(null)
+  const rafRef = useRef(0)
 
-  useEffect(() => {
-    const raf = requestAnimationFrame(() => setMounted(true))
-    return () => cancelAnimationFrame(raf)
+  const handlePointer = useCallback((e: PointerEvent) => {
+    if (rafRef.current) return
+    rafRef.current = requestAnimationFrame(() => {
+      const container = containerRef.current
+      if (!container) { rafRef.current = 0; return }
+
+      const rect = container.getBoundingClientRect()
+      // Set CSS vars for the radial cursor highlight
+      const x = ((e.clientX - rect.left) / rect.width) * 100
+      const y = ((e.clientY - rect.top) / rect.height) * 100
+      container.style.setProperty("--glow-x", `${x}%`)
+      container.style.setProperty("--glow-y", `${y}%`)
+      container.style.setProperty("--glow-opacity", "1")
+      rafRef.current = 0
+    })
   }, [])
 
-  const tiles = useMemo(() => Array.from({ length: gridSize * gridSize }), [gridSize])
+  const handleLeave = useCallback(() => {
+    containerRef.current?.style.setProperty("--glow-opacity", "0")
+  }, [])
+
+  useEffect(() => {
+    const container = containerRef.current
+    const tilesEl = tilesRef.current
+    if (!container || !tilesEl) return
+
+    // Render tiles via DOM for performance (avoid 900 React elements)
+    const fragment = document.createDocumentFragment()
+    const total = gridSize * gridSize
+    for (let i = 0; i < total; i++) {
+      const tile = document.createElement("div")
+      tile.className = "pg-tile"
+      fragment.appendChild(tile)
+    }
+    tilesEl.appendChild(fragment)
+
+    // Pointer events
+    const mq = window.matchMedia("(hover: hover) and (pointer: fine)")
+    if (mq.matches) {
+      container.addEventListener("pointermove", handlePointer, { passive: true })
+      container.addEventListener("pointerleave", handleLeave)
+    }
+
+    return () => {
+      container.removeEventListener("pointermove", handlePointer)
+      container.removeEventListener("pointerleave", handleLeave)
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+      tilesEl.innerHTML = ""
+    }
+  }, [gridSize, handlePointer, handleLeave])
 
   return (
     <div
       ref={containerRef}
-      className={`perspective-grid-wrapper ${className}`}
-      style={{ perspective: "2000px", transformStyle: "preserve-3d" }}
+      className={`pg-container ${className}`}
       aria-hidden="true"
     >
       <div
-        className="perspective-grid-tiles"
+        ref={tilesRef}
+        className="pg-grid"
         style={{
-          display: "grid",
           gridTemplateColumns: `repeat(${gridSize}, 1fr)`,
           gridTemplateRows: `repeat(${gridSize}, 1fr)`,
         }}
-      >
-        {mounted && tiles.map((_, i) => (
-          <div key={i} className="perspective-grid-tile" />
-        ))}
-      </div>
-      <div
-        className="perspective-grid-fade"
-        style={{
-          background: `radial-gradient(circle, transparent 25%, var(--grid-fade, #000) ${fadeRadius}%)`,
-        }}
       />
+      {/* Cursor-following radial glow */}
+      <div className="pg-cursor-glow" />
+      {/* Edge fade — blends grid into page background */}
+      <div className="pg-fade" />
     </div>
   )
 }
