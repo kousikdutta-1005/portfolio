@@ -77,7 +77,9 @@ const TESTIMONIALS = [
   { quote: "Kousik is good at design execution and documenting his ideas.", name: "Poornima Kapoor", role: "Lead Designer, Airtel", avatar: "/assets/images/yLQEIFzvuqW7VcwbkkFzM8Z4N6A.png" },
 ]
 
-const ROLES = ["Product Designer", "UX Engineer", "Design Strategist"]
+const ROLES = ["Senior Product Designer", "UX Designer", "Design Strategist"]
+const HERO_COMPANIES = ["ThoughtSpot", "Philips", "Precisely", "Airtel", "Vedantu"]
+const HERO_OUTCOMES = ["3× MAU growth", "4.9★ app rating", "82.1 SUS", "iF-recognized work"]
 
 function RotatingRoles() {
   const [index, setIndex] = useState(0)
@@ -149,17 +151,36 @@ export default function HomePage() {
                 <RotatingRoles />
               </div>
               <p className="text-[17px] leading-[1.65] text-muted-foreground">
-                I help ambitious companies achieve their business goals by strategically designing their MVPs, optimising for growth & beyond.
+                I design clear, high-craft product experiences for complex systems — turning ambiguity into shipped products, measurable outcomes, and scalable design systems.
               </p>
-              <div className="flex items-center gap-4 mt-7">
+              <div className="mt-5 space-y-2">
+                <p className="text-[13px] font-medium text-foreground/80">
+                  {HERO_COMPANIES.join(" · ")}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {HERO_OUTCOMES.map((outcome) => (
+                    <span key={outcome} className="rounded-full border border-border/60 bg-background/55 px-3 py-1 text-[12px] font-medium text-muted-foreground backdrop-blur-sm">
+                      {outcome}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="flex flex-wrap items-center gap-4 mt-7">
                 <a
-                  href="https://calendly.com/design-kousik/intro-call"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#selected-work"
                   className={cn(buttonVariants({ variant: "default", size: "default" }))}
                 >
-                  Schedule a call
+                  View selected work
                   <ArrowRight className="w-4 h-4 ml-1" />
+                </a>
+                <a
+                  href="https://drive.google.com/file/d/1L27SS5uGNk5nGmCkft9myUSf5woNHooB/view"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-[15px] font-medium text-accent hover:underline hover:underline-offset-4 transition-all"
+                >
+                  Resume
+                  <Download className="w-4 h-4 ml-1" />
                 </a>
               </div>
             </motion.div>
@@ -191,7 +212,7 @@ export default function HomePage() {
       </section>
 
       {/* Projects — Apple card grid: no borders, shadow-based, large radius */}
-      <section className="py-20 md:py-28">
+      <section id="selected-work" className="py-20 md:py-28 scroll-mt-24">
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <motion.div
             variants={fadeUp}
