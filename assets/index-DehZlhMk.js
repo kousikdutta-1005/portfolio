@@ -29,13 +29,15 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
 
   .apple-card,
   .glass-card,
-  .liquid-control {
+  .liquid-control,
+  .envelope-card {
     backdrop-filter: blur(32px) saturate(190%) brightness(1.04) !important;
   }
 
   .dark .apple-card,
   .dark .glass-card,
-  .dark .liquid-control {
+  .dark .liquid-control,
+  .dark .envelope-card {
     backdrop-filter: blur(34px) saturate(190%) brightness(1) !important;
   }
 
