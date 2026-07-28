@@ -1,77 +1,109 @@
-import { Link } from "react-router-dom"
-import { motion } from "framer-motion"
-import { buttonVariants } from "@/components/ui/button"
+import { Link, useLocation } from "react-router-dom"
+import { motion, useReducedMotion } from "framer-motion"
+import type { Variants } from "framer-motion"
 import { cn } from "@/lib/utils"
-import { ArrowRight } from "lucide-react"
+
+const EASE_ENVELOPE = [0.16, 1, 0.3, 1] as const
+const EASE_ENVELOPE_CLOSE = [0.4, 0, 0.2, 1] as const
 
 export function Footer() {
+  const prefersReducedMotion = useReducedMotion()
+  const location = useLocation()
+  const isCurrentPage = (to: string) => location.pathname === to
+  const cardVariants: Variants = prefersReducedMotion
+    ? {
+        closed: { y: 28, scale: 1 },
+        open: { y: 28, scale: 1 },
+      }
+    : {
+        closed: {
+          y: 420,
+          scale: 0.96,
+          transition: { duration: 0.6, ease: EASE_ENVELOPE_CLOSE },
+        },
+        open: {
+          y: 28,
+          scale: 1,
+          transition: { duration: 1.2, ease: EASE_ENVELOPE, delay: 0.1 },
+        },
+      }
+
   return (
-    <section className="py-20 md:py-28">
+    <footer className="py-14 md:py-18">
       <div className="max-w-[980px] mx-auto px-6 md:px-10">
         <motion.div
           className="envelope-scene"
-          initial="closed"
+          initial={prefersReducedMotion ? "open" : "closed"}
           whileInView="open"
           viewport={{ amount: 0.3 }}
         >
-          {/* Back flap */}
-          <div className="envelope-back-flap" />
+          <div className="envelope-back-flap" aria-hidden="true" />
 
-          {/* Card */}
-          <motion.div
-            className="envelope-card"
-            variants={{
-              closed: {
-                y: 550,
-                scale: 0.96,
-                transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] },
-              },
-              open: {
-                y: 38,
-                scale: 1,
-                transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.1 },
-              },
-            }}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
-              <div>
-                <p className="text-[13px] font-semibold tracking-[0.02em] uppercase text-muted-foreground mb-2">
-                  Get in touch
-                </p>
-                <h2 className="text-[clamp(1.5rem,3.5vw,2.25rem)] font-bold tracking-[-0.03em] leading-[1.1]">
-                  Let's build your<br />next big idea.
+          <motion.div className="envelope-card" variants={cardVariants}>
+            <div className="footer-note">
+              <div className="footer-note-main">
+                <p className="footer-note-kicker">A note from Kousik</p>
+                <h2 className="footer-note-title">
+                  If the problem is messy, I want to hear it.
                 </h2>
               </div>
-              <div className="flex flex-col justify-end">
-                <p className="text-[15px] leading-[1.6] text-muted-foreground">
-                  Available for full-time roles, freelance projects, and design consulting.
+              <div className="footer-note-body">
+                <p>
+                  I am looking for senior product design work where clear thinking, precise craft, and AI-assisted building can move the product forward.
                 </p>
-                <a
-                  href="https://calendly.com/design-kousik/intro-call"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cn(buttonVariants({ variant: "default", size: "default" }), "mt-4 w-fit")}
-                >
-                  Schedule a call
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </a>
+                <div className="footer-note-actions">
+                  <a
+                    href="https://calendly.com/design-kousik/intro-call"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer-note-action"
+                    aria-label="Schedule a call in a new tab"
+                    data-cursor="none"
+                  >
+                    Schedule a call
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/kousikdutta/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer-note-action"
+                    aria-label="Open LinkedIn profile in a new tab"
+                    data-cursor="none"
+                  >
+                    LinkedIn
+                  </a>
+                </div>
               </div>
             </div>
-            <div className="mt-8 flex items-center justify-center gap-4 text-[11px] text-muted-foreground/40">
-              <Link to="/" className="hover:text-muted-foreground/70 transition-colors">Home</Link>
-              <Link to="/about" className="hover:text-muted-foreground/70 transition-colors">About</Link>
-              <a href="https://www.linkedin.com/in/kousikdutta/" target="_blank" rel="noopener noreferrer" className="hover:text-muted-foreground/70 transition-colors">LinkedIn</a>
+            <div className="footer-note-meta">
+              <nav className="flex flex-wrap items-center gap-3.5" aria-label="Footer">
+                <Link
+                  to="/"
+                  className={cn("text-link footer-link", isCurrentPage("/") && "is-active")}
+                  aria-current={isCurrentPage("/") ? "page" : undefined}
+                  data-cursor="none"
+                >
+                  Home
+                </Link>
+                <Link
+                  to="/about"
+                  className={cn("text-link footer-link", isCurrentPage("/about") && "is-active")}
+                  aria-current={isCurrentPage("/about") ? "page" : undefined}
+                  data-cursor="none"
+                >
+                  About
+                </Link>
+              </nav>
               <span>© {new Date().getFullYear()} Kousik Dutta</span>
             </div>
           </motion.div>
 
-          {/* Envelope pocket */}
-          <div className="envelope-liner" />
-          <div className="envelope-pocket-wrap">
+          <div className="envelope-liner" aria-hidden="true" />
+          <div className="envelope-pocket-wrap" aria-hidden="true">
             <div className="envelope-pocket" />
           </div>
         </motion.div>
       </div>
-    </section>
+    </footer>
   )
 }

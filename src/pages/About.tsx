@@ -1,8 +1,7 @@
-import { motion, useScroll, useMotionValueEvent, useSpring, useTransform } from "framer-motion"
+import { motion, useScroll, useMotionValueEvent, useSpring, useReducedMotion } from "framer-motion"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { assetPath } from "@/lib/assets"
-import { ArrowRight, Download } from "lucide-react"
 import { PageTransition } from "@/components/PageTransition"
 import { useState, useRef } from "react"
 import { useTheme } from "@/components/ThemeProvider"
@@ -26,7 +25,7 @@ const staggerContainer = {
 }
 
 const AWARDS = [
-  { title: "2X University Gold Medal", sub: "Best Design & Overall Student" },
+  { title: "2x University Gold Medal", sub: "Best Design and Overall Student" },
   { title: "Winner", sub: "D'source Design Challenge 2022" },
   { title: "CII Young Designer Awards 2022", sub: "" },
   { title: "Honorable Mention", sub: "Student Service Design Challenge 2022" },
@@ -34,34 +33,61 @@ const AWARDS = [
 ]
 
 const VALUES = [
-  { title: "Outcome-first", desc: "We set a scorecard together & design to move it, not just ship screens." },
-  { title: "Fast, honest loops", desc: "You get quick drafts, clear trade-offs, weekly progress you can see & test." },
-  { title: "Systems that scale", desc: "I leave patterns, tokens, & docs so teams ship faster with consistent quality." },
-  { title: "Built for reality", desc: "I handle edge cases, accessibility, and clean handoff so engineering moves smoothly." },
+  { title: "Thoughtful framing", desc: "I make the real problem visible before anyone falls in love with a solution." },
+  { title: "Calm craft", desc: "I shape flows, hierarchy, and states until the product feels obvious and trustworthy." },
+  { title: "Buildable direction", desc: "I prototype with AI-assisted code so the idea can be tested, not just admired." },
+  { title: "Real-world systems", desc: "Edge cases, accessibility, and handoff stay inside the work from the start." },
+]
+
+const EXPERIENCE = [
+  {
+    period: "2024 to present",
+    role: "UX Designer",
+    company: "Precisely",
+    desc: "Designing data-integrity workflows with clearer systems, tighter handoff, and faster prototype loops.",
+  },
+  {
+    period: "2023 to 2024",
+    role: "Product Designer",
+    company: "ThoughtSpot",
+    desc: "Designed mobile analytics experiences across KPI watchlists, AI input states, native navigation, and advanced filters.",
+  },
+  {
+    period: "2022 to 2024",
+    role: "Freelance Designer",
+    company: "Multiple brands",
+    desc: "Partnered with teams on workshops, product flows, and interface systems when clarity and speed mattered.",
+  },
+  {
+    period: "2021 to 2023",
+    role: "Internships",
+    company: "Philips, OLX, Airtel, Vedantu",
+    desc: "Built research depth and production-facing UX craft across healthcare, service design, telecom, commerce, and learning.",
+  },
 ]
 
 /* ── Story Cube Data ── */
 
 const STORY_CHAPTERS = [
   {
-    label: "The designer",
-    heading: ["Driving", "Growth."],
-    text: "Product designer with 6+ years turning complex problems into intuitive, growth-driving digital experiences.",
+    label: "Thought",
+    heading: ["Thoughts", "First."],
+    text: "I start by making vague product problems legible. The work gets better when the decision gets clearer.",
   },
   {
-    label: "The journey",
-    heading: ["Built", "at Scale."],
-    text: "Philips, ThoughtSpot, and Precisely, designing products used by millions across healthcare, analytics, and data integrity.",
+    label: "Craft",
+    heading: ["Craft", "Second."],
+    text: "Then I turn direction into calm interfaces, tight systems, and product moments people can trust.",
   },
   {
-    label: "The craft",
-    heading: ["Research", "First."],
-    text: "Every project starts with understanding people. Research, rapid prototyping, and systems thinking are how great products ship.",
+    label: "Build",
+    heading: ["Build", "Third."],
+    text: "AI-assisted code helps me make the idea real faster, so teams can feel the product before committing to it.",
   },
   {
-    label: "The passion",
-    heading: ["Heart", "& Craft."],
-    text: "2× gold medalist. Industry-recognized. What truly drives me is creating work that genuinely improves people's lives.",
+    label: "Human",
+    heading: ["Still", "Human."],
+    text: "The point is not the artifact. The point is clearer decisions, better products, and work that improves everyday life.",
   },
 ]
 
@@ -145,8 +171,6 @@ function generateScatter() {
 const SCATTER = generateScatter()
 
 function lerp(a: number, b: number, t: number) { return a + (b - a) * t }
-function easeOut(t: number) { return 1 - Math.pow(1 - t, 3) }
-function easeInOut(t: number) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2 }
 function clamp01(v: number) { return Math.max(0, Math.min(1, v)) }
 
 function UnitCube({ x, y, z, rx, ry, isDark }: { x: number; y: number; z: number; rx: number; ry: number; isDark: boolean }) {
@@ -259,6 +283,7 @@ function PhotoCube({ src, size, x, y, rx, ry, isDark }: { src: string; size: num
 function StoryCubeSection() {
   const containerRef = useRef<HTMLDivElement>(null)
   const { resolvedTheme } = useTheme()
+  const prefersReducedMotion = useReducedMotion()
   const isDark = resolvedTheme === "dark"
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -268,6 +293,64 @@ function StoryCubeSection() {
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 200, damping: 50, mass: 0.2 })
   const [progress, setProgress] = useState(0)
   useMotionValueEvent(smoothProgress, "change", setProgress)
+
+  if (prefersReducedMotion) {
+    return (
+      <section className="relative py-24 md:py-28">
+        <div className="max-w-[980px] mx-auto px-6 md:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div>
+              <h1 className="text-[clamp(3rem,7vw,4rem)] font-bold tracking-[-0.035em] leading-[1.02]">
+                <span className="block">Think systems.</span>
+                <span className="block text-foreground/80">Make it real.</span>
+              </h1>
+            </div>
+            <div>
+              <p className="text-[17px] leading-[1.65] text-foreground/70">
+                I'm Kousik. I use design to make product decisions visible, testable, and shippable. My edge is the way I frame the problem, craft the system, and build enough to learn faster.
+              </p>
+              <div className="flex items-center gap-3.5 mt-6">
+                <a
+                  href="https://drive.google.com/file/d/1L27SS5uGNk5nGmCkft9myUSf5woNHooB/view"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(buttonVariants({ variant: "default", size: "default" }))}
+                  aria-label="Download resume in a new tab"
+                  data-cursor="none"
+                >
+                  Download resume
+                </a>
+                <a
+                  href="https://calendly.com/design-kousik/intro-call"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-link text-[15px]"
+                  aria-label="Book a call in a new tab"
+                  data-cursor="none"
+                >
+                  Book a call
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10">
+            <p className="text-[13px] font-semibold text-muted-foreground mb-3">
+              Recognition
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-5 gap-y-4">
+              {AWARDS.map((award) => (
+                <div key={award.title} className="border-t border-border/55 pt-3">
+                  <h3 className="text-[13px] font-semibold leading-tight">{award.title}</h3>
+                  {award.sub && <p className="text-[12px] text-muted-foreground mt-1">{award.sub}</p>}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   // Simplified 3 phases: cube (0–0.3) → scatter (0.3–0.6) → heart (0.6–1.0)
   const chapter = progress < 0.2 ? 0 : progress < 0.4 ? 1 : progress < 0.6 ? 2 : 3
@@ -335,16 +418,17 @@ function StoryCubeSection() {
   const showHero = chapter === 0 && progress < 0.05
 
   return (
-    <section ref={containerRef} className="relative" style={{ height: "250vh" }}>
+    <section ref={containerRef} className="relative" style={{ height: "230vh" }}>
       <div className="sticky top-0 h-screen overflow-hidden">
-        <div className="pt-32 pb-20 md:pt-44 md:pb-28 relative z-10">
+        <div className="pt-28 pb-16 md:pt-36 md:pb-20 relative z-10">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
             {/* Left — Big heading (hero then chapter headings) */}
-            <div className="relative min-h-[140px]">
+            <div className="relative min-h-[260px] md:min-h-[330px]">
               {/* Hero heading */}
               <motion.div
                 className="absolute inset-0 flex flex-col justify-center"
+                aria-hidden={!showHero}
                 animate={{
                   opacity: showHero ? 1 : 0,
                   y: showHero ? 0 : -20,
@@ -352,9 +436,9 @@ function StoryCubeSection() {
                 transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
                 style={{ pointerEvents: showHero ? "auto" : "none" }}
               >
-                <h1 className="text-[clamp(3.5rem,8vw,6rem)] font-bold tracking-[-0.04em] leading-[1.02]">
-                  <span className="block">Design</span>
-                  <span className="block text-gradient">Driven.</span>
+                <h1 className="text-[clamp(3rem,7vw,4rem)] font-bold tracking-[-0.035em] leading-[1.02]">
+                  <span className="block">Think systems.</span>
+                  <span className="block text-foreground/80">Make it real.</span>
                 </h1>
               </motion.div>
 
@@ -363,6 +447,7 @@ function StoryCubeSection() {
                 <motion.div
                   key={ch.label}
                   className="absolute inset-0 flex flex-col justify-center"
+                  aria-hidden={showHero || chapter !== ci}
                   animate={{
                     opacity: !showHero && chapter === ci ? 1 : 0,
                     y: !showHero && chapter === ci ? 0 : 20,
@@ -370,9 +455,9 @@ function StoryCubeSection() {
                   transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
                   style={{ pointerEvents: !showHero && chapter === ci ? "auto" : "none" }}
                 >
-                  <h2 className="text-[clamp(3.5rem,8vw,6rem)] font-bold tracking-[-0.04em] leading-[1.02]">
+                  <h2 className="text-[clamp(3.25rem,7vw,5rem)] font-bold tracking-[-0.04em] leading-[1.02]">
                     <span className="block">{ch.heading[0]}</span>
-                    <span className="block text-gradient">{ch.heading[1]}</span>
+                    <span className="block text-foreground/80">{ch.heading[1]}</span>
                   </h2>
                 </motion.div>
               ))}
@@ -384,6 +469,7 @@ function StoryCubeSection() {
                 {/* Hero description */}
                 <motion.div
                   className="absolute inset-0 flex flex-col justify-center"
+                  aria-hidden={!showHero}
                   animate={{
                     opacity: showHero ? 1 : 0,
                     y: showHero ? 0 : -15,
@@ -392,7 +478,7 @@ function StoryCubeSection() {
                   style={{ pointerEvents: showHero ? "auto" : "none" }}
                 >
                   <p className="text-[17px] leading-[1.65] text-foreground/70">
-                    Product designer with 6+ years turning complex problems into intuitive, growth-driving digital experiences.
+                    I'm Kousik. I use design to make product decisions visible, testable, and shippable. My edge is the way I frame the problem, craft the system, and build enough to learn faster.
                   </p>
                 </motion.div>
 
@@ -401,6 +487,7 @@ function StoryCubeSection() {
                   <motion.div
                     key={ch.label + "-text"}
                     className="absolute inset-0 flex flex-col justify-center"
+                    aria-hidden={showHero || chapter !== ci}
                     animate={{
                       opacity: !showHero && chapter === ci ? 1 : 0,
                       y: !showHero && chapter === ci ? 0 : 15,
@@ -416,36 +503,39 @@ function StoryCubeSection() {
               </div>
 
               {/* CTA buttons */}
-              <div className="flex items-center gap-4 mt-7">
+              <div className="flex items-center gap-3.5 mt-6">
                 <a
                   href="https://drive.google.com/file/d/1L27SS5uGNk5nGmCkft9myUSf5woNHooB/view"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={cn(buttonVariants({ variant: "default", size: "default" }))}
+                  aria-label="Download resume in a new tab"
+                  data-cursor="none"
                 >
                   Download resume
-                  <Download className="w-4 h-4 ml-1" />
                 </a>
                 <a
                   href="https://calendly.com/design-kousik/intro-call"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[15px] font-medium text-accent hover:underline hover:underline-offset-4 transition-all"
+                  className="text-link text-[15px]"
+                  aria-label="Book a call in a new tab"
+                  data-cursor="none"
                 >
-                  Book a call →
+                  Book a call
                 </a>
               </div>
             </div>
           </div>
 
           {/* Progress dots */}
-          <div className="flex gap-2 mt-6">
+          <div className="flex gap-2 mt-5" aria-hidden="true">
             {STORY_CHAPTERS.map((_, i) => (
               <div
                 key={i}
                 className="w-2 h-2 rounded-full transition-all duration-300"
                 style={{
-                  background: !showHero && chapter === i ? "var(--accent)" : "var(--muted-foreground)",
+                  background: !showHero && chapter === i ? "var(--color-accent)" : "var(--color-muted-foreground)",
                   opacity: !showHero && chapter === i ? 1 : 0.25,
                   transform: !showHero && chapter === i ? "scale(1.3)" : "scale(1)",
                 }}
@@ -456,13 +546,13 @@ function StoryCubeSection() {
         </div>
 
         {/* Recognition — always visible below the hero text */}
-        <div className="max-w-[980px] mx-auto px-6 md:px-10 mt-8 relative z-10">
-          <p className="text-[13px] font-semibold tracking-[0.02em] uppercase text-muted-foreground mb-4">
+        <div className="max-w-[980px] mx-auto px-6 md:px-10 mt-6 relative z-10">
+          <p className="text-[13px] font-semibold text-muted-foreground mb-3">
             Recognition
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-5 gap-y-4">
             {AWARDS.map((award) => (
-              <div key={award.title} className="p-4 rounded-xl apple-card">
+              <div key={award.title} className="border-t border-border/55 pt-3">
                 <h3 className="text-[13px] font-semibold leading-tight">{award.title}</h3>
                 {award.sub && <p className="text-[12px] text-muted-foreground mt-1">{award.sub}</p>}
               </div>
@@ -566,18 +656,63 @@ export default function AboutPage() {
   return (
     <PageTransition>
     <div className="relative">
-      {/* Background orbs */}
-      <div className="absolute top-0 left-0 right-0 bottom-0 pointer-events-none overflow-hidden" style={{ zIndex: -1 }} aria-hidden="true">
-        <div className="absolute top-[100px] right-[-80px] w-[600px] h-[600px] rounded-full blur-[100px]" style={{ background: "rgba(94, 92, 230, 0.1)" }} />
-        <div className="absolute top-[800px] left-[-120px] w-[500px] h-[500px] rounded-full blur-[80px]" style={{ background: "rgba(255, 159, 10, 0.08)" }} />
-        <div className="absolute top-[1600px] right-[5%] w-[700px] h-[700px] rounded-full blur-[120px]" style={{ background: "rgba(0, 113, 227, 0.07)" }} />
-      </div>
-
       {/* Scroll-driven Hero + Story Cube */}
       <StoryCubeSection />
 
+      {/* Experience */}
+      <section className="py-12 md:py-16">
+        <div className="max-w-[980px] mx-auto px-6 md:px-10">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mb-6"
+          >
+            <p className="section-kicker mb-1.5">
+              Experience
+            </p>
+            <h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em]">
+              Built inside real product teams.
+            </h2>
+          </motion.div>
+
+          <motion.ol
+            className="experience-list"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {EXPERIENCE.map((item, index) => (
+              <motion.li
+                key={`${item.company}-${item.role}`}
+                variants={fadeUp}
+                className={cn(
+                  "experience-row",
+                  index < EXPERIENCE.length - 1 && "experience-row-bordered"
+                )}
+              >
+                <p className="text-[12px] text-muted-foreground font-semibold">
+                  {item.period}
+                </p>
+                <div>
+                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4">
+                    <h3 className="text-[17px] font-semibold tracking-[-0.015em]">{item.role}</h3>
+                    <p className="text-[14px] text-foreground/70">{item.company}</p>
+                  </div>
+                  <p className="mt-1.5 text-[14px] leading-[1.58] text-muted-foreground max-w-[620px]">
+                    {item.desc}
+                  </p>
+                </div>
+              </motion.li>
+            ))}
+          </motion.ol>
+        </div>
+      </section>
+
       {/* Values */}
-      <section className="py-16 md:py-20">
+      <section className="py-12 md:py-16">
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <motion.div
             variants={fadeUp}
@@ -585,26 +720,24 @@ export default function AboutPage() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <p className="text-[13px] font-semibold tracking-[0.02em] uppercase text-muted-foreground mb-1.5">
-              Why choose me
+            <p className="section-kicker mb-1.5">
+              How I work
             </p>
-            <h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-8">
-              Design that moves metrics.
+            <h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-6">
+              How my brain helps a team move.
             </h2>
           </motion.div>
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-4"
+            className="value-list"
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
             {VALUES.map((v) => (
-              <motion.div key={v.title} variants={fadeUp}>
-                <div className="h-full p-6 rounded-2xl glass-card">
-                  <h3 className="text-[15px] font-semibold mb-2">{v.title}</h3>
-                  <p className="text-[14px] text-muted-foreground leading-relaxed">{v.desc}</p>
-                </div>
+              <motion.div key={v.title} variants={fadeUp} className="value-row">
+                <h3>{v.title}</h3>
+                <p>{v.desc}</p>
               </motion.div>
             ))}
           </motion.div>
