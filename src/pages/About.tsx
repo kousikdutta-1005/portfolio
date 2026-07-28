@@ -51,12 +51,12 @@ const STORY_CHAPTERS = [
   {
     label: "The journey",
     heading: ["Built", "at Scale."],
-    text: "Philips, ThoughtSpot, Precisely — designing products used by millions across healthcare, analytics, and data integrity.",
+    text: "Philips, ThoughtSpot, and Precisely, designing products used by millions across healthcare, analytics, and data integrity.",
   },
   {
     label: "The craft",
     heading: ["Research", "First."],
-    text: "Every project starts with understanding people. Research, rapid prototyping, systems thinking — that's how great products ship.",
+    text: "Every project starts with understanding people. Research, rapid prototyping, and systems thinking are how great products ship.",
   },
   {
     label: "The passion",

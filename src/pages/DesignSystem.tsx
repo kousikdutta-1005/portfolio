@@ -23,7 +23,7 @@ const NAV_ITEMS = [
 
 const PRINCIPLES = [
   { icon: "◎", title: "Clarity", desc: "Text is legible at every size, icons are precise, adornments are subtle and appropriate. Every element focuses purpose." },
-  { icon: "◫", title: "Deference", desc: "Fluid motion and crisp interfaces help people understand content. The UI steps back — content fills the screen." },
+  { icon: "◫", title: "Deference", desc: "Fluid motion and crisp interfaces help people understand content. The UI steps back so content fills the screen." },
   { icon: "▲", title: "Depth", desc: "Distinct visual layers and realistic motion convey hierarchy. Translucency hints at more, shadows create spatial relationships." },
   { icon: "✦", title: "Consistency", desc: "Repeatable patterns create trust. Spacing, color, and type follow strict scales aligned to Apple's 8pt grid." },
 ]
@@ -193,7 +193,7 @@ export default function DesignSystemPage() {
           <Badge variant="secondary" className="mb-4">Overview</Badge>
           <h1 className="text-3xl font-bold tracking-tight mb-3">Design System</h1>
           <p className="text-muted-foreground text-[15px] leading-relaxed max-w-[560px] mb-10">
-            Built on Apple's Human Interface Guidelines — Clarity, Deference, and Depth.
+            Built on Apple's Human Interface Guidelines: Clarity, Deference, and Depth.
             No visible borders. Shadow-based elevation. SF Pro typography. Spring-based motion.
             Every element communicates with precision and restraint.
           </p>
@@ -284,7 +284,7 @@ export default function DesignSystemPage() {
           <Badge variant="secondary" className="mb-4">Foundation</Badge>
           <h2 className="text-2xl font-bold tracking-tight mb-2">Typography</h2>
           <p className="text-muted-foreground text-[14px] leading-relaxed max-w-[520px] mb-8">
-            Inter is the sole typeface — versatile for both display and body. Its wide weight range and legibility make it ideal for a modern portfolio.
+            Inter is the sole typeface, versatile for both display and body. Its wide weight range and legibility make it ideal for a modern portfolio.
           </p>
 
           <Card className="mb-6">
@@ -412,7 +412,7 @@ export default function DesignSystemPage() {
           <Badge variant="secondary" className="mb-4">Depth</Badge>
           <h2 className="text-2xl font-bold tracking-tight mb-2">Shadows & Elevation</h2>
           <p className="text-muted-foreground text-[14px] leading-relaxed max-w-[520px] mb-8">
-            Five elevation levels create depth. Shadows are subtle and diffused — never harsh.
+            Five elevation levels create depth. Shadows are subtle, diffused, and never harsh.
           </p>
 
           <div className="grid grid-cols-3 gap-4 mb-8">
@@ -482,7 +482,7 @@ export default function DesignSystemPage() {
           <Badge variant="secondary" className="mb-4">Motion</Badge>
           <h2 className="text-2xl font-bold tracking-tight mb-2">Motion & Animation</h2>
           <p className="text-muted-foreground text-[14px] leading-relaxed max-w-[520px] mb-8">
-            Every animation serves a purpose — guiding attention, providing feedback, or smoothing transitions.
+            Every animation serves a purpose: guiding attention, providing feedback, or smoothing transitions.
           </p>
 
           <h3 className="text-sm font-semibold mb-3">Easing Curves</h3>
@@ -591,7 +591,7 @@ export default function DesignSystemPage() {
         {/* Footer */}
         <div className="pt-8 pb-4 text-center">
           <p className="text-[12px] text-muted-foreground">
-            Design System v1.0 — Kousik Dutta Portfolio
+            Design System v1.0 | Kousik Dutta Portfolio
           </p>
         </div>
       </main>

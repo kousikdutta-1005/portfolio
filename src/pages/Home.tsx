@@ -77,9 +77,7 @@ const TESTIMONIALS = [
   { quote: "Kousik is good at design execution and documenting his ideas.", name: "Poornima Kapoor", role: "Lead Designer, Airtel", avatar: "/assets/images/yLQEIFzvuqW7VcwbkkFzM8Z4N6A.png" },
 ]
 
-const ROLES = ["Senior Product Designer", "UX Designer", "Design Strategist"]
-const HERO_COMPANIES = ["ThoughtSpot", "Philips", "Precisely", "Airtel", "Vedantu"]
-const HERO_OUTCOMES = ["3× MAU growth", "4.9★ app rating", "82.1 SUS", "iF-recognized work"]
+const ROLES = ["AI-first Product Designer", "UX Designer", "Interface Builder"]
 
 function RotatingRoles() {
   const [index, setIndex] = useState(0)
@@ -116,7 +114,7 @@ export default function HomePage() {
   return (
     <PageTransition>
     <div className="overflow-hidden relative">
-      {/* Interactive perspective grid — spans full page */}
+      {/* Interactive perspective grid spans full page */}
       <PerspectiveGrid gridSize={44} />
 
       <div className="absolute top-0 left-0 right-0 bottom-0 pointer-events-none overflow-hidden" style={{ zIndex: 1, minHeight: "100%" }} aria-hidden="true">
@@ -125,7 +123,7 @@ export default function HomePage() {
         <div className="absolute top-[1800px] left-[10%] w-[800px] h-[800px] rounded-full blur-[120px]" style={{ background: "rgba(255, 159, 10, 0.08)" }} />
         <div className="absolute top-[2800px] right-[5%] w-[500px] h-[500px] rounded-full blur-[90px]" style={{ background: "rgba(0, 113, 227, 0.09)" }} />
       </div>
-      {/* Hero — Apple-style: big bold type, generous breathing room */}
+      {/* Hero: Apple-style big type with generous breathing room */}
       <section className="pt-32 pb-20 md:pt-44 md:pb-28 relative min-h-[70vh] flex items-center pointer-events-none">
         <div className="max-w-[980px] mx-auto px-6 md:px-10 relative z-10 w-full pointer-events-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
@@ -151,20 +149,8 @@ export default function HomePage() {
                 <RotatingRoles />
               </div>
               <p className="text-[17px] leading-[1.65] text-muted-foreground">
-                I design clear, high-craft product experiences for complex systems — turning ambiguity into shipped products, measurable outcomes, and scalable design systems.
+                I design AI-first, high-craft product experiences for complex systems, then turn those designs into working interfaces with agents like GitHub Copilot and Claude.
               </p>
-              <div className="mt-5 space-y-2">
-                <p className="text-[13px] font-medium text-foreground/80">
-                  {HERO_COMPANIES.join(" · ")}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {HERO_OUTCOMES.map((outcome) => (
-                    <span key={outcome} className="rounded-full border border-border/60 bg-background/55 px-3 py-1 text-[12px] font-medium text-muted-foreground backdrop-blur-sm">
-                      {outcome}
-                    </span>
-                  ))}
-                </div>
-              </div>
               <div className="flex flex-wrap items-center gap-4 mt-7">
                 <a
                   href="#selected-work"
@@ -188,7 +174,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Brand Marquee — Apple-style: subtle, muted, lets content breathe */}
+      {/* Brand marquee: subtle, muted, lets content breathe */}
       <section className="py-6">
         <div className="max-w-[980px] mx-auto px-6 md:px-10 overflow-hidden" style={{ WebkitMaskImage: "linear-gradient(to right, transparent, black 60px, black calc(100% - 60px), transparent)", maskImage: "linear-gradient(to right, transparent, black 60px, black calc(100% - 60px), transparent)" }}>
           <motion.div
@@ -211,7 +197,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Projects — Apple card grid: no borders, shadow-based, large radius */}
+      {/* Projects: Apple card grid with shadow-based depth */}
       <section id="selected-work" className="py-20 md:py-28 scroll-mt-24">
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <motion.div
@@ -271,7 +257,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Services — Frosted glass panel */}
+      {/* Services: frosted glass panel */}
       <section className="py-20 md:py-28">
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <div className="glass-card rounded-2xl md:rounded-[2rem] p-8 md:p-12">
@@ -307,7 +293,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials — 2 rows, Apple-style cards (no borders, shadow only) */}
+      {/* Testimonials: two rows of Apple-style cards */}
       <section className="py-20 md:py-28 space-y-5">
         <div className="max-w-[980px] mx-auto px-6 md:px-10 mb-6">
           <motion.div
@@ -324,7 +310,7 @@ export default function HomePage() {
             </h2>
           </motion.div>
         </div>
-        {/* Row 1 — scrolls left */}
+        {/* Row 1 scrolls left */}
         <div className="max-w-[980px] mx-auto px-6 md:px-10 overflow-hidden" style={{ WebkitMaskImage: "linear-gradient(to right, transparent, black 60px, black calc(100% - 60px), transparent)", maskImage: "linear-gradient(to right, transparent, black 60px, black calc(100% - 60px), transparent)" }}>
           <div className="flex gap-5 animate-scroll-left hover:[animation-play-state:paused]">
             {[...row1, ...row1, ...row1].map((t, i) => (
@@ -332,7 +318,7 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-        {/* Row 2 — scrolls right */}
+        {/* Row 2 scrolls right */}
         <div className="max-w-[980px] mx-auto px-6 md:px-10 overflow-hidden" style={{ WebkitMaskImage: "linear-gradient(to right, transparent, black 60px, black calc(100% - 60px), transparent)", maskImage: "linear-gradient(to right, transparent, black 60px, black calc(100% - 60px), transparent)" }}>
           <div className="flex gap-5 animate-scroll-right hover:[animation-play-state:paused]">
             {[...row2, ...row1, ...row2, ...row1].map((t, i) => (
