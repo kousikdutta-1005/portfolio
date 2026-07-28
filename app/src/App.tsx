@@ -8,10 +8,13 @@ import DesignSystem from "./pages/DesignSystem"
 import ThoughtSpotPage from "./pages/ThoughtSpot"
 import PhilipsPage from "./pages/Philips"
 
+const routerBasename =
+  import.meta.env.BASE_URL === "/" ? undefined : import.meta.env.BASE_URL.replace(/\/$/, "")
+
 function App() {
   return (
     <ThemeProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={routerBasename}>
         <SmoothScroll />
         <Routes>
           <Route element={<Layout />}>
