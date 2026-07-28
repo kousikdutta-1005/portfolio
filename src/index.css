@@ -1,0 +1,722 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Apple Design System — inspired by apple.com & developer.apple.com/design */
+  --color-background: #fbfbfd;
+  --color-foreground: #1d1d1f;
+  --color-card: #ffffff;
+  --color-card-foreground: #1d1d1f;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #1d1d1f;
+  --color-primary: #1d1d1f;
+  --color-primary-foreground: #f5f5f7;
+  --color-secondary: #f5f5f7;
+  --color-secondary-foreground: #1d1d1f;
+  --color-muted: #f5f5f7;
+  --color-muted-foreground: #86868b;
+  --color-accent: #0071e3;
+  --color-accent-foreground: #ffffff;
+  --color-destructive: #ff3b30;
+  --color-destructive-foreground: #ffffff;
+  --color-border: rgba(0, 0, 0, 0.04);
+  --color-input: #d2d2d7;
+  --color-ring: #0071e3;
+  --color-success: #34c759;
+  --color-warning: #ff9f0a;
+
+  --radius-sm: 0.75rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 1.75rem;
+
+  --font-sans: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-text: 'SF Pro Text', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'SF Mono', 'JetBrains Mono', monospace;
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'kern' 1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='turbulence' baseFrequency='2.5' numOctaves='2' seed='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='0.22'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 150px 150px;
+  }
+
+  /* Dark mode — Apple's signature dark aesthetic */
+  .dark {
+    --color-background: #000000;
+    --color-foreground: #f5f5f7;
+    --color-card: #1c1c1e;
+    --color-card-foreground: #f5f5f7;
+    --color-popover: #1c1c1e;
+    --color-popover-foreground: #f5f5f7;
+    --color-primary: #f5f5f7;
+    --color-primary-foreground: #1d1d1f;
+    --color-secondary: #1c1c1e;
+    --color-secondary-foreground: #f5f5f7;
+    --color-muted: #1c1c1e;
+    --color-muted-foreground: #86868b;
+    --color-accent: #2997ff;
+    --color-accent-foreground: #ffffff;
+    --color-destructive: #ff453a;
+    --color-destructive-foreground: #ffffff;
+    --color-border: rgba(255, 255, 255, 0.04);
+    --color-input: rgba(255, 255, 255, 0.08);
+    --color-ring: #2997ff;
+    --color-success: #30d158;
+    --color-warning: #ffd60a;
+  }
+}
+
+/* ─── Edge fade — fades overflowing content beyond the 980px content area ─── */
+.edge-fade {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black calc(50% - 490px),
+    black calc(50% + 490px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black calc(50% - 490px),
+    black calc(50% + 490px),
+    transparent 100%
+  );
+}
+
+/* ─── Animations ─── */
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes brand-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.33%); }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 35s linear infinite;
+}
+
+.animate-scroll-right {
+  animation: scroll-right 40s linear infinite;
+}
+
+.animate-brand-scroll {
+  animation: brand-scroll 20s linear infinite;
+}
+
+.animate-scroll-left:hover,
+.animate-scroll-right:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Navigation — Apple-style frosted glass bar (44px) ─── */
+
+.nav-glass {
+  background: rgba(255, 255, 255, 0.24);
+  backdrop-filter: saturate(170%) blur(40px) brightness(1.08);
+  -webkit-backdrop-filter: saturate(170%) blur(40px) brightness(1.08);
+}
+
+.dark .nav-glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: saturate(170%) blur(40px) brightness(0.88);
+  -webkit-backdrop-filter: saturate(170%) blur(40px) brightness(0.88);
+}
+
+/* ─── Card system — No borders, shadow-based elevation (apple.com style) ─── */
+
+.apple-card {
+  background: rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(40px) saturate(170%) brightness(1.08);
+  -webkit-backdrop-filter: blur(40px) saturate(170%) brightness(1.08);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 1.5px solid rgba(255, 255, 255, 0.30);
+  box-shadow:
+    0 4px 32px rgba(50, 60, 80, 0.12);
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+              box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+              border-color 0.4s ease;
+}
+
+.apple-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.04) 100%);
+  mix-blend-mode: lighten;
+  opacity: 0.65;
+  border-radius: inherit;
+}
+
+.apple-card:hover {
+  transform: scale(1.01);
+  border-color: rgba(255, 255, 255, 0.45);
+  box-shadow:
+    0 8px 40px rgba(50, 60, 80, 0.16);
+}
+
+.dark .apple-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(40px) saturate(170%) brightness(0.88);
+  -webkit-backdrop-filter: blur(40px) saturate(170%) brightness(0.88);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 4px 32px rgba(0, 0, 0, 0.5);
+}
+
+.dark .apple-card::before {
+  background: linear-gradient(120deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%);
+  opacity: 0.5;
+}
+
+.dark .apple-card:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Card glass — floating elements over colored backgrounds */
+.glass-card {
+  background: rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(40px) saturate(170%) brightness(1.08);
+  -webkit-backdrop-filter: blur(40px) saturate(170%) brightness(1.08);
+  border-radius: 1rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.30);
+  box-shadow:
+    0 4px 32px rgba(50, 60, 80, 0.12);
+  position: relative;
+}
+
+.glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.04) 100%);
+  mix-blend-mode: lighten;
+  opacity: 0.65;
+  border-radius: inherit;
+}
+
+.dark .glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(40px) saturate(170%) brightness(0.88);
+  -webkit-backdrop-filter: blur(40px) saturate(170%) brightness(0.88);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 4px 32px rgba(0, 0, 0, 0.5);
+}
+
+.dark .glass-card::before {
+  background: linear-gradient(120deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%);
+  opacity: 0.5;
+}
+
+/* Glass panel — larger surfaces */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 1.25rem;
+}
+
+.dark .glass-panel {
+  background: rgba(28, 28, 30, 0.4);
+}
+
+/* Frosted glass border for all media */
+.frost-media {
+  border-radius: 1rem;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.9) inset,
+    0 2px 4px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.dark .frost-media {
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    0 0 1px rgba(255, 255, 255, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.6),
+    0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Legacy glass */
+.glass {
+  background: rgba(251, 251, 253, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+.dark .glass {
+  background: rgba(28, 28, 30, 0.72);
+}
+
+/* ─── Typography ─── */
+
+.text-gradient {
+  background: linear-gradient(to right, #1d1d1f, #424245);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .text-gradient {
+  background: linear-gradient(to right, #f5f5f7, #a1a1a6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Apple-style link */
+a.apple-link {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a.apple-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ─── Elevated card — hover-only elevation change ─── */
+
+.card-elevated {
+  transition: box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+              transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.card-elevated:hover {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.02),
+    0 8px 24px rgba(0, 0, 0, 0.06),
+    0 20px 48px rgba(0, 0, 0, 0.06);
+}
+
+.dark .card-elevated:hover {
+  box-shadow:
+    0 0 2px rgba(255, 255, 255, 0.06),
+    0 8px 24px rgba(0, 0, 0, 0.6),
+    0 20px 48px rgba(0, 0, 0, 0.5);
+}
+
+/* ─── Section backgrounds ─── */
+
+.section-alt {
+  background: #f5f5f7;
+}
+
+.dark .section-alt {
+  background: #1c1c1e;
+}
+
+/* Smooth transitions for theme change */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Paper grain — class no longer needed, applied to body directly */
+
+/* Selection */
+::selection {
+  background: rgba(0, 113, 227, 0.18);
+}
+
+.dark ::selection {
+  background: rgba(41, 151, 255, 0.25);
+}
+
+/* ─── Scrollbar (macOS-style thin) ─── */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 100px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* Brand logo theme-adaptive filter */
+.brand-logo-light {
+  filter: grayscale(1) brightness(0) invert(0.45);
+  opacity: 0.8;
+}
+
+.dark .brand-logo-light {
+  filter: grayscale(1) brightness(0) invert(1);
+  opacity: 0.5;
+}
+
+/* ─── Envelope CTA ─── */
+
+.envelope-scene {
+  position: relative;
+  height: 700px;
+  overflow: hidden;
+  transform: scale(1.1) translateY(-80px);
+  transform-origin: center center;
+}
+
+/* Back flap — open triangle behind card, tip visible above card */
+.envelope-back-flap {
+  position: absolute;
+  bottom: 260px;
+  left: 15%;
+  right: 15%;
+  height: 300px;
+  clip-path: polygon(0 100%, 50% 0%, 100% 100%);
+  background: linear-gradient(180deg, #e0d9cb 0%, #d8d1c3 100%);
+  z-index: 0;
+}
+
+.dark .envelope-back-flap {
+  background: linear-gradient(180deg, #36332c 0%, #3a372f 100%);
+}
+
+/* Card — behind pocket so pocket masks its bottom */
+.envelope-card {
+  position: absolute;
+  bottom: 260px;
+  left: 15%;
+  right: 15%;
+  z-index: 2;
+  background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+  border-radius: 12px;
+  padding: 36px 40px;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.06),
+    0 6px 16px rgba(0, 0, 0, 0.1),
+    0 20px 50px -8px rgba(0, 0, 0, 0.14);
+}
+
+.dark .envelope-card {
+  background: linear-gradient(180deg, #2c2c2e 0%, #28282a 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 8px 20px rgba(0, 0, 0, 0.45),
+    0 24px 60px -8px rgba(0, 0, 0, 0.7);
+}
+
+/* Liner — slightly darker inside, visible through V-cut */
+.envelope-liner {
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  right: 15%;
+  height: 300px;
+  z-index: 1;
+  background: #d5cfc3;
+  border-radius: 0 0 16px 16px;
+}
+
+.dark .envelope-liner {
+  background: #2c2a24;
+}
+
+/* Pocket wrapper — rounded corners that clip-path can't provide */
+.envelope-pocket-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  right: 15%;
+  height: 260px;
+  z-index: 3;
+  border-radius: 0 0 16px 16px;
+  overflow: hidden;
+}
+
+/* Pocket — the front face with fold crease lines and V-cut */
+.envelope-pocket {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(0 0, 50% 40px, 100% 0, 100% 100%, 0 100%);
+  background:
+    /* Subtle paper grain texture */
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"),
+    /* Diagonal fold crease: top-left → bottom-center */
+    linear-gradient(to bottom right,
+      transparent calc(50% - 0.5px),
+      rgba(0, 0, 0, 0.08) 50%,
+      transparent calc(50% + 0.5px)
+    ),
+    /* Diagonal fold crease: top-right → bottom-center */
+    linear-gradient(to bottom left,
+      transparent calc(50% - 0.5px),
+      rgba(0, 0, 0, 0.08) 50%,
+      transparent calc(50% + 0.5px)
+    ),
+    /* Base warm paper color */
+    linear-gradient(180deg, #ede7db 0%, #e5dfd3 50%, #ddd7cb 100%);
+}
+
+.dark .envelope-pocket {
+  background:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"),
+    linear-gradient(to bottom right,
+      transparent calc(50% - 0.5px),
+      rgba(255, 255, 255, 0.05) 50%,
+      transparent calc(50% + 0.5px)
+    ),
+    linear-gradient(to bottom left,
+      transparent calc(50% - 0.5px),
+      rgba(255, 255, 255, 0.05) 50%,
+      transparent calc(50% + 0.5px)
+    ),
+    linear-gradient(180deg, #3a372e 0%, #34312a 50%, #2e2c26 100%);
+}
+
+/* ─── 3D Interactive Cube ─── */
+
+.cube-scene {
+  width: 280px;
+  height: 280px;
+  perspective: 700px;
+}
+
+@media (min-width: 768px) {
+  .cube-scene {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: cube-auto-rotate 24s linear infinite;
+}
+
+.cube-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  backface-visibility: visible;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.15);
+}
+
+.cube-front  { transform: translateZ(140px); }
+.cube-back   { transform: rotateY(180deg) translateZ(140px); }
+.cube-right  { transform: rotateY(90deg)  translateZ(140px); }
+.cube-left   { transform: rotateY(-90deg) translateZ(140px); }
+.cube-top    { transform: rotateX(90deg)  translateZ(140px); }
+.cube-bottom { transform: rotateX(-90deg) translateZ(140px); }
+
+@media (min-width: 768px) {
+  .cube-front  { transform: translateZ(160px); }
+  .cube-back   { transform: rotateY(180deg) translateZ(160px); }
+  .cube-right  { transform: rotateY(90deg)  translateZ(160px); }
+  .cube-left   { transform: rotateY(-90deg) translateZ(160px); }
+  .cube-top    { transform: rotateX(90deg)  translateZ(160px); }
+  .cube-bottom { transform: rotateX(-90deg) translateZ(160px); }
+}
+
+@keyframes cube-auto-rotate {
+  from { transform: rotateX(-12deg) rotateY(0deg); }
+  to   { transform: rotateX(-12deg) rotateY(360deg); }
+}
+
+/* ─── Interactive Perspective Grid ─── */
+
+:root {
+  --cursor-x: 50vw;
+  --cursor-y: 50vh;
+  --cursor-opacity: 0;
+}
+
+/* Container — positioned in hero area, fades out below */
+.pg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+  perspective: 2000px;
+  transform-style: preserve-3d;
+  --glow-x: 50%;
+  --glow-y: 50%;
+  --glow-opacity: 0;
+  -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 95%);
+  mask-image: linear-gradient(to bottom, black 40%, transparent 95%);
+}
+
+/* The grid of tiles — 3D rotated for depth */
+.pg-grid {
+  display: grid;
+  aspect-ratio: 1;
+  width: 250%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(45deg) rotateY(-2deg) rotate(12deg) scale(1.5);
+  transform-style: preserve-3d;
+  transform-origin: 50% 50%;
+}
+
+/* Individual tile — nearly invisible until hovered */
+.pg-tile {
+  min-width: 1px;
+  min-height: 1px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  background: transparent;
+  transition: background-color 1.6s ease, border-color 1.6s ease;
+}
+
+.pg-tile:nth-child(5n+1) { --tile-c: rgba(41, 151, 255, 0.5); }
+.pg-tile:nth-child(5n+2) { --tile-c: rgba(94, 92, 230, 0.45); }
+.pg-tile:nth-child(5n+3) { --tile-c: rgba(48, 209, 88, 0.4); }
+.pg-tile:nth-child(5n+4) { --tile-c: rgba(255, 214, 10, 0.4); }
+.pg-tile:nth-child(5n)   { --tile-c: rgba(255, 69, 58, 0.35); }
+
+.dark .pg-tile {
+  border-color: rgba(255, 255, 255, 0.025);
+}
+
+/* Light mode — darker lines */
+:root:not(.dark) .pg-tile {
+  border-color: rgba(0, 0, 0, 0.03);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pg-tile:hover {
+    background-color: var(--tile-c);
+    border-color: var(--tile-c);
+    transition-duration: 0s;
+  }
+}
+
+/* Cursor-following radial glow on the grid */
+.pg-cursor-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: var(--glow-opacity, 0);
+  transition: opacity 0.5s ease;
+  background: radial-gradient(
+    400px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(41, 151, 255, 0.06),
+    transparent 50%
+  );
+}
+
+.dark .pg-cursor-glow {
+  background: radial-gradient(
+    400px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(41, 151, 255, 0.1),
+    transparent 50%
+  );
+}
+
+/* No edge fade needed — grid covers full viewport */
+.pg-fade {
+  display: none;
+}
+
+/* ─── Cursor Glow (page-level) ─── */
+
+.cursor-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: var(--cursor-opacity, 0);
+  transition: opacity 0.4s ease;
+  background: radial-gradient(
+    600px circle at var(--cursor-x, 50vw) var(--cursor-y, 50vh),
+    rgba(0, 113, 227, 0.03),
+    transparent 40%
+  );
+}
+
+.dark .cursor-glow {
+  background: radial-gradient(
+    600px circle at var(--cursor-x, 50vw) var(--cursor-y, 50vh),
+    rgba(41, 151, 255, 0.05),
+    transparent 40%
+  );
+}
+
+/* ─── Scroll Progress Bar ─── */
+
+.scroll-progress-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 9999;
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--color-accent), rgba(94, 92, 230, 0.8));
+  opacity: 0.7;
+  transition: transform 0.1s linear;
+  will-change: transform;
+  border-radius: 0 2px 2px 0;
+}
