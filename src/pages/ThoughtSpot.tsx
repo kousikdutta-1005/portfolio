@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { assetPath } from "@/lib/assets"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import { PageTransition } from "@/components/PageTransition"
@@ -57,7 +58,7 @@ const LEARNINGS = [
 function SectionImage({ src, alt, className }: { src: string; alt: string; className?: string }) {
   return (
     <motion.img
-      src={src}
+      src={assetPath(src)}
       alt={alt}
       className={cn("w-full rounded-2xl object-cover frost-media", className)}
       initial={{ opacity: 0, y: 20 }}
@@ -71,7 +72,7 @@ function SectionImage({ src, alt, className }: { src: string; alt: string; class
 function SectionVideo({ src, className }: { src: string; className?: string }) {
   return (
     <motion.video
-      src={src}
+      src={assetPath(src)}
       autoPlay
       loop
       muted
@@ -445,7 +446,7 @@ export default function ThoughtSpotPage() {
           <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             {LEARNINGS.map((l) => (
               <motion.div key={l.title} variants={fadeUp} className="rounded-2xl overflow-hidden border border-border/50">
-                {l.image && <img src={l.image} alt={l.title} className="w-full aspect-[4/3] object-cover frost-media" />}
+                {l.image && <img src={assetPath(l.image)} alt={l.title} className="w-full aspect-[4/3] object-cover frost-media" />}
                 <div className="p-4">
                   <h3 className="text-[14px] font-semibold mb-1">{l.title}</h3>
                   <p className="text-[13px] text-muted-foreground leading-relaxed">{l.desc}</p>

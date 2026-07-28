@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom"
 import { cn } from "@/lib/utils"
+import { assetPath } from "@/lib/assets"
 import { useTheme } from "./ThemeProvider"
 import { Sun, Moon, Menu, X } from "lucide-react"
 import { useState } from "react"
@@ -23,12 +24,12 @@ export function Navbar() {
           {/* Logo — adapts to theme */}
           <Link to="/" className="flex items-center">
             <img
-              src="/assets/images/Mc2cHPK2FkFfFmWhv4umGYjMuw.png"
+              src={assetPath("/assets/images/Mc2cHPK2FkFfFmWhv4umGYjMuw.png")}
               alt="Kousik Dutta"
               className="h-5 w-auto dark:hidden"
             />
             <img
-              src="/assets/images/QOXQB7tAox2fGvQW3EkxuXzBGLg.png"
+              src={assetPath("/assets/images/QOXQB7tAox2fGvQW3EkxuXzBGLg.png")}
               alt="Kousik Dutta"
               className="h-5 w-auto hidden dark:block"
             />

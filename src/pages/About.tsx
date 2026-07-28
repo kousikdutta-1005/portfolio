@@ -1,6 +1,7 @@
 import { motion, useScroll, useMotionValueEvent, useSpring, useTransform } from "framer-motion"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { assetPath } from "@/lib/assets"
 import { ArrowRight, Download } from "lucide-react"
 import { PageTransition } from "@/components/PageTransition"
 import { useState, useRef } from "react"
@@ -234,22 +235,22 @@ function PhotoCube({ src, size, x, y, rx, ry, isDark }: { src: string; size: num
       }}
     >
       <div style={{ ...imgFace, transform: `translateZ(${half}px)` }}>
-        <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        <img src={assetPath(src)} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </div>
       <div style={{ ...imgFace, transform: `rotateY(90deg) translateZ(${half}px)` }}>
-        <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        <img src={assetPath(src)} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </div>
       <div style={{ ...imgFace, transform: `rotateY(180deg) translateZ(${half}px)` }}>
-        <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        <img src={assetPath(src)} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </div>
       <div style={{ ...imgFace, transform: `rotateY(-90deg) translateZ(${half}px)` }}>
-        <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        <img src={assetPath(src)} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </div>
       <div style={{ ...imgFace, transform: `rotateX(90deg) translateZ(${half}px)` }}>
-        <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        <img src={assetPath(src)} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </div>
       <div style={{ ...imgFace, transform: `rotateX(-90deg) translateZ(${half}px)` }}>
-        <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        <img src={assetPath(src)} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </div>
     </div>
   )

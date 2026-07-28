@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { assetPath } from "@/lib/assets"
 import { ArrowRight, ArrowUpRight } from "lucide-react"
 import { useState, useEffect, useRef, useCallback } from "react"
 import { PerspectiveGrid } from "@/components/PerspectiveGrid"
@@ -178,7 +179,7 @@ export default function HomePage() {
               {[...BRANDS, ...BRANDS, ...BRANDS].map((brand, i) => (
                 <img
                   key={`${brand.name}-${i}`}
-                  src={brand.src}
+                  src={assetPath(brand.src)}
                   alt={brand.name}
                   className="shrink-0 mx-10 brand-logo-light"
                   style={{ height: brand.height }}
@@ -330,7 +331,7 @@ function TestimonialCard({ t }: { t: typeof TESTIMONIALS[0] }) {
     <div className="shrink-0 w-[280px] md:w-[320px] p-5 md:p-6 rounded-2xl apple-card">
       <p className="text-[15px] leading-[1.65] text-foreground/90 mb-5">"{t.quote}"</p>
       <div className="flex items-center gap-3">
-        <img src={t.avatar} alt={t.name} className="w-9 h-9 rounded-full object-cover" />
+        <img src={assetPath(t.avatar)} alt={t.name} className="w-9 h-9 rounded-full object-cover" />
         <div>
           <p className="text-[14px] font-semibold tracking-tight">{t.name}</p>
           <p className="text-[12px] text-muted-foreground">{t.role}</p>
@@ -386,7 +387,7 @@ function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
       >
         <div className="aspect-[16/10] overflow-hidden">
           <img
-            src={project.image}
+            src={assetPath(project.image)}
             alt={project.title}
             className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             loading="lazy"
