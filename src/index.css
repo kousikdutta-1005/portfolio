@@ -172,10 +172,11 @@
     0 10px 30px rgba(0, 0, 0, 0.36);
 }
 
-/* ─── Card system — No borders, shadow-based elevation (apple.com style) ─── */
+/* ─── Liquid Glass surfaces — cards, panels, and UI chrome ─── */
 
 .apple-card,
-.glass-card {
+.glass-card,
+.liquid-control {
   background:
     linear-gradient(140deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.075) 46%, rgba(255, 255, 255, 0.15)),
     rgba(255, 255, 255, 0.10);
@@ -204,8 +205,13 @@
   border-radius: 1rem;
 }
 
+.liquid-control {
+  border-radius: 999px;
+}
+
 .apple-card::before,
-.glass-card::before {
+.glass-card::before,
+.liquid-control::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -221,7 +227,8 @@
 }
 
 .apple-card::after,
-.glass-card::after {
+.glass-card::after,
+.liquid-control::after {
   content: "";
   position: absolute;
   inset: 1px;
@@ -235,7 +242,8 @@
 }
 
 .apple-card > *,
-.glass-card > * {
+.glass-card > *,
+.liquid-control > * {
   position: relative;
   z-index: 1;
 }
@@ -252,7 +260,8 @@
 }
 
 .dark .apple-card,
-.dark .glass-card {
+.dark .glass-card,
+.dark .liquid-control {
   background:
     linear-gradient(140deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.035) 46%, rgba(255, 255, 255, 0.075)),
     rgba(14, 14, 18, 0.52);
@@ -268,7 +277,8 @@
 }
 
 .dark .apple-card::before,
-.dark .glass-card::before {
+.dark .glass-card::before,
+.dark .liquid-control::before {
   background:
     linear-gradient(112deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.055) 18%, transparent 42%),
     radial-gradient(120% 70% at 52% -18%, rgba(255,255,255,0.16), transparent 56%),
@@ -277,7 +287,8 @@
 }
 
 .dark .apple-card::after,
-.dark .glass-card::after {
+.dark .glass-card::after,
+.dark .liquid-control::after {
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.075),
     inset 0 14px 20px rgba(255, 255, 255, 0.07),
