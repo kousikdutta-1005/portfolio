@@ -6,6 +6,7 @@ import { useState } from "react"
 import { PageTransition } from "@/components/PageTransition"
 import { CaseBrief, type CaseBriefItem } from "@/components/CaseBrief"
 import { CaseStudyNav, type CaseStudyNavSection } from "@/components/CaseStudyNav"
+import { Seo } from "@/components/Seo"
 
 const EASE_ENTER = [0.25, 0.1, 0.25, 1] as const
 const STAGGER = 0.08
@@ -169,6 +170,12 @@ const SECTIONS: CaseStudyNavSection[] = [
 export default function ThoughtSpotPage() {
   return (
     <PageTransition>
+    <Seo
+      title="ThoughtSpot Mobile Case Study - Kousik Dutta"
+      description="A product design case study on mobile analytics, AI input states, KPI watchlists, and decision-making workflows that helped ThoughtSpot mobile grow."
+      path="/case-study/thoughtspot"
+      image="https://kousikdutta.com/assets/images/1GW8AENYNU5gayo8utt1YsKnfY.jpg"
+    />
     <div className="relative" style={{ overflowX: "clip" }}>
       {/* Back */}
       <section className="pt-20 md:pt-24">
@@ -186,7 +193,7 @@ export default function ThoughtSpotPage() {
             ThoughtSpot Mobile
           </motion.p>
           <motion.h1 className="text-[clamp(2.8rem,6vw,5.2rem)] font-bold tracking-[-0.04em] leading-[0.99] max-w-[860px]" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: EASE_ENTER }}>
-            Analytics that move at the speed of work.
+            Analytics that move at the <span className="heading-italic">speed</span> of work.
           </motion.h1>
           <motion.p className="mt-4 text-[17px] text-muted-foreground leading-[1.58] max-w-[680px]" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: EASE_ENTER, delay: 0.1 }}>
             An AI-powered analytics companion for real-time insights, natural-language answers, drilldowns, and KPI watchlists. Designed so decisions can happen securely, wherever work happens.
@@ -212,7 +219,7 @@ export default function ThoughtSpotPage() {
       {/* Hero image */}
       <section className="pb-8">
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
-          <SectionImage src="/assets/images/1GW8AENYNU5gayo8utt1YsKnfY.png" alt="ThoughtSpot Mobile overview" />
+          <SectionImage src="/assets/images/1GW8AENYNU5gayo8utt1YsKnfY.jpg" alt="ThoughtSpot Mobile overview" />
         </div>
       </section>
 
@@ -245,7 +252,7 @@ export default function ThoughtSpotPage() {
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <motion.p className="text-[13px] font-semibold text-muted-foreground mb-2" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Context</motion.p>
           <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            Analytics, wherever work happens
+            Analytics, <span className="heading-italic">wherever</span> work happens
           </motion.h2>
           <motion.p className="text-[15px] text-muted-foreground mb-5" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             Liveboards, natural-language answers, and KPI monitoring came together in a mobile experience built for quick, confident decisions.
@@ -299,7 +306,7 @@ export default function ThoughtSpotPage() {
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <motion.p className="text-[13px] font-semibold text-muted-foreground mb-2" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Design tenets</motion.p>
           <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            Coherent, fast, and legible everywhere
+            Coherent, fast, and legible <span className="heading-italic">everywhere</span>
           </motion.h2>
           <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-7 gap-y-4" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             {TENETS.map((t) => (

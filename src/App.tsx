@@ -1,12 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { lazy, Suspense } from "react"
 import { ThemeProvider } from "./components/ThemeProvider"
 import { Layout } from "./components/Layout"
 import { SmoothScroll } from "./components/SmoothScroll"
-import HomePage from "./pages/Home"
-import AboutPage from "./pages/About"
-import DesignSystem from "./pages/DesignSystem"
-import ThoughtSpotPage from "./pages/ThoughtSpot"
-import PhilipsPage from "./pages/Philips"
+
+const HomePage = lazy(() => import("./pages/Home"))
+const AboutPage = lazy(() => import("./pages/About"))
+const ThoughtSpotPage = lazy(() => import("./pages/ThoughtSpot"))
+const PhilipsPage = lazy(() => import("./pages/Philips"))
 
 const routerBasename =
   import.meta.env.BASE_URL === "/" ? undefined : import.meta.env.BASE_URL.replace(/\/$/, "")
@@ -16,15 +17,17 @@ function App() {
     <ThemeProvider>
       <BrowserRouter basename={routerBasename}>
         <SmoothScroll />
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/design-system" element={<DesignSystem />} />
-            <Route path="/case-study/thoughtspot" element={<ThoughtSpotPage />} />
-            <Route path="/case-study/philips" element={<PhilipsPage />} />
-          </Route>
-        </Routes>
+        <Suspense fallback={null}>
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/case-study/thoughtspot" element={<ThoughtSpotPage />} />
+              <Route path="/case-study/philips" element={<PhilipsPage />} />
+              <Route path="*" element={<HomePage />} />
+            </Route>
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </ThemeProvider>
   )

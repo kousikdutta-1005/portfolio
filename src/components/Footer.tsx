@@ -44,7 +44,7 @@ export function Footer() {
               <div className="footer-note-main">
                 <p className="footer-note-kicker">A note from Kousik</p>
                 <h2 className="footer-note-title">
-                  If the problem is messy, I want to hear it.
+                  If the problem is <span className="heading-italic">messy</span>, I want to hear it.
                 </h2>
               </div>
               <div className="footer-note-body">

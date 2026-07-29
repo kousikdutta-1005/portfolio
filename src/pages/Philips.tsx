@@ -6,6 +6,7 @@ import { assetPath } from "@/lib/assets"
 import { PageTransition } from "@/components/PageTransition"
 import { CaseBrief, type CaseBriefItem } from "@/components/CaseBrief"
 import { CaseStudyNav, type CaseStudyNavSection } from "@/components/CaseStudyNav"
+import { Seo } from "@/components/Seo"
 
 const EASE_ENTER = [0.25, 0.1, 0.25, 1] as const
 const DURATION_REVEAL = 0.6
@@ -146,6 +147,11 @@ function SectionImage({ src, alt, className }: { src: string; alt: string; class
 export default function PhilipsPage() {
   return (
     <PageTransition>
+      <Seo
+        title="Philips Cardiocare Case Study - Kousik Dutta"
+        description="A healthcare product design case study on preventive heart care, research synthesis, service systems, and action-oriented patient support."
+        path="/case-study/philips"
+      />
       <div className="relative" style={{ overflowX: "clip" }}>
         <section className="pt-20 md:pt-24">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
@@ -173,7 +179,7 @@ export default function PhilipsPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: EASE_ENTER }}
             >
-              Preventive heart care, made easier to act on.
+              Preventive heart care, made easier to <span className="heading-italic">act</span> on.
             </motion.h1>
             <motion.p
               className="mt-4 text-[17px] text-muted-foreground leading-[1.58] max-w-[680px]"
@@ -244,7 +250,7 @@ export default function PhilipsPage() {
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.p className="text-[13px] font-semibold text-muted-foreground mb-2" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Context</motion.p>
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              Understanding coronary artery disease
+              Understanding <span className="heading-italic">coronary</span> artery disease
             </motion.h2>
             <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <motion.div variants={fadeUp}>
@@ -287,7 +293,7 @@ export default function PhilipsPage() {
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.p className="text-[13px] font-semibold text-muted-foreground mb-2" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Research</motion.p>
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              Literature review to field interviews
+              Literature review to <span className="heading-italic">field</span> interviews
             </motion.h2>
             <motion.p className="text-[15px] text-muted-foreground mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               Secondary and primary research helped clarify risks, behavior patterns, and intervention opportunities.
@@ -356,7 +362,7 @@ export default function PhilipsPage() {
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.p className="text-[13px] font-semibold text-muted-foreground mb-2" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Analysis</motion.p>
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              Making sense of the behavior landscape
+              Making <span className="heading-italic">sense</span> of the behavior landscape
             </motion.h2>
             <motion.p className="text-[15px] text-muted-foreground mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               Journey mapping, personas, systems thinking, and inductive coding helped frame where design could intervene.
@@ -392,19 +398,19 @@ export default function PhilipsPage() {
                   phase: "Phase 1/4",
                   title: "College Life (18-23Y)",
                   desc: "Poor diet, long sitting, late nights, smoking or alcohol, and ignored self care dominate.",
-                  image: "/assets/images/IgnkCq4U2ZO6KiRNsnFUJNTTQS0.png",
+                  image: "/assets/images/IgnkCq4U2ZO6KiRNsnFUJNTTQS0.jpg",
                 },
                 {
                   phase: "Phase 2/4",
                   title: "Professional life (24-27Y)",
                   desc: "Work disrupts meals, extends sitting, adds parties, increases alcohol or smoking, and neglects self care.",
-                  image: "/assets/images/e4wzzmAPnQjECBs88VTnFreht10.png",
+                  image: "/assets/images/e4wzzmAPnQjECBs88VTnFreht10.jpg",
                 },
                 {
                   phase: "Phase 3/4",
                   title: "Family (28-32Y)",
                   desc: "Diet improves slightly, but sitting persists, stress rises, weight increases, BP and cholesterol emerge.",
-                  image: "/assets/images/hhEPti9RdxDqITQaj0JAwaFKs.png",
+                  image: "/assets/images/hhEPti9RdxDqITQaj0JAwaFKs.jpg",
                 },
                 {
                   phase: "Phase 4/4",
@@ -432,7 +438,7 @@ export default function PhilipsPage() {
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.p className="text-[13px] font-semibold text-muted-foreground mb-2" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Define</motion.p>
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              {DEFINE_CONTENT.heading}
+              Focused <span className="heading-italic">design</span> brief
             </motion.h2>
             <motion.p className="text-[15px] text-muted-foreground mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               {DEFINE_CONTENT.desc}
@@ -460,7 +466,7 @@ export default function PhilipsPage() {
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.p className="text-[13px] font-semibold text-muted-foreground mb-2" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Ideation</motion.p>
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              {IDEATION_CONTENT.heading}
+              From SCAMPER to <span className="heading-italic">solution</span>
             </motion.h2>
             <motion.p className="text-[15px] text-muted-foreground mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               {IDEATION_CONTENT.desc}
@@ -490,7 +496,7 @@ export default function PhilipsPage() {
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.p className="text-[13px] font-semibold text-muted-foreground mb-2" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Design</motion.p>
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              The Cardiocare ecosystem
+              The Cardiocare <span className="heading-italic">ecosystem</span>
             </motion.h2>
             <motion.p className="text-[15px] text-muted-foreground mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               Holistic heart health management across devices, apps, and AI.
@@ -568,7 +574,7 @@ export default function PhilipsPage() {
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.p className="text-[13px] font-semibold text-muted-foreground mb-2" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Learnings</motion.p>
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              What I took away
+              What I took <span className="heading-italic">away</span>
             </motion.h2>
             <motion.p className="text-[15px] text-muted-foreground mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               These learnings reflect work at Philips and how the team shaped my growth.

@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils"
 import { assetPath } from "@/lib/assets"
 import { ArrowUpRight } from "lucide-react"
 import { PageTransition } from "@/components/PageTransition"
+import { Seo } from "@/components/Seo"
 
 // Apple HIG motion: spring-based, purposeful, natural physics
 const EASE_ENTER = [0.25, 0.1, 0.25, 1] as const
@@ -156,6 +157,11 @@ function AnimatedHeroStat({ value, suffix = "", label }: (typeof HERO_STATS)[num
 export default function HomePage() {
   return (
     <PageTransition>
+    <Seo
+      title="Kousik Dutta - Senior Product Designer"
+      description="Senior product designer shaping AI, analytics, healthcare, and systems-led product work with clear thinking, refined craft, and buildable prototypes."
+      path="/"
+    />
     <div className="overflow-hidden relative">
       <section className="pt-28 pb-16 md:pt-36 md:pb-20 relative min-h-[64vh] flex items-center pointer-events-none">
         <div className="max-w-[980px] mx-auto px-6 md:px-10 relative z-10 w-full pointer-events-auto">
@@ -168,7 +174,7 @@ export default function HomePage() {
             >
               <h1 className="text-[clamp(3.35rem,7.4vw,6rem)] font-bold tracking-[-0.04em] leading-[0.99]">
                 <span className="block">Thinking</span>
-                <span className="block">becomes</span>
+                <span className="block heading-italic">becomes</span>
                 <span className="block text-foreground/80">product.</span>
               </h1>
             </motion.div>
@@ -251,7 +257,7 @@ export default function HomePage() {
               Selected work
             </p>
             <h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em]">
-              Where thinking became product
+              Where thinking <span className="heading-italic">became</span> product
             </h2>
           </motion.div>
 
@@ -317,7 +323,7 @@ export default function HomePage() {
             >
               <p className="method-kicker">How my brain creates leverage</p>
               <h2 className="method-title">
-                I do not start with screens. I start with the shape of the problem.
+                I do not start with screens. I start with the <span className="heading-italic">shape</span> of the problem.
               </h2>
             </motion.div>
             <motion.div
@@ -355,7 +361,7 @@ export default function HomePage() {
               What people say
             </p>
             <h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em]">
-              Trusted for the way I think
+              Trusted for the way I <span className="heading-italic">think</span>
             </h2>
             <p className="mt-2.5 text-[15px] leading-[1.58] text-muted-foreground max-w-[560px]">
               Signals from people who have seen me turn uncertainty into clear product direction.

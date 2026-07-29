@@ -15,6 +15,7 @@ export function CaseStudyNav({ sections }: CaseStudyNavProps) {
   const [activeId, setActiveId] = useState(sections[0]?.id ?? "")
   const [isSticky, setIsSticky] = useState(false)
   const sentinelRef = useRef<HTMLDivElement>(null)
+  const stickyStateRef = useRef(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -39,7 +40,14 @@ export function CaseStudyNav({ sections }: CaseStudyNavProps) {
       const sentinel = sentinelRef.current
       if (!sentinel) return
 
-      setIsSticky(sentinel.getBoundingClientRect().top <= 44)
+      const dockTop = Number.parseFloat(
+        getComputedStyle(document.documentElement).getPropertyValue("--case-nav-dock-top")
+      )
+      const nextSticky = sentinel.getBoundingClientRect().top <= (Number.isFinite(dockTop) ? dockTop : 55)
+      if (stickyStateRef.current !== nextSticky) {
+        stickyStateRef.current = nextSticky
+        setIsSticky(nextSticky)
+      }
     }
 
     const scheduleStickyUpdate = () => {
@@ -69,7 +77,10 @@ export function CaseStudyNav({ sections }: CaseStudyNavProps) {
     const el = document.getElementById(id)
     if (!el) return
 
-    const offset = 88
+    const anchorOffset = Number.parseFloat(
+      getComputedStyle(document.documentElement).getPropertyValue("--case-anchor-offset")
+    )
+    const offset = Number.isFinite(anchorOffset) ? anchorOffset : 118
     const top = el.getBoundingClientRect().top + window.scrollY - offset
     window.scrollTo({ top, behavior: "smooth" })
   }
