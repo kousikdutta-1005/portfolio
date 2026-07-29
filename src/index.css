@@ -691,8 +691,8 @@ footer {
   overflow: hidden;
   border: 1px solid var(--liquid-border);
   background: var(--liquid-surface-quiet);
-  backdrop-filter: var(--liquid-blur-surface);
   -webkit-backdrop-filter: var(--liquid-blur-surface);
+  backdrop-filter: var(--liquid-blur-surface);
   box-shadow: var(--liquid-highlight), var(--liquid-shadow-soft);
   isolation: isolate;
 }
@@ -809,8 +809,8 @@ footer {
     inset 0 0 0 1px rgba(255, 255, 255, 0.16),
     inset 0 -1px 0 color-mix(in oklab, var(--color-foreground) 7%, transparent),
     0 10px 24px rgba(25, 35, 55, 0.105);
-  backdrop-filter: blur(28px) saturate(180%) contrast(1.02);
   -webkit-backdrop-filter: blur(28px) saturate(180%) contrast(1.02);
+  backdrop-filter: blur(28px) saturate(180%) contrast(1.02);
   opacity: 1;
   transform: scale(1);
   transition:
@@ -949,8 +949,8 @@ footer {
     var(--liquid-highlight),
     inset 0 0 0 1px rgba(255, 255, 255, 0.12),
     0 6px 14px rgba(25, 35, 55, 0.06);
-  backdrop-filter: var(--liquid-blur-control);
   -webkit-backdrop-filter: var(--liquid-blur-control);
+  backdrop-filter: var(--liquid-blur-control);
   opacity: 0;
   transform: scale(0.76);
   transition:
@@ -1029,8 +1029,8 @@ footer {
   border-top: 1px solid var(--liquid-border);
   border-radius: 0 0 var(--floating-nav-radius) var(--floating-nav-radius);
   background: var(--liquid-chrome);
-  backdrop-filter: var(--liquid-blur-chrome);
   -webkit-backdrop-filter: var(--liquid-blur-chrome);
+  backdrop-filter: var(--liquid-blur-chrome);
   box-shadow: var(--liquid-highlight), var(--liquid-chrome-shadow);
   overflow: hidden;
   transform: translateZ(0);
@@ -1088,8 +1088,8 @@ footer {
     var(--liquid-highlight),
     inset 0 0 0 1px rgba(255, 255, 255, 0.12),
     var(--liquid-shadow-soft);
-  backdrop-filter: var(--liquid-blur-chrome);
   -webkit-backdrop-filter: var(--liquid-blur-chrome);
+  backdrop-filter: var(--liquid-blur-chrome);
   isolation: isolate;
   transition:
     padding 220ms cubic-bezier(0.16, 1, 0.3, 1),
@@ -1167,8 +1167,8 @@ footer {
     var(--liquid-highlight),
     inset 0 0 0 1px rgba(255, 255, 255, 0.12),
     0 6px 14px rgba(25, 35, 55, 0.06);
-  backdrop-filter: var(--liquid-blur-control);
   -webkit-backdrop-filter: var(--liquid-blur-control);
+  backdrop-filter: var(--liquid-blur-control);
   opacity: 0;
   transform: scale(0.76);
   transition:
@@ -1326,8 +1326,8 @@ footer {
   background: var(--liquid-control);
   border: 1px solid var(--liquid-border);
   box-shadow: var(--liquid-highlight), 0 7px 16px rgba(25, 35, 55, 0.065);
-  backdrop-filter: var(--liquid-blur-control);
   -webkit-backdrop-filter: var(--liquid-blur-control);
+  backdrop-filter: var(--liquid-blur-control);
   opacity: 0;
   transform: scale(0.72);
   transition:
@@ -1382,8 +1382,8 @@ footer {
   position: relative;
   overflow: hidden;
   background: var(--liquid-surface);
-  backdrop-filter: var(--liquid-blur-surface);
   -webkit-backdrop-filter: var(--liquid-blur-surface);
+  backdrop-filter: var(--liquid-blur-surface);
   border: 1px solid var(--liquid-border);
   box-shadow: var(--liquid-highlight), var(--liquid-shadow-soft);
   isolation: isolate;
@@ -1433,8 +1433,8 @@ footer {
   overflow: hidden;
   border-radius: 1.15rem;
   background: var(--liquid-surface);
-  backdrop-filter: var(--liquid-blur-surface);
   -webkit-backdrop-filter: var(--liquid-blur-surface);
+  backdrop-filter: var(--liquid-blur-surface);
   border: 1px solid var(--liquid-border);
   box-shadow: var(--liquid-highlight), var(--liquid-shadow-soft);
   isolation: isolate;
@@ -1692,8 +1692,8 @@ footer {
   align-items: stretch;
   border: 1px solid var(--liquid-border);
   background: var(--liquid-surface);
-  backdrop-filter: var(--liquid-blur-surface);
   -webkit-backdrop-filter: var(--liquid-blur-surface);
+  backdrop-filter: var(--liquid-blur-surface);
   box-shadow: var(--liquid-highlight), var(--liquid-shadow-soft);
   isolation: isolate;
 }
@@ -1837,8 +1837,8 @@ footer {
   border-radius: 1rem;
   border: 1px solid var(--liquid-border);
   background: var(--liquid-surface-quiet);
-  backdrop-filter: var(--liquid-blur-surface);
   -webkit-backdrop-filter: var(--liquid-blur-surface);
+  backdrop-filter: var(--liquid-blur-surface);
   box-shadow: var(--liquid-highlight), var(--liquid-shadow-soft);
   isolation: isolate;
 }
@@ -2003,8 +2003,8 @@ a.apple-link:hover {
   padding: 0 12px;
   border: 1px solid var(--liquid-border);
   background: var(--liquid-control);
-  backdrop-filter: var(--liquid-blur-control);
   -webkit-backdrop-filter: var(--liquid-blur-control);
+  backdrop-filter: var(--liquid-blur-control);
   box-shadow: var(--liquid-highlight), 0 8px 22px rgba(25, 35, 55, 0.09);
   color: var(--color-accent);
   font-size: 14px;
@@ -2101,8 +2101,8 @@ a.apple-link:hover {
   height: 240px;
   z-index: 1;
   background: var(--liquid-surface-quiet);
-  backdrop-filter: var(--liquid-blur-surface);
   -webkit-backdrop-filter: var(--liquid-blur-surface);
+  backdrop-filter: var(--liquid-blur-surface);
   border: 1px solid var(--liquid-border);
   border-radius: 0 0 18px 18px;
 }
@@ -2311,8 +2311,8 @@ html {
   background: var(--liquid-control);
   border: 1px solid var(--liquid-border);
   box-shadow: var(--liquid-highlight), 0 6px 16px rgba(25, 35, 55, 0.06);
-  backdrop-filter: var(--liquid-blur-control);
   -webkit-backdrop-filter: var(--liquid-blur-control);
+  backdrop-filter: var(--liquid-blur-control);
   transform: translate(-50%, -50%) scale(1);
   transition:
     transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
@@ -2343,8 +2343,8 @@ html {
   background: var(--liquid-chrome);
   border: 1px solid var(--liquid-border);
   box-shadow: var(--liquid-highlight), 0 8px 18px rgba(25, 35, 55, 0.06);
-  backdrop-filter: var(--liquid-blur-chrome);
   -webkit-backdrop-filter: var(--liquid-blur-chrome);
+  backdrop-filter: var(--liquid-blur-chrome);
   color: var(--color-foreground);
   font-size: 11px;
   font-weight: 600;
