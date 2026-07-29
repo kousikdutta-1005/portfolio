@@ -800,10 +800,13 @@ footer {
   inset: 0;
   z-index: 0;
   border-radius: inherit;
-  background: color-mix(in oklab, var(--color-card) 64%, transparent);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.06) 38%, rgba(255, 255, 255, 0.14) 70%, rgba(255, 255, 255, 0.04)),
+    color-mix(in oklab, var(--color-card) 64%, transparent);
   border: 1px solid color-mix(in oklab, var(--liquid-border) 78%, white 22%);
   box-shadow:
     var(--liquid-highlight),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.16),
     inset 0 -1px 0 color-mix(in oklab, var(--color-foreground) 7%, transparent),
     0 10px 24px rgba(25, 35, 55, 0.105);
   backdrop-filter: blur(28px) saturate(180%) contrast(1.02);
@@ -865,7 +868,9 @@ footer {
 }
 
 .dark .brand-signature::before {
-  background: rgba(34, 34, 38, 0.62);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04) 38%, rgba(255, 255, 255, 0.1) 72%, rgba(255, 255, 255, 0.02)),
+    rgba(34, 34, 38, 0.62);
   border-color: var(--liquid-border);
   box-shadow:
     var(--liquid-highlight),
@@ -936,9 +941,14 @@ footer {
   inset: 0;
   z-index: 0;
   border-radius: inherit;
-  background: var(--liquid-control);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05) 44%, rgba(255, 255, 255, 0.12) 74%, rgba(255, 255, 255, 0.03)),
+    var(--liquid-control);
   border: 1px solid var(--liquid-border);
-  box-shadow: var(--liquid-highlight), 0 6px 14px rgba(25, 35, 55, 0.06);
+  box-shadow:
+    var(--liquid-highlight),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 6px 14px rgba(25, 35, 55, 0.06);
   backdrop-filter: var(--liquid-blur-control);
   -webkit-backdrop-filter: var(--liquid-blur-control);
   opacity: 0;
@@ -985,6 +995,7 @@ footer {
 .nav-link-interactive.is-active::before,
 .mobile-nav-link-interactive.is-active::before {
   background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.06) 42%, rgba(255, 255, 255, 0.14) 72%, rgba(255, 255, 255, 0.04)),
     var(--liquid-tint),
     var(--liquid-control);
   border-color: color-mix(in oklab, var(--color-accent) 14%, var(--liquid-border));
@@ -998,7 +1009,9 @@ footer {
 
 .dark .nav-link-interactive::before,
 .dark .mobile-nav-link-interactive::before {
-  background: var(--liquid-control);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04) 42%, rgba(255, 255, 255, 0.09) 72%, rgba(255, 255, 255, 0.02)),
+    var(--liquid-control);
   border-color: var(--liquid-border);
   box-shadow: var(--liquid-highlight), 0 8px 18px rgba(0, 0, 0, 0.2);
 }
@@ -1006,6 +1019,7 @@ footer {
 .dark .nav-link-interactive.is-active::before,
 .dark .mobile-nav-link-interactive.is-active::before {
   background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05) 42%, rgba(255, 255, 255, 0.1) 72%, rgba(255, 255, 255, 0.03)),
     var(--liquid-tint),
     var(--liquid-control);
   border-color: color-mix(in oklab, var(--color-accent) 18%, var(--liquid-border));
@@ -1067,9 +1081,13 @@ footer {
   border: 1px solid var(--liquid-border);
   border-radius: var(--content-nav-radius);
   background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.055) 42%, rgba(255, 255, 255, 0.12) 72%, rgba(255, 255, 255, 0.035)),
     var(--liquid-tint),
     var(--liquid-chrome);
-  box-shadow: var(--liquid-highlight), var(--liquid-shadow-soft);
+  box-shadow:
+    var(--liquid-highlight),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    var(--liquid-shadow-soft);
   backdrop-filter: var(--liquid-blur-chrome);
   -webkit-backdrop-filter: var(--liquid-blur-chrome);
   isolation: isolate;
@@ -1080,6 +1098,19 @@ footer {
     box-shadow 180ms ease;
 }
 
+.case-study-nav-inner::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: calc(var(--content-nav-radius) - 1px);
+  background:
+    linear-gradient(110deg, rgba(255, 255, 255, 0.18), transparent 28% 72%, rgba(255, 255, 255, 0.08)),
+    radial-gradient(70% 110% at 12% 0%, rgba(255, 255, 255, 0.2), transparent 58%);
+  opacity: 0.74;
+}
+
 .case-study-nav-inner::-webkit-scrollbar {
   display: none;
 }
@@ -1088,9 +1119,13 @@ footer {
   padding: 0.34rem;
   border-color: var(--liquid-border-strong);
   background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.06) 42%, rgba(255, 255, 255, 0.13) 72%, rgba(255, 255, 255, 0.04)),
     var(--liquid-tint),
     var(--liquid-chrome);
-  box-shadow: var(--liquid-highlight), var(--liquid-chrome-shadow);
+  box-shadow:
+    var(--liquid-highlight),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.14),
+    var(--liquid-chrome-shadow);
 }
 
 .case-study-nav-item {
@@ -1108,6 +1143,8 @@ footer {
   letter-spacing: -0.01em;
   outline: none;
   overflow: hidden;
+  isolation: isolate;
+  z-index: 1;
   transition:
     color 180ms ease,
     background 180ms ease,
@@ -1122,9 +1159,14 @@ footer {
   inset: 0;
   z-index: 0;
   border-radius: inherit;
-  background: var(--liquid-control);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05) 44%, rgba(255, 255, 255, 0.12) 74%, rgba(255, 255, 255, 0.03)),
+    var(--liquid-control);
   border: 1px solid var(--liquid-border);
-  box-shadow: var(--liquid-highlight), 0 6px 14px rgba(25, 35, 55, 0.06);
+  box-shadow:
+    var(--liquid-highlight),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 6px 14px rgba(25, 35, 55, 0.06);
   backdrop-filter: var(--liquid-blur-control);
   -webkit-backdrop-filter: var(--liquid-blur-control);
   opacity: 0;
@@ -1150,6 +1192,7 @@ footer {
 
 .case-study-nav-item.is-active::before {
   background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.06) 42%, rgba(255, 255, 255, 0.14) 72%, rgba(255, 255, 255, 0.04)),
     var(--liquid-tint),
     var(--liquid-control);
   border-color: color-mix(in oklab, var(--color-accent) 14%, var(--liquid-border));
@@ -1209,19 +1252,33 @@ footer {
 .dark .case-study-nav-stuck .case-study-nav-inner {
   border-color: var(--liquid-border);
   background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04) 42%, rgba(255, 255, 255, 0.09) 72%, rgba(255, 255, 255, 0.02)),
     var(--liquid-tint),
     var(--liquid-chrome);
-  box-shadow: var(--liquid-highlight), var(--liquid-chrome-shadow);
+  box-shadow:
+    var(--liquid-highlight),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    var(--liquid-chrome-shadow);
+}
+
+.dark .case-study-nav-inner::before {
+  background:
+    linear-gradient(110deg, rgba(255, 255, 255, 0.14), transparent 30% 70%, rgba(255, 255, 255, 0.07)),
+    radial-gradient(70% 110% at 12% 0%, rgba(255, 255, 255, 0.16), transparent 58%);
+  opacity: 0.82;
 }
 
 .dark .case-study-nav-item::before {
-  background: var(--liquid-control);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04) 42%, rgba(255, 255, 255, 0.09) 72%, rgba(255, 255, 255, 0.02)),
+    var(--liquid-control);
   border-color: var(--liquid-border);
   box-shadow: var(--liquid-highlight), 0 8px 18px rgba(0, 0, 0, 0.2);
 }
 
 .dark .case-study-nav-item.is-active::before {
   background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.17), rgba(255, 255, 255, 0.05) 42%, rgba(255, 255, 255, 0.1) 72%, rgba(255, 255, 255, 0.03)),
     var(--liquid-tint),
     var(--liquid-control);
   border-color: color-mix(in oklab, var(--color-accent) 18%, var(--liquid-border));
