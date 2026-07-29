@@ -65,11 +65,12 @@ const PROJECTS = [
 ]
 
 const BRANDS = [
-  { name: "ThoughtSpot", src: "/assets/brands/thoughtspot.svg", height: 38 },
-  { name: "Philips", src: "/assets/brands/philips.svg", height: 21 },
-  { name: "Precisely", src: "/assets/brands/precisely.svg", height: 27 },
-  { name: "Airtel", src: "/assets/brands/airtel.svg", height: 24 },
   { name: "Vedantu", src: "/assets/brands/vedantu.svg", height: 26 },
+  { name: "Airtel", src: "/assets/brands/airtel.svg", height: 24 },
+  { name: "OLX", src: "/assets/brands/olx.svg", height: 28 },
+  { name: "Philips", src: "/assets/brands/philips.svg", height: 21 },
+  { name: "ThoughtSpot", src: "/assets/brands/thoughtspot.svg", height: 38 },
+  { name: "Precisely", src: "/assets/brands/precisely.svg", height: 27 },
 ]
 
 const TESTIMONIALS = [
@@ -225,7 +226,7 @@ export default function HomePage() {
             className="company-proof"
           >
             <p className="company-proof-copy">Product thinking shaped with teams at</p>
-            <div className="company-marquee" aria-label="ThoughtSpot, Philips, Precisely, Airtel, and Vedantu">
+            <div className="company-marquee" aria-label="Vedantu, Airtel, OLX, Philips, ThoughtSpot, and Precisely">
               <div className="company-marquee-track">
                 {[...BRANDS, ...BRANDS, ...BRANDS].map((brand, i) => (
                   <img
