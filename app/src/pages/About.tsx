@@ -4,7 +4,8 @@ import { cn } from "@/lib/utils"
 import { assetPath } from "@/lib/assets"
 import { PageTransition } from "@/components/PageTransition"
 import { useState, useRef } from "react"
-import { useTheme } from "@/components/ThemeProvider"
+import { useTheme } from "@/components/theme-context"
+import { Seo } from "@/components/Seo"
 
 const EASE_ENTER = [0.25, 0.1, 0.25, 1] as const
 const DURATION_REVEAL = 0.6
@@ -302,7 +303,7 @@ function StoryCubeSection() {
             <div>
               <h1 className="text-[clamp(3rem,7vw,4rem)] font-bold tracking-[-0.035em] leading-[1.02]">
                 <span className="block">Think systems.</span>
-                <span className="block text-foreground/80">Make it real.</span>
+                <span className="block text-foreground/80">Make it <span className="heading-italic">real.</span></span>
               </h1>
             </div>
             <div>
@@ -438,7 +439,7 @@ function StoryCubeSection() {
               >
                 <h1 className="text-[clamp(3rem,7vw,4rem)] font-bold tracking-[-0.035em] leading-[1.02]">
                   <span className="block">Think systems.</span>
-                  <span className="block text-foreground/80">Make it real.</span>
+                  <span className="block text-foreground/80">Make it <span className="heading-italic">real.</span></span>
                 </h1>
               </motion.div>
 
@@ -457,7 +458,7 @@ function StoryCubeSection() {
                 >
                   <h2 className="text-[clamp(3.25rem,7vw,5rem)] font-bold tracking-[-0.04em] leading-[1.02]">
                     <span className="block">{ch.heading[0]}</span>
-                    <span className="block text-foreground/80">{ch.heading[1]}</span>
+                    <span className="block text-foreground/80 heading-italic">{ch.heading[1]}</span>
                   </h2>
                 </motion.div>
               ))}
@@ -655,25 +656,30 @@ function StoryCubeSection() {
 export default function AboutPage() {
   return (
     <PageTransition>
+    <Seo
+      title="About Kousik Dutta - Product Design, Systems Thinking, AI Prototyping"
+      description="Learn how Kousik Dutta frames product problems, designs calm systems, and uses AI-assisted code to make product direction testable."
+      path="/about"
+    />
     <div className="relative">
       {/* Scroll-driven Hero + Story Cube */}
       <StoryCubeSection />
 
       {/* Experience */}
-      <section className="py-12 md:py-16">
+      <section className="py-14 md:py-20">
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="mb-6"
+            className="mb-8"
           >
             <p className="section-kicker mb-1.5">
               Experience
             </p>
             <h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em]">
-              Built inside real product teams.
+              Built inside <span className="heading-italic">real</span> product teams.
             </h2>
           </motion.div>
 
@@ -712,7 +718,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-12 md:py-16">
+      <section className="py-14 md:py-20">
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <motion.div
             variants={fadeUp}
@@ -723,8 +729,8 @@ export default function AboutPage() {
             <p className="section-kicker mb-1.5">
               How I work
             </p>
-            <h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-6">
-              How my brain helps a team move.
+            <h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-8">
+              How my brain helps a team <span className="heading-italic">move.</span>
             </h2>
           </motion.div>
           <motion.div

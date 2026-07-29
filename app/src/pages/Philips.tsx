@@ -4,8 +4,9 @@ import { useState } from "react"
 import { cn } from "@/lib/utils"
 import { assetPath } from "@/lib/assets"
 import { PageTransition } from "@/components/PageTransition"
-import { CaseBrief, type CaseBriefItem } from "@/components/CaseBrief"
+import { CaseEvidenceStrip, CaseStory, type CaseEvidenceItem, type CaseStoryItem } from "@/components/CaseStory"
 import { CaseStudyNav, type CaseStudyNavSection } from "@/components/CaseStudyNav"
+import { Seo } from "@/components/Seo"
 
 const EASE_ENTER = [0.25, 0.1, 0.25, 1] as const
 const DURATION_REVEAL = 0.6
@@ -25,10 +26,11 @@ const staggerContainer = {
   visible: { transition: { staggerChildren: STAGGER } },
 }
 
-const OUTCOMES = [
-  { metric: "2x", label: "Gold medals", desc: "Won 2 University Gold Medals for this Graduation Project Thesis." },
-  { metric: "iF", label: "Design Award", desc: "Features from this project shipped in Philips' iF‑winning Guided Health Service." },
-  { metric: "82.1", label: "SUS Score (A)", desc: "From 18 participants, showing the experience was easy to understand and use." },
+const OUTCOMES: CaseEvidenceItem[] = [
+  { value: "82.1", label: "SUS benchmark", desc: "A-grade usability score, giving the team a standard read on clarity and ease of use." },
+  { value: "18", label: "User validation", desc: "Participants tested the concept so decisions were checked against real comprehension." },
+  { value: "12", label: "Concept coverage", desc: "Shortlisted concepts were compared with a Pugh matrix before selecting the direction." },
+  { value: "4", label: "Behavior themes", desc: "Research synthesis grouped insights into themes the product system could act on." },
 ]
 
 const CONTEXT = [
@@ -41,7 +43,7 @@ const LIT_INSIGHTS = [
   { title: "CAD Risk Factors", desc: "A sedentary lifestyle, poor diet, metabolic conditions, and inequities elevate CAD risk in Indians 30+." },
   { title: "Stress Management", desc: "Managing chronic stress and mental health reduces behaviors and physiologic drivers linked to CAD." },
   { title: "Culture and society", desc: "Promote healthy diets, address socioeconomic gaps, and lower cultural barriers to regular activity." },
-  { title: "Tech Interventions", desc: "Digital self‑monitoring and nudges can support behavior change and targeted prevention at scale." },
+  { title: "Tech interventions", desc: "Digital self-monitoring and nudges can support behavior change and targeted prevention at scale." },
   { title: "Environmental Factors", desc: "Pollution, limited green spaces, and urban design influence cardiovascular risk profiles." },
   { title: "Device Risk Classification", desc: "A classification helps providers select appropriate monitors to manage individual risk profiles." },
 ]
@@ -53,37 +55,37 @@ const USER_INTERVIEWS = [
 ]
 
 const LEARNINGS: { title: string; desc: string; image?: string }[] = [
-  { title: "Research depth", desc: "Reviewed 140+ sources and 18 interviews to guide choices.", image: "/assets/images/b9OoNNeJac3xWYgEwwW5cDJO8.png" },
-  { title: "Inductive coding", desc: "Built Excel codebook and grouped insights into 4 themes.", image: "/assets/images/TRd5S978oTc5ik4BexV9THbI.png" },
-  { title: "Decision tools", desc: "Assessed 12 concepts using a Pugh matrix before selection.", image: "/assets/images/a3108No4fjugOpjetH5z8spz6gY.png" },
-  { title: "DLS alignment", desc: "Applied Philips Consumer DLS for consistent and accessible interface.", image: "/assets/images/UVmMkAEgKUh8JWjxHwVDdOWOq00.png" },
-  { title: "Agile sprints", desc: "Practiced SAFe with 6 practices and regular sprint reviews.", image: "/assets/images/ktUfjJR2NOSdqVtLyQyrrYvmu2w.png" },
-  { title: "Usability proof", desc: "Achieved 82.1 SUS (A) from 18 participants in usability testing.", image: "/assets/images/XmzU9NdKM3kGZSGeAGzjGb6DGKs.png" },
+  { title: "Research depth", desc: "A wide research base helped separate medical facts from assumptions about behavior.", image: "/assets/images/b9OoNNeJac3xWYgEwwW5cDJO8.png" },
+  { title: "Inductive coding", desc: "A structured codebook turned interviews into themes the team could make decisions from.", image: "/assets/images/TRd5S978oTc5ik4BexV9THbI.png" },
+  { title: "Decision tools", desc: "The Pugh matrix made concept selection explicit instead of relying on taste alone.", image: "/assets/images/a3108No4fjugOpjetH5z8spz6gY.png" },
+  { title: "DLS alignment", desc: "Philips Consumer DLS kept the interface consistent, legible, and accessible.", image: "/assets/images/UVmMkAEgKUh8JWjxHwVDdOWOq00.png" },
+  { title: "Sprint rhythm", desc: "Regular reviews helped research, service logic, and interface details move together.", image: "/assets/images/ktUfjJR2NOSdqVtLyQyrrYvmu2w.png" },
+  { title: "Usability proof", desc: "The SUS score gave the team a practical read on whether the concept felt clear.", image: "/assets/images/XmzU9NdKM3kGZSGeAGzjGb6DGKs.png" },
 ]
 
 const META = [
-  { label: "Organisation", value: "Philips Healthcare" },
-  { label: "Designer", value: "Kousik Dutta" },
+  { label: "Company", value: "Philips Healthcare" },
+  { label: "Role", value: "Product Designer" },
   { label: "Design Lead", value: "Praveen G, Shaon S" },
-  { label: "Duration", value: "January – July 2023" },
+  { label: "Duration", value: "7 months, January to July 2023" },
 ]
 
-const SUMMARY: CaseBriefItem[] = [
+const SUMMARY: CaseStoryItem[] = [
   {
-    label: "Problem",
-    text: "CAD prevention was not just an information problem. People needed risk, habits, and progress to feel actionable.",
+    label: "What was broken",
+    text: "CAD prevention was not only an information problem. Risk, habits, and progress needed to feel understandable enough to act on.",
   },
   {
-    label: "My move",
-    text: "I shaped the research synthesis, concept evaluation, ecosystem logic, UX flows, and interface direction.",
+    label: "What changed",
+    text: "I shaped the research synthesis, concept evaluation, ecosystem logic, UX flows, and interface direction around prevention.",
   },
   {
-    label: "Shipped",
-    text: "A connected heart-health ecosystem across learning, routines, monitoring, AI guidance, and lifestyle change.",
+    label: "Why it works",
+    text: "The system connected learning, routines, monitoring, guidance, and lifestyle change so the user was not left with isolated advice.",
   },
   {
-    label: "Proof",
-    text: "Strong usability, thesis recognition, and iF-recognized shipped work showed the system could feel trusted.",
+    label: "How it scales",
+    text: "The ecosystem model gave Philips a reusable pattern for connected devices, app guidance, and everyday health behavior support.",
   },
 ]
 
@@ -146,7 +148,12 @@ function SectionImage({ src, alt, className }: { src: string; alt: string; class
 export default function PhilipsPage() {
   return (
     <PageTransition>
-      <div className="relative" style={{ overflowX: "clip" }}>
+      <Seo
+        title="Philips Cardiocare Case Study - Kousik Dutta"
+        description="A healthcare product design case study on preventive heart care, research synthesis, service systems, and action-oriented patient support."
+        path="/case-study/philips"
+      />
+      <div className="philips-case-study relative" style={{ overflowX: "clip" }}>
         <section className="pt-20 md:pt-24">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}>
@@ -173,7 +180,7 @@ export default function PhilipsPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: EASE_ENTER }}
             >
-              Preventive heart care, made easier to act on.
+              Preventive heart care, made easier to <span className="heading-italic">act</span> on.
             </motion.h1>
             <motion.p
               className="mt-4 text-[17px] text-muted-foreground leading-[1.58] max-w-[680px]"
@@ -199,10 +206,9 @@ export default function PhilipsPage() {
           </div>
         </section>
 
-        <CaseBrief
-          title="What matters first"
-          insight="This project was about making preventive heart care feel understandable, personal, and doable before the user reaches a crisis point."
-          signal="82.1 SUS, 2 gold medals, iF-recognized shipped work"
+        <CaseStory
+          title="From risk to daily action"
+          lead="This project was about making preventive heart care feel understandable, personal, and doable before the user reaches a crisis point."
           items={SUMMARY}
         />
 
@@ -216,7 +222,13 @@ export default function PhilipsPage() {
 
         <section className="py-10 md:py-14" id="outcomes">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
-            <motion.p className="text-[13px] font-semibold text-muted-foreground mb-5" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Outcomes</motion.p>
+            <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+              Signals that the system felt <span className="heading-italic">usable</span>.
+            </motion.h2>
+            <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[680px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+              The outcome signals are strongest when read together: usability benchmark, validation sample, concept coverage, and behavior themes.
+            </motion.p>
+            <CaseEvidenceStrip items={OUTCOMES} />
             <motion.div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <motion.div variants={fadeUp}>
                 <SectionImage src="/assets/images/oiW8eXHbvjUx2WW5fIiPIPypsZo.png" alt="Outcomes overview 1" />
@@ -228,15 +240,6 @@ export default function PhilipsPage() {
                 <SectionImage src="/assets/images/fx07bQrlNg5sqn6wuPnUU4Qe1oU.png" alt="Outcomes overview 3" />
               </motion.div>
             </motion.div>
-            <motion.div className="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-4" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              {OUTCOMES.map((item) => (
-                <motion.div key={item.label} variants={fadeUp} className="border-t border-border/55 pt-4">
-                  <p className="text-[28px] font-bold tracking-tight">{item.metric}</p>
-                  <p className="text-[14px] font-semibold mt-1">{item.label}</p>
-                  <p className="text-[13px] text-muted-foreground mt-2 leading-relaxed">{item.desc}</p>
-                </motion.div>
-              ))}
-            </motion.div>
           </div>
         </section>
 
@@ -244,7 +247,7 @@ export default function PhilipsPage() {
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.p className="text-[13px] font-semibold text-muted-foreground mb-2" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Context</motion.p>
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              Understanding coronary artery disease
+              Understanding <span className="heading-italic">coronary</span> artery disease
             </motion.h2>
             <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <motion.div variants={fadeUp}>
@@ -287,7 +290,7 @@ export default function PhilipsPage() {
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.p className="text-[13px] font-semibold text-muted-foreground mb-2" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Research</motion.p>
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              Literature review to field interviews
+              Literature review to <span className="heading-italic">field</span> interviews
             </motion.h2>
             <motion.p className="text-[15px] text-muted-foreground mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               Secondary and primary research helped clarify risks, behavior patterns, and intervention opportunities.
@@ -356,7 +359,7 @@ export default function PhilipsPage() {
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.p className="text-[13px] font-semibold text-muted-foreground mb-2" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Analysis</motion.p>
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              Making sense of the behavior landscape
+              Making <span className="heading-italic">sense</span> of the behavior landscape
             </motion.h2>
             <motion.p className="text-[15px] text-muted-foreground mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               Journey mapping, personas, systems thinking, and inductive coding helped frame where design could intervene.
@@ -392,19 +395,19 @@ export default function PhilipsPage() {
                   phase: "Phase 1/4",
                   title: "College Life (18-23Y)",
                   desc: "Poor diet, long sitting, late nights, smoking or alcohol, and ignored self care dominate.",
-                  image: "/assets/images/IgnkCq4U2ZO6KiRNsnFUJNTTQS0.png",
+                  image: "/assets/images/IgnkCq4U2ZO6KiRNsnFUJNTTQS0.jpg",
                 },
                 {
                   phase: "Phase 2/4",
                   title: "Professional life (24-27Y)",
                   desc: "Work disrupts meals, extends sitting, adds parties, increases alcohol or smoking, and neglects self care.",
-                  image: "/assets/images/e4wzzmAPnQjECBs88VTnFreht10.png",
+                  image: "/assets/images/e4wzzmAPnQjECBs88VTnFreht10.jpg",
                 },
                 {
                   phase: "Phase 3/4",
                   title: "Family (28-32Y)",
                   desc: "Diet improves slightly, but sitting persists, stress rises, weight increases, BP and cholesterol emerge.",
-                  image: "/assets/images/hhEPti9RdxDqITQaj0JAwaFKs.png",
+                  image: "/assets/images/hhEPti9RdxDqITQaj0JAwaFKs.jpg",
                 },
                 {
                   phase: "Phase 4/4",
@@ -432,7 +435,7 @@ export default function PhilipsPage() {
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.p className="text-[13px] font-semibold text-muted-foreground mb-2" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Define</motion.p>
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              {DEFINE_CONTENT.heading}
+              Focused <span className="heading-italic">design</span> brief
             </motion.h2>
             <motion.p className="text-[15px] text-muted-foreground mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               {DEFINE_CONTENT.desc}
@@ -460,7 +463,7 @@ export default function PhilipsPage() {
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.p className="text-[13px] font-semibold text-muted-foreground mb-2" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Ideation</motion.p>
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              {IDEATION_CONTENT.heading}
+              From SCAMPER to <span className="heading-italic">solution</span>
             </motion.h2>
             <motion.p className="text-[15px] text-muted-foreground mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               {IDEATION_CONTENT.desc}
@@ -490,10 +493,10 @@ export default function PhilipsPage() {
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.p className="text-[13px] font-semibold text-muted-foreground mb-2" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Design</motion.p>
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              The Cardiocare ecosystem
+              The Cardiocare <span className="heading-italic">ecosystem</span>
             </motion.h2>
             <motion.p className="text-[15px] text-muted-foreground mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              Holistic heart health management across devices, apps, and AI.
+              A heart-health system across devices, apps, and plain-language guidance.
             </motion.p>
             <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <motion.div variants={fadeUp}>
@@ -530,7 +533,7 @@ export default function PhilipsPage() {
                 <motion.div variants={fadeUp}>
                   <h4 className="text-[20px] md:text-[24px] font-bold tracking-[-0.02em] mb-2">Routine</h4>
                   <p className="text-[15px] text-muted-foreground leading-[1.58] mb-5">
-                    Tailored lifestyle modification suggestions integrated into existing routines for a heart‑healthier lifestyle.
+                    Tailored lifestyle suggestions that fit into everyday routines instead of asking for a complete reset.
                   </p>
                   <SectionImage src="/assets/images/838Ltuj9ErqvqFvc42m3CNWw.png" alt="Routine feature" className="max-h-[520px] object-top" />
                 </motion.div>
@@ -566,21 +569,18 @@ export default function PhilipsPage() {
 
         <section className="py-10 md:py-14" id="learnings">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
-            <motion.p className="text-[13px] font-semibold text-muted-foreground mb-2" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Learnings</motion.p>
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              What I took away
+              What the work <span className="heading-italic">clarified</span>
             </motion.h2>
-            <motion.p className="text-[15px] text-muted-foreground mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              These learnings reflect work at Philips and how the team shaped my growth.
+            <motion.p className="text-[15px] text-muted-foreground mb-8 max-w-[680px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+              The value came from the sequence: evidence first, then concept choice, then interface craft.
             </motion.p>
-            <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+            <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-7 gap-y-7" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               {LEARNINGS.map((l) => (
-                <motion.div key={l.title} variants={fadeUp} className="rounded-2xl overflow-hidden border border-border/50">
-                  {l.image && <img src={assetPath(l.image)} alt={l.title} className="w-full aspect-[4/3] object-cover frost-media" />}
-                  <div className="p-4">
-                    <h3 className="text-[14px] font-semibold mb-1">{l.title}</h3>
-                    <p className="text-[13px] text-muted-foreground leading-relaxed">{l.desc}</p>
-                  </div>
+                <motion.div key={l.title} variants={fadeUp} className="border-t border-border/55 pt-4">
+                  {l.image && <img src={assetPath(l.image)} alt={l.title} className="w-full aspect-[4/3] object-cover rounded-2xl frost-media mb-4" loading="lazy" />}
+                  <h3 className="text-[14px] font-semibold mb-1">{l.title}</h3>
+                  <p className="text-[13px] text-muted-foreground leading-relaxed">{l.desc}</p>
                 </motion.div>
               ))}
             </motion.div>

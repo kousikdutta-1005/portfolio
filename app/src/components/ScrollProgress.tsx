@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef } from "react"
 
 /**
  * Thin accent-colored scroll progress bar at the very top of viewport.
  */
 export function ScrollProgress() {
-  const [progress, setProgress] = useState(0)
+  const progressRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     let raf = 0
@@ -14,7 +14,10 @@ export function ScrollProgress() {
       raf = requestAnimationFrame(() => {
         const scrollTop = window.scrollY
         const docHeight = document.documentElement.scrollHeight - window.innerHeight
-        setProgress(docHeight > 0 ? Math.min(1, scrollTop / docHeight) : 0)
+        const progress = docHeight > 0 ? Math.min(1, scrollTop / docHeight) : 0
+        if (progressRef.current) {
+          progressRef.current.style.transform = `scaleX(${progress})`
+        }
         raf = 0
       })
     }
@@ -30,8 +33,9 @@ export function ScrollProgress() {
 
   return (
     <div
+      ref={progressRef}
       className="scroll-progress-bar"
-      style={{ transform: `scaleX(${progress})` }}
+      style={{ transform: "scaleX(0)" }}
       aria-hidden="true"
     />
   )

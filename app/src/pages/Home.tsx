@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils"
 import { assetPath } from "@/lib/assets"
 import { ArrowUpRight } from "lucide-react"
 import { PageTransition } from "@/components/PageTransition"
+import { Seo } from "@/components/Seo"
 
 // Apple HIG motion: spring-based, purposeful, natural physics
 const EASE_ENTER = [0.25, 0.1, 0.25, 1] as const
@@ -26,49 +27,80 @@ const staggerContainer = {
   visible: { transition: { staggerChildren: STAGGER } },
 }
 
-const PROJECTS = [
+type Project = {
+  title: string
+  desc: string
+  meta: string
+  timeframe: string
+  signal: string
+  image: string
+  darkImage?: string
+  href: string
+  external?: boolean
+  imageFit?: "cover" | "contain"
+  imageTreatment?: "precisely-hero"
+}
+
+const PROJECTS: Project[] = [
+  {
+    title: "Precisely Developer Portal",
+    desc: "Clear API demos for testing real inputs and outputs.",
+    meta: "Developer tools, APIs, systems",
+    timeframe: "Aug-Oct 2025 · 3 months",
+    signal: "5 APIs · 1 reusable tryout flow",
+    image: "/assets/images/precisely-devportal/hero-visual-card.png",
+    darkImage: "/assets/images/precisely-devportal/hero-visual-card-dark.png",
+    href: "/case-study/precisely-devportal",
+    imageFit: "contain",
+    imageTreatment: "precisely-hero",
+  },
   {
     title: "ThoughtSpot Mobile",
-    desc: "Analytics shaped into a mobile decision loop teams could trust.",
+    desc: "Mobile analytics for faster, trusted decisions.",
     meta: "Analytics, AI, mobile",
-    signal: "3x MAU growth",
+    timeframe: "Jan-Apr 2024 · 4 months",
+    signal: "3x MAU · 4.9 App Store",
     image: "/assets/images/GLP0Z4G1xKxcD0e0TDg9EWRgzQ.png",
     href: "/case-study/thoughtspot",
   },
   {
     title: "Philips Cardiocare",
-    desc: "Preventive heart care made understandable, personal, and actionable.",
+    desc: "Preventive heart care made clear and actionable.",
     meta: "Healthcare, research, service",
-    signal: "82.1 SUS",
+    timeframe: "Jan-Jul 2023 · 7 months",
+    signal: "82.1 SUS · 18 users",
     image: "/assets/images/NRmPx5otSD5B8RKHstn08Zcs0k.png",
     href: "/case-study/philips",
   },
   {
-    title: "Airtel Live Chat",
-    desc: "Support flows clarified so people could get help faster.",
-    meta: "Telecom, support, chat",
-    signal: "Faster support flows",
-    image: "/assets/images/elvpFwKLIpGRQQqelaZQI5Xw.png",
-    href: "https://www.behance.net/gallery/154991935/Airtel-Live-Chat-UX-Design-Casestudy",
+    title: "OLX Autos Workshop",
+    desc: "Workshop flows mapped for sharper decisions.",
+    meta: "Workshop, service systems",
+    timeframe: "2021 to 2023 · internship work",
+    signal: "Handoff time · rework risk",
+    image: "/assets/images/lsO27yP1rhwECcphfDr6QnvgQ.png",
+    href: "https://drive.google.com/file/d/1qahC8wyxudzjzuO9Zrtvk9e6Tz2UO9Cx/view?usp=drive_link",
     external: true,
   },
   {
-    title: "OLX Autos Workshop",
-    desc: "Service-system thinking made visible for sharper team decisions.",
-    meta: "Workshop, service systems",
-    signal: "Shared team clarity",
-    image: "/assets/images/lsO27yP1rhwECcphfDr6QnvgQ.png",
-    href: "https://drive.google.com/file/d/1qahC8wyxudzjzuO9Zrtvk9e6Tz2UO9Cx/view?usp=drive_link",
+    title: "Airtel Live Chat",
+    desc: "Support chat flows clarified for faster help.",
+    meta: "Telecom, support, chat",
+    timeframe: "2021 to 2023 · internship work",
+    signal: "Resolution time · deflection",
+    image: "/assets/images/elvpFwKLIpGRQQqelaZQI5Xw.png",
+    href: "https://www.behance.net/gallery/154991935/Airtel-Live-Chat-UX-Design-Casestudy",
     external: true,
   },
 ]
 
 const BRANDS = [
-  { name: "ThoughtSpot", src: "/assets/brands/thoughtspot.svg", height: 38 },
-  { name: "Philips", src: "/assets/brands/philips.svg", height: 21 },
-  { name: "Precisely", src: "/assets/brands/precisely.svg", height: 27 },
-  { name: "Airtel", src: "/assets/brands/airtel.svg", height: 24 },
   { name: "Vedantu", src: "/assets/brands/vedantu.svg", height: 26 },
+  { name: "Airtel", src: "/assets/brands/airtel.svg", height: 24 },
+  { name: "OLX", src: "/assets/brands/olx-official.svg", height: 28 },
+  { name: "Philips", src: "/assets/brands/philips.svg", height: 21 },
+  { name: "ThoughtSpot", src: "/assets/brands/thoughtspot.svg", height: 38 },
+  { name: "Precisely", src: "/assets/brands/precisely.svg", height: 27 },
 ]
 
 const TESTIMONIALS = [
@@ -156,6 +188,11 @@ function AnimatedHeroStat({ value, suffix = "", label }: (typeof HERO_STATS)[num
 export default function HomePage() {
   return (
     <PageTransition>
+    <Seo
+      title="Kousik Dutta - Senior Product Designer"
+      description="Senior product designer shaping AI, analytics, healthcare, and systems-led product work with clear thinking, refined craft, and buildable prototypes."
+      path="/"
+    />
     <div className="overflow-hidden relative">
       <section className="pt-28 pb-16 md:pt-36 md:pb-20 relative min-h-[64vh] flex items-center pointer-events-none">
         <div className="max-w-[980px] mx-auto px-6 md:px-10 relative z-10 w-full pointer-events-auto">
@@ -168,7 +205,7 @@ export default function HomePage() {
             >
               <h1 className="text-[clamp(3.35rem,7.4vw,6rem)] font-bold tracking-[-0.04em] leading-[0.99]">
                 <span className="block">Thinking</span>
-                <span className="block">becomes</span>
+                <span className="block heading-italic">becomes</span>
                 <span className="block text-foreground/80">product.</span>
               </h1>
             </motion.div>
@@ -219,7 +256,7 @@ export default function HomePage() {
             className="company-proof"
           >
             <p className="company-proof-copy">Product thinking shaped with teams at</p>
-            <div className="company-marquee" aria-label="ThoughtSpot, Philips, Precisely, Airtel, and Vedantu">
+            <div className="company-marquee" aria-label="Vedantu, Airtel, OLX, Philips, ThoughtSpot, and Precisely">
               <div className="company-marquee-track">
                 {[...BRANDS, ...BRANDS, ...BRANDS].map((brand, i) => (
                   <img
@@ -251,19 +288,19 @@ export default function HomePage() {
               Selected work
             </p>
             <h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em]">
-              Where thinking became product
+              Where thinking <span className="heading-italic">became</span> product
             </h2>
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5"
+            className="selected-work-grid grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6"
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
           >
             {PROJECTS.map((project, i) => (
-              <motion.div key={project.title} variants={fadeUp} custom={i}>
+              <motion.div key={project.title} variants={fadeUp} custom={i} className="h-full">
                 {project.external ? (
                   <a
                     href={project.href}
@@ -306,7 +343,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-14 md:py-18">
+      <section className="py-16 md:py-20">
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <div className="method-panel">
             <motion.div
@@ -317,7 +354,7 @@ export default function HomePage() {
             >
               <p className="method-kicker">How my brain creates leverage</p>
               <h2 className="method-title">
-                I do not start with screens. I start with the shape of the problem.
+                I do not start with screens. I start with the <span className="heading-italic">shape</span> of the problem.
               </h2>
             </motion.div>
             <motion.div
@@ -342,7 +379,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-14 md:py-18">
+      <section className="py-16 md:py-20">
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <motion.div
             className="mb-8"
@@ -355,7 +392,7 @@ export default function HomePage() {
               What people say
             </p>
             <h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em]">
-              Trusted for the way I think
+              Trusted for the way I <span className="heading-italic">think</span>
             </h2>
             <p className="mt-2.5 text-[15px] leading-[1.58] text-muted-foreground max-w-[560px]">
               Signals from people who have seen me turn uncertainty into clear product direction.
@@ -363,7 +400,7 @@ export default function HomePage() {
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5"
+            className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6"
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -402,26 +439,39 @@ function TestimonialCard({ t }: { t: typeof TESTIMONIALS[0] }) {
   )
 }
 
-function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
-  const actionLabel = project.external ? "Open" : "View"
-
+function ProjectCard({ project }: { project: Project }) {
   return (
     <div className="project-card-shell">
-      <div className="project-card-media aspect-[16/9] overflow-hidden">
+      <div
+        className={cn(
+          "project-card-media overflow-hidden",
+          project.imageFit === "contain" && "project-card-media-contain",
+          project.imageTreatment === "precisely-hero" && "project-card-media-precisely"
+        )}
+      >
           <img
             src={assetPath(project.image)}
             alt={project.title}
-            className="w-full h-full object-cover"
+            className={cn(
+              "w-full h-full",
+              project.imageFit === "contain" ? "object-contain" : "object-cover",
+              project.darkImage && "project-card-theme-image-light"
+            )}
             loading="lazy"
           />
+          {project.darkImage && (
+            <img
+              src={assetPath(project.darkImage)}
+              alt={project.title}
+              className={cn("hidden w-full h-full", project.imageFit === "contain" ? "object-contain" : "object-cover", "project-card-theme-image-dark")}
+              loading="lazy"
+            />
+          )}
       </div>
       <div className="project-card-content">
         <div className="project-card-topline">
           <p className="project-card-meta">{project.meta}</p>
-          <span className="project-card-action" aria-hidden="true">
-            {actionLabel}
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </span>
+          <p className="project-card-time">{project.timeframe}</p>
         </div>
         <div className="project-card-copy">
           <h3>{project.title}</h3>

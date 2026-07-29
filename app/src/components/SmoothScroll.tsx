@@ -8,12 +8,14 @@ export function SmoothScroll() {
 
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    if (reduceMotion) return
+    const coarsePointer = window.matchMedia("(pointer: coarse)").matches
+    if (reduceMotion || coarsePointer) return
 
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      touchMultiplier: 2,
+      duration: 0.78,
+      easing: (t) => 1 - Math.pow(1 - t, 4),
+      wheelMultiplier: 0.92,
+      touchMultiplier: 1,
     })
     lenisRef.current = lenis
     let rafId = 0
@@ -35,16 +37,15 @@ export function SmoothScroll() {
 
   useEffect(() => {
     const resetToTop = () => {
-      lenisRef.current?.scrollTo(0, { immediate: true, force: true })
+      if (lenisRef.current) {
+        lenisRef.current.scrollTo(0, { immediate: true, force: true })
+        return
+      }
+
       window.scrollTo(0, 0)
-      document.documentElement.scrollTop = 0
-      document.body.scrollTop = 0
     }
 
     resetToTop()
-    const rafId = requestAnimationFrame(resetToTop)
-
-    return () => cancelAnimationFrame(rafId)
   }, [pathname])
 
   return null

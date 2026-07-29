@@ -15,6 +15,9 @@ export function CaseStudyNav({ sections }: CaseStudyNavProps) {
   const [activeId, setActiveId] = useState(sections[0]?.id ?? "")
   const [isSticky, setIsSticky] = useState(false)
   const sentinelRef = useRef<HTMLDivElement>(null)
+  const itemRefs = useRef<Record<string, HTMLButtonElement | null>>({})
+  const stickyStateRef = useRef(false)
+  const isDense = sections.length > 7
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -39,7 +42,14 @@ export function CaseStudyNav({ sections }: CaseStudyNavProps) {
       const sentinel = sentinelRef.current
       if (!sentinel) return
 
-      setIsSticky(sentinel.getBoundingClientRect().top <= 44)
+      const dockTop = Number.parseFloat(
+        getComputedStyle(document.documentElement).getPropertyValue("--case-nav-dock-top")
+      )
+      const nextSticky = sentinel.getBoundingClientRect().top <= (Number.isFinite(dockTop) ? dockTop : 55)
+      if (stickyStateRef.current !== nextSticky) {
+        stickyStateRef.current = nextSticky
+        setIsSticky(nextSticky)
+      }
     }
 
     const scheduleStickyUpdate = () => {
@@ -65,11 +75,22 @@ export function CaseStudyNav({ sections }: CaseStudyNavProps) {
     }
   }, [sections])
 
+  useEffect(() => {
+    itemRefs.current[activeId]?.scrollIntoView({
+      block: "nearest",
+      inline: "nearest",
+      behavior: "smooth",
+    })
+  }, [activeId])
+
   const scrollTo = (id: string) => {
     const el = document.getElementById(id)
     if (!el) return
 
-    const offset = 88
+    const anchorOffset = Number.parseFloat(
+      getComputedStyle(document.documentElement).getPropertyValue("--case-anchor-offset")
+    )
+    const offset = Number.isFinite(anchorOffset) ? anchorOffset : 118
     const top = el.getBoundingClientRect().top + window.scrollY - offset
     window.scrollTo({ top, behavior: "smooth" })
   }
@@ -78,7 +99,7 @@ export function CaseStudyNav({ sections }: CaseStudyNavProps) {
     <>
       <div ref={sentinelRef} className="h-0" aria-hidden="true" />
       <nav
-        className={cn("case-study-nav", isSticky && "case-study-nav-stuck")}
+        className={cn("case-study-nav", isSticky && "case-study-nav-stuck", isDense && "case-study-nav-dense")}
         aria-label="Case study sections"
       >
         <div className="case-study-nav-inner">
@@ -87,6 +108,9 @@ export function CaseStudyNav({ sections }: CaseStudyNavProps) {
             return (
               <button
                 key={section.id}
+                ref={(node) => {
+                  itemRefs.current[section.id] = node
+                }}
                 type="button"
                 onClick={() => scrollTo(section.id)}
                 className={cn("case-study-nav-item", active && "is-active")}

@@ -6,6 +6,7 @@ import { Footer } from "./Footer"
 import { CursorGlow } from "./CursorGlow"
 import { ScrollProgress } from "./ScrollProgress"
 import { AmbientOrbs } from "./AmbientOrbs"
+import { cn } from "@/lib/utils"
 
 function RouteLoadingState({ routeKey }: { routeKey: string }) {
   const [visible, setVisible] = useState(false)
@@ -48,9 +49,32 @@ function RouteLoadingState({ routeKey }: { routeKey: string }) {
 export function Layout() {
   const location = useLocation()
   const outlet = useOutlet()
+  const routeAccentClass =
+    location.pathname === "/case-study/precisely-devportal"
+      ? "route-accent-precisely"
+      : location.pathname === "/case-study/thoughtspot"
+        ? "route-accent-thoughtspot"
+        : location.pathname === "/case-study/philips"
+          ? "route-accent-philips"
+          : undefined
+
+  useEffect(() => {
+    const routeRootClasses = [
+      "route-accent-precisely-root",
+      "route-accent-thoughtspot-root",
+      "route-accent-philips-root",
+    ]
+    const rootClass = routeAccentClass ? `${routeAccentClass}-root` : undefined
+    document.documentElement.classList.remove(...routeRootClasses)
+    if (rootClass) document.documentElement.classList.add(rootClass)
+
+    return () => {
+      document.documentElement.classList.remove(...routeRootClasses)
+    }
+  }, [routeAccentClass])
 
   return (
-    <div className="min-h-screen flex flex-col relative" style={{ overflowX: "clip" }}>
+    <div className={cn("min-h-screen flex flex-col relative", routeAccentClass)} style={{ overflowX: "clip" }}>
       <a href="#main-content" className="skip-link">Skip to content</a>
       <ScrollProgress />
       <AmbientOrbs />
