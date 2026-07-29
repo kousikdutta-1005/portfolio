@@ -8,6 +8,7 @@ const HomePage = lazy(() => import("./pages/Home"))
 const AboutPage = lazy(() => import("./pages/About"))
 const ThoughtSpotPage = lazy(() => import("./pages/ThoughtSpot"))
 const PhilipsPage = lazy(() => import("./pages/Philips"))
+const PreciselyDevPortalPage = lazy(() => import("./pages/PreciselyDevPortal"))
 
 const routerBasename =
   import.meta.env.BASE_URL === "/" ? undefined : import.meta.env.BASE_URL.replace(/\/$/, "")
@@ -24,6 +25,7 @@ function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/case-study/thoughtspot" element={<ThoughtSpotPage />} />
               <Route path="/case-study/philips" element={<PhilipsPage />} />
+              <Route path="/case-study/precisely-devportal" element={<PreciselyDevPortalPage />} />
               <Route path="*" element={<HomePage />} />
             </Route>
           </Routes>

@@ -38,6 +38,14 @@ const routes = [
       "A healthcare product design case study on preventive heart care, research synthesis, service systems, and action-oriented patient support.",
     image: defaultImage,
   },
+  {
+    path: "/case-study/precisely-devportal",
+    file: "case-study/precisely-devportal/index.html",
+    title: "Precisely Developer Portal Case Study - Kousik Dutta",
+    description:
+      "A product design case study on turning API demos into a scalable developer portal evaluation system for Precisely.",
+    image: `${siteUrl}/assets/images/precisely-devportal/1.jpg`,
+  },
 ]
 
 function escapeRegExp(value) {

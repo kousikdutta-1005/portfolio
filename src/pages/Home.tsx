@@ -45,6 +45,14 @@ const PROJECTS = [
     href: "/case-study/philips",
   },
   {
+    title: "Precisely Developer Portal",
+    desc: "API demos turned into a scalable evaluation system for developers.",
+    meta: "Developer tools, API systems",
+    signal: "APIs slot into a system",
+    image: "/assets/images/precisely-devportal/1.jpg",
+    href: "/case-study/precisely-devportal",
+  },
+  {
     title: "Airtel Live Chat",
     desc: "Support flows clarified so people could get help faster.",
     meta: "Telecom, support, chat",
