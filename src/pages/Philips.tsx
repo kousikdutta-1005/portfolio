@@ -66,7 +66,7 @@ const META = [
   { label: "Organisation", value: "Philips Healthcare" },
   { label: "Designer", value: "Kousik Dutta" },
   { label: "Design Lead", value: "Praveen G, Shaon S" },
-  { label: "Duration", value: "January – July 2023" },
+  { label: "Duration", value: "7 months, January to July 2023" },
 ]
 
 const SUMMARY: CaseBriefItem[] = [

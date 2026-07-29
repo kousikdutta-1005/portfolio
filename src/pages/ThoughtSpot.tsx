@@ -28,7 +28,7 @@ const META = [
   { label: "Organisation", value: "ThoughtSpot" },
   { label: "Designer", value: "Kousik Dutta" },
   { label: "Design Lead", value: "Tarun Bhandari" },
-  { label: "Duration", value: "January – April 2025" },
+  { label: "Duration", value: "4 months, January to April 2025" },
 ]
 
 const SUMMARY: CaseBriefItem[] = [
