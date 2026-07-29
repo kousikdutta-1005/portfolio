@@ -7,6 +7,15 @@ export function SmoothScroll() {
   const lenisRef = useRef<Lenis | null>(null)
 
   useEffect(() => {
+    const previous = window.history.scrollRestoration
+    window.history.scrollRestoration = "manual"
+
+    return () => {
+      window.history.scrollRestoration = previous
+    }
+  }, [])
+
+  useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
     const coarsePointer = window.matchMedia("(pointer: coarse)").matches
     if (reduceMotion || coarsePointer) return
@@ -39,6 +48,7 @@ export function SmoothScroll() {
     const resetToTop = () => {
       if (lenisRef.current) {
         lenisRef.current.scrollTo(0, { immediate: true, force: true })
+        lenisRef.current.resize()
         return
       }
 
@@ -46,6 +56,14 @@ export function SmoothScroll() {
     }
 
     resetToTop()
+
+    const frameId = window.requestAnimationFrame(resetToTop)
+    const timeoutId = window.setTimeout(resetToTop, 320)
+
+    return () => {
+      window.cancelAnimationFrame(frameId)
+      window.clearTimeout(timeoutId)
+    }
   }, [pathname])
 
   return null

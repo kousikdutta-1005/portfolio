@@ -166,12 +166,6 @@ export default function PhilipsPage() {
 
         <section className="pt-6 pb-8 md:pt-8 md:pb-10">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
-            <SectionImage src="/assets/images/zmHb3X25M69yV81iHU14amDoU.png" alt="Philips Cardiocare" />
-          </div>
-        </section>
-
-        <section className="pt-0 pb-8 md:pb-10">
-          <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.p
               className="text-[13px] font-semibold text-muted-foreground mb-4"
               initial={{ opacity: 0, y: 18 }}
@@ -217,6 +211,12 @@ export default function PhilipsPage() {
           lead="This project was about making preventive heart care feel understandable, personal, and doable before the user reaches a crisis point."
           items={SUMMARY}
         />
+
+        <section className="pb-8">
+          <div className="max-w-[980px] mx-auto px-6 md:px-10">
+            <SectionImage src="/assets/images/zmHb3X25M69yV81iHU14amDoU.png" alt="Philips Cardiocare" />
+          </div>
+        </section>
 
         <CaseStudyNav sections={SECTIONS} />
 
