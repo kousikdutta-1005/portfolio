@@ -212,8 +212,15 @@ export default function ThoughtSpotPage() {
         </div>
       </section>
 
-      {/* Hero */}
+      {/* Hero image */}
       <section className="pt-6 pb-8 md:pt-8 md:pb-10">
+        <div className="max-w-[980px] mx-auto px-6 md:px-10">
+          <SectionImage src="/assets/images/1GW8AENYNU5gayo8utt1YsKnfY.jpg" alt="ThoughtSpot Mobile overview" loading="eager" />
+        </div>
+      </section>
+
+      {/* Hero */}
+      <section className="pt-0 pb-8 md:pb-10">
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <motion.p className="text-[13px] font-semibold text-muted-foreground mb-4" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: EASE_ENTER }}>
             ThoughtSpot Mobile
@@ -240,13 +247,6 @@ export default function ThoughtSpotPage() {
         lead="This project was about making mobile analytics feel useful in the moments between meetings. Less waiting. Less decoding. More confidence to act."
         items={SUMMARY}
       />
-
-      {/* Hero image */}
-      <section className="pb-8">
-        <div className="max-w-[980px] mx-auto px-6 md:px-10">
-          <SectionImage src="/assets/images/1GW8AENYNU5gayo8utt1YsKnfY.jpg" alt="ThoughtSpot Mobile overview" loading="eager" />
-        </div>
-      </section>
 
       {/* Sticky Section Nav */}
       <CaseStudyNav sections={SECTIONS} />
