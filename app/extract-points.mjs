@@ -10,10 +10,11 @@ const models = [
   'iphone_17_pro.glb',
   'pulldown_graph_chart_3d.glb',
   'apple_vision_pro.glb',
-  'apple_watch_ultra_2.glb'
+  'apple_watch_ultra_2.glb',
+  'ps5_controller.glb'
 ]
 
-const NUM_POINTS = 35000
+const NUM_POINTS = 14000
 
 async function extractFromGLB(filename) {
   const filepath = path.join('public', 'assets', 'models', filename)
@@ -88,33 +89,63 @@ async function extractFromGLB(filename) {
     return area
   })
 
-  // Sample exactly NUM_POINTS evenly over surface area
-  const rawSampled = []
-  for (let i = 0; i < NUM_POINTS; i++) {
-    // Pick triangle proportional to area
-    let r = Math.random() * totalArea
-    let triIdx = 0
-    for (; triIdx < areas.length; triIdx++) {
-      r -= areas[triIdx]
-      if (r <= 0) break
-    }
-    triIdx = Math.min(triIdx, areas.length - 1)
-    const tri = allTriangles[triIdx]
+  // 1. Gather exact vertices first (this preserves high-frequency details like keyboards and cameras)
+  const uniqueVertices = new Set()
+  let exactVertices = []
+  
+  allTriangles.forEach(tri => {
+    tri.forEach(v => {
+      const key = `${v[0].toFixed(3)},${v[1].toFixed(3)},${v[2].toFixed(3)}`
+      if (!uniqueVertices.has(key)) {
+        uniqueVertices.add(key)
+        exactVertices.push(v)
+      }
+    })
+  })
 
-    // Random point in triangle using barycentric coordinates
-    let u = Math.random()
-    let v = Math.random()
-    if (u + v > 1) {
-      u = 1 - u
-      v = 1 - v
+  // 2. Shuffle vertices so we don't just get the "first half" of the model if we truncate
+  exactVertices.sort(() => Math.random() - 0.5)
+
+  // Cap exact vertices to 35% of total points so dense meshes (like the laptop) don't look weird/clumpy
+  const maxExact = Math.floor(NUM_POINTS * 0.35)
+  if (exactVertices.length > maxExact) {
+    exactVertices = exactVertices.slice(0, maxExact)
+  }
+
+  const rawSampled = [...exactVertices]
+
+  // 3. If we still need more points to reach NUM_POINTS, fill with area-sampled points
+  let remaining = NUM_POINTS - rawSampled.length
+  if (remaining > 0) {
+    for (let i = 0; i < remaining; i++) {
+      let r = Math.random() * totalArea
+      let triIdx = 0
+      for (; triIdx < areas.length; triIdx++) {
+        r -= areas[triIdx]
+        if (r <= 0) break
+      }
+      triIdx = Math.min(triIdx, areas.length - 1)
+      const tri = allTriangles[triIdx]
+
+      let u = Math.random()
+      let v = Math.random()
+      if (u + v > 1) {
+        u = 1 - u
+        v = 1 - v
+      }
+      const w = 1 - u - v
+      const p = [
+        tri[0][0]*u + tri[1][0]*v + tri[2][0]*w,
+        tri[0][1]*u + tri[1][1]*v + tri[2][1]*w,
+        tri[0][2]*u + tri[1][2]*v + tri[2][2]*w
+      ]
+      rawSampled.push(p)
     }
-    const w = 1 - u - v
-    const p = [
-      tri[0][0]*u + tri[1][0]*v + tri[2][0]*w,
-      tri[0][1]*u + tri[1][1]*v + tri[2][1]*w,
-      tri[0][2]*u + tri[1][2]*v + tri[2][2]*w
-    ]
-    rawSampled.push(p)
+  }
+
+  // 4. If we have too many vertices, truncate to exactly NUM_POINTS
+  if (rawSampled.length > NUM_POINTS) {
+    rawSampled.length = NUM_POINTS
   }
 
   let min = [Infinity, Infinity, Infinity]
@@ -142,9 +173,9 @@ async function extractFromGLB(filename) {
   const scale = 280 / maxExtent
 
   const normalized = rawSampled.map(p => [
-    (p[0] - center[0]) * scale,
-    (p[1] - center[1]) * scale,
-    (p[2] - center[2]) * scale
+    Number(((p[0] - center[0]) * scale).toFixed(3)),
+    Number(((p[1] - center[1]) * scale).toFixed(3)),
+    Number(((p[2] - center[2]) * scale).toFixed(3))
   ])
 
   return normalized

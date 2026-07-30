@@ -22,7 +22,7 @@ export function GlobalParticleEngine() {
       .then(data => {
         // Generate a 3D swarm sphere programmatically for the initial state
         const spherePoints = []
-        const NUM_POINTS = 35000
+        const NUM_POINTS = 14000
         const phi = Math.PI * (3 - Math.sqrt(5)) // Golden angle
         for (let i = 0; i < NUM_POINTS; i++) {
             const y = 1 - (i / (NUM_POINTS - 1)) * 2
@@ -70,7 +70,7 @@ export function GlobalParticleEngine() {
     window.addEventListener("mousemove", handleMouseMove)
     window.addEventListener("mouseleave", handleMouseLeave)
 
-    const NUM_PARTICLES = 35000
+    const NUM_PARTICLES = 14000
     const particles: any[] = []
 
     for (let i = 0; i < NUM_PARTICLES; i++) {
@@ -155,6 +155,7 @@ export function GlobalParticleEngine() {
         'swarm_sphere',
         'macbook_pro_m3_16_inch_2024',
         'iphone_17_pro',
+        'ps5_controller',
         'pulldown_graph_chart_3d',
         'apple_vision_pro',
         'apple_watch_ultra_2'
@@ -344,20 +345,20 @@ export function GlobalParticleEngine() {
 
       // Draw Background Bucket
       ctx.beginPath()
-      ctx.strokeStyle = `rgba(${colorBase}, 0.04)`
-      ctx.lineWidth = 0.3
+      ctx.strokeStyle = `rgba(${colorBase}, 0.12)`
+      ctx.lineWidth = 0.5
       ctx.stroke(pathBackground)
 
       // Draw Midground Bucket
       ctx.beginPath()
-      ctx.strokeStyle = `rgba(${colorBase}, 0.08)`
-      ctx.lineWidth = 0.4
+      ctx.strokeStyle = `rgba(${colorBase}, 0.25)`
+      ctx.lineWidth = 0.8
       ctx.stroke(pathMidground)
 
       // Draw Foreground Bucket
       ctx.beginPath()
-      ctx.strokeStyle = `rgba(${colorBase}, 0.15)`
-      ctx.lineWidth = 0.6
+      ctx.strokeStyle = `rgba(${colorBase}, 0.40)`
+      ctx.lineWidth = 1.0
       ctx.stroke(pathForeground)
 
       animationFrameId = requestAnimationFrame(render)
