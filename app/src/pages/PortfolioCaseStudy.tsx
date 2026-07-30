@@ -55,13 +55,20 @@ const OUTCOMES: CaseEvidenceItem[] = [
   { value: "1", label: "Reusable site system", desc: "Navigation, route accents, media, motion, cursor behavior, SEO, and build checks now work as one product." },
 ]
 
+const CONTEXT = [
+  { title: "The audience was busy", desc: "Recruiters and design leaders needed the work to explain itself quickly without turning the site into a pitch deck." },
+  { title: "The work needed a spine", desc: "The portfolio had strong projects, but each case study needed a consistent logic for context, decisions, proof, and takeaways." },
+  { title: "The site had to show taste", desc: "The interface had to feel premium through restraint, spacing, typography, responsiveness, and interaction quality." },
+  { title: "The build had to be real", desc: "Because I wanted to position myself as AI-first, the site needed to prove that I can design and build working interfaces." },
+]
+
 const PRINCIPLES = [
   { title: "The site is the conversation", desc: "The writing had to feel like I was speaking directly to the person reviewing the work." },
   { title: "Proof before praise", desc: "The case studies show decisions, artifacts, tradeoffs, and outcomes instead of telling the reader to trust me." },
   { title: "One surface, one job", desc: "Glass, cards, labels, motion, and cursor copy only stayed when they improved hierarchy or affordance." },
   { title: "Compact, but breathable", desc: "The layout needed to feel tight and fast without making any section feel cramped." },
   { title: "Accent comes from the work", desc: "Each case-study page inherits its accent from the product UI shown on that page." },
-  { title: "AI supports the craft", desc: "Copilot helped me build and iterate faster, but the design judgment stayed in the product decisions." },
+  { title: "AI supports the craft", desc: "Copilot and Claude helped me build and iterate faster, but the design judgment stayed in the product decisions." },
 ]
 
 const SYSTEM_DECISIONS = [
@@ -71,6 +78,24 @@ const SYSTEM_DECISIONS = [
   { title: "Materials became affordances", desc: "Liquid glass is reserved for controls, cards, media, and contact surfaces where depth helps understanding." },
   { title: "Media became evidence", desc: "Screenshots, demos, native charts, and placeholders are used to explain decisions rather than decorate the page." },
   { title: "Production became part of design", desc: "SEO routes, static output, lazy media, build checks, and lint checks became part of the quality bar." },
+]
+
+const BUILD_DECISIONS = [
+  { title: "React routes for each story", desc: "I used React Router so every case study could have its own URL, metadata, route accent, and content navigation." },
+  { title: "Reusable story components", desc: "Shared evidence strips, story summaries, page transitions, media wrappers, and content nav kept the system consistent." },
+  { title: "CSS tokens before one-off styling", desc: "Light, dark, accent, glass, border, blur, and shadow values were handled as system rules instead of isolated tweaks." },
+  { title: "Motion as orientation", desc: "Framer Motion handles page arrival, section reveal, and small transitions. Lenis supports calmer desktop scrolling." },
+  { title: "Media loading as UX", desc: "Images use loading states, cached-image guards, and placeholders. Large videos lazy-load near view and expose controls." },
+  { title: "Static output for production", desc: "The build generates route HTML, SEO metadata, sitemap entries, robots, and a 404 so GitHub Pages can serve the site cleanly." },
+]
+
+const BUILD_FLOW = [
+  { title: "1. Defined the rules", desc: "I wrote the voice, spacing, interaction, glass, copy, and case-study principles before polishing individual screens." },
+  { title: "2. Built the shell", desc: "I created the route structure, layout, nav, footer, theme provider, scroll behavior, SEO helper, and page transition system." },
+  { title: "3. Refactored the stories", desc: "I rewrote Precisely, ThoughtSpot, and Philips around the same story questions while keeping each project specific." },
+  { title: "4. Tuned the cards", desc: "I normalized card size, image treatment, proof signals, date placement, hover behavior, and dark-mode readability." },
+  { title: "5. Hardened the details", desc: "I fixed route scroll, media loading, content-nav overflow, dark-mode accents, SEO output, and production build checks." },
+  { title: "6. Pushed the branch", desc: "The work was committed and pushed to a feature branch so it can be reviewed before deployment to the live site." },
 ]
 
 const BLOCKS = [
@@ -89,6 +114,15 @@ const CRAFT = [
   { title: "Build system", desc: "React routes, reusable components, code splitting, SEO metadata, static route generation, and validation scripts supported the portfolio as a real product." },
 ]
 
+const QUALITY = [
+  { title: "Copy quality", desc: "I checked grammar, sentence clarity, visible dates, and the no-em-dash rule so the writing stayed clean." },
+  { title: "Interaction quality", desc: "I reviewed hover, focus, press, selected, sticky, loading, and reduced-motion states across the main surfaces." },
+  { title: "Responsive quality", desc: "Cards, nav, case-study sections, placeholders, and media frames were shaped to stay readable across breakpoints." },
+  { title: "Performance quality", desc: "Routes are code-split, offscreen media is safer, and static pages are generated for direct URLs." },
+  { title: "Build quality", desc: "The project runs TypeScript build, Vite build, postbuild route generation, glass checks, and oxlint." },
+  { title: "Deployment quality", desc: "The branch is pushed with production-ready assets, SEO files, and a clean GitHub Pages path." },
+]
+
 const TAKEAWAYS = [
   { title: "A portfolio is a product", desc: "It has users, conversion goals, trust gaps, loading states, edge cases, and a voice." },
   { title: "Restraint creates confidence", desc: "Removing decoration made the remaining interactions feel more deliberate." },
@@ -101,9 +135,10 @@ const SECTIONS: CaseStudyNavSection[] = [
   { id: "context", num: 2, label: "Context" },
   { id: "principles", num: 3, label: "Principles" },
   { id: "system", num: 4, label: "System" },
-  { id: "blocks", num: 5, label: "Blocks" },
-  { id: "craft", num: 6, label: "Craft" },
-  { id: "takeaways", num: 7, label: "Takeaways" },
+  { id: "build", num: 5, label: "Build" },
+  { id: "blocks", num: 6, label: "Blocks" },
+  { id: "craft", num: 7, label: "Craft" },
+  { id: "takeaways", num: 8, label: "Takeaways" },
 ]
 
 function OpenGrid({ items }: { items: { title: string; desc: string }[] }) {
@@ -221,10 +256,13 @@ export default function PortfolioCaseStudyPage() {
             <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[720px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               The portfolio had to explain senior product judgment quickly. It needed to show how I frame ambiguity, write clearly, make systems, use AI tools, and care about the details that make an interface feel finished.
             </motion.p>
-            <ScreenshotPlaceholder
-              title="Before and after information architecture"
-              desc="Use this slot for a comparison of the old structure, the new selected-work order, and the simplified case-study flow."
-            />
+            <OpenGrid items={CONTEXT} />
+            <div className="mt-8">
+              <ScreenshotPlaceholder
+                title="Before and after information architecture"
+                desc="Use this slot for a comparison of the old structure, the new selected-work order, and the simplified case-study flow."
+              />
+            </div>
           </div>
         </section>
 
@@ -255,6 +293,28 @@ export default function PortfolioCaseStudyPage() {
           </div>
         </section>
 
+        <section className="py-10 md:py-14" id="build">
+          <div className="max-w-[980px] mx-auto px-6 md:px-10">
+            <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+              I built it like a small product, not a static <span className="heading-italic">page</span>.
+            </motion.h2>
+            <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[720px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+              The stack is React, TypeScript, Vite, Tailwind CSS, Framer Motion, Lenis, and GitHub Pages. GitHub Copilot and Claude helped me move through implementation faster, but every pattern was checked against the design rules before it stayed.
+            </motion.p>
+            <OpenGrid items={BUILD_DECISIONS} />
+            <div className="mt-8">
+              <ScreenshotPlaceholder
+                title="Build architecture and component map"
+                desc="Use this slot for a diagram or screenshots of routes, shared components, route accents, SEO output, and validation scripts."
+              />
+            </div>
+            <motion.h3 className="mt-10 text-[22px] font-bold tracking-tight mb-5" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+              How the build moved
+            </motion.h3>
+            <OpenGrid items={BUILD_FLOW} />
+          </div>
+        </section>
+
         <section className="py-10 md:py-14" id="blocks">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
@@ -276,6 +336,10 @@ export default function PortfolioCaseStudyPage() {
               I used AI-assisted coding to move faster, but the real work was making sure writing, layout, media, motion, accessibility, and production behavior all agreed with each other.
             </motion.p>
             <OpenGrid items={CRAFT} />
+            <motion.h3 className="mt-10 text-[22px] font-bold tracking-tight mb-5" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+              How I checked the work
+            </motion.h3>
+            <OpenGrid items={QUALITY} />
             <div className="mt-8">
               <ScreenshotPlaceholder
                 title="Light and dark mode comparison"
