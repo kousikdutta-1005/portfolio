@@ -4168,3 +4168,12 @@ html {
   will-change: transform;
   border-radius: 0 2px 2px 0;
 }
+
+/* Hide scrollbar for gallery track */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}

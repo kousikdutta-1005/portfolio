@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import { buttonVariants } from "@/components/ui/button"
 import { PageTransition } from "@/components/PageTransition"
 import { Seo } from "@/components/Seo"
+import { AboutGallery } from "@/components/AboutGallery"
 
 const EASE_ENTER = [0.25, 0.1, 0.25, 1] as const
 const DURATION_REVEAL = 0.6
@@ -213,6 +214,8 @@ export default function AboutPage() {
         </section>
 
         <WorkingMethodSection />
+
+        <AboutGallery />
 
         <section className="py-14 md:py-20 relative">
           <div className="waypoint-3d" data-model="iphone_17_pro" data-x-desktop="0.85" data-y-desktop="0.6" data-x-mobile="0.5" data-y-mobile="0.6" data-z-depth="-50" />
