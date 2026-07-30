@@ -12,7 +12,7 @@ type CaseBriefProps = {
   eyebrow?: string
   title: string
   insight: string
-  signal: string
+  proof: string
   items: CaseBriefItem[]
 }
 
@@ -32,7 +32,7 @@ const item = {
   },
 }
 
-export function CaseBrief({ eyebrow = "Case brief", title, insight, signal, items }: CaseBriefProps) {
+export function CaseBrief({ eyebrow = "Case brief", title, insight, proof, items }: CaseBriefProps) {
   const titleId = useId()
 
   return (
@@ -51,9 +51,9 @@ export function CaseBrief({ eyebrow = "Case brief", title, insight, signal, item
               {title}
             </h2>
             <p className="case-brief-insight">{insight}</p>
-            <div className="case-brief-signal" aria-label={`Proof signal: ${signal}`}>
-              <span>Signal</span>
-              <strong>{signal}</strong>
+            <div className="case-brief-proof" aria-label={`Proof point: ${proof}`}>
+              <span>Proof</span>
+              <strong>{proof}</strong>
             </div>
           </div>
 

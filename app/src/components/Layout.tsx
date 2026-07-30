@@ -5,7 +5,7 @@ import { Navbar } from "./Navbar"
 import { Footer } from "./Footer"
 import { CursorGlow } from "./CursorGlow"
 import { ScrollProgress } from "./ScrollProgress"
-import { AmbientOrbs } from "./AmbientOrbs"
+import { GlobalParticleEngine } from "./GlobalParticleEngine"
 import { cn } from "@/lib/utils"
 
 function RouteLoadingState({ routeKey }: { routeKey: string }) {
@@ -80,7 +80,7 @@ export function Layout() {
     <div className={cn("min-h-screen flex flex-col relative", routeAccentClass)} style={{ overflowX: "clip" }}>
       <a href="#main-content" className="skip-link">Skip to content</a>
       <ScrollProgress />
-      <AmbientOrbs />
+      <GlobalParticleEngine />
       <CursorGlow />
       <Navbar />
       <main id="main-content" className="flex-1 relative" tabIndex={-1}>

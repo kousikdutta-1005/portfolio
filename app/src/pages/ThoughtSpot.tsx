@@ -3,6 +3,8 @@ import { AnimatePresence, motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { assetPath } from "@/lib/assets"
 import { useEffect, useRef, useState } from "react"
+import { VideoToolbar } from "@/components/VideoToolbar"
+import { VideoOverlay } from "@/components/VideoOverlay"
 import { PageTransition } from "@/components/PageTransition"
 import { CaseEvidenceStrip, CaseStory, type CaseEvidenceItem, type CaseStoryItem } from "@/components/CaseStory"
 import { CaseStudyNav, type CaseStudyNavSection } from "@/components/CaseStudyNav"
@@ -53,7 +55,7 @@ const SUMMARY: CaseStoryItem[] = [
 const OUTCOMES: CaseEvidenceItem[] = [
   { value: "3x", label: "Mobile adoption", desc: "Monthly active usage grew after the redesign, showing the app was entering more work routines." },
   { value: "4.9", label: "Quality rating", desc: "App Store rating moved from 2.9 to 4.9, with Play Store at 4.8 after the mobile experience improved." },
-  { value: "9.7k", label: "Acquisition signal", desc: "Recent installs gave the team a clearer top-of-funnel signal to build on." },
+  { value: "9.7k", label: "New installs", desc: "Recent installs gave the team a clearer top-of-funnel metric to build on." },
   { value: "6", label: "Core task coverage", desc: "Watchlists, voice queries, headers, filters, alerts, and sharing covered the main mobile analytics jobs." },
 ]
 
@@ -123,6 +125,8 @@ function SectionImage({ src, alt, className, loading = "lazy" }: { src: string; 
 
 function SectionVideo({ src, className }: { src: string; className?: string }) {
   const [loaded, setLoaded] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(true)
   const videoRef = useRef<HTMLVideoElement | null>(null)
   const objectPosition = className?.includes("object-top") ? "top" : undefined
   const resolvedSrc = assetPath(src)
@@ -135,9 +139,36 @@ function SectionVideo({ src, className }: { src: string; className?: string }) {
     }
   }, [resolvedSrc])
 
+  function togglePlayback() {
+    const video = videoRef.current
+    if (!video) {
+      console.warn("Could not toggle video playback because the video element was not available.")
+      return
+    }
+
+    if (video.paused) {
+      video.play().catch((error) => console.warn("Could not play video.", error))
+      return
+    }
+
+    video.pause()
+  }
+
+  function openExpandedVideo() {
+    videoRef.current?.pause()
+    setIsExpanded(true)
+  }
+
+  function closeExpandedVideo() {
+    setIsExpanded(false)
+    requestAnimationFrame(() => {
+      videoRef.current?.play().catch((error) => console.warn("Could not resume video.", error))
+    })
+  }
+
   return (
     <motion.div
-      className={cn("w-full rounded-2xl media-loading-frame content-loading-frame frost-media", className)}
+      className={cn("w-full rounded-2xl media-loading-frame content-loading-frame frost-media video-surface", className)}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -157,6 +188,9 @@ function SectionVideo({ src, className }: { src: string; className?: string }) {
         ref={videoRef}
         src={resolvedSrc}
         autoPlay
+        controls={false}
+        controlsList="nodownload noplaybackrate noremoteplayback"
+        disablePictureInPicture
         loop
         muted
         playsInline
@@ -164,9 +198,25 @@ function SectionVideo({ src, className }: { src: string; className?: string }) {
         onLoadedData={() => setLoaded(true)}
         onCanPlay={() => setLoaded(true)}
         onError={() => setLoaded(true)}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
         className={cn("block w-full rounded-2xl object-cover", loaded ? "media-loaded" : "media-pending")}
         style={{ objectPosition }}
       />
+      <VideoToolbar
+        isExpanded={false}
+        isPlaying={isPlaying}
+        onToggleExpanded={openExpandedVideo}
+        onTogglePlaying={togglePlayback}
+      />
+      {isExpanded && (
+        <VideoOverlay
+          src={resolvedSrc}
+          label="ThoughtSpot case study video"
+          objectPosition={objectPosition}
+          onClose={closeExpandedVideo}
+        />
+      )}
     </motion.div>
   )
 }
@@ -213,7 +263,8 @@ export default function ThoughtSpotPage() {
       </section>
 
       {/* Hero */}
-      <section className="pt-6 pb-8 md:pt-8 md:pb-10">
+      <section className="pt-6 pb-8 md:pt-8 md:pb-10 relative">
+        <div className="waypoint-3d" data-x-desktop="0.85" data-y-desktop="0.4" data-x-mobile="0.5" data-y-mobile="0.25" data-z-depth="-150" />
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <motion.p className="text-[13px] font-semibold text-muted-foreground mb-4" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: EASE_ENTER }}>
             ThoughtSpot Mobile
@@ -270,7 +321,8 @@ export default function ThoughtSpotPage() {
       </section>
 
       {/* Context */}
-      <section className="py-10 md:py-14" id="context">
+      <section className="py-10 md:py-14 relative" id="context">
+        <div className="waypoint-3d" data-x-desktop="0.2" data-y-desktop="0.5" data-x-mobile="0.5" data-y-mobile="0.5" data-z-depth="150" />
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <motion.p className="text-[13px] font-semibold text-muted-foreground mb-2" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Context</motion.p>
           <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
@@ -324,7 +376,8 @@ export default function ThoughtSpotPage() {
       </section>
 
       {/* Design Tenets */}
-      <section className="py-10 md:py-14" id="tenets">
+      <section className="py-10 md:py-14 relative" id="tenets">
+        <div className="waypoint-3d" data-x-desktop="0.8" data-y-desktop="0.5" data-x-mobile="0.5" data-y-mobile="0.5" data-z-depth="-100" />
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <motion.p className="text-[13px] font-semibold text-muted-foreground mb-2" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Design tenets</motion.p>
           <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>

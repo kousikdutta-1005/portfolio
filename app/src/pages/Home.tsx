@@ -32,7 +32,7 @@ type Project = {
   desc: string
   meta: string
   timeframe: string
-  signal: string
+  proof: string
   image: string
   darkImage?: string
   href: string
@@ -47,7 +47,7 @@ const PROJECTS: Project[] = [
     desc: "Clear API demos for testing real inputs and outputs.",
     meta: "Developer tools, APIs, systems",
     timeframe: "Aug-Oct 2025 · 3 months",
-    signal: "5 APIs · 1 reusable tryout flow",
+    proof: "5 APIs · 1 reusable tryout flow",
     image: "/assets/images/precisely-devportal/hero-visual-card.png",
     darkImage: "/assets/images/precisely-devportal/hero-visual-card-dark.png",
     href: "/case-study/precisely-devportal",
@@ -59,7 +59,7 @@ const PROJECTS: Project[] = [
     desc: "Mobile analytics for faster, trusted decisions.",
     meta: "Analytics, AI, mobile",
     timeframe: "Jan-Apr 2024 · 4 months",
-    signal: "3x MAU · 4.9 App Store",
+    proof: "3x MAU · 4.9 App Store",
     image: "/assets/images/GLP0Z4G1xKxcD0e0TDg9EWRgzQ.png",
     href: "/case-study/thoughtspot",
   },
@@ -68,7 +68,7 @@ const PROJECTS: Project[] = [
     desc: "Preventive heart care made clear and actionable.",
     meta: "Healthcare, research, service",
     timeframe: "Jan-Jul 2023 · 7 months",
-    signal: "82.1 SUS · 18 users",
+    proof: "82.1 SUS · 18 users",
     image: "/assets/images/NRmPx5otSD5B8RKHstn08Zcs0k.png",
     href: "/case-study/philips",
   },
@@ -77,7 +77,7 @@ const PROJECTS: Project[] = [
     desc: "Workshop flows mapped for sharper decisions.",
     meta: "Workshop, service systems",
     timeframe: "2021 to 2023 · internship work",
-    signal: "Handoff time · rework risk",
+    proof: "Handoff time · rework risk",
     image: "/assets/images/lsO27yP1rhwECcphfDr6QnvgQ.png",
     href: "https://drive.google.com/file/d/1qahC8wyxudzjzuO9Zrtvk9e6Tz2UO9Cx/view?usp=drive_link",
     external: true,
@@ -87,7 +87,7 @@ const PROJECTS: Project[] = [
     desc: "Support chat flows clarified for faster help.",
     meta: "Telecom, support, chat",
     timeframe: "2021 to 2023 · internship work",
-    signal: "Resolution time · deflection",
+    proof: "Resolution time · deflection",
     image: "/assets/images/elvpFwKLIpGRQQqelaZQI5Xw.png",
     href: "https://www.behance.net/gallery/154991935/Airtel-Live-Chat-UX-Design-Casestudy",
     external: true,
@@ -97,8 +97,9 @@ const PROJECTS: Project[] = [
     desc: "A personal site shaped as a clear hiring product.",
     meta: "Brand system, case studies, code",
     timeframe: "July 2026 · personal project",
-    signal: "3 case studies · 2 themes · 1 system",
-    image: "/assets/images/portfolio-case-study/card-placeholder.svg",
+    proof: "3 case studies · 2 themes · 1 system",
+    image: "/assets/images/portfolio-case-study/hero-visual-card.png",
+    darkImage: "/assets/images/portfolio-case-study/hero-visual-card-dark.png",
     href: "/case-study/portfolio",
   },
 ]
@@ -204,6 +205,7 @@ export default function HomePage() {
     />
     <div className="overflow-hidden relative">
       <section className="pt-28 pb-16 md:pt-36 md:pb-20 relative min-h-[64vh] flex items-center pointer-events-none">
+        <div className="waypoint-3d" data-x-desktop="0.85" data-y-desktop="0.3" data-x-mobile="0.5" data-y-mobile="0.15" data-z-depth="-150" />
         <div className="max-w-[980px] mx-auto px-6 md:px-10 relative z-10 w-full pointer-events-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left: stronger thesis */}
@@ -256,7 +258,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="company-proof-section py-6 md:py-7" aria-label="Companies and teams">
+      <section className="company-proof-section py-6 md:py-7 relative" aria-label="Companies and teams">
+        <div className="waypoint-3d" data-x-desktop="0.15" data-y-desktop="0.5" data-x-mobile="0.5" data-y-mobile="0.5" data-z-depth="150" />
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <motion.div
             initial={{ opacity: 0 }}
@@ -284,7 +287,8 @@ export default function HomePage() {
       </section>
 
       {/* Projects: compact, high-utility work cards */}
-      <section id="selected-work" className="py-16 md:py-20 scroll-mt-24">
+      <section id="selected-work" className="py-16 md:py-20 scroll-mt-24 relative">
+        <div className="waypoint-3d" data-x-desktop="0.8" data-y-desktop="0.25" data-x-mobile="0.5" data-y-mobile="0.2" data-z-depth="-80" />
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <motion.div
             variants={fadeUp}
@@ -352,7 +356,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-20">
+      <section className="py-16 md:py-20 relative">
+        <div className="waypoint-3d" data-x-desktop="0.85" data-y-desktop="0.5" data-x-mobile="0.5" data-y-mobile="0.5" data-z-depth="300" />
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <div className="method-panel">
             <motion.div
@@ -388,7 +393,8 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 md:py-20">
+      <section className="py-16 md:py-20 relative">
+        <div className="waypoint-3d" data-x-desktop="0.15" data-y-desktop="0.75" data-x-mobile="0.5" data-y-mobile="0.75" data-z-depth="-250" />
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <motion.div
             className="mb-8"
@@ -404,7 +410,7 @@ export default function HomePage() {
               Trusted for the way I <span className="heading-italic">think</span>
             </h2>
             <p className="mt-2.5 text-[15px] leading-[1.58] text-muted-foreground max-w-[560px]">
-              Signals from people who have seen me turn uncertainty into clear product direction.
+              Notes from people who have seen me turn uncertainty into clear product direction.
             </p>
           </motion.div>
 
@@ -486,7 +492,7 @@ function ProjectCard({ project }: { project: Project }) {
           <h3>{project.title}</h3>
           <p>{project.desc}</p>
         </div>
-        <p className="project-card-signal">{project.signal}</p>
+        <p className="project-card-proof">{project.proof}</p>
       </div>
     </div>
   )

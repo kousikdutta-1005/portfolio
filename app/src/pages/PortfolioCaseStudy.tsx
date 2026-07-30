@@ -114,6 +114,14 @@ const CRAFT = [
   { title: "Build quality", desc: "Routes, reusable components, code splitting, SEO metadata, static generation, and validation scripts made the portfolio feel like a product." },
 ]
 
+const ENGINE_DECISIONS = [
+  { title: "Not just a background", desc: "A static backdrop felt lifeless. I built a WebGL particle engine that acts as a living creature, guiding the eye and reacting to the user's journey through the site." },
+  { title: "Fibrous material", desc: "Instead of standard solid geometry, I used intersecting, cross-hatched line segments that mimic woven threads, letting the swarm blend seamlessly with the content." },
+  { title: "Scroll-driven morphing", desc: "The swarm begins as a Fibonacci sphere and organically morphs through precise CAD models (MacBook, Vision Pro, iPhone, Apple Watch) tied purely to scroll progress." },
+  { title: "Z-Axis depth & inertia", desc: "Invisible DOM waypoints feed X, Y, and Z coordinates into the engine. Spring-based physics handle the momentum, pushing the swarm deep into the background so the UI floats on top." },
+  { title: "Dynamic themes", desc: "The global canvas persists across routes and reads the active page's CSS accent colors inside its render loop, automatically adopting the unique identity of each case study." },
+]
+
 const QUALITY = [
   { title: "Language pass", desc: "I checked grammar, sentence clarity, visible dates, and the no-em-dash rule so the writing stayed clean." },
   { title: "Interaction pass", desc: "I reviewed hover, focus, press, selected, sticky, loading, and reduced-motion states across the main surfaces." },
@@ -138,7 +146,8 @@ const SECTIONS: CaseStudyNavSection[] = [
   { id: "build", num: 5, label: "Build" },
   { id: "blocks", num: 6, label: "Blocks" },
   { id: "craft", num: 7, label: "Craft" },
-  { id: "takeaways", num: 8, label: "Takeaways" },
+  { id: "engine", num: 8, label: "The Engine" },
+  { id: "takeaways", num: 9, label: "Takeaways" },
 ]
 
 function OpenGrid({ items }: { items: { title: string; desc: string }[] }) {
@@ -349,18 +358,24 @@ export default function PortfolioCaseStudyPage() {
           </div>
         </section>
 
+        <section className="py-10 md:py-14" id="engine">
+          <div className="max-w-[980px] mx-auto px-6 md:px-10">
+            <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+              A living, breathing <span className="heading-italic">3D system</span>.
+            </motion.h2>
+            <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[700px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+              To ensure the portfolio felt dynamic without distracting from the work, I built a custom 3D particle engine that shape-shifts and travels through depth as you scroll.
+            </motion.p>
+            <OpenGrid items={ENGINE_DECISIONS} />
+          </div>
+        </section>
+
         <section className="py-10 md:py-14" id="takeaways">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               What this taught me about designing for <span className="heading-italic">attention</span>.
             </motion.h2>
             <OpenGrid items={TAKEAWAYS} />
-            <div className="mt-8">
-              <ScreenshotPlaceholder
-                title="Final portfolio proof set"
-                desc="Use this slot for the final homepage, About page, case-study page, and selected-work card screenshots."
-              />
-            </div>
           </div>
         </section>
       </div>

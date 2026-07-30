@@ -4,6 +4,8 @@ import { useRef, useState } from "react"
 import { CircleCheck, FileText, Gauge, ListChecks, Monitor, PlaySquare, WandSparkles, Workflow, Wrench } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { assetPath } from "@/lib/assets"
+import { VideoToolbar } from "@/components/VideoToolbar"
+import { VideoOverlay } from "@/components/VideoOverlay"
 import { PageTransition } from "@/components/PageTransition"
 import { CaseStudyNav, type CaseStudyNavSection } from "@/components/CaseStudyNav"
 import { Seo } from "@/components/Seo"
@@ -152,7 +154,7 @@ const SUMMARY: SummaryItem[] = [
   },
 ]
 
-const OUTCOME_SIGNALS = [
+const OUTCOME_PROOF = [
   { value: "2", label: "Baseline coverage", desc: "Old and cloud portals compared to find repeated evaluation friction." },
   { value: "5", label: "API coverage", desc: "Pattern tested across five high-variance APIs before treating it as reusable." },
   { value: "1", label: "Task continuity", desc: "Data, inputs, maps, requests, and results stay in one evaluation flow." },
@@ -490,12 +492,44 @@ function SystemScaleChart() {
 
 function CaseMedia({ item, className }: { item: MediaSlot; className?: string }) {
   const [loaded, setLoaded] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(true)
   const mediaRef = useRef<HTMLDivElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
   const shouldLoadVideo = useInView(mediaRef, { once: true, margin: "360px 0px" })
+
+  function togglePlayback() {
+    const video = videoRef.current
+    if (!video) {
+      console.warn("Could not toggle video playback because the video element was not available.")
+      return
+    }
+
+    if (video.paused) {
+      video.play().catch((error) => console.warn("Could not play video.", error))
+      return
+    }
+
+    video.pause()
+  }
+
+  function openExpandedVideo() {
+    videoRef.current?.pause()
+    setIsExpanded(true)
+  }
+
+  function closeExpandedVideo() {
+    setIsExpanded(false)
+    requestAnimationFrame(() => {
+      videoRef.current?.play().catch((error) => console.warn("Could not resume video.", error))
+    })
+  }
 
   if (!item.src) {
     return null
   }
+
+  const resolvedSrc = assetPath(item.src)
 
   return (
     <motion.figure
@@ -505,7 +539,10 @@ function CaseMedia({ item, className }: { item: MediaSlot; className?: string })
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, ease: EASE_ENTER }}
     >
-      <div ref={mediaRef} className="precisely-media-image-wrap">
+      <div
+        ref={mediaRef}
+        className={cn("precisely-media-image-wrap", item.type === "video" && "video-surface")}
+      >
         <AnimatePresence>
           {!loaded && (
             <motion.div
@@ -517,17 +554,39 @@ function CaseMedia({ item, className }: { item: MediaSlot; className?: string })
           )}
         </AnimatePresence>
         {item.type === "video" && shouldLoadVideo ? (
-          <video
-            src={assetPath(item.src)}
-            aria-label={item.alt}
-            controls
-            muted
-            playsInline
-            preload="metadata"
-            onLoadedMetadata={() => setLoaded(true)}
-            onLoadedData={() => setLoaded(true)}
-            className={cn("precisely-media-image", loaded ? "media-loaded" : "media-pending")}
-          />
+          <>
+            <video
+              ref={videoRef}
+              src={resolvedSrc}
+              aria-label={item.alt}
+              autoPlay
+              controls={false}
+              controlsList="nodownload noplaybackrate noremoteplayback"
+              disablePictureInPicture
+              loop
+              muted
+              playsInline
+              preload="auto"
+              onLoadedMetadata={() => setLoaded(true)}
+              onLoadedData={() => setLoaded(true)}
+              onPlay={() => setIsPlaying(true)}
+              onPause={() => setIsPlaying(false)}
+              className={cn("precisely-media-image", loaded ? "media-loaded" : "media-pending")}
+            />
+            <VideoToolbar
+              isExpanded={false}
+              isPlaying={isPlaying}
+              onToggleExpanded={openExpandedVideo}
+              onTogglePlaying={togglePlayback}
+            />
+            {isExpanded && (
+              <VideoOverlay
+                src={resolvedSrc}
+                label={item.alt}
+                onClose={closeExpandedVideo}
+              />
+            )}
+          </>
         ) : item.type === "video" ? (
           <div className="precisely-media-image precisely-media-video-placeholder" aria-label={item.alt} />
         ) : (
@@ -617,7 +676,8 @@ export default function PreciselyDevPortalPage() {
           </div>
         </section>
 
-        <section className="pt-6 pb-8 md:pt-8 md:pb-10">
+        <section className="pt-6 pb-8 md:pt-8 md:pb-10 relative">
+          <div className="waypoint-3d" data-x-desktop="0.85" data-y-desktop="0.4" data-x-mobile="0.5" data-y-mobile="0.25" data-z-depth="-150" />
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.p
               className="text-[13px] font-semibold text-muted-foreground mb-4"
@@ -659,7 +719,10 @@ export default function PreciselyDevPortalPage() {
           </div>
         </section>
 
-        <CaseStory items={SUMMARY} />
+        <div className="relative">
+          <div className="waypoint-3d" data-x-desktop="0.2" data-y-desktop="0.5" data-x-mobile="0.5" data-y-mobile="0.35" data-z-depth="150" />
+          <CaseStory items={SUMMARY} />
+        </div>
 
         <section className="pb-8">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
@@ -675,14 +738,15 @@ export default function PreciselyDevPortalPage() {
               The demos became easier to <span className="heading-italic">follow</span>
             </motion.h2>
             <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[720px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              The proof stayed practical: baseline coverage, API coverage, task continuity, and reuse pipeline. Those are the signals a developer platform team can keep tracking after launch.
+              The proof stayed practical: baseline coverage, API coverage, task continuity, and reuse pipeline. Those are product metrics a developer platform team can keep tracking after launch.
             </motion.p>
-            <EvidenceStrip items={OUTCOME_SIGNALS} />
+            <EvidenceStrip items={OUTCOME_PROOF} />
             <WhatChangedChart />
           </div>
         </section>
 
-        <section className="py-10 md:py-14" id="context">
+        <section className="py-10 md:py-14 relative" id="context">
+          <div className="waypoint-3d" data-x-desktop="0.8" data-y-desktop="0.5" data-x-mobile="0.5" data-y-mobile="0.5" data-z-depth="-100" />
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               The portal shift opened the right <span className="heading-italic">question</span>
@@ -704,7 +768,8 @@ export default function PreciselyDevPortalPage() {
           </div>
         </section>
 
-        <section className="py-10 md:py-14" id="diagnosis">
+        <section className="py-10 md:py-14 relative" id="diagnosis">
+          <div className="waypoint-3d" data-x-desktop="0.2" data-y-desktop="0.5" data-x-mobile="0.5" data-y-mobile="0.5" data-z-depth="100" />
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               The same break kept appearing in the learning <span className="heading-italic">flow</span>
@@ -723,7 +788,8 @@ export default function PreciselyDevPortalPage() {
           </div>
         </section>
 
-        <section className="py-10 md:py-14" id="system">
+        <section className="py-10 md:py-14 relative" id="system">
+          <div className="waypoint-3d" data-x-desktop="0.8" data-y-desktop="0.5" data-x-mobile="0.5" data-y-mobile="0.5" data-z-depth="-150" />
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               One workspace, flexible enough for each <span className="heading-italic">API</span>
@@ -735,7 +801,8 @@ export default function PreciselyDevPortalPage() {
           </div>
         </section>
 
-        <section className="py-10 md:py-14" id="design">
+        <section className="py-10 md:py-14 relative" id="design">
+          <div className="waypoint-3d" data-x-desktop="0.2" data-y-desktop="0.5" data-x-mobile="0.5" data-y-mobile="0.5" />
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               The pattern was tested against real API <span className="heading-italic">complexity</span>
@@ -779,7 +846,8 @@ export default function PreciselyDevPortalPage() {
           </div>
         </section>
 
-        <section className="py-10 md:py-14" id="scale">
+        <section className="py-10 md:py-14 relative" id="scale">
+          <div className="waypoint-3d" data-x-desktop="0.8" data-y-desktop="0.5" data-x-mobile="0.5" data-y-mobile="0.5" data-z-depth="-100" />
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               The next API had a place to <span className="heading-italic">go</span>

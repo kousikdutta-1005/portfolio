@@ -31,6 +31,7 @@ const OUTCOMES: CaseEvidenceItem[] = [
   { value: "18", label: "User validation", desc: "Participants tested the concept so decisions were checked against real comprehension." },
   { value: "12", label: "Concept coverage", desc: "Shortlisted concepts were compared with a Pugh matrix before selecting the direction." },
   { value: "4", label: "Behavior themes", desc: "Research synthesis grouped insights into themes the product system could act on." },
+  { value: "iF", label: "Design Award", desc: "Team recognition for the Philips Cardiocare concept and its preventive-care direction." },
 ]
 
 const CONTEXT = [
@@ -164,7 +165,8 @@ export default function PhilipsPage() {
           </div>
         </section>
 
-        <section className="pt-6 pb-8 md:pt-8 md:pb-10">
+        <section className="pt-6 pb-8 md:pt-8 md:pb-10 relative">
+          <div className="waypoint-3d" data-x-desktop="0.85" data-y-desktop="0.4" data-x-mobile="0.5" data-y-mobile="0.25" data-z-depth="-150" />
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.p
               className="text-[13px] font-semibold text-muted-foreground mb-4"
@@ -223,10 +225,10 @@ export default function PhilipsPage() {
         <section className="py-10 md:py-14" id="outcomes">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              Signals that the system felt <span className="heading-italic">usable</span>.
+              Proof that the system felt <span className="heading-italic">usable</span>.
             </motion.h2>
             <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[680px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              The outcome signals are strongest when read together: usability benchmark, validation sample, concept coverage, and behavior themes.
+              The proof is strongest when read together: usability benchmark, validation sample, concept coverage, behavior themes, and the iF Design Award the Philips team received for Cardiocare.
             </motion.p>
             <CaseEvidenceStrip items={OUTCOMES} />
             <motion.div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
@@ -286,7 +288,8 @@ export default function PhilipsPage() {
           </div>
         </section>
 
-        <section className="py-10 md:py-14" id="research">
+        <section className="py-10 md:py-14 relative" id="research">
+          <div className="waypoint-3d" data-x-desktop="0.2" data-y-desktop="0.5" data-x-mobile="0.5" data-y-mobile="0.5" data-z-depth="150" />
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.p className="text-[13px] font-semibold text-muted-foreground mb-2" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Research</motion.p>
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
@@ -489,7 +492,8 @@ export default function PhilipsPage() {
           </div>
         </section>
 
-        <section className="py-10 md:py-14" id="design">
+        <section className="py-10 md:py-14 relative" id="design">
+          <div className="waypoint-3d" data-x-desktop="0.8" data-y-desktop="0.5" data-x-mobile="0.5" data-y-mobile="0.5" data-z-depth="-100" />
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.p className="text-[13px] font-semibold text-muted-foreground mb-2" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Design</motion.p>
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>

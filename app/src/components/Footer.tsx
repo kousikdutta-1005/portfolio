@@ -53,6 +53,14 @@ export function Footer() {
                 </p>
                 <div className="footer-note-actions">
                   <a
+                    href="mailto:design.kousik@gmail.com"
+                    className="footer-note-action"
+                    aria-label="Send an email"
+                    data-cursor="none"
+                  >
+                    Email
+                  </a>
+                  <a
                     href="https://calendly.com/design-kousik/intro-call"
                     target="_blank"
                     rel="noopener noreferrer"
