@@ -2,10 +2,34 @@ import { motion } from "framer-motion"
 
 const IMAGES = [
   {
+    src: "/assets/images/about/thoughtspot-bob-baxley.jpg",
+    alt: "With Design Director Bob Baxley at ThoughtSpot",
+    caption: "Our little design team at ThoughtSpot during its glorious days. (With Bob Baxley)",
+    className: "md:col-span-2 md:row-span-2 h-[300px] md:h-full"
+  },
+  {
+    src: "/assets/images/about/award-photos.jpg",
+    alt: "My award photos",
+    caption: "Award Photos",
+    className: "md:col-span-1 md:row-span-1 h-[250px] md:h-full"
+  },
+  {
+    src: "/assets/images/about/graduation-2023.jpg",
+    alt: "Graduation 2023",
+    caption: "Graduation 2023",
+    className: "md:col-span-1 md:row-span-1 h-[250px] md:h-full"
+  },
+  {
     src: "/assets/images/about/cubbon-park.jpg",
     alt: "Me at Cubbon park or Lalbagh",
     caption: "Cubbon Park / Lalbagh",
-    className: "md:col-span-2 md:row-span-2 h-[350px] md:h-full"
+    className: "md:col-span-1 md:row-span-2 h-[350px] md:h-full"
+  },
+  {
+    src: "/assets/images/about/play-crew.jpg",
+    alt: "With the crew after a play",
+    caption: "With the play crew",
+    className: "md:col-span-2 md:row-span-1 h-[250px] md:h-full"
   },
   {
     src: "/assets/images/about/design-up.jpg",
@@ -14,16 +38,10 @@ const IMAGES = [
     className: "md:col-span-1 md:row-span-1 h-[250px] md:h-full"
   },
   {
-    src: "/assets/images/about/play-crew.jpg",
-    alt: "With the crew after a play",
-    caption: "With the play crew",
-    className: "md:col-span-1 md:row-span-1 h-[250px] md:h-full"
-  },
-  {
     src: "/assets/images/about/thoughtspot-buddies.jpg",
-    alt: "With Design Director Bob Baxley at ThoughtSpot",
-    caption: "Our little design team at ThoughtSpot during its glorious days. (With Bob Baxley)",
-    className: "md:col-span-3 md:row-span-1 h-[300px] md:h-full"
+    alt: "Buddies at ThoughtSpot",
+    caption: "Buddies at ThoughtSpot",
+    className: "md:col-span-1 md:row-span-1 h-[250px] md:h-full"
   }
 ]
 
