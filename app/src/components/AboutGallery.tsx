@@ -60,6 +60,36 @@ const IMAGES = [
     alt: "Good times at Philips Healthcare",
     caption: "Team at Philips",
     className: "md:col-span-1 md:row-span-2 h-[200px] md:h-full"
+  },
+  {
+    src: "/assets/images/about/uni-1.png",
+    alt: "Funtimes in Uni",
+    caption: "Funtimes in Uni",
+    className: "md:col-span-2 md:row-span-1 h-[200px] md:h-full"
+  },
+  {
+    src: "/assets/images/about/uni-2.png",
+    alt: "Funtimes in Uni",
+    caption: "Funtimes in Uni",
+    className: "md:col-span-2 md:row-span-1 h-[200px] md:h-full"
+  },
+  {
+    src: "/assets/images/about/olx-autos.png",
+    alt: "Lunch with the team at OLX Autos",
+    caption: "Lunch with the team at OLX Autos",
+    className: "md:col-span-2 md:row-span-2 h-[300px] md:h-full"
+  },
+  {
+    src: "/assets/images/about/airtel.png",
+    alt: "My last day at Airtel",
+    caption: "My last day at Airtel",
+    className: "md:col-span-2 md:row-span-1 h-[200px] md:h-full"
+  },
+  {
+    src: "/assets/images/about/excellence-award.png",
+    alt: "Received excellence award in 2nd year of Design School",
+    caption: "Excellence Award, 2nd Year Design School",
+    className: "md:col-span-2 md:row-span-1 h-[200px] md:h-full"
   }
 ]
 
