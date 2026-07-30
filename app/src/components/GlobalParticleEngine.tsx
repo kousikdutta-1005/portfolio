@@ -207,11 +207,11 @@ export function GlobalParticleEngine() {
       }
 
       // Rotate purely based on scroll progress (dynamic and awesome looking)
-      const globalRotateY = scrollProgress * Math.PI * 4 // 2 full rotations over the page length
-      const globalRotateX = 0.15 + Math.sin(scrollProgress * Math.PI * 2) * 0.25
+      const globalRotateY = scrollProgress * Math.PI * 2.5 // 1.25 full rotations over the page length (elegant pace)
+      const globalRotateX = 0.15 + Math.sin(scrollProgress * Math.PI * 2) * 0.15
       
-      // 45 degree tilt on Z axis
-      const globalRotateZ = Math.PI / 4 
+      // 25 degree tilt on Z axis (reduced from 45 so objects are more upright and recognizable)
+      const globalRotateZ = Math.PI / 7 
 
       const cosY = Math.cos(globalRotateY)
       const sinY = Math.sin(globalRotateY)
@@ -253,8 +253,9 @@ export function GlobalParticleEngine() {
         }
 
         // Breathing creature effect (living, shape-shifting)
-        // We inject larger organic sine wave distortion so the edges of the shape warp slightly like a living organism
-        const breathAmplitude = 4.0
+        // We inject organic sine wave distortion so the edges of the shape warp slightly like a living organism
+        // Kept subtle so the underlying CAD model remains highly recognizable
+        const breathAmplitude = 1.2
         const organicWarp = Math.sin(time * p.speed + p.offset) * Math.cos(time * p.speed * 0.8 + p.offset)
         targetX += organicWarp * breathAmplitude
         targetY += Math.cos(time * p.speed * 0.9 + p.offset) * breathAmplitude
@@ -320,15 +321,18 @@ export function GlobalParticleEngine() {
         const item = renderList[i]
         
         // Fibrous woven look, slightly more opaque to show off the accent color
-        let opacity = Math.min(0.25, Math.max(0.04, item.scale * 0.35))
+        let opacity = Math.min(0.35, Math.max(0.08, item.scale * 0.4))
 
         // All particles use the accent color for a striking, cohesive look
         const colorBase = accentRgb
 
-        if (item.rz > 30) opacity *= 0.5
-        if (item.rz > 80) opacity *= 0.2
+        // Gradual depth fade so we don't lose the back of the shape completely
+        if (item.rz > 0) {
+          const depthFade = Math.max(0.15, 1 - (item.rz / 250))
+          opacity *= depthFade
+        }
 
-        const length = Math.max(2, item.scale * 6) // Thread length
+        const length = Math.max(1.5, item.scale * 3.5) // Shorter threads for better shape definition
         // Create a woven/crosshatch pattern using particle index
         const angle = (item.index % 2 === 0) ? Math.PI / 4 : -Math.PI / 4
         const dx = Math.cos(angle) * length
@@ -338,7 +342,7 @@ export function GlobalParticleEngine() {
         ctx.moveTo(item.px - dx, item.py - dy)
         ctx.lineTo(item.px + dx, item.py + dy)
         ctx.strokeStyle = `rgba(${colorBase}, ${opacity})`
-        ctx.lineWidth = Math.max(0.5, item.scale * 0.8)
+        ctx.lineWidth = Math.max(0.8, item.scale * 1.2)
         ctx.stroke()
       }
 
