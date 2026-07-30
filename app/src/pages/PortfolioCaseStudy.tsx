@@ -93,7 +93,7 @@ const BUILD_FLOW = [
   { title: "1. Started with the rules", desc: "I wrote the voice, spacing, motion, glass, copy, and case-study principles before polishing any individual screen." },
   { title: "2. Built the shell", desc: "I created the route structure, layout, nav, footer, theme provider, scroll behavior, SEO helper, and transition system." },
   { title: "3. Reworked the stories", desc: "I rewrote Precisely, ThoughtSpot, and Philips around the same questions while keeping each project specific." },
-  { title: "4. Tightened the cards", desc: "I tuned size, image treatment, proof signals, date placement, hover behavior, and dark-mode readability." },
+  { title: "4. Tightened the cards", desc: "I tuned size, image treatment, proof points, date placement, hover behavior, and dark-mode readability." },
   { title: "5. Fixed the invisible details", desc: "I handled route scroll, media loading, content-nav overflow, accents, SEO output, and production checks." },
   { title: "6. Shipped it as a branch", desc: "The work was committed and pushed to a reviewable feature branch before it moves to the live site." },
 ]
@@ -138,6 +138,34 @@ const TAKEAWAYS = [
   { title: "Consistency is proof", desc: "A reviewer should feel the same level of care in a card, a nav state, a caption, and a full case-study page." },
 ]
 
+const REVIEWER_FLOW = [
+  { title: "First scan", desc: "The hero sets the role, tone, and level of taste without asking for too much time." },
+  { title: "Shortlist", desc: "Selected-work cards help the reviewer compare projects quickly and choose the strongest next click." },
+  { title: "Story spine", desc: "Each case study answers the same core questions before moving into detail." },
+  { title: "Proof", desc: "Screenshots, metrics, diagrams, and decisions show why the work matters." },
+  { title: "Contact", desc: "The conversation feels earned because the site has already done the explaining." },
+]
+
+const IA_COLUMNS = [
+  {
+    title: "Old structure",
+    desc: "The work was present, but the reviewer had to assemble the story alone.",
+    items: ["Intro first", "Project cards as a gallery", "Different case-study rhythms", "Proof buried in media", "Contact at the end"],
+  },
+  {
+    title: "New structure",
+    desc: "The IA now moves like a guided hiring path with proof at every step.",
+    items: ["Positioning first", "Cards as decision points", "Shared case-study spine", "Evidence beside decisions", "Contact after trust is built"],
+  },
+]
+
+const BUILD_ARCHITECTURE = [
+  { title: "Experience layer", desc: "The pages a reviewer moves through.", items: ["Home", "About", "Case-study routes", "Contact"] },
+  { title: "Story layer", desc: "Reusable patterns that keep the case studies consistent.", items: ["CaseStory", "EvidenceStrip", "CaseStudyNav", "Media figures"] },
+  { title: "System layer", desc: "Rules that make the site feel like one product.", items: ["Theme tokens", "Route accents", "Motion rules", "Media loading"] },
+  { title: "Shipping layer", desc: "Production pieces that make the portfolio reliable.", items: ["Vite build", "Static routes", "SEO files", "GitHub Pages"] },
+]
+
 const SECTIONS: CaseStudyNavSection[] = [
   { id: "outcomes", num: 1, label: "Outcomes" },
   { id: "context", num: 2, label: "Context" },
@@ -169,20 +197,131 @@ function OpenGrid({ items }: { items: { title: string; desc: string }[] }) {
   )
 }
 
-function ScreenshotPlaceholder({ title, desc }: { title: string; desc: string }) {
+ 
+
+function PortfolioImageFigure({
+  src,
+  darkSrc,
+  title,
+  desc,
+  alt,
+  loading = "lazy",
+}: {
+  src: string
+  darkSrc?: string
+  title: string
+  desc: string
+  alt: string
+  loading?: "lazy" | "eager"
+}) {
   return (
     <motion.figure
-      className="portfolio-placeholder"
+      className="portfolio-image-figure"
       variants={fadeUp}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-80px" }}
     >
-      <div className="portfolio-placeholder-stage" aria-label={title}>
-        <span>Screenshot placeholder</span>
-        <strong>{title}</strong>
+      <div className="portfolio-image-frame">
+        <img className={darkSrc ? "portfolio-theme-image-light" : undefined} src={src} alt={alt} loading={loading} decoding="async" />
+        {darkSrc && (
+          <img className="portfolio-theme-image-dark" src={darkSrc} alt={alt} loading={loading} decoding="async" />
+        )}
       </div>
-      <figcaption>{desc}</figcaption>
+      <figcaption>
+        <strong>{title}</strong>
+        <span>{desc}</span>
+      </figcaption>
+    </motion.figure>
+  )
+}
+
+function ReviewerFlowDiagram() {
+  return (
+    <motion.figure
+      className="portfolio-diagram portfolio-flow-diagram relative"
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-80px" }}
+    >
+      <div className="waypoint-3d" data-model="iphone_17_pro" data-x-desktop="0.8" data-y-desktop="0.6" data-x-mobile="0.5" data-y-mobile="0.6" data-z-depth="-100" />
+      <figcaption className="portfolio-diagram-header">
+        <strong>Reviewer flow</strong>
+        <span>The IA was shaped around the way someone actually evaluates a portfolio: quick scan first, deeper proof only after trust starts forming.</span>
+      </figcaption>
+      <ol className="portfolio-flow-track">
+        {REVIEWER_FLOW.map((step) => (
+          <li key={step.title} className="portfolio-flow-step">
+            <span>{step.title}</span>
+            <p>{step.desc}</p>
+          </li>
+        ))}
+      </ol>
+    </motion.figure>
+  )
+}
+
+function InformationArchitectureDiagram() {
+  return (
+    <motion.figure
+      className="portfolio-diagram portfolio-ia-diagram relative"
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-80px" }}
+    >
+      <div className="waypoint-3d" data-model="pulldown_graph_chart_3d" data-x-desktop="0.25" data-y-desktop="0.5" data-x-mobile="0.5" data-y-mobile="0.5" data-z-depth="150" />
+      <figcaption className="portfolio-diagram-header">
+        <strong>Information architecture shift</strong>
+        <span>The old site behaved more like a set of pages. The new one behaves like a clear path from attention to evidence.</span>
+      </figcaption>
+      <div className="portfolio-ia-grid">
+        {IA_COLUMNS.map((column) => (
+          <section key={column.title} className="portfolio-ia-column" aria-label={column.title}>
+            <div>
+              <h3>{column.title}</h3>
+              <p>{column.desc}</p>
+            </div>
+            <ol>
+              {column.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ol>
+          </section>
+        ))}
+      </div>
+    </motion.figure>
+  )
+}
+
+function BuildArchitectureDiagram() {
+  return (
+    <motion.figure
+      className="portfolio-diagram portfolio-architecture-diagram relative"
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-80px" }}
+    >
+      <div className="waypoint-3d" data-model="apple_watch_ultra_2" data-x-desktop="0.8" data-y-desktop="0.7" data-x-mobile="0.5" data-y-mobile="0.7" data-z-depth="-250" />
+      <figcaption className="portfolio-diagram-header">
+        <strong>Build architecture</strong>
+        <span>The site is structured as layers: the public experience, the reusable story kit, the visual system, and the production path.</span>
+      </figcaption>
+      <div className="portfolio-architecture-grid">
+        {BUILD_ARCHITECTURE.map((layer) => (
+          <section key={layer.title} className="portfolio-architecture-layer" aria-label={layer.title}>
+            <h3>{layer.title}</h3>
+            <p>{layer.desc}</p>
+            <ul>
+              {layer.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
     </motion.figure>
   )
 }
@@ -206,7 +345,8 @@ export default function PortfolioCaseStudyPage() {
           </div>
         </section>
 
-        <section className="pt-6 pb-8 md:pt-8 md:pb-10">
+        <section className="pt-6 pb-8 md:pt-8 md:pb-10 relative">
+          <div className="waypoint-3d" data-model="macbook_pro_m3_16_inch_2024" data-x-desktop="0.8" data-y-desktop="0.4" data-x-mobile="0.5" data-y-mobile="0.2" data-z-depth="-150" />
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.p className="text-[13px] font-semibold text-muted-foreground mb-4" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: EASE_ENTER }}>
               Portfolio website
@@ -228,17 +368,24 @@ export default function PortfolioCaseStudyPage() {
           </div>
         </section>
 
-        <CaseStory
-          title="The shift"
-          lead="This was less about making a nicer website and more about removing friction between my work and the person trying to understand it."
-          items={SUMMARY}
-        />
+        <div className="relative">
+          <div className="waypoint-3d" data-model="apple_vision_pro" data-x-desktop="0.2" data-y-desktop="0.5" data-x-mobile="0.5" data-y-mobile="0.3" data-z-depth="200" />
+          <CaseStory
+            title="The shift"
+            lead="This was less about making a nicer website and more about removing friction between my work and the person trying to understand it."
+            items={SUMMARY}
+          />
+        </div>
 
         <section className="pb-8">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
-            <ScreenshotPlaceholder
-              title="Homepage hero and selected-work cards"
-              desc="Replace this with a final screenshot showing the homepage, work order, compact cards, and the overall tone."
+            <PortfolioImageFigure
+              src="/assets/images/portfolio-case-study/hero-visual.png"
+              darkSrc="/assets/images/portfolio-case-study/hero-visual-dark.png"
+              title="The homepage as a hiring surface"
+              desc="The first screen sets the tone, then moves quickly into selected work so the portfolio starts proving the thinking instead of introducing it for too long."
+              alt="Portfolio homepage shown inside an iMac frame with the headline Thinking becomes product."
+              loading="eager"
             />
           </div>
         </section>
@@ -254,23 +401,23 @@ export default function PortfolioCaseStudyPage() {
               I judged the work through the moments a hiring reviewer actually feels: the first scan, the first click, the first proof point, and the confidence to keep going.
             </motion.p>
             <CaseEvidenceStrip items={OUTCOMES} />
+            <div className="mt-8">
+              <ReviewerFlowDiagram />
+            </div>
           </div>
         </section>
 
         <section className="py-10 md:py-14" id="context">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              The old version had the work. It needed more <span className="heading-italic">signal</span>.
+              The old version had the work. It needed clearer <span className="heading-italic">proof</span>.
             </motion.h2>
             <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[720px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               The portfolio had to explain senior product judgment quickly. It needed to show how I frame ambiguity, write clearly, make systems, use AI tools, and finish the details people notice before they can name.
             </motion.p>
             <OpenGrid items={CONTEXT} />
             <div className="mt-8">
-              <ScreenshotPlaceholder
-                title="Before and after information architecture"
-                desc="Use this slot for a comparison of the old structure, the new selected-work order, and the simplified case-study flow."
-              />
+              <InformationArchitectureDiagram />
             </div>
           </div>
         </section>
@@ -294,9 +441,11 @@ export default function PortfolioCaseStudyPage() {
             </motion.p>
             <OpenGrid items={SYSTEM_DECISIONS} />
             <div className="mt-8">
-              <ScreenshotPlaceholder
-                title="Interaction states and navigation system"
-                desc="Use this slot for hover, focus, sticky nav, route loading, content nav, and cursor affordance screenshots."
+              <PortfolioImageFigure
+                src="/assets/images/portfolio-case-study/selected-work-light.png"
+                title="The card system in light mode"
+                desc="The same selected-work grid holds its hierarchy in a brighter theme: product evidence first, context second, and proof kept quiet."
+                alt="Light mode selected work grid with portfolio project cards arranged in two columns."
               />
             </div>
           </div>
@@ -312,10 +461,7 @@ export default function PortfolioCaseStudyPage() {
             </motion.p>
             <OpenGrid items={BUILD_DECISIONS} />
             <div className="mt-8">
-              <ScreenshotPlaceholder
-                title="Build architecture and component map"
-                desc="Use this slot for a diagram or screenshots of routes, shared components, route accents, SEO output, and validation scripts."
-              />
+              <BuildArchitectureDiagram />
             </div>
             <motion.h3 className="mt-10 text-[22px] font-bold tracking-tight mb-5" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               The build rhythm
@@ -350,9 +496,11 @@ export default function PortfolioCaseStudyPage() {
             </motion.h3>
             <OpenGrid items={QUALITY} />
             <div className="mt-8">
-              <ScreenshotPlaceholder
-                title="Light and dark mode comparison"
-                desc="Use this slot for paired screenshots showing adaptive surfaces, accent colors, media treatment, and card consistency."
+              <PortfolioImageFigure
+                src="/assets/images/portfolio-case-study/selected-work-dark.png"
+                title="The same system in dark mode"
+                desc="Dark mode uses stronger edge definition, quieter glow, and calmer surfaces so the cards still feel premium without becoming heavy."
+                alt="Dark mode selected work grid with product cards, glass surfaces, and compact proof text."
               />
             </div>
           </div>
