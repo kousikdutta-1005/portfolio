@@ -3651,9 +3651,9 @@ a.apple-link:hover {
 
 .footer-note {
   display: grid;
-  grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr);
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
   gap: 28px;
-  align-items: end;
+  align-items: center;
 }
 
 .footer-note-kicker {

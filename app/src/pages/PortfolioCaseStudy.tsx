@@ -117,9 +117,9 @@ const CRAFT = [
 const ENGINE_DECISIONS = [
   { title: "Not just a background", desc: "A static backdrop felt lifeless. I built a WebGL particle engine that acts as a living creature, guiding the eye and reacting to the user's journey through the site." },
   { title: "Fibrous material", desc: "Instead of standard solid geometry, I used intersecting, cross-hatched line segments that mimic woven threads, letting the swarm blend seamlessly with the content." },
-  { title: "Scroll-driven morphing", desc: "The swarm begins as a Fibonacci sphere and organically morphs through precise CAD models (MacBook, Vision Pro, iPhone, Apple Watch) tied purely to scroll progress." },
+  { title: "Detail vs Performance", desc: "Pushing 35,000 points crushed the CPU. I dropped it to 14,000 but reserved 35% of those points strictly for the sharp corners and internal geometry. The engine also uses Path Batching (combining thousands of stroke commands into just 3 depth tiers) for a buttery 60fps." },
+  { title: "Scroll-driven morphing", desc: "The swarm begins as a Fibonacci sphere and organically morphs through precise CAD models (MacBook, iPhone, PS5 Controller, Chart, Vision Pro, Apple Watch) tied purely to scroll progress." },
   { title: "Z-Axis depth & inertia", desc: "Invisible DOM waypoints feed X, Y, and Z coordinates into the engine. Spring-based physics handle the momentum, pushing the swarm deep into the background so the UI floats on top." },
-  { title: "Dynamic themes", desc: "The global canvas persists across routes and reads the active page's CSS accent colors inside its render loop, automatically adopting the unique identity of each case study." },
 ]
 
 const QUALITY = [
@@ -177,6 +177,31 @@ const SECTIONS: CaseStudyNavSection[] = [
   { id: "engine", num: 8, label: "The Engine" },
   { id: "takeaways", num: 9, label: "Takeaways" },
 ]
+
+function ModelShowcase() {
+  const models = [
+    { label: "MacBook", icon: "💻" },
+    { label: "iPhone", icon: "📱" },
+    { label: "PS5", icon: "🎮" },
+    { label: "Vision", icon: "🥽" },
+    { label: "Watch", icon: "⌚" },
+  ]
+  return (
+    <div className="mt-8 grid grid-cols-2 md:grid-cols-5 gap-3">
+      {models.map((m, i) => (
+        <motion.div
+          key={m.label}
+          variants={fadeUp}
+          custom={i}
+          className="flex flex-col items-center justify-center p-4 border border-border/50 rounded-xl bg-background/50 backdrop-blur-sm shadow-sm"
+        >
+          <span className="text-2xl mb-2 grayscale opacity-80">{m.icon}</span>
+          <span className="text-[12px] font-medium text-muted-foreground">{m.label}</span>
+        </motion.div>
+      ))}
+    </div>
+  )
+}
 
 function OpenGrid({ items }: { items: { title: string; desc: string }[] }) {
   return (
@@ -515,6 +540,9 @@ export default function PortfolioCaseStudyPage() {
               To ensure the portfolio felt dynamic without distracting from the work, I built a custom 3D particle engine that shape-shifts and travels through depth as you scroll.
             </motion.p>
             <OpenGrid items={ENGINE_DECISIONS} />
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }}>
+              <ModelShowcase />
+            </motion.div>
           </div>
         </section>
 
