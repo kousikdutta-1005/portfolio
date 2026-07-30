@@ -316,21 +316,21 @@ export function GlobalParticleEngine() {
 
       // Use normal blending to match matte background material
       ctx.globalCompositeOperation = "source-over"
+      
+      // OPTIMIZATION: Instead of 35,000 individual stroke() calls per frame (which destroys CPU),
+      // we batch the lines into 3 depth/opacity buckets and stroke them just 3 times.
+      const pathForeground = new Path2D()
+      const pathMidground = new Path2D()
+      const pathBackground = new Path2D()
+      
+      const colorBase = accentRgb
 
       for (let i = 0; i < renderList.length; i++) {
         const item = renderList[i]
         
-        // Fibrous woven look, heavily tweaked opacity for extreme density (35k points)
-        let opacity = Math.min(0.15, Math.max(0.02, item.scale * 0.15))
-
-        // All particles use the accent color for a striking, cohesive look
-        const colorBase = accentRgb
-
-        // Gradual depth fade so we don't lose the back of the shape completely
-        if (item.rz > 0) {
-          const depthFade = Math.max(0.15, 1 - (item.rz / 250))
-          opacity *= depthFade
-        }
+        let targetPath = pathForeground
+        if (item.rz > 60) targetPath = pathBackground
+        else if (item.rz > 15) targetPath = pathMidground
 
         const length = Math.max(0.6, item.scale * 1.2) // Extremely short threads for ultra-fine sub-pixel detail
         // Create a woven/crosshatch pattern using particle index
@@ -338,13 +338,27 @@ export function GlobalParticleEngine() {
         const dx = Math.cos(angle) * length
         const dy = Math.sin(angle) * length
 
-        ctx.beginPath()
-        ctx.moveTo(item.px - dx, item.py - dy)
-        ctx.lineTo(item.px + dx, item.py + dy)
-        ctx.strokeStyle = `rgba(${colorBase}, ${opacity})`
-        ctx.lineWidth = Math.max(0.3, item.scale * 0.5) // Super fine lines
-        ctx.stroke()
+        targetPath.moveTo(item.px - dx, item.py - dy)
+        targetPath.lineTo(item.px + dx, item.py + dy)
       }
+
+      // Draw Background Bucket
+      ctx.beginPath()
+      ctx.strokeStyle = `rgba(${colorBase}, 0.04)`
+      ctx.lineWidth = 0.3
+      ctx.stroke(pathBackground)
+
+      // Draw Midground Bucket
+      ctx.beginPath()
+      ctx.strokeStyle = `rgba(${colorBase}, 0.08)`
+      ctx.lineWidth = 0.4
+      ctx.stroke(pathMidground)
+
+      // Draw Foreground Bucket
+      ctx.beginPath()
+      ctx.strokeStyle = `rgba(${colorBase}, 0.15)`
+      ctx.lineWidth = 0.6
+      ctx.stroke(pathForeground)
 
       animationFrameId = requestAnimationFrame(render)
     }
