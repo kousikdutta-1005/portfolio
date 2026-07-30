@@ -25,109 +25,109 @@ const staggerContainer = {
 const META = [
   { label: "Client", value: "Personal portfolio" },
   { label: "Role", value: "Product designer and builder" },
-  { label: "Tools", value: "React, Copilot, motion, CSS" },
+  { label: "Tools", value: "React, TypeScript, Copilot, Claude" },
   { label: "Timeline", value: "July 2026" },
 ]
 
 const SUMMARY: CaseStoryItem[] = [
   {
     label: "What was broken",
-    text: "The portfolio could show projects, but it did not fully show how I think, make decisions, use AI, and turn judgment into a working interface.",
+    text: "The portfolio had good work, but it still felt like evidence scattered across pages. It needed to reveal my judgment, not just display screens.",
   },
   {
     label: "What changed",
-    text: "I rebuilt the site around a clearer voice, tighter work cards, proof-led case studies, adaptive materials, and reusable interaction rules.",
+    text: "I rebuilt it as a guided hiring experience: sharper cards, quieter proof, clearer case studies, and a reusable system behind the interface.",
   },
   {
     label: "Why it works",
-    text: "A recruiter can scan the work quickly, understand the design reasoning, and see that the craft is consistent across copy, layout, motion, and code.",
+    text: "A reviewer can move from first impression to detailed proof without losing context. The same care shows up in copy, layout, motion, and code.",
   },
   {
     label: "How it scales",
-    text: "The site now has reusable story patterns, route accents, media rules, content navigation, and production checks that make future case studies easier to add.",
+    text: "Future stories can inherit the same route structure, accents, media rules, navigation, SEO, and production checks without becoming generic.",
   },
 ]
 
 const OUTCOMES: CaseEvidenceItem[] = [
-  { value: "3", label: "Case studies aligned", desc: "Precisely, ThoughtSpot, and Philips now follow one evidence-led story model without feeling templated." },
-  { value: "5", label: "Work cards normalized", desc: "Selected-work cards use one size, one rhythm, clearer dates, compact copy, and neutral proof signals." },
-  { value: "2", label: "Theme systems", desc: "Every surface was tuned for light and dark mode instead of treating dark mode as an afterthought." },
-  { value: "1", label: "Reusable site system", desc: "Navigation, route accents, media, motion, cursor behavior, SEO, and build checks now work as one product." },
+  { value: "3", label: "Case studies with a spine", desc: "Precisely, ThoughtSpot, and Philips now share the same story logic while keeping their own product rhythm." },
+  { value: "5", label: "Work cards tuned", desc: "The selected-work set now has one height, clearer dates, tighter copy, stronger media treatment, and calmer proof." },
+  { value: "2", label: "Theme worlds", desc: "Light and dark mode were shaped as two complete moods, not one theme with colors inverted." },
+  { value: "1", label: "Product system", desc: "Navigation, route accents, media, motion, cursor behavior, SEO, and build checks now move together." },
 ]
 
 const CONTEXT = [
-  { title: "The audience was busy", desc: "Recruiters and design leaders needed the work to explain itself quickly without turning the site into a pitch deck." },
-  { title: "The work needed a spine", desc: "The portfolio had strong projects, but each case study needed a consistent logic for context, decisions, proof, and takeaways." },
-  { title: "The site had to show taste", desc: "The interface had to feel premium through restraint, spacing, typography, responsiveness, and interaction quality." },
-  { title: "The build had to be real", desc: "Because I wanted to position myself as AI-first, the site needed to prove that I can design and build working interfaces." },
+  { title: "People do not read portfolios like books", desc: "Recruiters scan for fit first. Design leaders slow down only when the first few seconds feel worth it." },
+  { title: "The next click had to be earned", desc: "Every card, caption, metric, and transition needed to create enough trust for someone to keep going." },
+  { title: "Taste had to be visible, not loud", desc: "The site needed a quiet signature through rhythm, type, interaction, and restraint rather than decorative flourishes." },
+  { title: "The build had to be part of the proof", desc: "If I was calling myself AI-first, the site needed to show that I can move from intent to shipped UI." },
 ]
 
 const PRINCIPLES = [
-  { title: "The site is the conversation", desc: "The writing had to feel like I was speaking directly to the person reviewing the work." },
-  { title: "Proof before praise", desc: "The case studies show decisions, artifacts, tradeoffs, and outcomes instead of telling the reader to trust me." },
-  { title: "One surface, one job", desc: "Glass, cards, labels, motion, and cursor copy only stayed when they improved hierarchy or affordance." },
-  { title: "Compact, but breathable", desc: "The layout needed to feel tight and fast without making any section feel cramped." },
-  { title: "Accent comes from the work", desc: "Each case-study page inherits its accent from the product UI shown on that page." },
-  { title: "AI supports the craft", desc: "Copilot and Claude helped me build and iterate faster, but the design judgment stayed in the product decisions." },
+  { title: "Write like I am in the room", desc: "The copy had to feel direct, calm, and human, like I was walking someone through the work myself." },
+  { title: "Let evidence do the selling", desc: "The case studies show decisions, artifacts, tradeoffs, and outcomes instead of asking the reader to trust a claim." },
+  { title: "Give every surface one job", desc: "Glass, cards, labels, motion, and cursor copy only stayed when they improved hierarchy, orientation, or affordance." },
+  { title: "Keep it fast, but give it air", desc: "The layout needed recruiter-speed scanning without making the work feel squeezed or rushed." },
+  { title: "Let the product set the accent", desc: "Each case study inherits color from the product UI shown on that page, so emphasis feels earned." },
+  { title: "Treat AI as a multiplier", desc: "Copilot and Claude helped me move faster. The important work was deciding what to keep, cut, and refine." },
 ]
 
 const SYSTEM_DECISIONS = [
-  { title: "Selected work became the decision layer", desc: "Cards were equalized, dates moved into a clear top row, metrics became neutral, and visible View/Open labels were removed." },
-  { title: "Case studies got one spine", desc: "Each story answers what was broken, what changed, why it works, and how it scales before going deeper." },
-  { title: "Navigation became orientation", desc: "Primary nav, case-study nav, route loading, and scroll reset were tuned so the visitor always knows where they are." },
-  { title: "Materials became affordances", desc: "Liquid glass is reserved for controls, cards, media, and contact surfaces where depth helps understanding." },
-  { title: "Media became evidence", desc: "Screenshots, demos, native charts, and placeholders are used to explain decisions rather than decorate the page." },
-  { title: "Production became part of design", desc: "SEO routes, static output, lazy media, build checks, and lint checks became part of the quality bar." },
+  { title: "Cards became the first edit", desc: "I made the selected-work cards equal, compact, date-aware, and easier to compare without turning them into identical tiles." },
+  { title: "Case studies got a question sequence", desc: "Each story now answers what was broken, what changed, why it works, and how it scales before going deeper." },
+  { title: "Navigation became wayfinding", desc: "Primary nav, case-study nav, route loading, and scroll reset were tuned so the visitor always feels placed." },
+  { title: "Glass had to earn its blur", desc: "Liquid glass is reserved for controls, cards, media, and contact surfaces where depth improves understanding." },
+  { title: "Media had to argue", desc: "Screenshots, demos, native charts, and placeholders are used to explain decisions rather than decorate the page." },
+  { title: "Production became craft", desc: "SEO routes, static output, lazy media, build checks, and lint checks became part of the design quality bar." },
 ]
 
 const BUILD_DECISIONS = [
-  { title: "React routes for each story", desc: "I used React Router so every case study could have its own URL, metadata, route accent, and content navigation." },
-  { title: "Reusable story components", desc: "Shared evidence strips, story summaries, page transitions, media wrappers, and content nav kept the system consistent." },
-  { title: "CSS tokens before one-off styling", desc: "Light, dark, accent, glass, border, blur, and shadow values were handled as system rules instead of isolated tweaks." },
-  { title: "Motion as orientation", desc: "Framer Motion handles page arrival, section reveal, and small transitions. Lenis supports calmer desktop scrolling." },
-  { title: "Media loading as UX", desc: "Images use loading states, cached-image guards, and placeholders. Large videos lazy-load near view and expose controls." },
-  { title: "Static output for production", desc: "The build generates route HTML, SEO metadata, sitemap entries, robots, and a 404 so GitHub Pages can serve the site cleanly." },
+  { title: "Routes became chapters", desc: "React Router gives every case study its own URL, metadata, accent, scroll behavior, and content navigation." },
+  { title: "Components became the editorial kit", desc: "Story summaries, evidence strips, page transitions, media wrappers, SEO, and nav patterns keep the site coherent." },
+  { title: "Tokens held the mood", desc: "Light, dark, accent, glass, border, blur, and shadow values live as system rules instead of scattered styling." },
+  { title: "Motion carried orientation", desc: "Framer Motion handles arrival and reveal. Lenis makes desktop scrolling feel calmer without taking over touch devices." },
+  { title: "Media loading protected the pace", desc: "Images use loading states and cache guards. Large videos lazy-load near the viewport and expose controls." },
+  { title: "Static output made it shippable", desc: "The build generates route HTML, SEO metadata, sitemap entries, robots, and a 404 for clean GitHub Pages delivery." },
 ]
 
 const BUILD_FLOW = [
-  { title: "1. Defined the rules", desc: "I wrote the voice, spacing, interaction, glass, copy, and case-study principles before polishing individual screens." },
-  { title: "2. Built the shell", desc: "I created the route structure, layout, nav, footer, theme provider, scroll behavior, SEO helper, and page transition system." },
-  { title: "3. Refactored the stories", desc: "I rewrote Precisely, ThoughtSpot, and Philips around the same story questions while keeping each project specific." },
-  { title: "4. Tuned the cards", desc: "I normalized card size, image treatment, proof signals, date placement, hover behavior, and dark-mode readability." },
-  { title: "5. Hardened the details", desc: "I fixed route scroll, media loading, content-nav overflow, dark-mode accents, SEO output, and production build checks." },
-  { title: "6. Pushed the branch", desc: "The work was committed and pushed to a feature branch so it can be reviewed before deployment to the live site." },
+  { title: "1. Started with the rules", desc: "I wrote the voice, spacing, motion, glass, copy, and case-study principles before polishing any individual screen." },
+  { title: "2. Built the shell", desc: "I created the route structure, layout, nav, footer, theme provider, scroll behavior, SEO helper, and transition system." },
+  { title: "3. Reworked the stories", desc: "I rewrote Precisely, ThoughtSpot, and Philips around the same questions while keeping each project specific." },
+  { title: "4. Tightened the cards", desc: "I tuned size, image treatment, proof signals, date placement, hover behavior, and dark-mode readability." },
+  { title: "5. Fixed the invisible details", desc: "I handled route scroll, media loading, content-nav overflow, accents, SEO output, and production checks." },
+  { title: "6. Shipped it as a branch", desc: "The work was committed and pushed to a reviewable feature branch before it moves to the live site." },
 ]
 
 const BLOCKS = [
-  { title: "Clear without sounding boastful", desc: "The copy had to sell the thinking without claiming greatness. The answer was simple, modest, evidence-led language." },
-  { title: "Premium without extra layers", desc: "Early surfaces could become too glassy or boxed. I removed layers until each section had one clear job." },
-  { title: "Compact without feeling cramped", desc: "Cards and case-study sections needed recruiter-speed scanning while still giving every idea enough personal space." },
-  { title: "Product visibility inside small cards", desc: "The Precisely iMac hero needed a custom crop so the product was visible without breaking card consistency." },
-  { title: "Reliable media loading", desc: "ThoughtSpot media and Precisely videos needed safer loading behavior so evidence appeared when it mattered." },
-  { title: "Route behavior had to feel native", desc: "Case-study pages were opening mid-scroll, so route scroll restoration became part of the interaction system." },
+  { title: "Selling without saying hire me", desc: "The copy had to show taste and judgment without turning into a pitch. Simple, specific language did most of the work." },
+  { title: "Premium without becoming precious", desc: "Some early surfaces were too boxed or too glassy. I kept removing layers until each section had one clear job." },
+  { title: "Fast without feeling thin", desc: "The site needed recruiter-speed scanning, but the stronger ideas still needed enough space to land." },
+  { title: "Product proof inside small cards", desc: "The Precisely iMac hero needed a custom crop so the product stayed visible without breaking the card system." },
+  { title: "Media that shows up on time", desc: "ThoughtSpot media and Precisely videos needed safer loading behavior so the proof appeared when the story needed it." },
+  { title: "A page that opens where it should", desc: "Case studies were opening mid-scroll, so route scroll restoration became part of the interaction system." },
 ]
 
 const CRAFT = [
-  { title: "Writing system", desc: "I wrote in first person where it helped, cut jargon, removed empty claims, and kept every section easy to scan." },
-  { title: "Visual system", desc: "I shaped a restrained liquid-glass language with adaptive borders, blur, contrast, shadow, and mode-specific color." },
-  { title: "Interaction system", desc: "Hover, focus, press, selected, current, disabled, loading, reduced-motion, and cursor behavior were treated as design details." },
-  { title: "Build system", desc: "React routes, reusable components, code splitting, SEO metadata, static route generation, and validation scripts supported the portfolio as a real product." },
+  { title: "Voice", desc: "I wrote in first person where it helped, cut generic claims, and kept every section clear enough to scan under pressure." },
+  { title: "Visual language", desc: "I shaped a restrained liquid-glass system with adaptive borders, blur, contrast, shadow, and mode-specific color." },
+  { title: "Interaction behavior", desc: "Hover, focus, press, selected, current, disabled, loading, reduced-motion, and cursor states were treated as part of the design." },
+  { title: "Build quality", desc: "Routes, reusable components, code splitting, SEO metadata, static generation, and validation scripts made the portfolio feel like a product." },
 ]
 
 const QUALITY = [
-  { title: "Copy quality", desc: "I checked grammar, sentence clarity, visible dates, and the no-em-dash rule so the writing stayed clean." },
-  { title: "Interaction quality", desc: "I reviewed hover, focus, press, selected, sticky, loading, and reduced-motion states across the main surfaces." },
-  { title: "Responsive quality", desc: "Cards, nav, case-study sections, placeholders, and media frames were shaped to stay readable across breakpoints." },
-  { title: "Performance quality", desc: "Routes are code-split, offscreen media is safer, and static pages are generated for direct URLs." },
-  { title: "Build quality", desc: "The project runs TypeScript build, Vite build, postbuild route generation, glass checks, and oxlint." },
-  { title: "Deployment quality", desc: "The branch is pushed with production-ready assets, SEO files, and a clean GitHub Pages path." },
+  { title: "Language pass", desc: "I checked grammar, sentence clarity, visible dates, and the no-em-dash rule so the writing stayed clean." },
+  { title: "Interaction pass", desc: "I reviewed hover, focus, press, selected, sticky, loading, and reduced-motion states across the main surfaces." },
+  { title: "Responsive pass", desc: "Cards, nav, case-study sections, placeholders, and media frames were shaped to stay readable across breakpoints." },
+  { title: "Performance pass", desc: "Routes are code-split, offscreen media is safer, and static pages are generated for direct URLs." },
+  { title: "Production pass", desc: "The project runs TypeScript build, Vite build, postbuild route generation, glass checks, and oxlint." },
+  { title: "Deployment pass", desc: "The branch carries production-ready assets, SEO files, and a clean GitHub Pages path." },
 ]
 
 const TAKEAWAYS = [
-  { title: "A portfolio is a product", desc: "It has users, conversion goals, trust gaps, loading states, edge cases, and a voice." },
-  { title: "Restraint creates confidence", desc: "Removing decoration made the remaining interactions feel more deliberate." },
-  { title: "AI changes speed, not taste", desc: "Copilot made iteration faster, but the quality came from deciding what to keep, cut, and clarify." },
-  { title: "Consistency is the proof", desc: "A recruiter should feel the same level of care in a card, a nav state, a caption, and a full case-study page." },
+  { title: "A portfolio has an impatient user", desc: "It has goals, trust gaps, loading states, edge cases, and one job: help the right person understand the work." },
+  { title: "Restraint makes craft easier to see", desc: "Removing decoration made the remaining interactions feel more deliberate and more confident." },
+  { title: "AI changes speed, not taste", desc: "Copilot and Claude made iteration faster, but the quality came from deciding what to keep, cut, and clarify." },
+  { title: "Consistency is proof", desc: "A reviewer should feel the same level of care in a card, a nav state, a caption, and a full case-study page." },
 ]
 
 const SECTIONS: CaseStudyNavSection[] = [
@@ -203,10 +203,10 @@ export default function PortfolioCaseStudyPage() {
               Portfolio website
             </motion.p>
             <motion.h1 className="text-[clamp(2.8rem,6vw,5.2rem)] font-bold tracking-[-0.04em] leading-[0.99] max-w-[900px]" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: EASE_ENTER }}>
-              Turning my portfolio into a product that shows how I <span className="heading-italic">think</span>.
+              Turning my portfolio from a gallery into a product that shows how I <span className="heading-italic">think</span>.
             </motion.h1>
             <motion.p className="mt-4 text-[17px] text-muted-foreground leading-[1.58] max-w-[700px]" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: EASE_ENTER, delay: 0.1 }}>
-              I redesigned and built my own site as a hiring experience: clear enough for a quick recruiter scan, deep enough for a design leader, and crafted enough to show that ideas can become working product.
+              I redesigned and built my own site as a hiring experience: fast for recruiters, deep enough for design leaders, and polished enough to show that taste can become shipped UI.
             </motion.p>
             <motion.div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: EASE_ENTER, delay: 0.2 }}>
               {META.map((item) => (
@@ -221,7 +221,7 @@ export default function PortfolioCaseStudyPage() {
 
         <CaseStory
           title="The shift"
-          lead="The work was not just to make the site look better. It was to make the site behave like a calm, high-signal conversation with the person deciding whether to hire me."
+          lead="This was less about making a nicer website and more about removing friction between my work and the person trying to understand it."
           items={SUMMARY}
         />
 
@@ -239,10 +239,10 @@ export default function PortfolioCaseStudyPage() {
         <section className="py-10 md:py-14" id="outcomes">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              The site became clearer, sharper, and easier to <span className="heading-italic">trust</span>.
+              The site started doing more of the <span className="heading-italic">explaining</span>.
             </motion.h2>
             <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[680px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              I measured the work through the parts a hiring reviewer actually experiences: scan speed, story clarity, proof quality, interaction polish, and production readiness.
+              I judged the work through the moments a hiring reviewer actually feels: the first scan, the first click, the first proof point, and the confidence to keep going.
             </motion.p>
             <CaseEvidenceStrip items={OUTCOMES} />
           </div>
@@ -251,10 +251,10 @@ export default function PortfolioCaseStudyPage() {
         <section className="py-10 md:py-14" id="context">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              The problem was not a lack of work. It was a lack of <span className="heading-italic">signal</span>.
+              The old version had the work. It needed more <span className="heading-italic">signal</span>.
             </motion.h2>
             <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[720px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              The portfolio had to explain senior product judgment quickly. It needed to show how I frame ambiguity, write clearly, make systems, use AI tools, and care about the details that make an interface feel finished.
+              The portfolio had to explain senior product judgment quickly. It needed to show how I frame ambiguity, write clearly, make systems, use AI tools, and finish the details people notice before they can name.
             </motion.p>
             <OpenGrid items={CONTEXT} />
             <div className="mt-8">
@@ -269,7 +269,7 @@ export default function PortfolioCaseStudyPage() {
         <section className="py-10 md:py-14" id="principles">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              The rules that kept the work <span className="heading-italic">honest</span>.
+              I wrote the rules before touching the <span className="heading-italic">polish</span>.
             </motion.h2>
             <OpenGrid items={PRINCIPLES} />
           </div>
@@ -278,10 +278,10 @@ export default function PortfolioCaseStudyPage() {
         <section className="py-10 md:py-14" id="system">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              I treated the portfolio as one connected <span className="heading-italic">system</span>.
+              I made the portfolio behave like one connected <span className="heading-italic">system</span>.
             </motion.h2>
             <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[700px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              Every visible choice had to support orientation, comprehension, trust, or decision-making. If it did not, it was removed.
+              Every visible choice had to support orientation, comprehension, trust, or decision-making. If it did not help the reader, it did not stay.
             </motion.p>
             <OpenGrid items={SYSTEM_DECISIONS} />
             <div className="mt-8">
@@ -296,10 +296,10 @@ export default function PortfolioCaseStudyPage() {
         <section className="py-10 md:py-14" id="build">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              I built it like a small product, not a static <span className="heading-italic">page</span>.
+              Then I built the system for <span className="heading-italic">real</span>.
             </motion.h2>
             <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[720px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              The stack is React, TypeScript, Vite, Tailwind CSS, Framer Motion, Lenis, and GitHub Pages. GitHub Copilot and Claude helped me move through implementation faster, but every pattern was checked against the design rules before it stayed.
+              The site runs on React, TypeScript, Vite, Tailwind CSS, Framer Motion, Lenis, and GitHub Pages. Copilot and Claude helped me move faster, but nothing stayed just because it worked. It had to support the story.
             </motion.p>
             <OpenGrid items={BUILD_DECISIONS} />
             <div className="mt-8">
@@ -309,7 +309,7 @@ export default function PortfolioCaseStudyPage() {
               />
             </div>
             <motion.h3 className="mt-10 text-[22px] font-bold tracking-tight mb-5" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              How the build moved
+              The build rhythm
             </motion.h3>
             <OpenGrid items={BUILD_FLOW} />
           </div>
@@ -318,10 +318,10 @@ export default function PortfolioCaseStudyPage() {
         <section className="py-10 md:py-14" id="blocks">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              The hard parts were mostly <span className="heading-italic">judgment</span> calls.
+              The hard part was knowing what not to <span className="heading-italic">add</span>.
             </motion.h2>
             <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[700px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              The blocks were not about adding more polish. They were about knowing when polish was helping and when it was becoming noise.
+              Most of the work was not adding more. It was learning which detail made the page clearer, and which detail only made the page busier.
             </motion.p>
             <OpenGrid items={BLOCKS} />
           </div>
@@ -330,10 +330,10 @@ export default function PortfolioCaseStudyPage() {
         <section className="py-10 md:py-14" id="craft">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              The craft lived in the <span className="heading-italic">connections</span>.
+              The craft was in the <span className="heading-italic">connections</span>.
             </motion.h2>
             <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[700px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              I used AI-assisted coding to move faster, but the real work was making sure writing, layout, media, motion, accessibility, and production behavior all agreed with each other.
+              AI helped me move through the build quickly. The craft was making sure writing, layout, media, motion, accessibility, and production behavior all pointed in the same direction.
             </motion.p>
             <OpenGrid items={CRAFT} />
             <motion.h3 className="mt-10 text-[22px] font-bold tracking-tight mb-5" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
@@ -352,7 +352,7 @@ export default function PortfolioCaseStudyPage() {
         <section className="py-10 md:py-14" id="takeaways">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              What I would carry into the next <span className="heading-italic">product</span>.
+              What this taught me about designing for <span className="heading-italic">attention</span>.
             </motion.h2>
             <OpenGrid items={TAKEAWAYS} />
             <div className="mt-8">
