@@ -2,47 +2,35 @@ import { motion } from "framer-motion"
 
 const IMAGES = [
   {
-    src: "/assets/images/about/graduation.jpg",
-    alt: "Graduation 2023",
-    caption: "Graduation 2023",
-    aspect: "tall"
-  },
-  {
-    src: "/assets/images/about/awards.jpg",
-    alt: "My award photos",
-    caption: "Awards & Recognition",
-    aspect: "wide"
-  },
-  {
     src: "/assets/images/about/cubbon-park.jpg",
     alt: "Me at Cubbon park or Lalbagh",
     caption: "Cubbon Park / Lalbagh",
-    aspect: "square"
+    className: "md:col-span-2 md:row-span-2 h-[350px] md:h-full"
   },
   {
     src: "/assets/images/about/design-up.jpg",
     alt: "Me at Design UP",
     caption: "Design UP Conference",
-    aspect: "tall"
+    className: "md:col-span-1 md:row-span-1 h-[250px] md:h-full"
   },
   {
     src: "/assets/images/about/play-crew.jpg",
     alt: "With the crew after a play",
     caption: "With the play crew",
-    aspect: "wide"
+    className: "md:col-span-1 md:row-span-1 h-[250px] md:h-full"
   },
   {
     src: "/assets/images/about/thoughtspot-buddies.jpg",
-    alt: "Buddies at ThoughtSpot",
-    caption: "Buddies at ThoughtSpot",
-    aspect: "square"
+    alt: "With Design Director Bob Baxley at ThoughtSpot",
+    caption: "Our little design team at ThoughtSpot during its glorious days. (With Bob Baxley)",
+    className: "md:col-span-3 md:row-span-1 h-[300px] md:h-full"
   }
 ]
 
 export function AboutGallery() {
   return (
-    <section className="py-14 md:py-20 relative overflow-hidden">
-      <div className="max-w-[980px] mx-auto px-6 md:px-10 mb-8">
+    <section className="py-14 md:py-20 relative">
+      <div className="max-w-[980px] mx-auto px-6 md:px-10 mb-8 md:mb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -56,34 +44,28 @@ export function AboutGallery() {
         </motion.div>
       </div>
 
-      <div className="w-full relative">
-        {/* Left/Right fade gradients for smooth edges */}
-        <div className="absolute top-0 bottom-0 left-0 w-8 md:w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-        <div className="absolute top-0 bottom-0 right-0 w-8 md:w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-
-        {/* Scrolling track */}
-        <div className="flex gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory px-6 md:px-[calc(50vw-490px+24px)] pb-8 pt-4 hide-scrollbar">
+      <div className="max-w-[1100px] mx-auto px-6 md:px-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 md:auto-rows-[300px] gap-4 md:gap-6">
           {IMAGES.map((img, i) => (
             <motion.div
               key={i}
-              className={`relative flex-shrink-0 snap-center rounded-2xl overflow-hidden glass-panel ${
-                img.aspect === 'wide' ? 'w-[80vw] md:w-[600px] aspect-[3/2]' :
-                img.aspect === 'tall' ? 'w-[60vw] md:w-[400px] aspect-[3/4]' :
-                'w-[70vw] md:w-[500px] aspect-square'
-              }`}
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              className={`relative overflow-hidden rounded-2xl glass-panel group ${img.className}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.05, ease: [0.25, 0.1, 0.25, 1] }}
+              transition={{ duration: 0.5, delay: i * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
             >
               <img 
                 src={img.src} 
                 alt={img.alt} 
-                className="w-full h-full object-cover filter brightness-[0.95]"
+                className="w-full h-full object-cover filter brightness-[0.95] transition-transform duration-700 ease-out group-hover:scale-105 bg-secondary/20"
                 loading="lazy"
               />
-              <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/60 via-black/30 to-transparent">
-                <p className="text-white text-[14px] font-medium drop-shadow-sm">{img.caption}</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                <p className="text-white text-[16px] md:text-[18px] font-medium drop-shadow-md translate-y-1 transition-transform duration-300 group-hover:translate-y-0">
+                  {img.caption}
+                </p>
               </div>
             </motion.div>
           ))}
