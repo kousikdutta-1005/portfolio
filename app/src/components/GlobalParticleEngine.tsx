@@ -22,7 +22,7 @@ export function GlobalParticleEngine() {
       .then(data => {
         // Generate a 3D swarm sphere programmatically for the initial state
         const spherePoints = []
-        const NUM_POINTS = 7000
+        const NUM_POINTS = 16000
         const phi = Math.PI * (3 - Math.sqrt(5)) // Golden angle
         for (let i = 0; i < NUM_POINTS; i++) {
             const y = 1 - (i / (NUM_POINTS - 1)) * 2
@@ -70,7 +70,7 @@ export function GlobalParticleEngine() {
     window.addEventListener("mousemove", handleMouseMove)
     window.addEventListener("mouseleave", handleMouseLeave)
 
-    const NUM_PARTICLES = 7000
+    const NUM_PARTICLES = 16000
     const particles: any[] = []
 
     for (let i = 0; i < NUM_PARTICLES; i++) {
@@ -320,8 +320,8 @@ export function GlobalParticleEngine() {
       for (let i = 0; i < renderList.length; i++) {
         const item = renderList[i]
         
-        // Fibrous woven look, slightly more opaque to show off the accent color
-        let opacity = Math.min(0.35, Math.max(0.08, item.scale * 0.4))
+        // Fibrous woven look, tweaked opacity for much higher density (16k points)
+        let opacity = Math.min(0.25, Math.max(0.05, item.scale * 0.25))
 
         // All particles use the accent color for a striking, cohesive look
         const colorBase = accentRgb
@@ -332,7 +332,7 @@ export function GlobalParticleEngine() {
           opacity *= depthFade
         }
 
-        const length = Math.max(1.5, item.scale * 3.5) // Shorter threads for better shape definition
+        const length = Math.max(1.0, item.scale * 2.5) // Shorter threads for super detailed dense shape
         // Create a woven/crosshatch pattern using particle index
         const angle = (item.index % 2 === 0) ? Math.PI / 4 : -Math.PI / 4
         const dx = Math.cos(angle) * length
@@ -342,7 +342,7 @@ export function GlobalParticleEngine() {
         ctx.moveTo(item.px - dx, item.py - dy)
         ctx.lineTo(item.px + dx, item.py + dy)
         ctx.strokeStyle = `rgba(${colorBase}, ${opacity})`
-        ctx.lineWidth = Math.max(0.8, item.scale * 1.2)
+        ctx.lineWidth = Math.max(0.5, item.scale * 0.8)
         ctx.stroke()
       }
 

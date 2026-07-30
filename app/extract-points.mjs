@@ -13,7 +13,7 @@ const models = [
   'apple_watch_ultra_2.glb'
 ]
 
-const NUM_POINTS = 7000
+const NUM_POINTS = 16000
 
 async function extractFromGLB(filename) {
   const filepath = path.join('public', 'assets', 'models', filename)
