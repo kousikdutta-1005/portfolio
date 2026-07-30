@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import { buttonVariants } from "@/components/ui/button"
 import { PageTransition } from "@/components/PageTransition"
 import { Seo } from "@/components/Seo"
+import { AboutGallery } from "@/components/AboutGallery"
 
 const EASE_ENTER = [0.25, 0.1, 0.25, 1] as const
 const DURATION_REVEAL = 0.6
@@ -293,6 +294,8 @@ export default function AboutPage() {
             </motion.div>
           </div>
         </section>
+        
+        <AboutGallery />
       </div>
     </PageTransition>
   )
