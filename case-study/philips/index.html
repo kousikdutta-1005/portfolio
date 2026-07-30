@@ -1,54 +1,348 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="A healthcare product design case study on preventive heart care, research synthesis, service systems, and action-oriented patient support." />
-    <meta name="author" content="Kousik Dutta" />
-    <meta name="robots" content="index, follow" />
-    <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
-    <link rel="canonical" href="https://kousikdutta.com/case-study/philips" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Kousik Dutta" />
-    <meta property="og:title" content="Philips Cardiocare Case Study - Kousik Dutta" />
-    <meta property="og:description" content="A healthcare product design case study on preventive heart care, research synthesis, service systems, and action-oriented patient support." />
-    <meta property="og:url" content="https://kousikdutta.com/case-study/philips" />
-    <meta property="og:image" content="https://kousikdutta.com/assets/images/1GW8AENYNU5gayo8utt1YsKnfY.jpg" />
-    <meta property="og:image:width" content="2200" />
-    <meta property="og:image:height" content="1237" />
-    <meta property="og:image:alt" content="Kousik Dutta portfolio case study preview" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Philips Cardiocare Case Study - Kousik Dutta" />
-    <meta name="twitter:description" content="A healthcare product design case study on preventive heart care, research synthesis, service systems, and action-oriented patient support." />
-    <meta name="twitter:image" content="https://kousikdutta.com/assets/images/1GW8AENYNU5gayo8utt1YsKnfY.jpg" />
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Kousik Dutta",
-        "url": "https://kousikdutta.com/",
-        "jobTitle": "Senior Product Designer",
-        "sameAs": [
-          "https://www.linkedin.com/in/kousikdutta/"
-        ],
-        "knowsAbout": [
-          "Product design",
-          "UX design",
-          "AI prototyping",
-          "Design systems",
-          "Healthcare design",
-          "Analytics products"
-        ]
-      }
-    </script>
-    <title>Philips Cardiocare Case Study - Kousik Dutta</title>
-    <script type="module" crossorigin src="/assets/index-DSQ5ad4e.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DdOap2X-.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Philips Cardiocare Case Study - Kousik Dutta</title>
+  <link rel="icon" href="/assets/QOXQB7tAox2fGvQW3EkxuXzBGLg-DOKu36-o.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" crossorigin href="/assets/index-DyIovlQy.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAA9CAMAAAAqC5/zAAAAHlBMVEVMaXEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABKvP01AAAACXRSTlMA5CCcXHs2EMkYpquuAAAACXBIWXMAAAsTAAALEwEAmpwYAAABZUlEQVR42u2X0ZaDMAhECyEm/P8Pr7u2PYoMYD371jw2nWsSYSY+Ht9xHgvjubGMTD6makeTTEpLroeEVa8JYdMDwp8+ITRVSHjqVwLneofw1geEnV5VoB4SDnpDOOgBwegPBKN3CV0VEk56h7CoQoKjV20VwPbKX8URAx4TEXz9+RDcda4P6v7vElRaZUhQ6x/rLxAk6Pdb+iJBIkMoECS2pJQgmSkmBCm4Mt3TRwSSf8sSCvsMmM7Ons2aYbAY06H3hNnqRADb2GgFCgKQ4YOsn4I9SBlAPoCgq1m0v4SOq2rkjufV+AgcteKZM0wVS3B6bF/Xwyn//TkMz5s5DMbfRfTnX7jn0cSg/WZrDTQnp9kaD9tyg67pz69JrgGkcMG4sgGc4mAD4142omtalYAvijVCcNEsESaHBt0/Of96MKW3/W0ROJn6KOUMC92RbxuxPUhtuZx30tqkdawtLfz9lgzGD97LOum8iWjgAAAAAElFTkSuQmCC" alt="" class="preloader__logo">
+  </div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAA9CAMAAAAqC5/zAAAAHlBMVEVMaXEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABKvP01AAAACXRSTlMA5CCcXHs2EMkYpquuAAAACXBIWXMAAAsTAAALEwEAmpwYAAABZUlEQVR42u2X0ZaDMAhECyEm/P8Pr7u2PYoMYD371jw2nWsSYSY+Ht9xHgvjubGMTD6makeTTEpLroeEVa8JYdMDwp8+ITRVSHjqVwLneofw1geEnV5VoB4SDnpDOOgBwegPBKN3CV0VEk56h7CoQoKjV20VwPbKX8URAx4TEXz9+RDcda4P6v7vElRaZUhQ6x/rLxAk6Pdb+iJBIkMoECS2pJQgmSkmBCm4Mt3TRwSSf8sSCvsMmM7Ons2aYbAY06H3hNnqRADb2GgFCgKQ4YOsn4I9SBlAPoCgq1m0v4SOq2rkjufV+AgcteKZM0wVS3B6bF/Xwyn//TkMz5s5DMbfRfTnX7jn0cSg/WZrDTQnp9kaD9tyg67pz69JrgGkcMG4sgGc4mAD4142omtalYAvijVCcNEsESaHBt0/Of96MKW3/W0ROJn6KOUMC92RbxuxPUhtuZx30tqkdawtLfz9lgzGD97LOum8iWjgAAAAAElFTkSuQmCC" alt="Kousik Dutta">
+      </a>
+      <div class="nav__links">
+        <a href="index.html" class="nav__link active">Home</a>
+        <a href="about.html" class="nav__link">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__content">
+      <h1 class="hero__title">
+        <span>Kousik Dutta</span>
+        <span>UX Designer</span>
+      </h1>
+      <p class="hero__subtitle">I help ambitious companies achieve their business goals by strategically designing their MVPs, optimising for growth & beyond.</p>
+      <a href="https://calendly.com/design-kousik/intro-call" target="_blank" rel="noopener" class="btn btn--outline">
+        Schedule a call
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Industry Work -->
+  <section class="section" id="work">
+    <div class="container">
+      <p class="section__label reveal">INDUSTRY WORK</p>
+      <div class="projects stagger-children">
+        <!-- ThoughtSpot -->
+        <a href="thoughtspot.html" class="project-card reveal" style="--i:0">
+          <img src="/assets/GLP0Z4G1xKxcD0e0TDg9EWRgzQ-Cg7o7iNT.png" alt="ThoughtSpot Mobile" class="project-card__image" loading="lazy">
+          <div class="project-card__info">
+            <h3 class="project-card__title">ThoughtSpot Mobile</h3>
+            <div class="project-card__tags">
+              <span class="tag">UX Design</span>
+              <span class="tag">UI Design</span>
+              <span class="tag">Motion</span>
+            </div>
+          </div>
+        </a>
+        <!-- Philips -->
+        <a href="philips.html" class="project-card reveal" style="--i:1">
+          <img src="/assets/NRmPx5otSD5B8RKHstn08Zcs0k-COHidv9f.png" alt="Philips Cardiocare" class="project-card__image" loading="lazy">
+          <div class="project-card__info">
+            <h3 class="project-card__title">Philips Cardiocare</h3>
+            <div class="project-card__tags">
+              <span class="tag">Research</span>
+              <span class="tag">UX Design</span>
+              <span class="tag">UI Design</span>
+            </div>
+          </div>
+        </a>
+        <!-- Airtel -->
+        <a href="https://www.behance.net/gallery/154991935/Airtel-Live-Chat-UX-Design-Casestudy" target="_blank" rel="noopener" class="project-card reveal" style="--i:2">
+          <img src="/assets/elvpFwKLIpGRQQqelaZQI5Xw-CLcTwma5.png" alt="Airtel Live Chat" class="project-card__image" loading="lazy">
+          <div class="project-card__info">
+            <h3 class="project-card__title">Airtel Live Chat</h3>
+            <div class="project-card__tags">
+              <span class="tag">UX Design</span>
+              <span class="tag">UI Design</span>
+            </div>
+          </div>
+        </a>
+        <!-- OLX -->
+        <a href="#" class="project-card reveal" style="--i:3">
+          <img src="/assets/lsO27yP1rhwECcphfDr6QnvgQ-05oVxsZ1.png" alt="OLX Autos Workshop" class="project-card__image" loading="lazy">
+          <div class="project-card__info">
+            <h3 class="project-card__title">OLX Autos Workshop</h3>
+            <div class="project-card__tags">
+              <span class="tag">Workshop</span>
+              <span class="tag">System Maps</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <a href="https://www.behance.net/kousikdutta" target="_blank" rel="noopener" class="view-link reveal">
+        View Academic Projects
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section" id="services">
+    <div class="container">
+      <p class="section__label reveal">SERVICES</p>
+      <h2 class="section__title reveal" style="margin-bottom: 32px;">Workshops</h2>
+      <div class="services-grid reveal">
+        <span class="service-tag">UX Research</span>
+        <span class="service-tag">UX Design</span>
+        <span class="service-tag">UI Design</span>
+        <span class="service-tag">Motion</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section section--gray" id="testimonials">
+    <div class="container">
+      <p class="section__label reveal">TESTIMONIALS</p>
+    </div>
+    <div class="testimonials-track-wrapper">
+      <div class="testimonials-track" id="testimonialsTrack">
+        <!-- First set -->
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"He has a strong understanding of product design and platform thinking."</p>
+          <div class="testimonial-card__author">
+            <img src="/assets/7fVFQW1WlW9URfSAH5RgMjT6lJA-DB5FXw2O.png" alt="Alok Kumar" class="testimonial-card__avatar">
+            <div>
+              <p class="testimonial-card__name">Alok Kumar</p>
+              <p class="testimonial-card__role">Director (Design), Vedantu</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"He deeply understands user needs and values, making his solutions impactful."</p>
+          <div class="testimonial-card__author">
+            <img src="/assets/nOMEfjkKW0HQZULIlhVnG39Fs-CW7u4a5w.png" alt="Pooja Kurup" class="testimonial-card__avatar">
+            <div>
+              <p class="testimonial-card__name">Pooja Kurup</p>
+              <p class="testimonial-card__role">Product Designer, Philips</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"Kousik is a quick learner, enthusiast and highly adaptive and creative."</p>
+          <div class="testimonial-card__author">
+            <img src="/assets/D6yfJKWbII8T1IlkQ8FWj8mQQIg-C67BqWxo.png" alt="Sachin Rathi" class="testimonial-card__avatar">
+            <div>
+              <p class="testimonial-card__name">Sachin Rathi</p>
+              <p class="testimonial-card__role">Design Manager, OLX Autos</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"He conducted comprehensive research, analyzed data, and ideated 12 concepts."</p>
+          <div class="testimonial-card__author">
+            <img src="/assets/4vOLqtlry3zW82ZElaI6Zk8dSKI-54b9NxCS.png" alt="Sharad Mothay" class="testimonial-card__avatar">
+            <div>
+              <p class="testimonial-card__name">Sharad Mothay</p>
+              <p class="testimonial-card__role">Senior Designer, Philips</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"He demonstrated exceptional design skills and a deep understanding of users."</p>
+          <div class="testimonial-card__author">
+            <img src="/assets/0LYNsSXPyC8kHefAFB308cDpM-Cdd8bumK.png" alt="Shubham Gupta" class="testimonial-card__avatar">
+            <div>
+              <p class="testimonial-card__name">Shubham Gupta</p>
+              <p class="testimonial-card__role">Senior Designer, Philips</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"Kousik shown excellent design process skills in solving business problems."</p>
+          <div class="testimonial-card__author">
+            <img src="/assets/n92t34yynreya1AL7P3DrnTeBCI-CDtiuDs_.png" alt="Sonali Khandelwal" class="testimonial-card__avatar">
+            <div>
+              <p class="testimonial-card__name">Sonali Khandelwal</p>
+              <p class="testimonial-card__role">Product Designer, OLX Autos</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"He evaluated, selected, and realized the industry-standard design concept."</p>
+          <div class="testimonial-card__author">
+            <img src="/assets/uCRXWTi6yWqT2HHLxJ129sRGOM-CQUhCyok.png" alt="Pravin Ghodke" class="testimonial-card__avatar">
+            <div>
+              <p class="testimonial-card__name">Pravin Ghodke</p>
+              <p class="testimonial-card__role">Senior Designer, Philips</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"Kousik is very proactive and very quick to grasp complex concepts."</p>
+          <div class="testimonial-card__author">
+            <img src="/assets/aTmkDoNtTpwJjGWsx2gi5hPzMTk-CKbja0D0.png" alt="Keerti Chowdhry" class="testimonial-card__avatar">
+            <div>
+              <p class="testimonial-card__name">Keerti Chowdhry</p>
+              <p class="testimonial-card__role">Senior Designer, OLX Autos</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"Kousik is good at design execution and documenting his ideas."</p>
+          <div class="testimonial-card__author">
+            <img src="/assets/yLQEIFzvuqW7VcwbkkFzM8Z4N6A-hjZgyUmL.png" alt="Poornima Kapoor" class="testimonial-card__avatar">
+            <div>
+              <p class="testimonial-card__name">Poornima Kapoor</p>
+              <p class="testimonial-card__role">Lead Designer, Airtel</p>
+            </div>
+          </div>
+        </div>
+        <!-- Duplicate set for infinite scroll -->
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"He has a strong understanding of product design and platform thinking."</p>
+          <div class="testimonial-card__author">
+            <img src="/assets/7fVFQW1WlW9URfSAH5RgMjT6lJA-DB5FXw2O.png" alt="Alok Kumar" class="testimonial-card__avatar">
+            <div>
+              <p class="testimonial-card__name">Alok Kumar</p>
+              <p class="testimonial-card__role">Director (Design), Vedantu</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"He deeply understands user needs and values, making his solutions impactful."</p>
+          <div class="testimonial-card__author">
+            <img src="/assets/nOMEfjkKW0HQZULIlhVnG39Fs-CW7u4a5w.png" alt="Pooja Kurup" class="testimonial-card__avatar">
+            <div>
+              <p class="testimonial-card__name">Pooja Kurup</p>
+              <p class="testimonial-card__role">Product Designer, Philips</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"Kousik is a quick learner, enthusiast and highly adaptive and creative."</p>
+          <div class="testimonial-card__author">
+            <img src="/assets/D6yfJKWbII8T1IlkQ8FWj8mQQIg-C67BqWxo.png" alt="Sachin Rathi" class="testimonial-card__avatar">
+            <div>
+              <p class="testimonial-card__name">Sachin Rathi</p>
+              <p class="testimonial-card__role">Design Manager, OLX Autos</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"He conducted comprehensive research, analyzed data, and ideated 12 concepts."</p>
+          <div class="testimonial-card__author">
+            <img src="/assets/4vOLqtlry3zW82ZElaI6Zk8dSKI-54b9NxCS.png" alt="Sharad Mothay" class="testimonial-card__avatar">
+            <div>
+              <p class="testimonial-card__name">Sharad Mothay</p>
+              <p class="testimonial-card__role">Senior Designer, Philips</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"He demonstrated exceptional design skills and a deep understanding of users."</p>
+          <div class="testimonial-card__author">
+            <img src="/assets/0LYNsSXPyC8kHefAFB308cDpM-Cdd8bumK.png" alt="Shubham Gupta" class="testimonial-card__avatar">
+            <div>
+              <p class="testimonial-card__name">Shubham Gupta</p>
+              <p class="testimonial-card__role">Senior Designer, Philips</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"Kousik shown excellent design process skills in solving business problems."</p>
+          <div class="testimonial-card__author">
+            <img src="/assets/n92t34yynreya1AL7P3DrnTeBCI-CDtiuDs_.png" alt="Sonali Khandelwal" class="testimonial-card__avatar">
+            <div>
+              <p class="testimonial-card__name">Sonali Khandelwal</p>
+              <p class="testimonial-card__role">Product Designer, OLX Autos</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"He evaluated, selected, and realized the industry-standard design concept."</p>
+          <div class="testimonial-card__author">
+            <img src="/assets/uCRXWTi6yWqT2HHLxJ129sRGOM-CQUhCyok.png" alt="Pravin Ghodke" class="testimonial-card__avatar">
+            <div>
+              <p class="testimonial-card__name">Pravin Ghodke</p>
+              <p class="testimonial-card__role">Senior Designer, Philips</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"Kousik is very proactive and very quick to grasp complex concepts."</p>
+          <div class="testimonial-card__author">
+            <img src="/assets/aTmkDoNtTpwJjGWsx2gi5hPzMTk-CKbja0D0.png" alt="Keerti Chowdhry" class="testimonial-card__avatar">
+            <div>
+              <p class="testimonial-card__name">Keerti Chowdhry</p>
+              <p class="testimonial-card__role">Senior Designer, OLX Autos</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"Kousik is good at design execution and documenting his ideas."</p>
+          <div class="testimonial-card__author">
+            <img src="/assets/yLQEIFzvuqW7VcwbkkFzM8Z4N6A-hjZgyUmL.png" alt="Poornima Kapoor" class="testimonial-card__avatar">
+            <div>
+              <p class="testimonial-card__name">Poornima Kapoor</p>
+              <p class="testimonial-card__role">Lead Designer, Airtel</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2 class="cta__title reveal">Let's create your<br>next big idea.</h2>
+      <a href="https://calendly.com/design-kousik/intro-call" target="_blank" rel="noopener" class="btn btn--white reveal">
+        Schedule a call
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__links">
+          <a href="https://www.linkedin.com/in/kousikdutta/" target="_blank" rel="noopener" class="footer__link">LinkedIn</a>
+          <a href="https://www.behance.net/kousikdutta" target="_blank" rel="noopener" class="footer__link">Behance</a>
+        </div>
+        <p class="footer__copy">© 2025 Kousik Dutta</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+</body>
 </html>
