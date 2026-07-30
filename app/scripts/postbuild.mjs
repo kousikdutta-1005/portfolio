@@ -46,6 +46,14 @@ const routes = [
       "A product design case study draft on developer experience, API discovery, interactive demos, and map-first workflows for Precisely.",
     image: `${siteUrl}/assets/images/precisely-devportal/api-catalog.png`,
   },
+  {
+    path: "/case-study/portfolio",
+    file: "case-study/portfolio/index.html",
+    title: "Portfolio Website Case Study - Kousik Dutta",
+    description:
+      "A product design case study on designing and building Kousik Dutta's portfolio as a clear, evidence-led, AI-assisted product experience.",
+    image: `${siteUrl}/assets/images/portfolio-case-study/card-placeholder.svg`,
+  },
 ]
 
 function escapeRegExp(value) {

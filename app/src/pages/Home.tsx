@@ -92,6 +92,15 @@ const PROJECTS: Project[] = [
     href: "https://www.behance.net/gallery/154991935/Airtel-Live-Chat-UX-Design-Casestudy",
     external: true,
   },
+  {
+    title: "Portfolio Website",
+    desc: "A personal site shaped as a clear hiring product.",
+    meta: "Brand system, case studies, code",
+    timeframe: "July 2026 · personal project",
+    signal: "3 case studies · 2 themes · 1 system",
+    image: "/assets/images/portfolio-case-study/card-placeholder.svg",
+    href: "/case-study/portfolio",
+  },
 ]
 
 const BRANDS = [

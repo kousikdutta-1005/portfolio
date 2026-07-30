@@ -56,13 +56,16 @@ export function Layout() {
         ? "route-accent-thoughtspot"
         : location.pathname === "/case-study/philips"
           ? "route-accent-philips"
-          : undefined
+          : location.pathname === "/case-study/portfolio"
+            ? "route-accent-portfolio"
+            : undefined
 
   useEffect(() => {
     const routeRootClasses = [
       "route-accent-precisely-root",
       "route-accent-thoughtspot-root",
       "route-accent-philips-root",
+      "route-accent-portfolio-root",
     ]
     const rootClass = routeAccentClass ? `${routeAccentClass}-root` : undefined
     document.documentElement.classList.remove(...routeRootClasses)
