@@ -1,0 +1,32 @@
+import { cn } from "@/lib/utils"
+
+const baseButtonClass =
+  "inline-flex items-center justify-center gap-2 font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-45 disabled:brightness-95 aria-disabled:pointer-events-none aria-disabled:opacity-45 aria-disabled:brightness-95 data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-45 data-[disabled=true]:brightness-95"
+
+const buttonVariantClass = {
+  default: "bg-accent text-accent-foreground hover:brightness-110 active:scale-[0.98]",
+  outline: "border border-accent text-accent hover:bg-accent hover:text-accent-foreground active:scale-[0.98]",
+  ghost: "text-accent hover:text-accent/80 active:scale-[0.98]",
+  inverted: "bg-white text-[#1d1d1f] hover:bg-white/90 active:scale-[0.98]",
+  secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 active:scale-[0.98]",
+}
+
+const buttonSizeClass = {
+  sm: "text-[13px] px-4 py-2 rounded-full",
+  default: "text-[15px] px-6 py-2.5 rounded-full",
+  lg: "text-[17px] px-8 py-3.5 rounded-full",
+}
+
+type ButtonVariantOptions = {
+  variant?: keyof typeof buttonVariantClass
+  size?: keyof typeof buttonSizeClass
+  className?: string
+}
+
+export function buttonVariants({
+  variant = "default",
+  size = "default",
+  className,
+}: ButtonVariantOptions = {}) {
+  return cn(baseButtonClass, buttonVariantClass[variant], buttonSizeClass[size], className)
+}

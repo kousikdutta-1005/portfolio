@@ -1,0 +1,2028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System — Kousik Dutta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/design-system.css">
+</head>
+<body>
+
+<div class="ds-layout">
+
+  <!-- ============================================
+       SIDEBAR NAVIGATION
+       ============================================ -->
+  <aside class="ds-sidebar">
+    <div class="ds-sidebar__header">
+      <div class="ds-sidebar__title">Design System</div>
+      <div class="ds-sidebar__subtitle">Kousik Dutta — Portfolio</div>
+    </div>
+    <nav class="ds-sidebar__nav">
+      <a href="#overview" class="ds-sidebar__link active">Overview</a>
+      <a href="#colors" class="ds-sidebar__link">Colors</a>
+      <a href="#typography" class="ds-sidebar__link">Typography</a>
+      <a href="#spacing" class="ds-sidebar__link">Spacing</a>
+      <a href="#layout" class="ds-sidebar__link">Layout &amp; Grid</a>
+      <a href="#shadows" class="ds-sidebar__link">Shadows &amp; Elevation</a>
+      <a href="#radius" class="ds-sidebar__link">Border Radius</a>
+      <a href="#motion" class="ds-sidebar__link">Motion &amp; Animation</a>
+      <a href="#components" class="ds-sidebar__link">Components</a>
+      <a href="#iconography" class="ds-sidebar__link">Iconography</a>
+      <a href="#imagery" class="ds-sidebar__link">Imagery &amp; Media</a>
+      <a href="#accessibility" class="ds-sidebar__link">Accessibility</a>
+      <a href="#interactions" class="ds-sidebar__link">Interaction Patterns</a>
+      <a href="#content" class="ds-sidebar__link">Content Guidelines</a>
+    </nav>
+  </aside>
+
+  <!-- ============================================
+       MAIN CONTENT
+       ============================================ -->
+  <main class="ds-main">
+
+    <!-- ==========================================
+         1. OVERVIEW
+         ========================================== -->
+    <section id="overview" class="ds-section">
+      <div class="ds-version-badge">v1.0</div>
+      <h1 class="ds-section__title">Design System</h1>
+      <p class="ds-section__desc">
+        A comprehensive guide to the visual language, components, and patterns that define Kousik Dutta's portfolio. 
+        Every element is crafted to communicate with clarity, precision, and delight.
+      </p>
+
+      <div class="ds-subsection">
+        <h2 class="ds-subsection__title">Design Philosophy</h2>
+        <p class="ds-subsection__desc" style="font-size: 28px; font-weight: 600; letter-spacing: -0.02em; color: var(--black);">
+          Clarity. Precision. Delight.
+        </p>
+        <p class="ds-subsection__desc">
+          This design system prioritizes content legibility and user comfort. It favors generous whitespace, 
+          typographic hierarchy, and subtle motion to create an experience that feels both premium and effortless.
+        </p>
+      </div>
+
+      <div class="ds-subsection">
+        <h2 class="ds-subsection__title">Core Principles</h2>
+        <div class="ds-principle-grid">
+          <div class="ds-principle-card">
+            <div class="ds-principle-card__icon">◎</div>
+            <h3 class="ds-principle-card__title">Clarity</h3>
+            <p class="ds-principle-card__desc">
+              Every element serves a purpose. Remove what doesn't communicate. Typography does the heavy lifting — 
+              the interface disappears so the work speaks for itself.
+            </p>
+          </div>
+          <div class="ds-principle-card">
+            <div class="ds-principle-card__icon">◫</div>
+            <h3 class="ds-principle-card__title">Consistency</h3>
+            <p class="ds-principle-card__desc">
+              Repeatable patterns create trust. Spacing, color, and type follow strict scales so every page 
+              feels like part of the same considered whole.
+            </p>
+          </div>
+          <div class="ds-principle-card">
+            <div class="ds-principle-card__icon">▲</div>
+            <h3 class="ds-principle-card__title">Hierarchy</h3>
+            <p class="ds-principle-card__desc">
+              Guide the eye naturally. Size, weight, and space create clear reading paths. The most important 
+              information is always immediately apparent.
+            </p>
+          </div>
+          <div class="ds-principle-card">
+            <div class="ds-principle-card__icon">✦</div>
+            <h3 class="ds-principle-card__title">Delight</h3>
+            <p class="ds-principle-card__desc">
+              Subtle animations, smooth transitions, and thoughtful micro-interactions reward attention and 
+              make the experience feel alive without being distracting.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         2. COLORS
+         ========================================== -->
+    <section id="colors" class="ds-section">
+      <span class="ds-section__label">Foundation</span>
+      <h2 class="ds-section__title">Colors</h2>
+      <p class="ds-section__desc">
+        A restrained palette that puts content first. Black and white anchor the system, 
+        with a neutral gray scale providing hierarchy and a single accent for interactive elements.
+      </p>
+
+      <!-- Primary -->
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Primary</h3>
+        <div class="ds-color-grid">
+          <div class="ds-color-swatch ds-copy" data-hex="#000000" data-copy="#000000">
+            <div class="ds-color-swatch__color" style="background: #000000;"></div>
+            <div class="ds-color-swatch__info">
+              <div class="ds-color-swatch__name">Black</div>
+              <div class="ds-color-swatch__hex">#000000</div>
+              <div class="ds-color-swatch__var">--black</div>
+            </div>
+          </div>
+          <div class="ds-color-swatch ds-copy" data-hex="#ffffff" data-copy="#ffffff">
+            <div class="ds-color-swatch__color" style="background: #ffffff; border-bottom: 1px solid #e0e3eb;"></div>
+            <div class="ds-color-swatch__info">
+              <div class="ds-color-swatch__name">White</div>
+              <div class="ds-color-swatch__hex">#ffffff</div>
+              <div class="ds-color-swatch__var">--white</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Neutral Scale -->
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Neutral Scale</h3>
+        <div class="ds-color-grid">
+          <div class="ds-color-swatch ds-copy" data-hex="#171616" data-copy="#171616">
+            <div class="ds-color-swatch__color" style="background: #171616;"></div>
+            <div class="ds-color-swatch__info">
+              <div class="ds-color-swatch__name">Gray 900</div>
+              <div class="ds-color-swatch__hex">#171616</div>
+              <div class="ds-color-swatch__var">--gray-900</div>
+            </div>
+          </div>
+          <div class="ds-color-swatch ds-copy" data-hex="#333333" data-copy="#333333">
+            <div class="ds-color-swatch__color" style="background: #333333;"></div>
+            <div class="ds-color-swatch__info">
+              <div class="ds-color-swatch__name">Gray 700</div>
+              <div class="ds-color-swatch__hex">#333333</div>
+              <div class="ds-color-swatch__var">--gray-700</div>
+            </div>
+          </div>
+          <div class="ds-color-swatch ds-copy" data-hex="#666666" data-copy="#666666">
+            <div class="ds-color-swatch__color" style="background: #666666;"></div>
+            <div class="ds-color-swatch__info">
+              <div class="ds-color-swatch__name">Gray 600</div>
+              <div class="ds-color-swatch__hex">#666666</div>
+              <div class="ds-color-swatch__var">--gray-600</div>
+            </div>
+          </div>
+          <div class="ds-color-swatch ds-copy" data-hex="#5f6980" data-copy="#5f6980">
+            <div class="ds-color-swatch__color" style="background: #5f6980;"></div>
+            <div class="ds-color-swatch__info">
+              <div class="ds-color-swatch__name">Gray 500</div>
+              <div class="ds-color-swatch__hex">#5f6980</div>
+              <div class="ds-color-swatch__var">--gray-500</div>
+            </div>
+          </div>
+          <div class="ds-color-swatch ds-copy" data-hex="#999999" data-copy="#999999">
+            <div class="ds-color-swatch__color" style="background: #999999;"></div>
+            <div class="ds-color-swatch__info">
+              <div class="ds-color-swatch__name">Gray 400</div>
+              <div class="ds-color-swatch__hex">#999999</div>
+              <div class="ds-color-swatch__var">--gray-400</div>
+            </div>
+          </div>
+          <div class="ds-color-swatch ds-copy" data-hex="#c2c2c2" data-copy="#c2c2c2">
+            <div class="ds-color-swatch__color" style="background: #c2c2c2;"></div>
+            <div class="ds-color-swatch__info">
+              <div class="ds-color-swatch__name">Gray 300</div>
+              <div class="ds-color-swatch__hex">#c2c2c2</div>
+              <div class="ds-color-swatch__var">--gray-300</div>
+            </div>
+          </div>
+          <div class="ds-color-swatch ds-copy" data-hex="#e0e3eb" data-copy="#e0e3eb">
+            <div class="ds-color-swatch__color" style="background: #e0e3eb;"></div>
+            <div class="ds-color-swatch__info">
+              <div class="ds-color-swatch__name">Gray 200</div>
+              <div class="ds-color-swatch__hex">#e0e3eb</div>
+              <div class="ds-color-swatch__var">--gray-200</div>
+            </div>
+          </div>
+          <div class="ds-color-swatch ds-copy" data-hex="#f2f4f7" data-copy="#f2f4f7">
+            <div class="ds-color-swatch__color" style="background: #f2f4f7;"></div>
+            <div class="ds-color-swatch__info">
+              <div class="ds-color-swatch__name">Gray 100</div>
+              <div class="ds-color-swatch__hex">#f2f4f7</div>
+              <div class="ds-color-swatch__var">--gray-100</div>
+            </div>
+          </div>
+          <div class="ds-color-swatch ds-copy" data-hex="#f9fafb" data-copy="#f9fafb">
+            <div class="ds-color-swatch__color" style="background: #f9fafb;"></div>
+            <div class="ds-color-swatch__info">
+              <div class="ds-color-swatch__name">Gray 50</div>
+              <div class="ds-color-swatch__hex">#f9fafb</div>
+              <div class="ds-color-swatch__var">--gray-50</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accent -->
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Accent</h3>
+        <div class="ds-color-grid">
+          <div class="ds-color-swatch ds-copy" data-hex="#0099ff" data-copy="#0099ff">
+            <div class="ds-color-swatch__color" style="background: #0099ff;"></div>
+            <div class="ds-color-swatch__info">
+              <div class="ds-color-swatch__name">Accent Blue</div>
+              <div class="ds-color-swatch__hex">#0099ff</div>
+              <div class="ds-color-swatch__var">--accent</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Semantic -->
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Semantic</h3>
+        <div class="ds-color-grid">
+          <div class="ds-color-swatch ds-copy" data-hex="#16a34a" data-copy="#16a34a">
+            <div class="ds-color-swatch__color" style="background: #16a34a;"></div>
+            <div class="ds-color-swatch__info">
+              <div class="ds-color-swatch__name">Success</div>
+              <div class="ds-color-swatch__hex">#16a34a</div>
+              <div class="ds-color-swatch__var">--success</div>
+            </div>
+          </div>
+          <div class="ds-color-swatch ds-copy" data-hex="#f59e0b" data-copy="#f59e0b">
+            <div class="ds-color-swatch__color" style="background: #f59e0b;"></div>
+            <div class="ds-color-swatch__info">
+              <div class="ds-color-swatch__name">Warning</div>
+              <div class="ds-color-swatch__hex">#f59e0b</div>
+              <div class="ds-color-swatch__var">--warning</div>
+            </div>
+          </div>
+          <div class="ds-color-swatch ds-copy" data-hex="#ef4444" data-copy="#ef4444">
+            <div class="ds-color-swatch__color" style="background: #ef4444;"></div>
+            <div class="ds-color-swatch__info">
+              <div class="ds-color-swatch__name">Error</div>
+              <div class="ds-color-swatch__hex">#ef4444</div>
+              <div class="ds-color-swatch__var">--error</div>
+            </div>
+          </div>
+          <div class="ds-color-swatch ds-copy" data-hex="#3b82f6" data-copy="#3b82f6">
+            <div class="ds-color-swatch__color" style="background: #3b82f6;"></div>
+            <div class="ds-color-swatch__info">
+              <div class="ds-color-swatch__name">Info</div>
+              <div class="ds-color-swatch__hex">#3b82f6</div>
+              <div class="ds-color-swatch__var">--info</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Usage Guidelines -->
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Usage Guidelines</h3>
+        <table class="ds-rules">
+          <thead>
+            <tr>
+              <th>Context</th>
+              <th>Color</th>
+              <th>Variable</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Primary text</td>
+              <td>Black</td>
+              <td><code>--black</code></td>
+            </tr>
+            <tr>
+              <td>Secondary text / body</td>
+              <td>Gray 600</td>
+              <td><code>--gray-600</code></td>
+            </tr>
+            <tr>
+              <td>Tertiary / captions</td>
+              <td>Gray 500</td>
+              <td><code>--gray-500</code></td>
+            </tr>
+            <tr>
+              <td>Disabled / placeholder</td>
+              <td>Gray 400</td>
+              <td><code>--gray-400</code></td>
+            </tr>
+            <tr>
+              <td>Borders</td>
+              <td>Gray 200</td>
+              <td><code>--gray-200</code></td>
+            </tr>
+            <tr>
+              <td>Surface / cards</td>
+              <td>Gray 50</td>
+              <td><code>--gray-50</code></td>
+            </tr>
+            <tr>
+              <td>Interactive links</td>
+              <td>Accent Blue</td>
+              <td><code>--accent</code></td>
+            </tr>
+            <tr>
+              <td>Dark sections (CTA, code)</td>
+              <td>Gray 900</td>
+              <td><code>--gray-900</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Accessibility: Contrast -->
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Accessibility &amp; Contrast</h3>
+        <p class="ds-subsection__desc">
+          All text colors are tested against their intended backgrounds to meet WCAG 2.1 AA standards (4.5:1 for normal text, 3:1 for large text).
+        </p>
+        <div class="ds-contrast-grid">
+          <div class="ds-contrast-card">
+            <div class="ds-contrast-card__sample" style="background: #ffffff; color: #000000; border: 1px solid #e0e3eb;">
+              Black on White
+            </div>
+            <div class="ds-contrast-card__ratio">21:1</div>
+            <div class="ds-contrast-card__level">AAA — All sizes</div>
+          </div>
+          <div class="ds-contrast-card">
+            <div class="ds-contrast-card__sample" style="background: #ffffff; color: #666666; border: 1px solid #e0e3eb;">
+              Gray 600 on White
+            </div>
+            <div class="ds-contrast-card__ratio">5.74:1</div>
+            <div class="ds-contrast-card__level">AA — All sizes</div>
+          </div>
+          <div class="ds-contrast-card">
+            <div class="ds-contrast-card__sample" style="background: #ffffff; color: #999999; border: 1px solid #e0e3eb;">
+              Gray 400 on White
+            </div>
+            <div class="ds-contrast-card__ratio">2.85:1</div>
+            <div class="ds-contrast-card__level">AA Large — Labels only</div>
+          </div>
+          <div class="ds-contrast-card">
+            <div class="ds-contrast-card__sample" style="background: #171616; color: #ffffff;">
+              White on Gray 900
+            </div>
+            <div class="ds-contrast-card__ratio">18.1:1</div>
+            <div class="ds-contrast-card__level">AAA — All sizes</div>
+          </div>
+          <div class="ds-contrast-card">
+            <div class="ds-contrast-card__sample" style="background: #f9fafb; color: #000000;">
+              Black on Gray 50
+            </div>
+            <div class="ds-contrast-card__ratio">19.4:1</div>
+            <div class="ds-contrast-card__level">AAA — All sizes</div>
+          </div>
+          <div class="ds-contrast-card">
+            <div class="ds-contrast-card__sample" style="background: #ffffff; color: #0099ff; border: 1px solid #e0e3eb;">
+              Accent on White
+            </div>
+            <div class="ds-contrast-card__ratio">3.1:1</div>
+            <div class="ds-contrast-card__level">AA Large — Links &amp; buttons</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         3. TYPOGRAPHY
+         ========================================== -->
+    <section id="typography" class="ds-section">
+      <span class="ds-section__label">Foundation</span>
+      <h2 class="ds-section__title">Typography</h2>
+      <p class="ds-section__desc">
+        Inter is the sole typeface — versatile enough for both display and body text. 
+        Its wide weight range (100–900) and excellent legibility at all sizes make it ideal for a clean, modern portfolio.
+      </p>
+
+      <div class="ds-note">
+        <strong>Font Stack:</strong> 'Inter', -apple-system, BlinkMacSystemFont, sans-serif
+      </div>
+
+      <!-- Type Scale -->
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Type Scale</h3>
+
+        <div class="ds-type-specimen">
+          <div class="ds-type-specimen__sample" style="font-size: 86px; font-weight: 600; letter-spacing: -0.04em; line-height: 1.05;">
+            Display
+          </div>
+          <div class="ds-type-specimen__meta">
+            <div class="ds-type-specimen__name">Display</div>
+            <div class="ds-type-specimen__specs">86px / 600 / -0.04em / 1.05</div>
+          </div>
+        </div>
+
+        <div class="ds-type-specimen">
+          <div class="ds-type-specimen__sample" style="font-size: 68px; font-weight: 600; letter-spacing: -0.04em; line-height: 1.05;">
+            Heading 1
+          </div>
+          <div class="ds-type-specimen__meta">
+            <div class="ds-type-specimen__name">Heading 1</div>
+            <div class="ds-type-specimen__specs">68px / 600 / -0.04em / 1.05</div>
+          </div>
+        </div>
+
+        <div class="ds-type-specimen">
+          <div class="ds-type-specimen__sample" style="font-size: 48px; font-weight: 600; letter-spacing: -0.04em; line-height: 1.1;">
+            Heading 2
+          </div>
+          <div class="ds-type-specimen__meta">
+            <div class="ds-type-specimen__name">Heading 2</div>
+            <div class="ds-type-specimen__specs">48px / 600 / -0.04em / 1.1</div>
+          </div>
+        </div>
+
+        <div class="ds-type-specimen">
+          <div class="ds-type-specimen__sample" style="font-size: 40px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.15;">
+            Heading 3
+          </div>
+          <div class="ds-type-specimen__meta">
+            <div class="ds-type-specimen__name">Heading 3</div>
+            <div class="ds-type-specimen__specs">40px / 600 / -0.03em / 1.15</div>
+          </div>
+        </div>
+
+        <div class="ds-type-specimen">
+          <div class="ds-type-specimen__sample" style="font-size: 28px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2;">
+            Heading 4
+          </div>
+          <div class="ds-type-specimen__meta">
+            <div class="ds-type-specimen__name">Heading 4</div>
+            <div class="ds-type-specimen__specs">28px / 600 / -0.02em / 1.2</div>
+          </div>
+        </div>
+
+        <div class="ds-type-specimen">
+          <div class="ds-type-specimen__sample" style="font-size: 24px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.3;">
+            Heading 5
+          </div>
+          <div class="ds-type-specimen__meta">
+            <div class="ds-type-specimen__name">Heading 5</div>
+            <div class="ds-type-specimen__specs">24px / 600 / -0.02em / 1.3</div>
+          </div>
+        </div>
+
+        <div class="ds-type-specimen">
+          <div class="ds-type-specimen__sample" style="font-size: 20px; font-weight: 400; letter-spacing: 0; line-height: 1.6;">
+            Body Large — Used for hero subtitles and important descriptive text that needs more visual weight.
+          </div>
+          <div class="ds-type-specimen__meta">
+            <div class="ds-type-specimen__name">Body Large</div>
+            <div class="ds-type-specimen__specs">20px / 400 / 0 / 1.6</div>
+          </div>
+        </div>
+
+        <div class="ds-type-specimen">
+          <div class="ds-type-specimen__sample" style="font-size: 16px; font-weight: 400; letter-spacing: 0; line-height: 1.6;">
+            Body — The default text style for all content. Optimized for reading comfort with generous line-height.
+          </div>
+          <div class="ds-type-specimen__meta">
+            <div class="ds-type-specimen__name">Body</div>
+            <div class="ds-type-specimen__specs">16px / 400 / 0 / 1.6</div>
+          </div>
+        </div>
+
+        <div class="ds-type-specimen">
+          <div class="ds-type-specimen__sample" style="font-size: 14px; font-weight: 400; letter-spacing: 0; line-height: 1.5;">
+            Body Small — Secondary information, metadata, and supporting text that shouldn't dominate the hierarchy.
+          </div>
+          <div class="ds-type-specimen__meta">
+            <div class="ds-type-specimen__name">Body Small</div>
+            <div class="ds-type-specimen__specs">14px / 400 / 0 / 1.5</div>
+          </div>
+        </div>
+
+        <div class="ds-type-specimen">
+          <div class="ds-type-specimen__sample" style="font-size: 13px; font-weight: 500; letter-spacing: 0; line-height: 1.4;">
+            Caption — Tags, timestamps, and other small contextual labels within components.
+          </div>
+          <div class="ds-type-specimen__meta">
+            <div class="ds-type-specimen__name">Caption</div>
+            <div class="ds-type-specimen__specs">13px / 500 / 0 / 1.4</div>
+          </div>
+        </div>
+
+        <div class="ds-type-specimen">
+          <div class="ds-type-specimen__sample" style="font-size: 12px; font-weight: 600; letter-spacing: 0.4em; line-height: 1.3; text-transform: uppercase;">
+            Label
+          </div>
+          <div class="ds-type-specimen__meta">
+            <div class="ds-type-specimen__name">Label</div>
+            <div class="ds-type-specimen__specs">12px / 600 / 0.4em / 1.3 (uppercase)</div>
+          </div>
+        </div>
+
+        <div class="ds-type-specimen">
+          <div class="ds-type-specimen__sample" style="font-size: 10px; font-weight: 700; letter-spacing: 0.15em; line-height: 1.2; text-transform: uppercase;">
+            Overline
+          </div>
+          <div class="ds-type-specimen__meta">
+            <div class="ds-type-specimen__name">Overline</div>
+            <div class="ds-type-specimen__specs">10px / 700 / 0.15em / 1.2 (uppercase)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Usage Rules -->
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Usage Rules</h3>
+        <table class="ds-rules">
+          <thead>
+            <tr>
+              <th>Context</th>
+              <th>Style</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Hero titles</td>
+              <td>Display (86px)</td>
+              <td>Only one per page; reserved for primary hero</td>
+            </tr>
+            <tr>
+              <td>Page titles</td>
+              <td>Heading 1 (68px)</td>
+              <td>Case study heroes, about page title</td>
+            </tr>
+            <tr>
+              <td>Section titles</td>
+              <td>Heading 2 (48px)</td>
+              <td>Main content section headings</td>
+            </tr>
+            <tr>
+              <td>Subsections</td>
+              <td>Heading 3 (40px)</td>
+              <td>Within case studies for feature sections</td>
+            </tr>
+            <tr>
+              <td>Card titles</td>
+              <td>Heading 4–5 (24–28px)</td>
+              <td>Project cards, testimonial headings</td>
+            </tr>
+            <tr>
+              <td>Body copy</td>
+              <td>Body (16px)</td>
+              <td>Default for all paragraphs</td>
+            </tr>
+            <tr>
+              <td>Section labels</td>
+              <td>Label (12px uppercase)</td>
+              <td>Always precedes section titles</td>
+            </tr>
+            <tr>
+              <td>Tags &amp; metadata</td>
+              <td>Caption (13px)</td>
+              <td>Project tags, dates, roles</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         4. SPACING
+         ========================================== -->
+    <section id="spacing" class="ds-section">
+      <span class="ds-section__label">Foundation</span>
+      <h2 class="ds-section__title">Spacing</h2>
+      <p class="ds-section__desc">
+        A consistent spacing scale based on multiples of 8px creates rhythm and visual harmony. 
+        Every margin, padding, and gap uses values from this scale.
+      </p>
+
+      <div class="ds-spacing-scale">
+        <div class="ds-spacing-item">
+          <span class="ds-spacing-item__label">xs</span>
+          <div class="ds-spacing-item__bar" style="width: 8px;"></div>
+          <span class="ds-spacing-item__value">8px</span>
+        </div>
+        <div class="ds-spacing-item">
+          <span class="ds-spacing-item__label">sm</span>
+          <div class="ds-spacing-item__bar" style="width: 16px;"></div>
+          <span class="ds-spacing-item__value">16px</span>
+        </div>
+        <div class="ds-spacing-item">
+          <span class="ds-spacing-item__label">md</span>
+          <div class="ds-spacing-item__bar" style="width: 24px;"></div>
+          <span class="ds-spacing-item__value">24px</span>
+        </div>
+        <div class="ds-spacing-item">
+          <span class="ds-spacing-item__label">lg</span>
+          <div class="ds-spacing-item__bar" style="width: 32px;"></div>
+          <span class="ds-spacing-item__value">32px</span>
+        </div>
+        <div class="ds-spacing-item">
+          <span class="ds-spacing-item__label">xl</span>
+          <div class="ds-spacing-item__bar" style="width: 48px;"></div>
+          <span class="ds-spacing-item__value">48px</span>
+        </div>
+        <div class="ds-spacing-item">
+          <span class="ds-spacing-item__label">2xl</span>
+          <div class="ds-spacing-item__bar" style="width: 64px;"></div>
+          <span class="ds-spacing-item__value">64px</span>
+        </div>
+        <div class="ds-spacing-item">
+          <span class="ds-spacing-item__label">3xl</span>
+          <div class="ds-spacing-item__bar" style="width: 96px;"></div>
+          <span class="ds-spacing-item__value">96px</span>
+        </div>
+      </div>
+
+      <div class="ds-note">
+        <strong>Base Grid:</strong> All spacing derives from a 4px base unit. The scale uses 8px increments (2×, 4×, 6×, 8×, 12×, 16×, 24× the base).
+      </div>
+
+      <!-- Usage Rules -->
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Usage Rules</h3>
+        <table class="ds-rules">
+          <thead>
+            <tr>
+              <th>Context</th>
+              <th>Token</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Component internal padding (buttons, tags)</td>
+              <td><code>--space-xs</code> to <code>--space-sm</code></td>
+              <td>8–16px</td>
+            </tr>
+            <tr>
+              <td>Card padding</td>
+              <td><code>--space-md</code> to <code>--space-lg</code></td>
+              <td>24–32px</td>
+            </tr>
+            <tr>
+              <td>Grid gaps</td>
+              <td><code>--space-md</code></td>
+              <td>24px</td>
+            </tr>
+            <tr>
+              <td>Section vertical padding</td>
+              <td><code>--space-3xl</code></td>
+              <td>96px</td>
+            </tr>
+            <tr>
+              <td>Label to title gap</td>
+              <td><code>--space-xl</code></td>
+              <td>48px</td>
+            </tr>
+            <tr>
+              <td>Page margins (desktop)</td>
+              <td>80px</td>
+              <td>Custom (10× base)</td>
+            </tr>
+            <tr>
+              <td>Page margins (tablet)</td>
+              <td>40px / 24px</td>
+              <td>Responsive reduction</td>
+            </tr>
+            <tr>
+              <td>Page margins (mobile)</td>
+              <td>20px</td>
+              <td>Minimum comfortable margin</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         5. LAYOUT & GRID
+         ========================================== -->
+    <section id="layout" class="ds-section">
+      <span class="ds-section__label">Structure</span>
+      <h2 class="ds-section__title">Layout &amp; Grid</h2>
+      <p class="ds-section__desc">
+        Content is constrained to a maximum width of 1280px with responsive padding. 
+        Grid layouts adapt fluidly across breakpoints.
+      </p>
+
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Container</h3>
+        <table class="ds-rules">
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Max width</td>
+              <td><code>1280px</code></td>
+            </tr>
+            <tr>
+              <td>Horizontal padding (Desktop)</td>
+              <td><code>80px</code></td>
+            </tr>
+            <tr>
+              <td>Horizontal padding (Tablet)</td>
+              <td><code>40px</code></td>
+            </tr>
+            <tr>
+              <td>Horizontal padding (Small Tablet)</td>
+              <td><code>24px</code></td>
+            </tr>
+            <tr>
+              <td>Horizontal padding (Mobile)</td>
+              <td><code>20px</code></td>
+            </tr>
+            <tr>
+              <td>Centering</td>
+              <td><code>margin: 0 auto</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Grid Examples -->
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Grid Systems</h3>
+        <p class="ds-subsection__desc">Projects use a 2-column grid. Info bars use 4-column. Outcomes adapt from 4 → 2 → 1.</p>
+
+        <h4 style="font-size: 15px; font-weight: 600; margin-bottom: 12px; margin-top: 24px;">2-Column (Projects)</h4>
+        <div class="ds-grid-viz" style="grid-template-columns: repeat(2, 1fr);">
+          <div class="ds-grid-viz__cell">1</div>
+          <div class="ds-grid-viz__cell">2</div>
+        </div>
+
+        <h4 style="font-size: 15px; font-weight: 600; margin-bottom: 12px; margin-top: 24px;">4-Column (Info Bar)</h4>
+        <div class="ds-grid-viz" style="grid-template-columns: repeat(4, 1fr);">
+          <div class="ds-grid-viz__cell">1</div>
+          <div class="ds-grid-viz__cell">2</div>
+          <div class="ds-grid-viz__cell">3</div>
+          <div class="ds-grid-viz__cell">4</div>
+        </div>
+
+        <h4 style="font-size: 15px; font-weight: 600; margin-bottom: 12px; margin-top: 24px;">3-Column (Tenets/Principles)</h4>
+        <div class="ds-grid-viz" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="ds-grid-viz__cell">1</div>
+          <div class="ds-grid-viz__cell">2</div>
+          <div class="ds-grid-viz__cell">3</div>
+        </div>
+      </div>
+
+      <!-- Breakpoints -->
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Breakpoints</h3>
+        <div class="ds-breakpoint-grid">
+          <div class="ds-breakpoint-card">
+            <div class="ds-breakpoint-card__name">Desktop</div>
+            <div class="ds-breakpoint-card__range">&gt; 1200px</div>
+            <div class="ds-breakpoint-card__desc">Full layout, 80px margins, all grid columns</div>
+          </div>
+          <div class="ds-breakpoint-card">
+            <div class="ds-breakpoint-card__name">Tablet</div>
+            <div class="ds-breakpoint-card__range">810px – 1200px</div>
+            <div class="ds-breakpoint-card__desc">40px margins, reduced headings, 2-col grids collapse</div>
+          </div>
+          <div class="ds-breakpoint-card">
+            <div class="ds-breakpoint-card__name">Small Tablet</div>
+            <div class="ds-breakpoint-card__range">481px – 810px</div>
+            <div class="ds-breakpoint-card__desc">24px margins, single-column projects, stacked cards</div>
+          </div>
+          <div class="ds-breakpoint-card">
+            <div class="ds-breakpoint-card__name">Mobile</div>
+            <div class="ds-breakpoint-card__range">≤ 480px</div>
+            <div class="ds-breakpoint-card__desc">20px margins, minimal headings, all single-column</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         6. SHADOWS & ELEVATION
+         ========================================== -->
+    <section id="shadows" class="ds-section">
+      <span class="ds-section__label">Depth</span>
+      <h2 class="ds-section__title">Shadows &amp; Elevation</h2>
+      <p class="ds-section__desc">
+        A five-level elevation system creates depth and visual hierarchy. Shadows are subtle and diffused — 
+        never harsh or heavy. Higher levels indicate more interactive prominence.
+      </p>
+
+      <div class="ds-shadow-grid">
+        <div class="ds-shadow-card" style="box-shadow: none;">
+          <span class="ds-shadow-card__label">Level 0</span>
+          <span class="ds-shadow-card__value">none</span>
+        </div>
+        <div class="ds-shadow-card" style="box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+          <span class="ds-shadow-card__label">Level 1</span>
+          <span class="ds-shadow-card__value">0 1px 3px 0.04</span>
+        </div>
+        <div class="ds-shadow-card" style="box-shadow: 0 4px 12px rgba(0,0,0,0.06);">
+          <span class="ds-shadow-card__label">Level 2</span>
+          <span class="ds-shadow-card__value">0 4px 12px 0.06</span>
+        </div>
+        <div class="ds-shadow-card" style="box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
+          <span class="ds-shadow-card__label">Level 3</span>
+          <span class="ds-shadow-card__value">0 8px 24px 0.08</span>
+        </div>
+        <div class="ds-shadow-card" style="box-shadow: 0 20px 60px rgba(0,0,0,0.08);">
+          <span class="ds-shadow-card__label">Level 4</span>
+          <span class="ds-shadow-card__value">0 20px 60px 0.08</span>
+        </div>
+      </div>
+
+      <table class="ds-rules">
+        <thead>
+          <tr>
+            <th>Level</th>
+            <th>Usage</th>
+            <th>CSS Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0</td>
+            <td>Default state, flat elements</td>
+            <td><code>none</code></td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Scrolled nav, subtle cards</td>
+            <td><code>0 1px 3px rgba(0,0,0,0.04)</code></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Hover states on cards</td>
+            <td><code>0 4px 12px rgba(0,0,0,0.06)</code></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Popovers, dropdowns</td>
+            <td><code>0 8px 24px rgba(0,0,0,0.08)</code></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Project card hover, modals</td>
+            <td><code>0 20px 60px rgba(0,0,0,0.08)</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ==========================================
+         7. BORDER RADIUS
+         ========================================== -->
+    <section id="radius" class="ds-section">
+      <span class="ds-section__label">Shape</span>
+      <h2 class="ds-section__title">Border Radius</h2>
+      <p class="ds-section__desc">
+        Rounded corners soften the interface and create a friendly, approachable feel. 
+        The scale progresses from subtle to fully rounded.
+      </p>
+
+      <div class="ds-radius-grid">
+        <div class="ds-radius-card">
+          <div class="ds-radius-card__preview" style="border-radius: 12px;"></div>
+          <span class="ds-radius-card__label">Small</span>
+          <span class="ds-radius-card__value">12px</span>
+        </div>
+        <div class="ds-radius-card">
+          <div class="ds-radius-card__preview" style="border-radius: 24px;"></div>
+          <span class="ds-radius-card__label">Medium</span>
+          <span class="ds-radius-card__value">24px</span>
+        </div>
+        <div class="ds-radius-card">
+          <div class="ds-radius-card__preview" style="border-radius: 32px;"></div>
+          <span class="ds-radius-card__label">Large</span>
+          <span class="ds-radius-card__value">32px</span>
+        </div>
+        <div class="ds-radius-card">
+          <div class="ds-radius-card__preview" style="border-radius: 50%;"></div>
+          <span class="ds-radius-card__label">Full</span>
+          <span class="ds-radius-card__value">50% / 100px</span>
+        </div>
+      </div>
+
+      <table class="ds-rules">
+        <thead>
+          <tr>
+            <th>Token</th>
+            <th>Value</th>
+            <th>Usage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>--radius-sm</code></td>
+            <td>12px</td>
+            <td>Tags, small cards, inputs, code blocks</td>
+          </tr>
+          <tr>
+            <td><code>--radius-md</code></td>
+            <td>24px</td>
+            <td>Cards, testimonials, images</td>
+          </tr>
+          <tr>
+            <td><code>--radius-lg</code></td>
+            <td>32px</td>
+            <td>Project cards, hero images, large containers</td>
+          </tr>
+          <tr>
+            <td><code>--radius-full</code></td>
+            <td>50% / 100px</td>
+            <td>Buttons (pill), avatars, circular elements</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ==========================================
+         8. MOTION & ANIMATION
+         ========================================== -->
+    <section id="motion" class="ds-section">
+      <span class="ds-section__label">Motion</span>
+      <h2 class="ds-section__title">Motion &amp; Animation</h2>
+      <p class="ds-section__desc">
+        Motion adds life and polish. Every animation serves a purpose — guiding attention, 
+        providing feedback, or creating smooth state transitions. Never decorative-only.
+      </p>
+
+      <!-- Easing Curves -->
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Easing Curves</h3>
+        <p class="ds-subsection__desc">Hover over each card to see the easing in action.</p>
+
+        <div class="ds-easing-grid">
+          <div class="ds-easing-card" data-easing="cubic-bezier(0.44, 0, 0.56, 1)">
+            <div class="ds-easing-card__preview">
+              <div class="ds-easing-card__dot"></div>
+            </div>
+            <div class="ds-easing-card__name">Default</div>
+            <div class="ds-easing-card__value">cubic-bezier(0.44, 0, 0.56, 1)</div>
+          </div>
+          <div class="ds-easing-card" data-easing="cubic-bezier(0, 0, 0.2, 1)">
+            <div class="ds-easing-card__preview">
+              <div class="ds-easing-card__dot"></div>
+            </div>
+            <div class="ds-easing-card__name">Enter</div>
+            <div class="ds-easing-card__value">cubic-bezier(0, 0, 0.2, 1)</div>
+          </div>
+          <div class="ds-easing-card" data-easing="cubic-bezier(0.4, 0, 1, 1)">
+            <div class="ds-easing-card__preview">
+              <div class="ds-easing-card__dot"></div>
+            </div>
+            <div class="ds-easing-card__name">Exit</div>
+            <div class="ds-easing-card__value">cubic-bezier(0.4, 0, 1, 1)</div>
+          </div>
+          <div class="ds-easing-card" data-easing="cubic-bezier(0.68, -0.55, 0.27, 1.55)">
+            <div class="ds-easing-card__preview">
+              <div class="ds-easing-card__dot"></div>
+            </div>
+            <div class="ds-easing-card__name">Elastic</div>
+            <div class="ds-easing-card__value">elastic.out(1, 0.5)</div>
+          </div>
+          <div class="ds-easing-card" data-easing="cubic-bezier(0.22, 1, 0.36, 1)">
+            <div class="ds-easing-card__preview">
+              <div class="ds-easing-card__dot"></div>
+            </div>
+            <div class="ds-easing-card__name">Power</div>
+            <div class="ds-easing-card__value">power3.out</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Duration Scale -->
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Duration Scale</h3>
+        <p class="ds-subsection__desc">Hover over each card to see the duration visualized.</p>
+
+        <div class="ds-duration-grid">
+          <div class="ds-duration-card" data-duration="100ms">
+            <div class="ds-duration-card__bar">
+              <div class="ds-duration-card__bar-fill"></div>
+            </div>
+            <div class="ds-duration-card__name">Instant</div>
+            <div class="ds-duration-card__value">100ms</div>
+          </div>
+          <div class="ds-duration-card" data-duration="200ms">
+            <div class="ds-duration-card__bar">
+              <div class="ds-duration-card__bar-fill"></div>
+            </div>
+            <div class="ds-duration-card__name">Fast</div>
+            <div class="ds-duration-card__value">200ms</div>
+          </div>
+          <div class="ds-duration-card" data-duration="300ms">
+            <div class="ds-duration-card__bar">
+              <div class="ds-duration-card__bar-fill"></div>
+            </div>
+            <div class="ds-duration-card__name">Normal</div>
+            <div class="ds-duration-card__value">300ms</div>
+          </div>
+          <div class="ds-duration-card" data-duration="500ms">
+            <div class="ds-duration-card__bar">
+              <div class="ds-duration-card__bar-fill"></div>
+            </div>
+            <div class="ds-duration-card__name">Moderate</div>
+            <div class="ds-duration-card__value">500ms</div>
+          </div>
+          <div class="ds-duration-card" data-duration="800ms">
+            <div class="ds-duration-card__bar">
+              <div class="ds-duration-card__bar-fill"></div>
+            </div>
+            <div class="ds-duration-card__name">Slow</div>
+            <div class="ds-duration-card__value">800ms</div>
+          </div>
+          <div class="ds-duration-card" data-duration="1000ms">
+            <div class="ds-duration-card__bar">
+              <div class="ds-duration-card__bar-fill"></div>
+            </div>
+            <div class="ds-duration-card__name">Dramatic</div>
+            <div class="ds-duration-card__value">1000ms</div>
+          </div>
+        </div>
+      </div>
+
+      <table class="ds-rules">
+        <thead>
+          <tr>
+            <th>Duration</th>
+            <th>Usage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>100ms</td>
+            <td>Button color change, opacity toggle, micro-feedback</td>
+          </tr>
+          <tr>
+            <td>200ms</td>
+            <td>Hover state transitions, icon transforms</td>
+          </tr>
+          <tr>
+            <td>300ms (default)</td>
+            <td>Most UI transitions: nav scroll, card hover, link underlines</td>
+          </tr>
+          <tr>
+            <td>500ms</td>
+            <td>Reveal animations, scroll-triggered fades</td>
+          </tr>
+          <tr>
+            <td>800ms</td>
+            <td>Staggered list reveals, complex state changes</td>
+          </tr>
+          <tr>
+            <td>1000ms</td>
+            <td>Page transitions, hero entrance, marquee testimonials</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ==========================================
+         9. COMPONENTS
+         ========================================== -->
+    <section id="components" class="ds-section">
+      <span class="ds-section__label">UI Library</span>
+      <h2 class="ds-section__title">Components</h2>
+      <p class="ds-section__desc">
+        Reusable building blocks that compose every page. Each component follows the design tokens 
+        and patterns defined above.
+      </p>
+
+      <!-- Buttons -->
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Buttons</h3>
+        <p class="ds-subsection__desc">
+          Pill-shaped buttons with three variants. All include hover state transitions and optional arrow icons.
+        </p>
+
+        <div class="ds-showcase">
+          <div class="ds-showcase__preview">
+            <a href="#" class="btn btn--outline">
+              Outline Button
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#" class="btn btn--filled">
+              Filled Button
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+          <div class="ds-showcase__code">
+            <code>&lt;a class="btn btn--outline"&gt;Outline Button &lt;svg&gt;...&lt;/svg&gt;&lt;/a&gt;
+&lt;a class="btn btn--filled"&gt;Filled Button &lt;svg&gt;...&lt;/svg&gt;&lt;/a&gt;</code>
+          </div>
+        </div>
+
+        <div class="ds-showcase">
+          <div class="ds-showcase__preview ds-showcase__preview--dark">
+            <a href="#" class="btn btn--white">
+              White Button
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+          <div class="ds-showcase__code">
+            <code>&lt;a class="btn btn--white"&gt;White Button &lt;svg&gt;...&lt;/svg&gt;&lt;/a&gt;</code>
+          </div>
+        </div>
+
+        <table class="ds-rules">
+          <thead>
+            <tr>
+              <th>Variant</th>
+              <th>Usage</th>
+              <th>Hover Behavior</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>.btn--outline</code></td>
+              <td>Primary CTAs on light backgrounds</td>
+              <td>Fill with black, text turns white</td>
+            </tr>
+            <tr>
+              <td><code>.btn--filled</code></td>
+              <td>Secondary CTAs, paired with outline</td>
+              <td>Becomes transparent, border remains</td>
+            </tr>
+            <tr>
+              <td><code>.btn--white</code></td>
+              <td>CTAs on dark sections</td>
+              <td>Fill with white, text turns dark</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Navigation -->
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Navigation</h3>
+        <p class="ds-subsection__desc">
+          Fixed top navigation with scroll-triggered backdrop blur. Links highlight with an underline on active state.
+        </p>
+
+        <div class="ds-showcase">
+          <div class="ds-showcase__preview ds-showcase__preview--column" style="padding: 24px 40px; background: rgba(255,255,255,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--gray-200);">
+            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+              <span style="font-size: 16px; font-weight: 700;">KD</span>
+              <div style="display: flex; gap: 32px;">
+                <a href="#" class="nav__link active">Work</a>
+                <a href="#" class="nav__link">About</a>
+                <a href="#" class="nav__link">Resume</a>
+              </div>
+            </div>
+          </div>
+          <div class="ds-showcase__code">
+            <code>&lt;nav class="nav scrolled"&gt;
+  &lt;div class="nav__inner"&gt;
+    &lt;a class="nav__logo"&gt;...&lt;/a&gt;
+    &lt;div class="nav__links"&gt;
+      &lt;a class="nav__link active"&gt;Work&lt;/a&gt;
+      &lt;a class="nav__link"&gt;About&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</code>
+          </div>
+        </div>
+
+        <table class="ds-rules">
+          <thead>
+            <tr>
+              <th>State</th>
+              <th>Behavior</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Default (top)</td>
+              <td>Transparent background, no shadow</td>
+            </tr>
+            <tr>
+              <td>Scrolled</td>
+              <td>White bg with 0.92 opacity, 20px blur, 1px bottom border</td>
+            </tr>
+            <tr>
+              <td>Active link</td>
+              <td>Black text, 1.5px underline 4px below</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Project Cards -->
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Project Cards</h3>
+        <p class="ds-subsection__desc">
+          Two-column grid cards with image, title, and tag pills. Hover lifts the card with a level-4 shadow.
+        </p>
+
+        <div class="ds-showcase">
+          <div class="ds-showcase__preview ds-showcase__preview--column">
+            <a href="#" class="project-card" style="max-width: 400px;">
+              <div style="width: 100%; aspect-ratio: 16/10; background: linear-gradient(135deg, var(--gray-200), var(--gray-100)); display: flex; align-items: center; justify-content: center; color: var(--gray-400); font-size: 14px;">
+                16:10 Cover Image
+              </div>
+              <div class="project-card__info">
+                <h3 class="project-card__title">ThoughtSpot Sage</h3>
+                <div class="project-card__tags">
+                  <span class="tag">AI/ML</span>
+                  <span class="tag">Enterprise</span>
+                  <span class="tag">Data Analytics</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="ds-showcase__code">
+            <code>&lt;a class="project-card"&gt;
+  &lt;img class="project-card__image" src="..." alt="..."&gt;
+  &lt;div class="project-card__info"&gt;
+    &lt;h3 class="project-card__title"&gt;Project Name&lt;/h3&gt;
+    &lt;div class="project-card__tags"&gt;
+      &lt;span class="tag"&gt;Tag&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/a&gt;</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial Cards -->
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Testimonial Cards</h3>
+        <p class="ds-subsection__desc">
+          Fixed-width cards in a horizontal scrolling track with infinite loop animation.
+        </p>
+
+        <div class="ds-showcase">
+          <div class="ds-showcase__preview">
+            <div class="testimonial-card" style="flex: 0 0 340px;">
+              <p class="testimonial-card__quote">
+                "Kousik brings a rare combination of strategic thinking and pixel-perfect execution. 
+                His work elevated our entire product experience."
+              </p>
+              <div class="testimonial-card__author">
+                <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--gray-200);"></div>
+                <div>
+                  <div class="testimonial-card__name">Sarah Chen</div>
+                  <div class="testimonial-card__role">VP of Product, TechCorp</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ds-showcase__code">
+            <code>&lt;div class="testimonial-card"&gt;
+  &lt;p class="testimonial-card__quote"&gt;"Quote text..."&lt;/p&gt;
+  &lt;div class="testimonial-card__author"&gt;
+    &lt;img class="testimonial-card__avatar" src="..."&gt;
+    &lt;div&gt;
+      &lt;div class="testimonial-card__name"&gt;Name&lt;/div&gt;
+      &lt;div class="testimonial-card__role"&gt;Role&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service Tags -->
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Service Tags</h3>
+        <p class="ds-subsection__desc">
+          Pill-shaped tags that display skills and services. Border darkens on hover.
+        </p>
+
+        <div class="ds-showcase">
+          <div class="ds-showcase__preview">
+            <span class="service-tag">UX Strategy</span>
+            <span class="service-tag">Interaction Design</span>
+            <span class="service-tag">Design Systems</span>
+            <span class="service-tag">Prototyping</span>
+            <span class="service-tag">User Research</span>
+          </div>
+          <div class="ds-showcase__code">
+            <code>&lt;div class="services-grid"&gt;
+  &lt;span class="service-tag"&gt;UX Strategy&lt;/span&gt;
+  &lt;span class="service-tag"&gt;Interaction Design&lt;/span&gt;
+  &lt;span class="service-tag"&gt;Design Systems&lt;/span&gt;
+&lt;/div&gt;</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section Layout -->
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Section Layout</h3>
+        <p class="ds-subsection__desc">
+          Every content section follows the same pattern: label → title → optional subtitle → content.
+        </p>
+
+        <div class="ds-showcase">
+          <div class="ds-showcase__preview ds-showcase__preview--column">
+            <span class="section__label">Selected Work</span>
+            <h2 class="section__title" style="margin-bottom: 0;">Projects that move the needle</h2>
+          </div>
+          <div class="ds-showcase__code">
+            <code>&lt;section class="section"&gt;
+  &lt;div class="container"&gt;
+    &lt;span class="section__label"&gt;Selected Work&lt;/span&gt;
+    &lt;h2 class="section__title"&gt;Projects that move the needle&lt;/h2&gt;
+    &lt;!-- Section content --&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         10. ICONOGRAPHY
+         ========================================== -->
+    <section id="iconography" class="ds-section">
+      <span class="ds-section__label">Visual</span>
+      <h2 class="ds-section__title">Iconography</h2>
+      <p class="ds-section__desc">
+        A minimal icon set — primarily arrows — that provides directional cues and interactive affordances.
+        Icons are inline SVGs for maximum flexibility.
+      </p>
+
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Arrow Icon</h3>
+        <p class="ds-subsection__desc">The primary icon used throughout the site for CTAs, links, and navigation.</p>
+
+        <div class="ds-icon-grid">
+          <div class="ds-icon-card">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="ds-icon-card__label">Arrow Right</span>
+          </div>
+          <div class="ds-icon-card">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="ds-icon-card__label">Arrow Left</span>
+          </div>
+          <div class="ds-icon-card">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="ds-icon-card__label">Arrow Diagonal</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Icon Rules</h3>
+        <table class="ds-rules">
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Size</td>
+              <td>16×16px (default)</td>
+            </tr>
+            <tr>
+              <td>Stroke width</td>
+              <td>1.5px</td>
+            </tr>
+            <tr>
+              <td>Color</td>
+              <td><code>currentColor</code> (inherits from parent)</td>
+            </tr>
+            <tr>
+              <td>Line cap</td>
+              <td>Round</td>
+            </tr>
+            <tr>
+              <td>Line join</td>
+              <td>Round</td>
+            </tr>
+            <tr>
+              <td>Hover animation</td>
+              <td><code>translateX(4px)</code> — 0.3s default ease</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ds-showcase">
+        <div class="ds-showcase__code">
+          <code>&lt;svg width="16" height="16" viewBox="0 0 16 16" fill="none"&gt;
+  &lt;path d="M3 8h10M9 4l4 4-4 4"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"/&gt;
+&lt;/svg&gt;</code>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         11. IMAGERY & MEDIA
+         ========================================== -->
+    <section id="imagery" class="ds-section">
+      <span class="ds-section__label">Media</span>
+      <h2 class="ds-section__title">Imagery &amp; Media</h2>
+      <p class="ds-section__desc">
+        High-quality imagery is essential for showcasing design work. All media follows strict format and presentation rules.
+      </p>
+
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Format Rules</h3>
+        <table class="ds-rules">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Format</th>
+              <th>Quality</th>
+              <th>Max Size</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Hero/Cover images</td>
+              <td>PNG or WebP</td>
+              <td>High (90%+)</td>
+              <td>500KB</td>
+            </tr>
+            <tr>
+              <td>Project thumbnails</td>
+              <td>PNG or WebP</td>
+              <td>High (85%+)</td>
+              <td>300KB</td>
+            </tr>
+            <tr>
+              <td>Case study screens</td>
+              <td>PNG</td>
+              <td>Lossless</td>
+              <td>800KB</td>
+            </tr>
+            <tr>
+              <td>Avatars</td>
+              <td>WebP or JPEG</td>
+              <td>Medium (80%)</td>
+              <td>50KB</td>
+            </tr>
+            <tr>
+              <td>Videos</td>
+              <td>MP4 (H.264)</td>
+              <td>1080p</td>
+              <td>10MB</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Aspect Ratios</h3>
+        <table class="ds-rules">
+          <thead>
+            <tr>
+              <th>Context</th>
+              <th>Ratio</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Project card covers</td>
+              <td>16:10</td>
+              <td>Wider than standard 16:9 for more visual space</td>
+            </tr>
+            <tr>
+              <td>Case study hero</td>
+              <td>16:9</td>
+              <td>Full-width with border-radius-lg</td>
+            </tr>
+            <tr>
+              <td>About page photos</td>
+              <td>4:3</td>
+              <td>Grid of 3, all same ratio</td>
+            </tr>
+            <tr>
+              <td>Avatars</td>
+              <td>1:1</td>
+              <td>44×44px, fully rounded</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Loading Strategy</h3>
+        <table class="ds-rules">
+          <thead>
+            <tr>
+              <th>Strategy</th>
+              <th>Applied To</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Eager load</td>
+              <td>Hero images, above-fold project cards</td>
+            </tr>
+            <tr>
+              <td>Lazy load (<code>loading="lazy"</code>)</td>
+              <td>Below-fold images, case study screens</td>
+            </tr>
+            <tr>
+              <td>Preload</td>
+              <td>Logo, hero background (if any)</td>
+            </tr>
+            <tr>
+              <td><code>object-fit: cover</code></td>
+              <td>All images with fixed aspect ratios</td>
+            </tr>
+            <tr>
+              <td><code>display: block</code></td>
+              <td>All images (removes inline gap)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         12. ACCESSIBILITY
+         ========================================== -->
+    <section id="accessibility" class="ds-section">
+      <span class="ds-section__label">Inclusive</span>
+      <h2 class="ds-section__title">Accessibility</h2>
+      <p class="ds-section__desc">
+        The design system is built with inclusivity in mind. Every component meets WCAG 2.1 AA standards 
+        and works with assistive technologies.
+      </p>
+
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Contrast Ratios</h3>
+        <table class="ds-rules">
+          <thead>
+            <tr>
+              <th>Element</th>
+              <th>Minimum Ratio</th>
+              <th>Standard</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Body text (16px+)</td>
+              <td>4.5:1</td>
+              <td>WCAG AA</td>
+            </tr>
+            <tr>
+              <td>Large text (24px+ or 18.67px bold)</td>
+              <td>3:1</td>
+              <td>WCAG AA</td>
+            </tr>
+            <tr>
+              <td>Interactive elements</td>
+              <td>3:1</td>
+              <td>WCAG 2.1 AA (non-text)</td>
+            </tr>
+            <tr>
+              <td>Decorative text (labels at 12px)</td>
+              <td>3:1</td>
+              <td>Large text equivalent (bold + uppercase)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Focus States</h3>
+        <p class="ds-subsection__desc">
+          All interactive elements have visible focus indicators for keyboard navigation.
+        </p>
+        <table class="ds-rules">
+          <thead>
+            <tr>
+              <th>Element</th>
+              <th>Focus Style</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Buttons</td>
+              <td>2px solid black outline, 2px offset</td>
+            </tr>
+            <tr>
+              <td>Links</td>
+              <td>2px solid black outline, 2px offset</td>
+            </tr>
+            <tr>
+              <td>Cards (as links)</td>
+              <td>2px solid black outline, 4px offset</td>
+            </tr>
+            <tr>
+              <td>Nav pills</td>
+              <td>Ring style matching active state</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Motion Preferences</h3>
+        <div class="ds-note">
+          <strong>Reduced Motion:</strong> When <code>prefers-reduced-motion: reduce</code> is active, 
+          all animations are disabled or reduced to simple opacity fades. Scroll-triggered reveals 
+          become immediate. The testimonial marquee stops.
+        </div>
+        <div class="ds-showcase">
+          <div class="ds-showcase__code">
+            <code>@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  .testimonials-track { animation: none; }
+  .reveal { opacity: 1; transform: none; }
+}</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Semantic HTML</h3>
+        <table class="ds-rules">
+          <thead>
+            <tr>
+              <th>Pattern</th>
+              <th>Element</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Navigation</td>
+              <td><code>&lt;nav&gt;</code></td>
+              <td>Single main nav per page</td>
+            </tr>
+            <tr>
+              <td>Content sections</td>
+              <td><code>&lt;section&gt;</code></td>
+              <td>With descriptive headings</td>
+            </tr>
+            <tr>
+              <td>Project cards</td>
+              <td><code>&lt;a&gt;</code></td>
+              <td>Entire card is clickable link</td>
+            </tr>
+            <tr>
+              <td>Images</td>
+              <td><code>&lt;img alt="..."&gt;</code></td>
+              <td>Descriptive alt text always required</td>
+            </tr>
+            <tr>
+              <td>Page structure</td>
+              <td><code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code></td>
+              <td>Landmark regions for screen readers</td>
+            </tr>
+            <tr>
+              <td>Heading hierarchy</td>
+              <td><code>&lt;h1&gt;</code>–<code>&lt;h6&gt;</code></td>
+              <td>One h1 per page, sequential nesting</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         13. INTERACTION PATTERNS
+         ========================================== -->
+    <section id="interactions" class="ds-section">
+      <span class="ds-section__label">Behavior</span>
+      <h2 class="ds-section__title">Interaction Patterns</h2>
+      <p class="ds-section__desc">
+        Consistent interaction patterns create predictability and build user confidence. 
+        Every hover, click, and scroll is intentional.
+      </p>
+
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Page Transitions</h3>
+        <p class="ds-subsection__desc">
+          A full-page white overlay scales from bottom to top when navigating between pages, 
+          creating a clean wipe effect.
+        </p>
+        <table class="ds-rules">
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Element</td>
+              <td><code>.page-transition</code> (fixed, full-screen)</td>
+            </tr>
+            <tr>
+              <td>Animation</td>
+              <td><code>scaleY(0)</code> → <code>scaleY(1)</code></td>
+            </tr>
+            <tr>
+              <td>Origin</td>
+              <td><code>transform-origin: bottom</code></td>
+            </tr>
+            <tr>
+              <td>Duration</td>
+              <td>~600ms with power3 easing</td>
+            </tr>
+            <tr>
+              <td>Z-index</td>
+              <td>9999 (above everything)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Scroll Progress</h3>
+        <p class="ds-subsection__desc">
+          A thin black bar at the top of the viewport indicates reading progress.
+        </p>
+        <table class="ds-rules">
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Height</td>
+              <td>2px</td>
+            </tr>
+            <tr>
+              <td>Color</td>
+              <td>var(--black)</td>
+            </tr>
+            <tr>
+              <td>Position</td>
+              <td>Fixed, top: 0, left: 0</td>
+            </tr>
+            <tr>
+              <td>Animation</td>
+              <td><code>scaleX(0)</code> → <code>scaleX(1)</code> based on scroll %</td>
+            </tr>
+            <tr>
+              <td>Z-index</td>
+              <td>10000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Hover States</h3>
+        <table class="ds-rules">
+          <thead>
+            <tr>
+              <th>Element</th>
+              <th>Hover Effect</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Project cards</td>
+              <td><code>translateY(-4px)</code> + shadow level 4</td>
+              <td>300ms</td>
+            </tr>
+            <tr>
+              <td>Buttons</td>
+              <td>Background/color swap + arrow <code>translateX(4px)</code></td>
+              <td>300ms</td>
+            </tr>
+            <tr>
+              <td>Service tags</td>
+              <td>Border darkens, text color to black</td>
+              <td>300ms</td>
+            </tr>
+            <tr>
+              <td>Nav links</td>
+              <td>Color: gray-600 → black</td>
+              <td>300ms</td>
+            </tr>
+            <tr>
+              <td>Testimonial track</td>
+              <td><code>animation-play-state: paused</code></td>
+              <td>Immediate</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Magnetic Buttons</h3>
+        <p class="ds-subsection__desc">
+          CTA buttons subtly attract toward the cursor on hover using GSAP-powered magnetic effect. 
+          The movement is capped at ±8px to maintain usability.
+        </p>
+      </div>
+
+      <!-- Do's and Don'ts -->
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Do's &amp; Don'ts</h3>
+        <div class="ds-dos-donts">
+          <div class="ds-do">
+            <div class="ds-do__label">✓ Do</div>
+            <div class="ds-do__text">
+              Use transitions for state changes (hover, active, focus). Keep durations under 400ms for UI feedback. 
+              Use the default easing curve for most interactions.
+            </div>
+          </div>
+          <div class="ds-dont">
+            <div class="ds-dont__label">✗ Don't</div>
+            <div class="ds-dont__text">
+              Add animation for decoration alone. Use bouncy easings for functional UI. 
+              Animate layout properties (width, height) when transform alternatives exist.
+            </div>
+          </div>
+        </div>
+        <div class="ds-dos-donts">
+          <div class="ds-do">
+            <div class="ds-do__label">✓ Do</div>
+            <div class="ds-do__text">
+              Provide immediate visual feedback on interaction. Use opacity and transform for performant animations. 
+              Respect reduced-motion preferences.
+            </div>
+          </div>
+          <div class="ds-dont">
+            <div class="ds-dont__label">✗ Don't</div>
+            <div class="ds-dont__text">
+              Block user interaction during animations. Use identical timing for all animations regardless of distance. 
+              Animate more than 2–3 properties simultaneously.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         14. CONTENT GUIDELINES
+         ========================================== -->
+    <section id="content" class="ds-section">
+      <span class="ds-section__label">Writing</span>
+      <h2 class="ds-section__title">Content Guidelines</h2>
+      <p class="ds-section__desc">
+        Words matter as much as pixels. Consistent voice and formatting create a cohesive experience 
+        that reinforces the design's intent.
+      </p>
+
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Voice &amp; Tone</h3>
+        <table class="ds-rules">
+          <thead>
+            <tr>
+              <th>Attribute</th>
+              <th>Description</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Confident</td>
+              <td>State expertise without arrogance</td>
+              <td>"I design systems that scale" not "I try to design good systems"</td>
+            </tr>
+            <tr>
+              <td>Concise</td>
+              <td>Say more with fewer words</td>
+              <td>"10+ years in product design" not "I have been working in the field of product design for over ten years"</td>
+            </tr>
+            <tr>
+              <td>Human</td>
+              <td>Professional but approachable</td>
+              <td>"Let's work together" not "Please submit your inquiry"</td>
+            </tr>
+            <tr>
+              <td>Specific</td>
+              <td>Use concrete outcomes, not vague claims</td>
+              <td>"Reduced onboarding time by 40%" not "Improved the user experience"</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Casing Rules</h3>
+        <table class="ds-rules">
+          <thead>
+            <tr>
+              <th>Element</th>
+              <th>Case</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Section labels</td>
+              <td>ALL CAPS + letter-spacing</td>
+              <td>SELECTED WORK</td>
+            </tr>
+            <tr>
+              <td>Headings (h1–h5)</td>
+              <td>Sentence case</td>
+              <td>Projects that move the needle</td>
+            </tr>
+            <tr>
+              <td>Button text</td>
+              <td>Sentence case</td>
+              <td>View case study</td>
+            </tr>
+            <tr>
+              <td>Navigation links</td>
+              <td>Sentence case</td>
+              <td>Work, About, Resume</td>
+            </tr>
+            <tr>
+              <td>Tags</td>
+              <td>Title Case</td>
+              <td>Design Systems, AI/ML</td>
+            </tr>
+            <tr>
+              <td>Metadata labels</td>
+              <td>ALL CAPS</td>
+              <td>ROLE, TIMELINE, PLATFORM</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ds-subsection">
+        <h3 class="ds-subsection__title">Formatting Rules</h3>
+        <table class="ds-rules">
+          <thead>
+            <tr>
+              <th>Rule</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Line length</td>
+              <td>Max 65–75 characters for body copy (enforced via <code>max-width</code>)</td>
+            </tr>
+            <tr>
+              <td>Paragraph spacing</td>
+              <td>Use margin-bottom, not double line breaks</td>
+            </tr>
+            <tr>
+              <td>Numbers</td>
+              <td>Use figures, not words: "10+" not "ten or more"</td>
+            </tr>
+            <tr>
+              <td>Percentages</td>
+              <td>No space before %: "40%" not "40 %"</td>
+            </tr>
+            <tr>
+              <td>Ranges</td>
+              <td>En dash, no spaces: "2019–2023" not "2019 - 2023"</td>
+            </tr>
+            <tr>
+              <td>Lists</td>
+              <td>Parallel structure, no trailing punctuation unless full sentences</td>
+            </tr>
+            <tr>
+              <td>Testimonials</td>
+              <td>Curly quotes, italic style: <em>"Quote here."</em></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ds-dos-donts">
+        <div class="ds-do">
+          <div class="ds-do__label">✓ Do</div>
+          <div class="ds-do__text">
+            Write headings that tell a story. Use action-oriented language. 
+            Lead with impact: results first, then context.
+          </div>
+        </div>
+        <div class="ds-dont">
+          <div class="ds-dont__label">✗ Don't</div>
+          <div class="ds-dont__text">
+            Use jargon without context. Write passive voice when active is clearer. 
+            Use "Click here" — instead, make the link text descriptive.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/design-system.js"></script>
+</body>
+</html>
