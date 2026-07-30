@@ -4,6 +4,7 @@ import { PageTransition } from "@/components/PageTransition"
 import { CaseEvidenceStrip, CaseStory, type CaseEvidenceItem, type CaseStoryItem } from "@/components/CaseStory"
 import { CaseStudyNav, type CaseStudyNavSection } from "@/components/CaseStudyNav"
 import { Seo } from "@/components/Seo"
+import { MiniSwarm } from "@/components/MiniSwarm"
 
 const EASE_ENTER = [0.25, 0.1, 0.25, 1] as const
 const STAGGER = 0.08
@@ -180,11 +181,11 @@ const SECTIONS: CaseStudyNavSection[] = [
 
 function ModelShowcase() {
   const models = [
-    { label: "MacBook", icon: "💻" },
-    { label: "iPhone", icon: "📱" },
-    { label: "PS5", icon: "🎮" },
-    { label: "Vision", icon: "🥽" },
-    { label: "Watch", icon: "⌚" },
+    { label: "MacBook", modelName: "macbook_pro_m3_16_inch_2024" },
+    { label: "iPhone", modelName: "iphone_17_pro" },
+    { label: "PS5", modelName: "ps5_controller" },
+    { label: "Vision Pro", modelName: "apple_vision_pro" },
+    { label: "Watch", modelName: "apple_watch_ultra_2" },
   ]
   return (
     <div className="mt-8 grid grid-cols-2 md:grid-cols-5 gap-3">
@@ -195,7 +196,9 @@ function ModelShowcase() {
           custom={i}
           className="flex flex-col items-center justify-center p-4 border border-border/50 rounded-xl bg-background/50 backdrop-blur-sm shadow-sm"
         >
-          <span className="text-2xl mb-2 grayscale opacity-80">{m.icon}</span>
+          <div className="mb-2 h-[80px] w-[80px] flex items-center justify-center">
+            <MiniSwarm modelName={m.modelName} />
+          </div>
           <span className="text-[12px] font-medium text-muted-foreground">{m.label}</span>
         </motion.div>
       ))}
