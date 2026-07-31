@@ -83,7 +83,9 @@ const EXPERIENCE = [
 ]
 
 const AWARDS = [
-  { title: "2x University Gold Medal", sub: "Best Overall Student 2023 & Best Design Student 2023" },
+  { title: "Gold Medal", sub: "Best Overall Student 2023" },
+  { title: "Gold Medal", sub: "Best Design Student 2023" },
+  { title: "iF Design Award", sub: "Team recognition for Philips Cardiocare concept" },
   { title: "Winner", sub: "D'source Design Challenge & CII Young Designer Awards 2022" },
   { title: "Publication", sub: "Paper on AI Ayurvedic Nutrition App at HCII 2022" },
   { title: "Honorable Mention", sub: "Student Service Design Challenge 2022" },

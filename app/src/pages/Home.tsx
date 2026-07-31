@@ -68,7 +68,7 @@ const PROJECTS: Project[] = [
     desc: "Preventive heart care made clear and actionable.",
     meta: "Healthcare, research, service",
     timeframe: "Jan-Jul 2023 · 7 months",
-    proof: "82.1 SUS · 18 users",
+    proof: "iF Design Award · Gold Medal",
     image: "/assets/images/NRmPx5otSD5B8RKHstn08Zcs0k.png",
     href: "/case-study/philips",
   },
