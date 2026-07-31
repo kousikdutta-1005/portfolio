@@ -28,7 +28,7 @@ const staggerContainer = {
 
 const OUTCOMES: CaseEvidenceItem[] = [
   { value: "82.1", label: "SUS benchmark", desc: "A-grade usability score, giving the team a standard read on clarity and ease of use." },
-  { value: "2X", label: "Gold Medals", desc: "Awarded top honors at university level for best design and overall performance." },
+  { value: "2X", label: "Gold Medal", desc: "Best Overall Student 2023 and Best Design Student 2023." },
   { value: "iF", label: "Design Award", desc: "Team recognition for the Philips Cardiocare concept and its preventive-care direction." },
 ]
 

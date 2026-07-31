@@ -6,7 +6,7 @@ import { Footer } from "./Footer"
 import { CursorGlow } from "./CursorGlow"
 import { ScrollProgress } from "./ScrollProgress"
 import { GlobalParticleEngine } from "./GlobalParticleEngine"
-import { cn } from "@/lib/utils"
+import { cn } from "../lib/utils"
 
 function RouteLoadingState({ routeKey }: { routeKey: string }) {
   const [visible, setVisible] = useState(false)
