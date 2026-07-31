@@ -118,7 +118,7 @@ function SectionImage({ src, alt, className }: { src: string; alt: string; class
 
   return (
     <motion.div
-      className={cn("w-full rounded-2xl media-loading-frame content-loading-frame frost-media", className)}
+      className={cn("w-full rounded-2xl media-loading-frame frost-media", !loaded && "content-loading-frame", className)}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -138,7 +138,7 @@ function SectionImage({ src, alt, className }: { src: string; alt: string; class
         src={assetPath(src)}
         alt={alt}
         onLoad={() => setLoaded(true)}
-        className={cn("block w-full rounded-2xl object-cover", loaded ? "media-loaded" : "media-pending")}
+        className={cn("block w-full h-auto rounded-2xl", loaded ? "media-loaded" : "media-pending")}
         style={{ objectPosition }}
         loading="lazy"
       />

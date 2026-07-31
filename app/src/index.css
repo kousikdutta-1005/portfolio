@@ -1848,7 +1848,7 @@ footer {
 .project-card-media {
   position: relative;
   aspect-ratio: 16 / 9;
-  background: color-mix(in oklab, var(--color-muted) 82%, transparent);
+  background: transparent;
   border-bottom: 1px solid var(--liquid-border);
 }
 
@@ -1856,10 +1856,7 @@ footer {
   display: grid;
   place-items: center;
   padding: 0;
-  background:
-    linear-gradient(180deg, color-mix(in oklab, var(--color-card) 92%, var(--color-accent) 4%), color-mix(in oklab, var(--color-muted) 82%, white 8%)),
-    radial-gradient(ellipse at 50% 74%, color-mix(in oklab, var(--color-accent) 10%, transparent), transparent 46%),
-    color-mix(in oklab, var(--color-muted) 84%, white 6%);
+  background: transparent;
 }
 
 .project-card-media-precisely {
@@ -1880,12 +1877,12 @@ footer {
 }
 
 .dark .project-card-media {
-  background: #050507;
+  background: transparent;
   border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
 .dark .project-card-media-contain {
-  background: #050507;
+  background: transparent;
 }
 
 .dark .project-card-media-precisely {
