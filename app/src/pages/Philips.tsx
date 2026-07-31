@@ -28,9 +28,7 @@ const staggerContainer = {
 
 const OUTCOMES: CaseEvidenceItem[] = [
   { value: "82.1", label: "SUS benchmark", desc: "A-grade usability score, giving the team a standard read on clarity and ease of use." },
-  { value: "18", label: "User validation", desc: "Participants tested the concept so decisions were checked against real comprehension." },
-  { value: "12", label: "Concept coverage", desc: "Shortlisted concepts were compared with a Pugh matrix before selecting the direction." },
-  { value: "4", label: "Behavior themes", desc: "Research synthesis grouped insights into themes the product system could act on." },
+  { value: "2X", label: "Gold Medals", desc: "Awarded top honors at university level for best design and overall performance." },
   { value: "iF", label: "Design Award", desc: "Team recognition for the Philips Cardiocare concept and its preventive-care direction." },
 ]
 
