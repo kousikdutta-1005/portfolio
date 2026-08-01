@@ -1,0 +1,1171 @@
+[
+  {
+    "id": "img-1",
+    "src": "assets/images/about/about-1.png",
+    "alt": "Gallery image 1",
+    "aspectRatio": "wide",
+    "originalName": "0159488c-5911-4a7f-91b2-e01557c74cf4-5a7d996e-cb5a-47a9-a42a-c7f757a28157-clipboard.png"
+  },
+  {
+    "id": "img-2",
+    "src": "assets/images/about/about-2.png",
+    "alt": "Gallery image 2",
+    "aspectRatio": "tall",
+    "originalName": "03fd86be-df5a-4bb5-905b-1ab5de42af3c-0c4794c9-1b5c-4044-8aeb-f440c3453742-clipboard.png"
+  },
+  {
+    "id": "img-3",
+    "src": "assets/images/about/about-3.png",
+    "alt": "Gallery image 3",
+    "aspectRatio": "wide",
+    "originalName": "053c4a6d-e01b-4de1-8b5e-205ff554e840-76e6dcb4-0e1d-4e22-bbac-eaea883fd7bb-clipboard.png"
+  },
+  {
+    "id": "img-4",
+    "src": "assets/images/about/about-4.png",
+    "alt": "Gallery image 4",
+    "aspectRatio": "wide",
+    "originalName": "07f59969-06d3-42c0-90ba-1f663e59ee2c-clipboard.png"
+  },
+  {
+    "id": "img-5",
+    "src": "assets/images/about/about-5.png",
+    "alt": "Gallery image 5",
+    "aspectRatio": "wide",
+    "originalName": "0a58f7dc-f9bb-4963-92ab-154bacd5bbaf-cbd9780c-840b-4e17-b962-0334cd9bd572-clipboard.png"
+  },
+  {
+    "id": "img-6",
+    "src": "assets/images/about/about-6.png",
+    "alt": "Gallery image 6",
+    "aspectRatio": "tall",
+    "originalName": "0c4794c9-1b5c-4044-8aeb-f440c3453742-clipboard.png"
+  },
+  {
+    "id": "img-7",
+    "src": "assets/images/about/about-7.png",
+    "alt": "Gallery image 7",
+    "aspectRatio": "wide",
+    "originalName": "0da250f8-00fe-4675-b5d6-fa343ee43ed2-Screenshot 2026-07-28 at 10.35.16 PM.png"
+  },
+  {
+    "id": "img-8",
+    "src": "assets/images/about/about-8.png",
+    "alt": "Gallery image 8",
+    "aspectRatio": "square",
+    "originalName": "0e3563a4-ba4f-4f0e-8958-86129a56f17d-clipboard.png"
+  },
+  {
+    "id": "img-9",
+    "src": "assets/images/about/about-9.png",
+    "alt": "Gallery image 9",
+    "aspectRatio": "wide",
+    "originalName": "0e9b78c4-3869-44ad-9d7c-ee40bec0a871-c61737c8-ba69-4560-8eb1-68e64aba4694-clipboard.png"
+  },
+  {
+    "id": "img-10",
+    "src": "assets/images/about/about-10.png",
+    "alt": "Gallery image 10",
+    "aspectRatio": "wide",
+    "originalName": "0fa7bb86-ec11-444c-a1ad-81299798dedf-clipboard.png"
+  },
+  {
+    "id": "img-11",
+    "src": "assets/images/about/about-11.png",
+    "alt": "Gallery image 11",
+    "aspectRatio": "wide",
+    "originalName": "123b7890-8a86-442e-8e75-3204fb5b27ab-clipboard.png"
+  },
+  {
+    "id": "img-12",
+    "src": "assets/images/about/about-12.png",
+    "alt": "Gallery image 12",
+    "aspectRatio": "wide",
+    "originalName": "16578143-3cec-4633-ae1e-eda1c46480e8-528d5d84-aa6f-4386-bc2b-4d348b4b5722-clipboard.png"
+  },
+  {
+    "id": "img-13",
+    "src": "assets/images/about/about-13.png",
+    "alt": "Gallery image 13",
+    "aspectRatio": "wide",
+    "originalName": "16fa0115-5b13-4f31-bcfa-5323c891ca81-c3a74e0a-0105-40a0-b7c9-65284dce2711-clipboard.png"
+  },
+  {
+    "id": "img-14",
+    "src": "assets/images/about/about-14.png",
+    "alt": "Gallery image 14",
+    "aspectRatio": "wide",
+    "originalName": "178c4abf-7764-4e06-9d54-de249a23eb1c-Screenshot 2026-07-28 at 12.38.55 AM.png"
+  },
+  {
+    "id": "img-15",
+    "src": "assets/images/about/about-15.png",
+    "alt": "Gallery image 15",
+    "aspectRatio": "wide",
+    "originalName": "188eeca2-cf01-40a9-9661-b23b849c888d-Screenshot 2026-07-29 at 6.54.44 PM.png"
+  },
+  {
+    "id": "img-16",
+    "src": "assets/images/about/about-16.png",
+    "alt": "Gallery image 16",
+    "aspectRatio": "wide",
+    "originalName": "198d0233-7287-414d-b14f-a37ccb90e8b2-clipboard.png"
+  },
+  {
+    "id": "img-17",
+    "src": "assets/images/about/about-17.png",
+    "alt": "Gallery image 17",
+    "aspectRatio": "wide",
+    "originalName": "1a5c95a5-c33e-47f3-97c4-86eb10bbd33d-8bdc875a-38d5-43fd-9208-c7e5e002dd17-clipboard.png"
+  },
+  {
+    "id": "img-18",
+    "src": "assets/images/about/about-18.png",
+    "alt": "Gallery image 18",
+    "aspectRatio": "wide",
+    "originalName": "1d94a6ed-a6e2-47a7-9168-fcb4461212c8-5ba8b42a-c498-4d0d-9d93-b1a4c312c9cf-clipboard.png"
+  },
+  {
+    "id": "img-19",
+    "src": "assets/images/about/about-19.png",
+    "alt": "Gallery image 19",
+    "aspectRatio": "tall",
+    "originalName": "1f71b0e0-9f93-4bfa-9d84-eb261d0b45b5-clipboard.png"
+  },
+  {
+    "id": "img-20",
+    "src": "assets/images/about/about-20.png",
+    "alt": "Gallery image 20",
+    "aspectRatio": "wide",
+    "originalName": "1f7a97f3-749c-4146-b3c8-ec5700578c51-Screenshot 2026-07-28 at 5.36.25 PM.png"
+  },
+  {
+    "id": "img-21",
+    "src": "assets/images/about/about-21.png",
+    "alt": "Gallery image 21",
+    "aspectRatio": "wide",
+    "originalName": "205c3840-d603-4ca2-b1a1-3263b2db8263-58b3fbbd-0b71-4b52-9b2e-3ccb46b553fe-clipboard.png"
+  },
+  {
+    "id": "img-22",
+    "src": "assets/images/about/about-22.png",
+    "alt": "Gallery image 22",
+    "aspectRatio": "wide",
+    "originalName": "221d4487-8c59-478a-aa2c-53d85367af04-clipboard.png"
+  },
+  {
+    "id": "img-23",
+    "src": "assets/images/about/about-23.png",
+    "alt": "Gallery image 23",
+    "aspectRatio": "tall",
+    "originalName": "2536970a-82ff-4790-9057-e49fe7b8ae21-95ff3b21-19d9-4135-b3e7-df9d6c5ea5fb-clipboard.png"
+  },
+  {
+    "id": "img-24",
+    "src": "assets/images/about/about-24.png",
+    "alt": "Gallery image 24",
+    "aspectRatio": "wide",
+    "originalName": "2643c785-2342-4491-b08d-de55fe819f63-605bc72b-7c1a-42ed-909c-0f4b80839137-clipboard.png"
+  },
+  {
+    "id": "img-25",
+    "src": "assets/images/about/about-25.png",
+    "alt": "Gallery image 25",
+    "aspectRatio": "wide",
+    "originalName": "2bf6175a-c1b8-4a2a-8e5b-d981ebcb0385-d11308ab-404e-4810-b71d-1a2f44729334-clipboard.png"
+  },
+  {
+    "id": "img-26",
+    "src": "assets/images/about/about-26.png",
+    "alt": "Gallery image 26",
+    "aspectRatio": "wide",
+    "originalName": "2e759a0d-f760-43ba-82c6-e5c240120574-Screenshot 2026-07-28 at 9.06.25 AM.png"
+  },
+  {
+    "id": "img-27",
+    "src": "assets/images/about/about-27.png",
+    "alt": "Gallery image 27",
+    "aspectRatio": "wide",
+    "originalName": "318ab2ea-4f2b-44d8-975d-685e1583db76-clipboard.png"
+  },
+  {
+    "id": "img-28",
+    "src": "assets/images/about/about-28.png",
+    "alt": "Gallery image 28",
+    "aspectRatio": "wide",
+    "originalName": "3b014f2c-9012-4a31-9d52-b6aefdf2aea9-ab6decf3-5da1-4645-81ee-23bb07127550-clipboard.png"
+  },
+  {
+    "id": "img-29",
+    "src": "assets/images/about/about-29.png",
+    "alt": "Gallery image 29",
+    "aspectRatio": "tall",
+    "originalName": "3c52de9f-4da2-4a1f-af29-d33216faaa1c-72b596e7-0616-47fc-ba82-a480f83dec1c-clipboard.png"
+  },
+  {
+    "id": "img-30",
+    "src": "assets/images/about/about-30.png",
+    "alt": "Gallery image 30",
+    "aspectRatio": "tall",
+    "originalName": "3c773c40-6ac0-4f26-938a-77770c14f844-b111f4e9-7a87-4652-a95e-dc8df4b6297d-clipboard.png"
+  },
+  {
+    "id": "img-31",
+    "src": "assets/images/about/about-31.png",
+    "alt": "Gallery image 31",
+    "aspectRatio": "wide",
+    "originalName": "3e2b657c-d1de-4e13-8a50-f03c06a1b537-585d8c36-02d1-4333-a4cb-6937543928e0-clipboard.png"
+  },
+  {
+    "id": "img-32",
+    "src": "assets/images/about/about-32.png",
+    "alt": "Gallery image 32",
+    "aspectRatio": "wide",
+    "originalName": "401c1bb5-ac93-4995-9cce-6e4b169837c9-clipboard.png"
+  },
+  {
+    "id": "img-33",
+    "src": "assets/images/about/about-33.png",
+    "alt": "Gallery image 33",
+    "aspectRatio": "wide",
+    "originalName": "40280785-e01f-44a6-be01-601aee272b04-iMac Mockup Light.png"
+  },
+  {
+    "id": "img-34",
+    "src": "assets/images/about/about-34.png",
+    "alt": "Gallery image 34",
+    "aspectRatio": "wide",
+    "originalName": "42f4b0fb-b19f-45de-8e32-a8cdb44e2055-8a153ed7-2767-499d-a2c5-a92846809ac4-clipboard.png"
+  },
+  {
+    "id": "img-35",
+    "src": "assets/images/about/about-35.png",
+    "alt": "Gallery image 35",
+    "aspectRatio": "tall",
+    "originalName": "4345b86b-f6ad-463d-b96e-3de3dce2af28-clipboard.png"
+  },
+  {
+    "id": "img-36",
+    "src": "assets/images/about/about-36.png",
+    "alt": "Gallery image 36",
+    "aspectRatio": "tall",
+    "originalName": "45403f32-6d81-47a0-8387-d5ca5bd46e14-clipboard.png"
+  },
+  {
+    "id": "img-37",
+    "src": "assets/images/about/about-37.png",
+    "alt": "Gallery image 37",
+    "aspectRatio": "wide",
+    "originalName": "485fc185-4df8-41ee-b4f5-e81d09e9a0bd-clipboard.png"
+  },
+  {
+    "id": "img-38",
+    "src": "assets/images/about/about-38.png",
+    "alt": "Gallery image 38",
+    "aspectRatio": "tall",
+    "originalName": "493684c4-0714-40b2-95b1-df6fa9256c7b-clipboard.png"
+  },
+  {
+    "id": "img-39",
+    "src": "assets/images/about/about-39.png",
+    "alt": "Gallery image 39",
+    "aspectRatio": "wide",
+    "originalName": "4979c8e1-3528-46b1-9a2b-ec8095b1b56f-Screenshot 2026-07-28 at 10.30.55 PM.png"
+  },
+  {
+    "id": "img-40",
+    "src": "assets/images/about/about-40.png",
+    "alt": "Gallery image 40",
+    "aspectRatio": "tall",
+    "originalName": "4ba2ff03-d193-48de-a209-a0f387cebe1f-aa91c726-84e4-4c73-ab5a-3eb43f27216a-clipboard.png"
+  },
+  {
+    "id": "img-41",
+    "src": "assets/images/about/about-41.png",
+    "alt": "Gallery image 41",
+    "aspectRatio": "wide",
+    "originalName": "4d3089db-aa6f-4b35-ba55-576cbb067007-Screenshot 2026-07-28 at 4.19.36 PM.png"
+  },
+  {
+    "id": "img-42",
+    "src": "assets/images/about/about-42.png",
+    "alt": "Gallery image 42",
+    "aspectRatio": "wide",
+    "originalName": "4d4e25ff-8642-4326-a2b0-224b6c280410-add0db52-74a4-47dc-b00d-5f0e98b40559-clipboard.png"
+  },
+  {
+    "id": "img-43",
+    "src": "assets/images/about/about-43.png",
+    "alt": "Gallery image 43",
+    "aspectRatio": "wide",
+    "originalName": "4ec07c56-1249-440f-ae18-2a13933188b8-ac96ecaa-af0a-4b8b-9859-c3e45e6a973f-clipboard.png"
+  },
+  {
+    "id": "img-44",
+    "src": "assets/images/about/about-44.png",
+    "alt": "Gallery image 44",
+    "aspectRatio": "wide",
+    "originalName": "4f41981b-cf03-46f4-b17f-57d49a4a6cdb-clipboard.png"
+  },
+  {
+    "id": "img-45",
+    "src": "assets/images/about/about-45.png",
+    "alt": "Gallery image 45",
+    "aspectRatio": "wide",
+    "originalName": "50e28d95-7338-4280-b7ff-13b153d4b644-clipboard.png"
+  },
+  {
+    "id": "img-46",
+    "src": "assets/images/about/about-46.png",
+    "alt": "Gallery image 46",
+    "aspectRatio": "wide",
+    "originalName": "51657342-f486-4e65-b61a-e9c62a0acafe-8b12956f-61ce-4a6d-92e3-9b9b108e5775-clipboard.png"
+  },
+  {
+    "id": "img-47",
+    "src": "assets/images/about/about-47.png",
+    "alt": "Gallery image 47",
+    "aspectRatio": "wide",
+    "originalName": "528d5d84-aa6f-4386-bc2b-4d348b4b5722-clipboard.png"
+  },
+  {
+    "id": "img-48",
+    "src": "assets/images/about/about-48.png",
+    "alt": "Gallery image 48",
+    "aspectRatio": "wide",
+    "originalName": "52af40d8-15fd-46a8-8e63-75090d138be2-7be1835e-2045-46e9-98c0-cd27376bf9d1-clipboard.png"
+  },
+  {
+    "id": "img-49",
+    "src": "assets/images/about/about-49.png",
+    "alt": "Gallery image 49",
+    "aspectRatio": "wide",
+    "originalName": "53d5db12-ddaf-4b2a-a8dc-7225ef44aff0-Screenshot 2026-07-30 at 12.17.10 AM.png"
+  },
+  {
+    "id": "img-50",
+    "src": "assets/images/about/about-50.png",
+    "alt": "Gallery image 50",
+    "aspectRatio": "wide",
+    "originalName": "55b1bb1f-ffe4-430b-a72f-e32b2a6b89c6-clipboard.png"
+  },
+  {
+    "id": "img-51",
+    "src": "assets/images/about/about-51.png",
+    "alt": "Gallery image 51",
+    "aspectRatio": "wide",
+    "originalName": "574fc9b0-17ef-48ff-b0a4-7b0a56f00682-Screenshot 2026-07-28 at 1.53.15 AM.png"
+  },
+  {
+    "id": "img-52",
+    "src": "assets/images/about/about-52.png",
+    "alt": "Gallery image 52",
+    "aspectRatio": "wide",
+    "originalName": "585d8c36-02d1-4333-a4cb-6937543928e0-clipboard.png"
+  },
+  {
+    "id": "img-53",
+    "src": "assets/images/about/about-53.png",
+    "alt": "Gallery image 53",
+    "aspectRatio": "wide",
+    "originalName": "58b3fbbd-0b71-4b52-9b2e-3ccb46b553fe-clipboard.png"
+  },
+  {
+    "id": "img-54",
+    "src": "assets/images/about/about-54.png",
+    "alt": "Gallery image 54",
+    "aspectRatio": "wide",
+    "originalName": "591ab22e-2242-4bdd-a95f-a394cb047c6b-Screenshot 2026-07-30 at 12.11.50 AM.png"
+  },
+  {
+    "id": "img-55",
+    "src": "assets/images/about/about-55.png",
+    "alt": "Gallery image 55",
+    "aspectRatio": "wide",
+    "originalName": "5a3918c3-6581-408b-83e8-a4e7112ee2d8-Screenshot 2026-07-28 at 5.35.28 PM.png"
+  },
+  {
+    "id": "img-56",
+    "src": "assets/images/about/about-56.png",
+    "alt": "Gallery image 56",
+    "aspectRatio": "wide",
+    "originalName": "5a7d996e-cb5a-47a9-a42a-c7f757a28157-clipboard.png"
+  },
+  {
+    "id": "img-57",
+    "src": "assets/images/about/about-57.png",
+    "alt": "Gallery image 57",
+    "aspectRatio": "wide",
+    "originalName": "5aa3ad07-3b91-4d2f-9b2c-99bca88a0669-clipboard.png"
+  },
+  {
+    "id": "img-58",
+    "src": "assets/images/about/about-58.png",
+    "alt": "Gallery image 58",
+    "aspectRatio": "wide",
+    "originalName": "5ba8b42a-c498-4d0d-9d93-b1a4c312c9cf-clipboard.png"
+  },
+  {
+    "id": "img-59",
+    "src": "assets/images/about/about-59.png",
+    "alt": "Gallery image 59",
+    "aspectRatio": "wide",
+    "originalName": "5c7f15ed-8de4-4d2b-a992-ae1de9ffcbab-acf525a9-4121-4220-89ac-a64ad43fcd07-clipboard.png"
+  },
+  {
+    "id": "img-60",
+    "src": "assets/images/about/about-60.png",
+    "alt": "Gallery image 60",
+    "aspectRatio": "wide",
+    "originalName": "5cf81ea1-5c54-4cb6-a83c-498b8930a629-clipboard.png"
+  },
+  {
+    "id": "img-61",
+    "src": "assets/images/about/about-61.png",
+    "alt": "Gallery image 61",
+    "aspectRatio": "tall",
+    "originalName": "5fca3295-1a0d-4697-8d53-4d7cb7e8c919-ed8c23b4-4097-43e5-a5dc-805ac27b7c0c-clipboard.png"
+  },
+  {
+    "id": "img-62",
+    "src": "assets/images/about/about-62.png",
+    "alt": "Gallery image 62",
+    "aspectRatio": "wide",
+    "originalName": "605bc72b-7c1a-42ed-909c-0f4b80839137-clipboard.png"
+  },
+  {
+    "id": "img-63",
+    "src": "assets/images/about/about-63.png",
+    "alt": "Gallery image 63",
+    "aspectRatio": "square",
+    "originalName": "61dcffef-b0ff-4ecb-937f-0c5a8d28f84b-clipboard.png"
+  },
+  {
+    "id": "img-64",
+    "src": "assets/images/about/about-64.png",
+    "alt": "Graduation 2023 - Receiving Awards with Parents",
+    "aspectRatio": "tall",
+    "originalName": "62954bb5-d9dd-482b-8cc2-f6521f57eadd-b640ced3-f63e-44fb-9895-647271a869bb-clipboard.png"
+  },
+  {
+    "id": "img-65",
+    "src": "assets/images/about/about-65.png",
+    "alt": "Gallery image 65",
+    "aspectRatio": "wide",
+    "originalName": "64451f03-8fd1-48f7-a4e9-312b2a2b2e74-6ab1f309-902d-4c98-9997-b3490d34b720-clipboard.png"
+  },
+  {
+    "id": "img-66",
+    "src": "assets/images/about/about-66.png",
+    "alt": "Gallery image 66",
+    "aspectRatio": "wide",
+    "originalName": "68824d6d-d380-439d-ba17-79ff47bbe3fa-6d3ddb1a-5d79-40e9-8220-68eb6b36a3ab-clipboard.png"
+  },
+  {
+    "id": "img-67",
+    "src": "assets/images/about/about-67.png",
+    "alt": "Gallery image 67",
+    "aspectRatio": "tall",
+    "originalName": "68b1efb3-ba6d-42e7-ad69-ea36c24303a1-1f71b0e0-9f93-4bfa-9d84-eb261d0b45b5-clipboard.png"
+  },
+  {
+    "id": "img-68",
+    "src": "assets/images/about/about-68.png",
+    "alt": "Gallery image 68",
+    "aspectRatio": "tall",
+    "originalName": "68c8c21a-7321-450a-a8b6-aad0c4dcdf08-e0663be2-2e98-4068-897e-b29fd92e1f68-clipboard.png"
+  },
+  {
+    "id": "img-69",
+    "src": "assets/images/about/about-69.png",
+    "alt": "Gallery image 69",
+    "aspectRatio": "wide",
+    "originalName": "6ab1f309-902d-4c98-9997-b3490d34b720-clipboard.png"
+  },
+  {
+    "id": "img-70",
+    "src": "assets/images/about/about-70.png",
+    "alt": "Gallery image 70",
+    "aspectRatio": "wide",
+    "originalName": "6d3ddb1a-5d79-40e9-8220-68eb6b36a3ab-clipboard.png"
+  },
+  {
+    "id": "img-71",
+    "src": "assets/images/about/about-71.png",
+    "alt": "Gallery image 71",
+    "aspectRatio": "wide",
+    "originalName": "6f4474b1-2ec8-4a37-9c84-3352819e78ef-clipboard.png"
+  },
+  {
+    "id": "img-72",
+    "src": "assets/images/about/about-72.png",
+    "alt": "Gallery image 72",
+    "aspectRatio": "square",
+    "originalName": "6fd54145-c515-4357-aadb-1973f743acf7-0e3563a4-ba4f-4f0e-8958-86129a56f17d-clipboard.png"
+  },
+  {
+    "id": "img-73",
+    "src": "assets/images/about/about-73.png",
+    "alt": "Gallery image 73",
+    "aspectRatio": "square",
+    "originalName": "71d452d6-f83f-43fe-9296-2aa038209aed-clipboard.png"
+  },
+  {
+    "id": "img-74",
+    "src": "assets/images/about/about-74.png",
+    "alt": "Gallery image 74",
+    "aspectRatio": "tall",
+    "originalName": "72b596e7-0616-47fc-ba82-a480f83dec1c-clipboard.png"
+  },
+  {
+    "id": "img-75",
+    "src": "assets/images/about/about-75.png",
+    "alt": "Gallery image 75",
+    "aspectRatio": "wide",
+    "originalName": "73b31be5-00f3-43ac-92a2-454fe69e9495-Screenshot 2026-07-29 at 11.15.31 AM.png"
+  },
+  {
+    "id": "img-76",
+    "src": "assets/images/about/about-76.png",
+    "alt": "Gallery image 76",
+    "aspectRatio": "tall",
+    "originalName": "76937eed-d971-4fbf-8449-9e6e5e281ae7-clipboard.png"
+  },
+  {
+    "id": "img-77",
+    "src": "assets/images/about/about-77.png",
+    "alt": "Gallery image 77",
+    "aspectRatio": "wide",
+    "originalName": "76e6dcb4-0e1d-4e22-bbac-eaea883fd7bb-clipboard.png"
+  },
+  {
+    "id": "img-78",
+    "src": "assets/images/about/about-78.png",
+    "alt": "Gallery image 78",
+    "aspectRatio": "wide",
+    "originalName": "77e578f8-15c9-41ad-9cb7-917a894b12a8-Screenshot 2026-07-28 at 10.16.47 AM.png"
+  },
+  {
+    "id": "img-79",
+    "src": "assets/images/about/about-79.png",
+    "alt": "Gallery image 79",
+    "aspectRatio": "wide",
+    "originalName": "78d834fa-d9bc-4fe1-90c1-1f7230873f7f-Screenshot 2026-07-30 at 12.14.32 AM.png"
+  },
+  {
+    "id": "img-80",
+    "src": "assets/images/about/about-80.png",
+    "alt": "Gallery image 80",
+    "aspectRatio": "wide",
+    "originalName": "79fdb6cf-2732-487d-bdbf-11082932d8ff-cfcad91f-6a2e-4000-b30b-23007c4c38b7-clipboard.png"
+  },
+  {
+    "id": "img-81",
+    "src": "assets/images/about/about-81.png",
+    "alt": "Gallery image 81",
+    "aspectRatio": "wide",
+    "originalName": "7be1835e-2045-46e9-98c0-cd27376bf9d1-clipboard.png"
+  },
+  {
+    "id": "img-82",
+    "src": "assets/images/about/about-82.png",
+    "alt": "Gallery image 82",
+    "aspectRatio": "wide",
+    "originalName": "7becd58f-c634-4053-95aa-01f0311582c1-401c1bb5-ac93-4995-9cce-6e4b169837c9-clipboard.png"
+  },
+  {
+    "id": "img-83",
+    "src": "assets/images/about/about-83.png",
+    "alt": "Gallery image 83",
+    "aspectRatio": "wide",
+    "originalName": "7fab339f-6064-4aa2-aedc-78fc1ae59331-862687c4-de30-4bee-b350-9fc90cd0cfff-clipboard.png"
+  },
+  {
+    "id": "img-84",
+    "src": "assets/images/about/about-84.png",
+    "alt": "Gallery image 84",
+    "aspectRatio": "wide",
+    "originalName": "813e8528-bac7-49ba-9b58-2796a411b705-6f4474b1-2ec8-4a37-9c84-3352819e78ef-clipboard.png"
+  },
+  {
+    "id": "img-85",
+    "src": "assets/images/about/about-85.png",
+    "alt": "Gallery image 85",
+    "aspectRatio": "wide",
+    "originalName": "81cebf79-17ea-411e-ae4e-ff5d6623b070-86591b92-df0e-493f-a922-b026926d031b-clipboard.png"
+  },
+  {
+    "id": "img-86",
+    "src": "assets/images/about/about-86.png",
+    "alt": "Gallery image 86",
+    "aspectRatio": "wide",
+    "originalName": "826ecc9d-d968-4e9a-b332-7a41f4a01065-198d0233-7287-414d-b14f-a37ccb90e8b2-clipboard.png"
+  },
+  {
+    "id": "img-87",
+    "src": "assets/images/about/about-87.png",
+    "alt": "Gallery image 87",
+    "aspectRatio": "wide",
+    "originalName": "850ffd78-cb54-467c-a429-088819b7d59e-904afbf8-29c0-4693-b4eb-7f36df122bd7-clipboard.png"
+  },
+  {
+    "id": "img-88",
+    "src": "assets/images/about/about-88.png",
+    "alt": "Gallery image 88",
+    "aspectRatio": "wide",
+    "originalName": "862687c4-de30-4bee-b350-9fc90cd0cfff-clipboard.png"
+  },
+  {
+    "id": "img-89",
+    "src": "assets/images/about/about-89.png",
+    "alt": "Gallery image 89",
+    "aspectRatio": "wide",
+    "originalName": "86591b92-df0e-493f-a922-b026926d031b-clipboard.png"
+  },
+  {
+    "id": "img-90",
+    "src": "assets/images/about/about-90.png",
+    "alt": "Gallery image 90",
+    "aspectRatio": "tall",
+    "originalName": "86adea73-2a17-428f-910b-40b09b684217-d2b3a3ad-d523-4429-927d-3f10ae47a672-clipboard.png"
+  },
+  {
+    "id": "img-91",
+    "src": "assets/images/about/about-91.png",
+    "alt": "Gallery image 91",
+    "aspectRatio": "wide",
+    "originalName": "88b9ee14-4bfb-48e1-8bf8-5594eee6adfa-clipboard.png"
+  },
+  {
+    "id": "img-92",
+    "src": "assets/images/about/about-92.png",
+    "alt": "Gallery image 92",
+    "aspectRatio": "wide",
+    "originalName": "8a153ed7-2767-499d-a2c5-a92846809ac4-clipboard.png"
+  },
+  {
+    "id": "img-93",
+    "src": "assets/images/about/about-93.png",
+    "alt": "Gallery image 93",
+    "aspectRatio": "wide",
+    "originalName": "8b12956f-61ce-4a6d-92e3-9b9b108e5775-clipboard.png"
+  },
+  {
+    "id": "img-94",
+    "src": "assets/images/about/about-94.png",
+    "alt": "Gallery image 94",
+    "aspectRatio": "square",
+    "originalName": "8b6be108-2d5e-4fe6-bf06-930145779ff9-61dcffef-b0ff-4ecb-937f-0c5a8d28f84b-clipboard.png"
+  },
+  {
+    "id": "img-95",
+    "src": "assets/images/about/about-95.png",
+    "alt": "Gallery image 95",
+    "aspectRatio": "wide",
+    "originalName": "8bdc875a-38d5-43fd-9208-c7e5e002dd17-clipboard.png"
+  },
+  {
+    "id": "img-96",
+    "src": "assets/images/about/about-96.png",
+    "alt": "Gallery image 96",
+    "aspectRatio": "wide",
+    "originalName": "8cb9f7a6-9de5-4feb-8d49-b813b9fa9e8d-a25e3849-611c-40ba-b546-cadc43d6ffb3-clipboard.png"
+  },
+  {
+    "id": "img-97",
+    "src": "assets/images/about/about-97.png",
+    "alt": "Gallery image 97",
+    "aspectRatio": "wide",
+    "originalName": "904afbf8-29c0-4693-b4eb-7f36df122bd7-clipboard.png"
+  },
+  {
+    "id": "img-98",
+    "src": "assets/images/about/about-98.png",
+    "alt": "Gallery image 98",
+    "aspectRatio": "wide",
+    "originalName": "9432555c-0d07-4581-bac4-8081660203cc-ed8ab43f-e1ca-4890-b572-37281281a327-clipboard.png"
+  },
+  {
+    "id": "img-99",
+    "src": "assets/images/about/about-99.png",
+    "alt": "Gallery image 99",
+    "aspectRatio": "tall",
+    "originalName": "9507da97-91ea-4a4b-b1f7-cf5fde3aab43-493684c4-0714-40b2-95b1-df6fa9256c7b-clipboard.png"
+  },
+  {
+    "id": "img-100",
+    "src": "assets/images/about/about-100.png",
+    "alt": "Gallery image 100",
+    "aspectRatio": "tall",
+    "originalName": "95ff3b21-19d9-4135-b3e7-df9d6c5ea5fb-clipboard.png"
+  },
+  {
+    "id": "img-101",
+    "src": "assets/images/about/about-101.png",
+    "alt": "Gallery image 101",
+    "aspectRatio": "wide",
+    "originalName": "960b171f-4364-43c2-b234-683197507c4a-88b9ee14-4bfb-48e1-8bf8-5594eee6adfa-clipboard.png"
+  },
+  {
+    "id": "img-102",
+    "src": "assets/images/about/about-102.png",
+    "alt": "Gallery image 102",
+    "aspectRatio": "tall",
+    "originalName": "964d3d40-35a1-4169-9173-b1258f0859f2-45403f32-6d81-47a0-8387-d5ca5bd46e14-clipboard.png"
+  },
+  {
+    "id": "img-103",
+    "src": "assets/images/about/about-103.png",
+    "alt": "Gallery image 103",
+    "aspectRatio": "tall",
+    "originalName": "9b20450d-bc09-4b04-a6dc-c1ca162eb152-4345b86b-f6ad-463d-b96e-3de3dce2af28-clipboard.png"
+  },
+  {
+    "id": "img-104",
+    "src": "assets/images/about/about-104.png",
+    "alt": "Gallery image 104",
+    "aspectRatio": "wide",
+    "originalName": "9b98eeb1-9b30-4290-98c9-d514d0f6491a-clipboard.png"
+  },
+  {
+    "id": "img-105",
+    "src": "assets/images/about/about-105.png",
+    "alt": "Gallery image 105",
+    "aspectRatio": "wide",
+    "originalName": "9e38bdd5-cd37-4951-9f1c-e5bf08ac7658-clipboard.png"
+  },
+  {
+    "id": "img-106",
+    "src": "assets/images/about/about-106.png",
+    "alt": "Gallery image 106",
+    "aspectRatio": "wide",
+    "originalName": "9ebb2807-baff-481c-b9ff-b0e44d81bbc3-fb166858-cca9-4b22-bca1-a721c9c2ccd4-clipboard.png"
+  },
+  {
+    "id": "img-107",
+    "src": "assets/images/about/about-107.png",
+    "alt": "Gallery image 107",
+    "aspectRatio": "wide",
+    "originalName": "9f1d8bcb-2c50-41fd-946e-206592421b03-55b1bb1f-ffe4-430b-a72f-e32b2a6b89c6-clipboard.png"
+  },
+  {
+    "id": "img-108",
+    "src": "assets/images/about/about-108.png",
+    "alt": "Gallery image 108",
+    "aspectRatio": "wide",
+    "originalName": "9f5f1a6d-4540-49a2-a347-ada11a45a7cf-clipboard.png"
+  },
+  {
+    "id": "img-109",
+    "src": "assets/images/about/about-109.png",
+    "alt": "Gallery image 109",
+    "aspectRatio": "wide",
+    "originalName": "a03990e0-5d0f-43cf-bca4-24e7b3606eee-9b98eeb1-9b30-4290-98c9-d514d0f6491a-clipboard.png"
+  },
+  {
+    "id": "img-110",
+    "src": "assets/images/about/about-110.png",
+    "alt": "Gallery image 110",
+    "aspectRatio": "wide",
+    "originalName": "a1894f15-60d8-4045-8dfc-5cea5eae2fd7-clipboard.png"
+  },
+  {
+    "id": "img-111",
+    "src": "assets/images/about/about-111.png",
+    "alt": "Gallery image 111",
+    "aspectRatio": "wide",
+    "originalName": "a1d28ec9-b176-4fb9-95a2-836b08b94d1d-Screenshot 2026-07-27 at 9.24.33 PM.png"
+  },
+  {
+    "id": "img-112",
+    "src": "assets/images/about/about-112.png",
+    "alt": "Gallery image 112",
+    "aspectRatio": "wide",
+    "originalName": "a25e3849-611c-40ba-b546-cadc43d6ffb3-clipboard.png"
+  },
+  {
+    "id": "img-113",
+    "src": "assets/images/about/about-113.png",
+    "alt": "Gallery image 113",
+    "aspectRatio": "wide",
+    "originalName": "a3053d7a-d32d-49b1-bc30-aeb5d27cb8f3-a1894f15-60d8-4045-8dfc-5cea5eae2fd7-clipboard.png"
+  },
+  {
+    "id": "img-114",
+    "src": "assets/images/about/about-114.png",
+    "alt": "Gallery image 114",
+    "aspectRatio": "tall",
+    "originalName": "a3056d22-e208-4c20-9f6a-fa03d57caec0-bfadc45b-822a-4f3a-a5f8-7e5e10320731-clipboard.png"
+  },
+  {
+    "id": "img-115",
+    "src": "assets/images/about/about-115.png",
+    "alt": "Gallery image 115",
+    "aspectRatio": "wide",
+    "originalName": "a5af0f03-88c9-4c1e-8f68-11549fd6a044-d01e2065-2d1c-4d36-9a5b-78b477fa3c93-clipboard.png"
+  },
+  {
+    "id": "img-116",
+    "src": "assets/images/about/about-116.png",
+    "alt": "Gallery image 116",
+    "aspectRatio": "wide",
+    "originalName": "a864adfd-620a-4523-8ed2-8bea07814f58-Screenshot 2026-07-30 at 12.07.52 AM.png"
+  },
+  {
+    "id": "img-117",
+    "src": "assets/images/about/about-117.png",
+    "alt": "Gallery image 117",
+    "aspectRatio": "wide",
+    "originalName": "a92a5cc2-fc0c-4566-83a8-eed1817722a8-50e28d95-7338-4280-b7ff-13b153d4b644-clipboard.png"
+  },
+  {
+    "id": "img-118",
+    "src": "assets/images/about/about-118.png",
+    "alt": "Gallery image 118",
+    "aspectRatio": "wide",
+    "originalName": "aa58886e-707f-4edc-ad99-ff030d5b1c65-f99d314c-7c69-4475-94ba-c07e5e286d85-clipboard.png"
+  },
+  {
+    "id": "img-119",
+    "src": "assets/images/about/about-119.png",
+    "alt": "Gallery image 119",
+    "aspectRatio": "wide",
+    "originalName": "aa5fd270-db8a-4635-b771-067c6439ec7f-485fc185-4df8-41ee-b4f5-e81d09e9a0bd-clipboard.png"
+  },
+  {
+    "id": "img-120",
+    "src": "assets/images/about/about-120.png",
+    "alt": "Gallery image 120",
+    "aspectRatio": "tall",
+    "originalName": "aa91c726-84e4-4c73-ab5a-3eb43f27216a-clipboard.png"
+  },
+  {
+    "id": "img-121",
+    "src": "assets/images/about/about-121.png",
+    "alt": "Gallery image 121",
+    "aspectRatio": "wide",
+    "originalName": "ab6decf3-5da1-4645-81ee-23bb07127550-clipboard.png"
+  },
+  {
+    "id": "img-122",
+    "src": "assets/images/about/about-122.png",
+    "alt": "Gallery image 122",
+    "aspectRatio": "wide",
+    "originalName": "ac96ecaa-af0a-4b8b-9859-c3e45e6a973f-clipboard.png"
+  },
+  {
+    "id": "img-123",
+    "src": "assets/images/about/about-123.png",
+    "alt": "Gallery image 123",
+    "aspectRatio": "wide",
+    "originalName": "acf525a9-4121-4220-89ac-a64ad43fcd07-clipboard.png"
+  },
+  {
+    "id": "img-124",
+    "src": "assets/images/about/about-124.png",
+    "alt": "Gallery image 124",
+    "aspectRatio": "wide",
+    "originalName": "add0db52-74a4-47dc-b00d-5f0e98b40559-clipboard.png"
+  },
+  {
+    "id": "img-125",
+    "src": "assets/images/about/about-125.png",
+    "alt": "Gallery image 125",
+    "aspectRatio": "wide",
+    "originalName": "adfafefb-2740-405d-b836-d44311d8d2d4-clipboard.png"
+  },
+  {
+    "id": "img-126",
+    "src": "assets/images/about/about-126.png",
+    "alt": "Gallery image 126",
+    "aspectRatio": "wide",
+    "originalName": "af42986a-4242-4ba7-aee1-970cdd09edc8-e15c7fe8-335b-493e-a3e3-2be3defa3c89-clipboard.png"
+  },
+  {
+    "id": "img-127",
+    "src": "assets/images/about/about-127.png",
+    "alt": "Gallery image 127",
+    "aspectRatio": "wide",
+    "originalName": "afa224a9-3df9-4ef0-9807-716318958e50-5aa3ad07-3b91-4d2f-9b2c-99bca88a0669-clipboard.png"
+  },
+  {
+    "id": "img-128",
+    "src": "assets/images/about/about-128.png",
+    "alt": "Gallery image 128",
+    "aspectRatio": "tall",
+    "originalName": "b111f4e9-7a87-4652-a95e-dc8df4b6297d-clipboard.png"
+  },
+  {
+    "id": "img-129",
+    "src": "assets/images/about/about-129.png",
+    "alt": "Gallery image 129",
+    "aspectRatio": "wide",
+    "originalName": "b5f7b52f-b1f5-4064-8f47-e9898b2c6b96-9f5f1a6d-4540-49a2-a347-ada11a45a7cf-clipboard.png"
+  },
+  {
+    "id": "img-130",
+    "src": "assets/images/about/about-130.png",
+    "alt": "Gallery image 130",
+    "aspectRatio": "tall",
+    "originalName": "b640ced3-f63e-44fb-9895-647271a869bb-clipboard.png"
+  },
+  {
+    "id": "img-131",
+    "src": "assets/images/about/about-131.png",
+    "alt": "Gallery image 131",
+    "aspectRatio": "tall",
+    "originalName": "bfadc45b-822a-4f3a-a5f8-7e5e10320731-clipboard.png"
+  },
+  {
+    "id": "img-132",
+    "src": "assets/images/about/about-132.png",
+    "alt": "Gallery image 132",
+    "aspectRatio": "tall",
+    "originalName": "c090ba98-b7a7-48c8-b493-35ecf6a7c22d-clipboard.png"
+  },
+  {
+    "id": "img-133",
+    "src": "assets/images/about/about-133.png",
+    "alt": "Gallery image 133",
+    "aspectRatio": "tall",
+    "originalName": "c0a52c51-61a4-4817-a678-6f97958912a1-Screenshot 2026-07-29 at 10.35.52 AM.png"
+  },
+  {
+    "id": "img-134",
+    "src": "assets/images/about/about-134.png",
+    "alt": "Gallery image 134",
+    "aspectRatio": "wide",
+    "originalName": "c198612a-df5f-47f8-80fe-57076b4da2b9-Screenshot 2026-07-30 at 2.12.48 PM.png"
+  },
+  {
+    "id": "img-135",
+    "src": "assets/images/about/about-135.png",
+    "alt": "Gallery image 135",
+    "aspectRatio": "wide",
+    "originalName": "c3a74e0a-0105-40a0-b7c9-65284dce2711-clipboard.png"
+  },
+  {
+    "id": "img-136",
+    "src": "assets/images/about/about-136.png",
+    "alt": "Gallery image 136",
+    "aspectRatio": "wide",
+    "originalName": "c61737c8-ba69-4560-8eb1-68e64aba4694-clipboard.png"
+  },
+  {
+    "id": "img-137",
+    "src": "assets/images/about/about-137.png",
+    "alt": "Gallery image 137",
+    "aspectRatio": "tall",
+    "originalName": "c661fcee-d1e7-471b-a68c-0532c4d1f697-Screenshot 2026-07-28 at 6.15.49 PM.png"
+  },
+  {
+    "id": "img-138",
+    "src": "assets/images/about/about-138.png",
+    "alt": "Gallery image 138",
+    "aspectRatio": "wide",
+    "originalName": "c77fe5a4-40d0-417c-b5d7-c25e28b457f4-c9e92fc4-0d7c-4262-ab7e-0b24dcf4ef64-clipboard.png"
+  },
+  {
+    "id": "img-139",
+    "src": "assets/images/about/about-139.png",
+    "alt": "Gallery image 139",
+    "aspectRatio": "wide",
+    "originalName": "c9e92fc4-0d7c-4262-ab7e-0b24dcf4ef64-clipboard.png"
+  },
+  {
+    "id": "img-140",
+    "src": "assets/images/about/about-140.png",
+    "alt": "Gallery image 140",
+    "aspectRatio": "wide",
+    "originalName": "cbb2b50a-aaff-4479-a4e7-7043240818a5-edd28b5d-7fea-4a0a-b720-1648c10ad0b4-clipboard.png"
+  },
+  {
+    "id": "img-141",
+    "src": "assets/images/about/about-141.png",
+    "alt": "Gallery image 141",
+    "aspectRatio": "wide",
+    "originalName": "cbd9780c-840b-4e17-b962-0334cd9bd572-clipboard.png"
+  },
+  {
+    "id": "img-142",
+    "src": "assets/images/about/about-142.png",
+    "alt": "Gallery image 142",
+    "aspectRatio": "tall",
+    "originalName": "cbe756ab-4384-4d89-8314-007451a71c7d-76937eed-d971-4fbf-8449-9e6e5e281ae7-clipboard.png"
+  },
+  {
+    "id": "img-143",
+    "src": "assets/images/about/about-143.png",
+    "alt": "Gallery image 143",
+    "aspectRatio": "wide",
+    "originalName": "cfcad91f-6a2e-4000-b30b-23007c4c38b7-clipboard.png"
+  },
+  {
+    "id": "img-144",
+    "src": "assets/images/about/about-144.png",
+    "alt": "Gallery image 144",
+    "aspectRatio": "wide",
+    "originalName": "d01e2065-2d1c-4d36-9a5b-78b477fa3c93-clipboard.png"
+  },
+  {
+    "id": "img-145",
+    "src": "assets/images/about/about-145.png",
+    "alt": "Gallery image 145",
+    "aspectRatio": "wide",
+    "originalName": "d11308ab-404e-4810-b71d-1a2f44729334-clipboard.png"
+  },
+  {
+    "id": "img-146",
+    "src": "assets/images/about/about-146.png",
+    "alt": "Gallery image 146",
+    "aspectRatio": "wide",
+    "originalName": "d227f74e-3fce-41af-a5a5-4a241a7c0ca4-0fa7bb86-ec11-444c-a1ad-81299798dedf-clipboard.png"
+  },
+  {
+    "id": "img-147",
+    "src": "assets/images/about/about-147.png",
+    "alt": "Gallery image 147",
+    "aspectRatio": "tall",
+    "originalName": "d2b3a3ad-d523-4429-927d-3f10ae47a672-clipboard.png"
+  },
+  {
+    "id": "img-148",
+    "src": "assets/images/about/about-148.png",
+    "alt": "Gallery image 148",
+    "aspectRatio": "wide",
+    "originalName": "d2cf665a-6bad-4198-b31e-a9f9731362fa-adfafefb-2740-405d-b836-d44311d8d2d4-clipboard.png"
+  },
+  {
+    "id": "img-149",
+    "src": "assets/images/about/about-149.png",
+    "alt": "Gallery image 149",
+    "aspectRatio": "square",
+    "originalName": "d45c5042-9d7c-4866-be7d-a3a40970da80-71d452d6-f83f-43fe-9296-2aa038209aed-clipboard.png"
+  },
+  {
+    "id": "img-150",
+    "src": "assets/images/about/about-150.png",
+    "alt": "Gallery image 150",
+    "aspectRatio": "wide",
+    "originalName": "dcf6c3bf-b5ab-4678-9fcb-26ff60e577f6-Screenshot 2026-07-28 at 10.18.56 AM.png"
+  },
+  {
+    "id": "img-151",
+    "src": "assets/images/about/about-151.png",
+    "alt": "Gallery image 151",
+    "aspectRatio": "tall",
+    "originalName": "e0663be2-2e98-4068-897e-b29fd92e1f68-clipboard.png"
+  },
+  {
+    "id": "img-152",
+    "src": "assets/images/about/about-152.png",
+    "alt": "Gallery image 152",
+    "aspectRatio": "wide",
+    "originalName": "e15c7fe8-335b-493e-a3e3-2be3defa3c89-clipboard.png"
+  },
+  {
+    "id": "img-153",
+    "src": "assets/images/about/about-153.png",
+    "alt": "Gallery image 153",
+    "aspectRatio": "wide",
+    "originalName": "e33c87f3-b4e2-485f-a193-18b1fb52dd22-221d4487-8c59-478a-aa2c-53d85367af04-clipboard.png"
+  },
+  {
+    "id": "img-154",
+    "src": "assets/images/about/about-154.png",
+    "alt": "Gallery image 154",
+    "aspectRatio": "wide",
+    "originalName": "e761f22e-ac16-4c3a-81bc-5a9a7755a2f3-9e38bdd5-cd37-4951-9f1c-e5bf08ac7658-clipboard.png"
+  },
+  {
+    "id": "img-155",
+    "src": "assets/images/about/about-155.png",
+    "alt": "Gallery image 155",
+    "aspectRatio": "wide",
+    "originalName": "e841d2b1-5761-40eb-98d4-389e6e379514-Screenshot 2026-07-28 at 7.43.04 AM.png"
+  },
+  {
+    "id": "img-156",
+    "src": "assets/images/about/about-156.png",
+    "alt": "Gallery image 156",
+    "aspectRatio": "wide",
+    "originalName": "ed8ab43f-e1ca-4890-b572-37281281a327-clipboard.png"
+  },
+  {
+    "id": "img-157",
+    "src": "assets/images/about/about-157.png",
+    "alt": "Gallery image 157",
+    "aspectRatio": "tall",
+    "originalName": "ed8c23b4-4097-43e5-a5dc-805ac27b7c0c-clipboard.png"
+  },
+  {
+    "id": "img-158",
+    "src": "assets/images/about/about-158.png",
+    "alt": "Gallery image 158",
+    "aspectRatio": "wide",
+    "originalName": "edd28b5d-7fea-4a0a-b720-1648c10ad0b4-clipboard.png"
+  },
+  {
+    "id": "img-159",
+    "src": "assets/images/about/about-159.png",
+    "alt": "Gallery image 159",
+    "aspectRatio": "wide",
+    "originalName": "ef27aadf-79bc-4080-9706-9f4a0649702a-123b7890-8a86-442e-8e75-3204fb5b27ab-clipboard.png"
+  },
+  {
+    "id": "img-160",
+    "src": "assets/images/about/about-160.png",
+    "alt": "Gallery image 160",
+    "aspectRatio": "wide",
+    "originalName": "f01576d4-a63e-4bba-8103-5b4ff58fb8ea-4f41981b-cf03-46f4-b17f-57d49a4a6cdb-clipboard.png"
+  },
+  {
+    "id": "img-161",
+    "src": "assets/images/about/about-161.png",
+    "alt": "Gallery image 161",
+    "aspectRatio": "wide",
+    "originalName": "f30cf07a-e1bd-45c4-9021-5395d0c47174-07f59969-06d3-42c0-90ba-1f663e59ee2c-clipboard.png"
+  },
+  {
+    "id": "img-162",
+    "src": "assets/images/about/about-162.png",
+    "alt": "Gallery image 162",
+    "aspectRatio": "wide",
+    "originalName": "f4177169-7f93-48e7-9736-c0ffea484567-318ab2ea-4f2b-44d8-975d-685e1583db76-clipboard.png"
+  },
+  {
+    "id": "img-163",
+    "src": "assets/images/about/about-163.png",
+    "alt": "Gallery image 163",
+    "aspectRatio": "wide",
+    "originalName": "f58433ad-b944-4cb4-8420-0414132de829-Screenshot 2026-07-30 at 12.23.49 AM.png"
+  },
+  {
+    "id": "img-164",
+    "src": "assets/images/about/about-164.png",
+    "alt": "Gallery image 164",
+    "aspectRatio": "wide",
+    "originalName": "f8647df8-14bd-4634-85ef-a6e1d1dde2ce-5cf81ea1-5c54-4cb6-a83c-498b8930a629-clipboard.png"
+  },
+  {
+    "id": "img-165",
+    "src": "assets/images/about/about-165.png",
+    "alt": "Gallery image 165",
+    "aspectRatio": "wide",
+    "originalName": "f99d314c-7c69-4475-94ba-c07e5e286d85-clipboard.png"
+  },
+  {
+    "id": "img-166",
+    "src": "assets/images/about/about-166.png",
+    "alt": "Gallery image 166",
+    "aspectRatio": "wide",
+    "originalName": "fb166858-cca9-4b22-bca1-a721c9c2ccd4-clipboard.png"
+  },
+  {
+    "id": "img-167",
+    "src": "assets/images/about/about-167.png",
+    "alt": "Gallery image 167",
+    "aspectRatio": "tall",
+    "originalName": "fc56eafa-4383-4c51-9b3c-cea3e6c69783-c090ba98-b7a7-48c8-b493-35ecf6a7c22d-clipboard.png"
+  }
+]
