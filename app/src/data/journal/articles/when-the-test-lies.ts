@@ -15,7 +15,7 @@ export const experimentation: Article = {
     },
     {
       type: "figure",
-      src: "/assets/journal/galton-box.jpg",
+      src: "/assets/journal/galton-box.webp",
       alt: "A Galton box, where balls dropped through rows of pegs collect in columns below to form a bell-shaped pile.",
       caption:
         "Drop a single ball through the pegs and you cannot say where it will land. Drop enough of them and the pile is a bell curve every time, which is the premise an A/B test quietly rests on. It is also the warning: the shape only appears once enough balls have fallen, so a test stopped early is just noise wearing the costume of a result.",

@@ -15,7 +15,7 @@ export const color: Article = {
     },
     {
       type: "figure",
-      src: "/assets/journal/munsell-tree.jpg",
+      src: "/assets/journal/munsell-tree.webp",
       alt: "Albert Munsell's three dimensional color tree, arranging painted chips by hue, lightness, and chroma on separate axes.",
       caption: "Munsell built this model in 1905 to make the point that color needs three separate axes, and that the steps between chips have to be perceptually even, not just mathematically even. He made it a physical object because a color space that looks wrong is wrong, and you can only check that with your eyes. That is the entire case for OKLCH over HSL: equal numbers are worthless unless they also look equally spaced.",
       credit: "Hannes Grobe, via Wikimedia Commons",

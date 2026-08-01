@@ -43,15 +43,15 @@ const MEDIA = {
     title: "Hero visual",
     caption: "A clearer way for developers to try Precisely location APIs before they build.",
     alt: "Precisely Developer Portal interface used as the hero visual for the case study",
-    src: "/assets/images/precisely-devportal/hero-visual.png",
-    darkSrc: "/assets/images/precisely-devportal/hero-visual-dark.png",
+    src: "/assets/images/precisely-devportal/hero-visual.webp",
+    darkSrc: "/assets/images/precisely-devportal/hero-visual-dark.webp",
     type: "image",
   },
   dataVisibility: {
     title: "Make the data visible",
     caption: "Datasets, categories, and availability appear before developers send a request.",
     alt: "Precisely Developer Portal Features page showing datasets, category tabs, and availability table",
-    src: "/assets/images/precisely-devportal/data-visibility-datasets.png",
+    src: "/assets/images/precisely-devportal/data-visibility-datasets.webp",
     type: "image",
   },
   realTryouts: {
@@ -94,14 +94,14 @@ const MEDIA = {
 const PLATFORM_SHIFT_SCREENS: MediaSlot[] = [
   {
     title: "Old portal",
-    src: "/assets/images/precisely-devportal/platform-old-portal.png",
+    src: "/assets/images/precisely-devportal/platform-old-portal.webp",
     alt: "Old Precisely APIs portal showing an Explore APIs grid",
     caption: "Old portal (https://developer.precisely.com/apis)",
     type: "image",
   },
   {
     title: "Cloud portal",
-    src: "/assets/images/precisely-devportal/platform-cloud-portal.png",
+    src: "/assets/images/precisely-devportal/platform-cloud-portal.webp",
     alt: "Cloud Precisely Developer Portal showing the Address Autocomplete demo",
     caption: "Cloud portal (https://developer.cloud.precisely.com/)",
     type: "image",
@@ -111,14 +111,14 @@ const PLATFORM_SHIFT_SCREENS: MediaSlot[] = [
 const DEMO_ILLUSION_SCREENS: MediaSlot[] = [
   {
     title: "Emergency Info API",
-    src: "/assets/images/precisely-devportal/demo-illusion-emergency-info.png",
+    src: "/assets/images/precisely-devportal/demo-illusion-emergency-info.webp",
     alt: "Emergency Info API old portal map demo",
     caption: "Emergency Info API (Old Portal)",
     type: "image",
   },
   {
     title: "Fixed inputs and disabled fields",
-    src: "/assets/images/precisely-devportal/demo-illusion-disabled-fields.png",
+    src: "/assets/images/precisely-devportal/demo-illusion-disabled-fields.webp",
     caption: "Fixed inputs, disabled fields",
     alt: "Emergency Info API old portal fixed input state",
     type: "image",

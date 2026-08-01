@@ -15,7 +15,7 @@ export const metrics: Article = {
     },
     {
       type: "figure",
-      src: "/assets/journal/spring-scale.jpg",
+      src: "/assets/journal/spring-scale.webp",
       alt: "A spring scale hanging from its hook, weighing a load by how far an internal spring stretches.",
       caption:
         "A spring scale does not measure weight at all. It measures how far a spring stretched, and we agree to read that as weight. It works right up until someone leans on the pan, and that gap between the signal and the thing you actually care about is exactly where Goodhart's law lives.",

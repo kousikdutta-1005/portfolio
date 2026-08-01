@@ -15,7 +15,7 @@ export const accessibility: Article = {
     },
     {
       type: "figure",
-      src: "/assets/journal/curb-cut.jpg",
+      src: "/assets/journal/curb-cut.webp",
       alt: "A long gentle pavement ramp leading down to a lowered kerb at a road, with a strip of bumpy tactile paving before the edge.",
       caption:
         "Built for wheelchairs, this ramp gets used every day by anyone with a suitcase, a pram or a delivery trolley. The bumpy strip is a second solve-for-one that helps people find the crossing. The whole article is in one photo.",

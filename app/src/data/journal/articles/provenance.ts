@@ -92,7 +92,7 @@ export const provenance: Article = {
     { type: "h2", text: "Three levels of attribution" },
     {
       type: "figure",
-      src: "/assets/journal/card-catalog.jpg",
+      src: "/assets/journal/card-catalog.webp",
       alt: "An open library card catalogue drawer packed with index cards. One card is raised to show a bibliographic reference, with coloured clips marking groups.",
       caption:
         "Before search engines, this was how you proved where a fact came from. Every card pointed at a real shelf. Good attribution does the same for an answer, and it is the part most AI still skips.",

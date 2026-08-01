@@ -445,8 +445,8 @@ export default function PortfolioCaseStudyPage() {
         <section className="pb-8">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <PortfolioImageFigure
-              src="/assets/images/portfolio-case-study/hero-visual.png"
-              darkSrc="/assets/images/portfolio-case-study/hero-visual-dark.png"
+              src="/assets/images/portfolio-case-study/hero-visual.webp"
+              darkSrc="/assets/images/portfolio-case-study/hero-visual-dark.webp"
               title="The homepage as a hiring surface"
               desc="The first screen sets the tone, then moves quickly into selected work so the portfolio starts proving the thinking instead of introducing it for too long."
               alt="Portfolio homepage shown inside an iMac frame with the headline Thinking becomes product."
@@ -507,7 +507,7 @@ export default function PortfolioCaseStudyPage() {
             <OpenGrid items={SYSTEM_DECISIONS} />
             <div className="mt-8">
               <PortfolioImageFigure
-                src="/assets/images/portfolio-case-study/selected-work-light.png"
+                src="/assets/images/portfolio-case-study/selected-work-light.webp"
                 title="The card system in light mode"
                 desc="The same selected-work grid holds its hierarchy in a brighter theme: product evidence first, context second, and proof kept quiet."
                 alt="Light mode selected work grid with portfolio project cards arranged in two columns."
@@ -562,7 +562,7 @@ export default function PortfolioCaseStudyPage() {
             <OpenGrid items={QUALITY} />
             <div className="mt-8">
               <PortfolioImageFigure
-                src="/assets/images/portfolio-case-study/selected-work-dark.png"
+                src="/assets/images/portfolio-case-study/selected-work-dark.webp"
                 title="The same system in dark mode"
                 desc="Dark mode uses stronger edge definition, quieter glow, and calmer surfaces so the cards still feel premium without becoming heavy."
                 alt="Dark mode selected work grid with product cards, glass surfaces, and compact proof text."

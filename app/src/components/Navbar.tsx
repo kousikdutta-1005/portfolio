@@ -52,12 +52,12 @@ export function Navbar() {
             <span className="brand-signature-mark">
               <span className="brand-signature-image">
                 <img
-                  src={assetPath("/assets/images/Mc2cHPK2FkFfFmWhv4umGYjMuw.png")}
+                  src={assetPath("/assets/images/Mc2cHPK2FkFfFmWhv4umGYjMuw.webp")}
                   alt=""
                   className="brand-signature-logo dark:hidden"
                 />
                 <img
-                  src={assetPath("/assets/images/QOXQB7tAox2fGvQW3EkxuXzBGLg.png")}
+                  src={assetPath("/assets/images/QOXQB7tAox2fGvQW3EkxuXzBGLg.webp")}
                   alt=""
                   className="brand-signature-logo hidden dark:block"
                 />

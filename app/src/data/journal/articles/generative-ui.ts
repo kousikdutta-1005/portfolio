@@ -33,7 +33,7 @@ export const generativeUi: Article = {
     { type: "h2", text: "From a drawn screen to a computed one" },
     {
       type: "figure",
-      src: "/assets/journal/type-case.jpg",
+      src: "/assets/journal/type-case.webp",
       alt: "An old printer's type case, a shallow wooden tray split into many small compartments, each holding pieces of metal type.",
       caption:
         "A printer could set any sentence ever written, but only from the letters in this box. A component registry is the same idea. A small set of parts, and endless arrangements.",

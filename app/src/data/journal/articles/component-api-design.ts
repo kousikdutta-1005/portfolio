@@ -15,7 +15,7 @@ export const componentApi: Article = {
     },
     {
       type: "figure",
-      src: "/assets/journal/thread-gauge.jpg",
+      src: "/assets/journal/thread-gauge.webp",
       alt: "A thread pitch gauge fanned open, its leaves cut to check Whitworth and metric screw threads.",
       caption:
         "In 1841 Joseph Whitworth proposed a standard screw thread because until then every workshop cut its own, and a bolt from one shop would not fit a nut from another. A gauge like this exists to check a part against the agreed interface. A component's props are that interface: get them right and anything fits, get them wrong and every team ends up cutting its own thread.",

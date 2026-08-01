@@ -15,7 +15,7 @@ export const motion: Article = {
     },
     {
       type: "figure",
-      src: "/assets/journal/horse-in-motion.jpg",
+      src: "/assets/journal/horse-in-motion.webp",
       alt: "A row of sequential 1878 photographs showing a horse and rider galloping, captured one frame at a time.",
       caption:
         "Muybridge's 1878 frames settled an argument nobody could win by eye: a galloping horse does lift all four hooves at once. Motion stopped being a matter of opinion and became something you could measure. That is the difference between a spring, which follows real physics, and a timed curve, which follows a number someone typed.",

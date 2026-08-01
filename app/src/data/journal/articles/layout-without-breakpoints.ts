@@ -15,7 +15,7 @@ export const layout: Article = {
     },
     {
       type: "figure",
-      src: "/assets/journal/tatami.jpg",
+      src: "/assets/journal/tatami.webp",
       alt: "A traditional Japanese room floored with tatami mats laid edge to edge in a regular grid.",
       caption: "This room is measured in mats, not centimetres, so a space is described as six mats and the module comes first. The content defines the size of the room instead of the room imposing a size on the content. That is intrinsic sizing: let the component state how much room it needs, rather than making it fit whatever width you guessed at.",
       credit: "Asturio Cantabrio, via Wikimedia Commons",

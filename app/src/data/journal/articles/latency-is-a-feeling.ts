@@ -15,7 +15,7 @@ export const latency: Article = {
     },
     {
       type: "figure",
-      src: "/assets/journal/ibm-3278.jpg",
+      src: "/assets/journal/ibm-3278.webp",
       alt: "An IBM 3278 terminal from the early 1980s, a boxy beige monitor showing green text on a black screen, with an attached keyboard.",
       caption: "The 400 millisecond Doherty Threshold was measured on machines like this one, in 1982. The hardware is museum furniture now and the number has not moved, because it was never about the hardware. It was about people.",
       credit: "Marcin Wichary from San Francisco, Calif., via Wikimedia Commons",

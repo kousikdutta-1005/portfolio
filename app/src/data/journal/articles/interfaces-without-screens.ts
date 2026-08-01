@@ -15,7 +15,7 @@ export const multimodal: Article = {
     },
     {
       type: "figure",
-      src: "/assets/journal/switchboard.jpg",
+      src: "/assets/journal/switchboard.webp",
       alt: "Rows of telephone operators seated at a manual switchboard in 1907, connecting calls by hand.",
       caption:
         "For decades, using a telephone meant talking to a person who did the finding for you. There was no menu and nothing to look at, so the whole interface was the conversation and whatever the operator happened to know. Every hard problem in voice design, discoverability most of all, was already sitting here, and we solved it then by putting a human in the middle to do the work.",

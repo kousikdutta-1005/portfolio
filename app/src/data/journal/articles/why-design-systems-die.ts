@@ -15,7 +15,7 @@ export const designSystemAdoption: Article = {
     },
     {
       type: "figure",
-      src: "/assets/journal/desire-path.jpg",
+      src: "/assets/journal/desire-path.webp",
       alt: "A dirt track worn across a grass lawn, cutting past the paved route nearby.",
       caption:
         "Someone designed and paved a path here, and people walked across the grass anyway. That worn line is not vandalism, it is data about where the route actually needed to go. When a team forks your component instead of importing it, the fork is a desire path, and the right response is to study where people are walking rather than fence them in.",

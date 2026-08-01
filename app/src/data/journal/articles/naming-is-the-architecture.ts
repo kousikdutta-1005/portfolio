@@ -15,7 +15,7 @@ export const informationArchitecture: Article = {
     },
     {
       type: "figure",
-      src: "/assets/journal/herbarium.jpg",
+      src: "/assets/journal/herbarium.webp",
       alt: "A tall wooden herbarium cabinet with rows of shallow drawers for storing pressed plant specimens.",
       caption: "A specimen in a cabinet like this is only findable if it was named and filed correctly; get the name wrong and the plant still exists but is effectively lost forever. The object survives, the retrieval does not. A bad label in a product does the same quiet damage, which is why naming is the thing people actually navigate by.",
       credit: "Auckland Museum, via Wikimedia Commons",

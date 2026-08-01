@@ -15,7 +15,7 @@ export const tasteAsMoat: Article = {
     },
     {
       type: "figure",
-      src: "/assets/journal/contact-sheet.jpg",
+      src: "/assets/journal/contact-sheet.webp",
       alt: "A photographer's contact sheet, a grid of dozens of small nearly identical black and white frames from one shoot.",
       caption: "The photographer shot forty frames and every one is fine. The work was never taking the picture. It was circling the one worth printing. When making options is free, that circle is the whole job.",
       credit: "White House Photographic Office (WHPO) - Schumacher, via Wikimedia Commons",

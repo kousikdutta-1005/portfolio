@@ -15,7 +15,7 @@ export const dataviz: Article = {
     },
     {
       type: "figure",
-      src: "/assets/journal/nightingale.jpg",
+      src: "/assets/journal/nightingale.webp",
       alt: "Florence Nightingale's polar area diagram of army mortality, with wedges radiating from a centre and coloured by cause of death.",
       caption: "Nightingale drew this in 1858 to argue that far more soldiers were dying of preventable disease than of battle wounds, and it worked because the picture made the comparison impossible to look away from. It is the origin case for a chart as an instrument of persuasion and action, not decoration. Worth admitting honestly: her area based wedges are exactly the encoding this piece ranks as hard to read accurately, so the diagram that founded the field would fail its own test.",
       credit: "Florence Nightingale, via Wikimedia Commons",

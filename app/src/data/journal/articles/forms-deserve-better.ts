@@ -15,7 +15,7 @@ export const forms: Article = {
     },
     {
       type: "figure",
-      src: "/assets/journal/keypunch.jpg",
+      src: "/assets/journal/keypunch.webp",
       alt: "Two women in the 1950s working at keypunch machines, turning paper forms into punched cards one field at a time.",
       caption:
         "Before screens, filling in a form meant a person sitting at a machine and punching each field into a card, one at a time. Moving that work on-screen did not remove the labour, it only hid it and handed the bill to the customer. Every field you add is still someone's time, and now it is theirs.",

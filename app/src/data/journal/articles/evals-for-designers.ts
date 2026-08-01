@@ -15,7 +15,7 @@ export const evals: Article = {
     },
     {
       type: "figure",
-      src: "/assets/journal/checking-machine.jpg",
+      src: "/assets/journal/checking-machine.webp",
       alt: "A rebuilt wartime electromechanical machine with a large rotating drum of wired contacts, standing in a hut at Bletchley Park.",
       caption: "The codebreakers built a second machine whose only job was to check the answer the first machine gave. That is an eval. It is not a new idea, it is just new to us.",
       credit: "Michael Garlick, via Wikimedia Commons",

@@ -15,7 +15,7 @@ export const designEngineering: Article = {
     },
     {
       type: "figure",
-      src: "/assets/journal/typesetting.jpg",
+      src: "/assets/journal/typesetting.webp",
       alt: "A tray of small metal type letters being set by hand in a printing works, each letter picked from its compartment and lined up in a frame.",
       caption: "A person had to place every letter by hand, and if the message changed, someone rebuilt the whole page. That is what a mockup handoff still is. A design system that compiles is the printing press equivalent of not doing this by hand.",
       credit: "Brian Smithson from Milton Keynes, via Wikimedia Commons",

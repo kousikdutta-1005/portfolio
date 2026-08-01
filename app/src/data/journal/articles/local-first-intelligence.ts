@@ -15,7 +15,7 @@ export const localFirst: Article = {
     },
     {
       type: "figure",
-      src: "/assets/journal/cable-map.jpg",
+      src: "/assets/journal/cable-map.webp",
       alt: "An old hydrographic chart of the world showing the network of submarine cables and telegraph lines strung between the continents.",
       caption: "Your data has a real address. Every request that crosses an ocean pays for the crossing in milliseconds, and no clever code makes the ocean narrower. Local-first is the decision not to cross it.",
       credit: "Bibliothèque nationale de France, via Wikimedia Commons",

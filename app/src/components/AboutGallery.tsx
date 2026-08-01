@@ -2,127 +2,127 @@ import { motion } from "framer-motion"
 
 const IMAGES = [
   {
-    "src": "/assets/images/about/thoughtspot-bob-baxley.jpg",
+    "src": "/assets/images/about/thoughtspot-bob-baxley.webp",
     "alt": "With Design Director Bob Baxley at ThoughtSpot",
     "caption": "Our design team at ThoughtSpot. (With Bob Baxley)"
   },
   {
-    "src": "/assets/images/about/precisely-conference.png",
+    "src": "/assets/images/about/precisely-conference.webp",
     "alt": "Precisely Design Conference",
     "caption": "Precisely Design Conference"
   },
   {
-    "src": "/assets/images/about/design-up.jpg",
+    "src": "/assets/images/about/design-up.webp",
     "alt": "Me at Design UP",
     "caption": "Design UP Conference"
   },
   {
-    "src": "/assets/images/about/pondi-1.png",
+    "src": "/assets/images/about/pondi-1.webp",
     "alt": "Me in Pondicherry with my love",
     "caption": "Pondicherry with my love"
   },
   {
-    "src": "/assets/images/about/pondi-2.png",
+    "src": "/assets/images/about/pondi-2.webp",
     "alt": "Pondicherry memories",
     "caption": "Pondicherry"
   },
   {
-    "src": "/assets/images/about/family-1.png",
+    "src": "/assets/images/about/family-1.webp",
     "alt": "Family",
     "caption": "Family"
   },
   {
-    "src": "/assets/images/about/family-2.png",
+    "src": "/assets/images/about/family-2.webp",
     "alt": "Family",
     "caption": "Family"
   },
   {
-    "src": "/assets/images/about/family-3.png",
+    "src": "/assets/images/about/family-3.webp",
     "alt": "Family",
     "caption": "Family"
   },
   {
-    "src": "/assets/images/about/family-4.png",
+    "src": "/assets/images/about/family-4.webp",
     "alt": "Family",
     "caption": "Family"
   },
   {
-    "src": "/assets/images/about/uni-2.png",
+    "src": "/assets/images/about/uni-2.webp",
     "alt": "Funtimes in Uni",
     "caption": "Funtimes in Uni"
   },
   {
-    "src": "/assets/images/about/childhood-1.png",
+    "src": "/assets/images/about/childhood-1.webp",
     "alt": "Throwback memories from childhood",
     "caption": "Throwback memories"
   },
   {
-    "src": "/assets/images/about/childhood-2.png",
+    "src": "/assets/images/about/childhood-2.webp",
     "alt": "Throwback memories from childhood",
     "caption": "Throwback memories"
   },
   {
-    "src": "/assets/images/about/childhood-3.png",
+    "src": "/assets/images/about/childhood-3.webp",
     "alt": "Throwback memories from childhood",
     "caption": "Throwback memories"
   },
   {
-    "src": "/assets/images/about/cubbon-park.jpg",
+    "src": "/assets/images/about/cubbon-park.webp",
     "alt": "Me at Cubbon park or Lalbagh",
     "caption": "Cubbon Park / Lalbagh"
   },
   {
-    "src": "/assets/images/about/uni-1.png",
+    "src": "/assets/images/about/uni-1.webp",
     "alt": "Funtimes in Uni",
     "caption": "Funtimes in Uni"
   },
   {
-    "src": "/assets/images/about/play-crew.jpg",
+    "src": "/assets/images/about/play-crew.webp",
     "alt": "With the crew after a play",
     "caption": "With the play crew"
   },
   {
-    "src": "/assets/images/about/graduation-2023.jpg",
+    "src": "/assets/images/about/graduation-2023.webp",
     "alt": "Graduation 2023",
     "caption": "Graduation 2023"
   },
   {
-    "src": "/assets/images/about/thoughtspot-buddies.jpg",
+    "src": "/assets/images/about/thoughtspot-buddies.webp",
     "alt": "Buddies at ThoughtSpot",
     "caption": "Buddies at ThoughtSpot"
   },
   {
-    "src": "/assets/images/about/award-photos.jpg",
+    "src": "/assets/images/about/award-photos.webp",
     "alt": "My award photos",
     "caption": "Award Photos"
   },
   {
-    "src": "/assets/images/about/philips-1.png",
+    "src": "/assets/images/about/philips-1.webp",
     "alt": "Good times at Philips Healthcare",
     "caption": "Good times at Philips Healthcare"
   },
   {
-    "src": "/assets/images/about/philips-2.png",
+    "src": "/assets/images/about/philips-2.webp",
     "alt": "Good times at Philips Healthcare",
     "caption": "Philips Healthcare"
   },
   {
-    "src": "/assets/images/about/philips-3.png",
+    "src": "/assets/images/about/philips-3.webp",
     "alt": "Good times at Philips Healthcare",
     "caption": "Team at Philips"
   },
   {
-    "src": "/assets/images/about/airtel.png",
+    "src": "/assets/images/about/airtel.webp",
     "alt": "My last day at Airtel",
     "caption": "My last day at Airtel"
   },
   {
-    "src": "/assets/images/about/olx-autos.png",
+    "src": "/assets/images/about/olx-autos.webp",
     "alt": "Lunch with the team at OLX Autos",
     "caption": "Lunch with the team at OLX Autos"
   },
   {
-    "src": "/assets/images/about/excellence-award.png",
+    "src": "/assets/images/about/excellence-award.webp",
     "alt": "Received excellence award in 2nd year of Design School",
     "caption": "Excellence Award, 2nd Year"
   }

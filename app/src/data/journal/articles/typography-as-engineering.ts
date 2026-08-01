@@ -15,7 +15,7 @@ export const typography: Article = {
     },
     {
       type: "figure",
-      src: "/assets/journal/linotype.jpg",
+      src: "/assets/journal/linotype.webp",
       alt: "A Linotype hot metal typesetting machine, with its keyboard, magazine of matrices, and casting mechanism.",
       caption: "One operator typed a line and this machine cast it as a single slug of metal, which is why we still say a line of type. It industrialised typesetting by turning a craft decision into a machine instruction. Fluid type does the same move now, using clamp() to turn a judgement about size into a formula the browser evaluates.",
       credit: "Harald Kucharek, via Wikimedia Commons",

@@ -15,7 +15,7 @@ export const onboarding: Article = {
     },
     {
       type: "figure",
-      src: "/assets/journal/training-wheels.jpg",
+      src: "/assets/journal/training-wheels.webp",
       alt: "A helmeted boy riding a bicycle fitted with a pair of training wheels.",
       caption:
         "Training wheels do not teach balance, they postpone it. They get a child moving on day one, and they have to come off before the real skill can arrive. Good onboarding works the same way: it knows it is temporary and plans its own removal, where a product tour that never ends is training wheels bolted on for good.",

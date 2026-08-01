@@ -48,8 +48,8 @@ const PROJECTS: Project[] = [
     meta: "Developer tools, APIs, systems",
     timeframe: "Aug-Oct 2025 · 3 months",
     proof: "5 APIs · 1 reusable tryout flow",
-    image: "/assets/images/precisely-devportal/hero-visual-card.png",
-    darkImage: "/assets/images/precisely-devportal/hero-visual-card-dark.png",
+    image: "/assets/images/precisely-devportal/hero-visual-card.webp",
+    darkImage: "/assets/images/precisely-devportal/hero-visual-card-dark.webp",
     href: "/case-study/precisely-devportal",
     imageFit: "contain",
     imageTreatment: "precisely-hero",
@@ -60,7 +60,7 @@ const PROJECTS: Project[] = [
     meta: "Analytics, AI, mobile",
     timeframe: "Jan-Apr 2024 · 4 months",
     proof: "3x MAU · 4.9 App Store",
-    image: "/assets/images/GLP0Z4G1xKxcD0e0TDg9EWRgzQ.png",
+    image: "/assets/images/GLP0Z4G1xKxcD0e0TDg9EWRgzQ.webp",
     href: "/case-study/thoughtspot",
   },
   {
@@ -69,7 +69,7 @@ const PROJECTS: Project[] = [
     meta: "Healthcare, research, service",
     timeframe: "Jan-Jul 2023 · 7 months",
     proof: "iF Design Award · Gold Medal",
-    image: "/assets/images/NRmPx5otSD5B8RKHstn08Zcs0k.png",
+    image: "/assets/images/NRmPx5otSD5B8RKHstn08Zcs0k.webp",
     href: "/case-study/philips",
   },
   {
@@ -78,7 +78,7 @@ const PROJECTS: Project[] = [
     meta: "Workshop, service systems",
     timeframe: "2021 to 2023 · internship work",
     proof: "Handoff time · rework risk",
-    image: "/assets/images/lsO27yP1rhwECcphfDr6QnvgQ.png",
+    image: "/assets/images/lsO27yP1rhwECcphfDr6QnvgQ.webp",
     href: "https://drive.google.com/file/d/1qahC8wyxudzjzuO9Zrtvk9e6Tz2UO9Cx/view?usp=drive_link",
     external: true,
   },
@@ -88,7 +88,7 @@ const PROJECTS: Project[] = [
     meta: "Telecom, support, chat",
     timeframe: "2021 to 2023 · internship work",
     proof: "Resolution time · deflection",
-    image: "/assets/images/elvpFwKLIpGRQQqelaZQI5Xw.png",
+    image: "/assets/images/elvpFwKLIpGRQQqelaZQI5Xw.webp",
     href: "https://www.behance.net/gallery/154991935/Airtel-Live-Chat-UX-Design-Casestudy",
     external: true,
   },
@@ -98,8 +98,8 @@ const PROJECTS: Project[] = [
     meta: "Brand system, case studies, code",
     timeframe: "July 2026 · personal project",
     proof: "3 case studies · 2 themes · 1 system",
-    image: "/assets/images/portfolio-case-study/hero-visual-card.png",
-    darkImage: "/assets/images/portfolio-case-study/hero-visual-card-dark.png",
+    image: "/assets/images/portfolio-case-study/hero-visual-card.webp",
+    darkImage: "/assets/images/portfolio-case-study/hero-visual-card-dark.webp",
     href: "/case-study/portfolio",
   },
 ]
@@ -114,15 +114,15 @@ const BRANDS = [
 ]
 
 const TESTIMONIALS = [
-  { quote: "He has a strong understanding of product design and platform thinking.", name: "Alok Kumar", role: "Director (Design), Vedantu", avatar: "/assets/images/7fVFQW1WlW9URfSAH5RgMjT6lJA.png" },
-  { quote: "He deeply understands user needs and values, making his solutions impactful.", name: "Pooja Kurup", role: "Product Designer, Philips", avatar: "/assets/images/nOMEfjkKW0HQZULIlhVnG39Fs.png" },
-  { quote: "Kousik is a quick learner, highly adaptive, and creative.", name: "Sachin Rathi", role: "Design Manager, OLX Autos", avatar: "/assets/images/D6yfJKWbII8T1IlkQ8FWj8mQQIg.png" },
-  { quote: "He conducted comprehensive research, analyzed data, and ideated 12 concepts.", name: "Sharad Mothay", role: "Senior Designer, Philips", avatar: "/assets/images/4vOLqtlry3zW82ZElaI6Zk8dSKI.png" },
-  { quote: "He demonstrated exceptional design skills and a deep understanding of users.", name: "Shubham Gupta", role: "Senior Designer, Philips", avatar: "/assets/images/0LYNsSXPyC8kHefAFB308cDpM.png" },
-  { quote: "Kousik showed excellent design process skills in solving business problems.", name: "Sonali Khandelwal", role: "Product Designer, OLX Autos", avatar: "/assets/images/n92t34yynreya1AL7P3DrnTeBCI.png" },
-  { quote: "He evaluated, selected, and realized an industry-standard design concept.", name: "Pravin Ghodke", role: "Senior Designer, Philips", avatar: "/assets/images/uCRXWTi6yWqT2HHLxJ129sRGOM.png" },
-  { quote: "Kousik is proactive and quick to grasp complex concepts.", name: "Keerti Chowdhry", role: "Senior Designer, OLX Autos", avatar: "/assets/images/aTmkDoNtTpwJjGWsx2gi5hPzMTk.png" },
-  { quote: "Kousik is strong at design execution and documenting ideas.", name: "Poornima Kapoor", role: "Lead Designer, Airtel", avatar: "/assets/images/yLQEIFzvuqW7VcwbkkFzM8Z4N6A.png" },
+  { quote: "He has a strong understanding of product design and platform thinking.", name: "Alok Kumar", role: "Director (Design), Vedantu", avatar: "/assets/images/7fVFQW1WlW9URfSAH5RgMjT6lJA.webp" },
+  { quote: "He deeply understands user needs and values, making his solutions impactful.", name: "Pooja Kurup", role: "Product Designer, Philips", avatar: "/assets/images/nOMEfjkKW0HQZULIlhVnG39Fs.webp" },
+  { quote: "Kousik is a quick learner, highly adaptive, and creative.", name: "Sachin Rathi", role: "Design Manager, OLX Autos", avatar: "/assets/images/D6yfJKWbII8T1IlkQ8FWj8mQQIg.webp" },
+  { quote: "He conducted comprehensive research, analyzed data, and ideated 12 concepts.", name: "Sharad Mothay", role: "Senior Designer, Philips", avatar: "/assets/images/4vOLqtlry3zW82ZElaI6Zk8dSKI.webp" },
+  { quote: "He demonstrated exceptional design skills and a deep understanding of users.", name: "Shubham Gupta", role: "Senior Designer, Philips", avatar: "/assets/images/0LYNsSXPyC8kHefAFB308cDpM.webp" },
+  { quote: "Kousik showed excellent design process skills in solving business problems.", name: "Sonali Khandelwal", role: "Product Designer, OLX Autos", avatar: "/assets/images/n92t34yynreya1AL7P3DrnTeBCI.webp" },
+  { quote: "He evaluated, selected, and realized an industry-standard design concept.", name: "Pravin Ghodke", role: "Senior Designer, Philips", avatar: "/assets/images/uCRXWTi6yWqT2HHLxJ129sRGOM.webp" },
+  { quote: "Kousik is proactive and quick to grasp complex concepts.", name: "Keerti Chowdhry", role: "Senior Designer, OLX Autos", avatar: "/assets/images/aTmkDoNtTpwJjGWsx2gi5hPzMTk.webp" },
+  { quote: "Kousik is strong at design execution and documenting ideas.", name: "Poornima Kapoor", role: "Lead Designer, Airtel", avatar: "/assets/images/yLQEIFzvuqW7VcwbkkFzM8Z4N6A.webp" },
 ]
 
 const FEATURED_TESTIMONIALS = TESTIMONIALS.slice(0, 4)

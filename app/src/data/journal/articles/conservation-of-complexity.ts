@@ -15,7 +15,7 @@ export const complexity: Article = {
     },
     {
       type: "figure",
-      src: "/assets/journal/larry-tesler.jpg",
+      src: "/assets/journal/larry-tesler.webp",
       alt: "A smiling man with glasses and grey hair, photographed close up against a plain background.",
       caption:
         "Larry Tesler, the man the law is named after. He worked at Xerox PARC and Apple, and he spent his career arguing that the software should carry the hard part, not the person using it.",

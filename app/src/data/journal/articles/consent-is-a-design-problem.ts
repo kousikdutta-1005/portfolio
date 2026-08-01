@@ -15,7 +15,7 @@ export const consent: Article = {
     },
     {
       type: "figure",
-      src: "/assets/journal/lobster-trap.jpg",
+      src: "/assets/journal/lobster-trap.webp",
       alt: "Stacked lobster traps on a harbour, each with a wide funnel opening leading into a narrow inner chamber.",
       caption:
         "A lobster trap is not cruel, it is just shaped: wide and inviting on the way in, narrow and difficult on the way out. No single part of it is a lie. That gap between how easy it is to enter and how hard it is to leave is exactly the test this article uses for a dark pattern, and it is why the field settled on the name roach motel.",

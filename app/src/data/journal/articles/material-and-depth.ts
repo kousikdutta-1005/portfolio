@@ -15,7 +15,7 @@ export const material: Article = {
     },
     {
       type: "figure",
-      src: "/assets/journal/opaque-glass.jpg",
+      src: "/assets/journal/opaque-glass.webp",
       alt: "A sheet of frosted, opaque glass. Light passes through it but shapes behind it are softened into blur.",
       caption: "You cannot read what is behind frosted glass, but you know something is there. That is the whole job of a see-through surface in an interface. It is information about layers, not decoration.",
       credit: "Titus Tscharntke, via Wikimedia Commons",

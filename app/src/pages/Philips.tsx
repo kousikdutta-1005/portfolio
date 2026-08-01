@@ -55,12 +55,12 @@ const USER_INTERVIEWS = [
 ]
 
 const LEARNINGS: { title: string; desc: string; image?: string }[] = [
-  { title: "Research depth", desc: "A wide research base helped separate medical facts from assumptions about behavior.", image: "/assets/images/b9OoNNeJac3xWYgEwwW5cDJO8.png" },
-  { title: "Inductive coding", desc: "A structured codebook turned interviews into themes the team could make decisions from.", image: "/assets/images/TRd5S978oTc5ik4BexV9THbI.png" },
-  { title: "Decision tools", desc: "The Pugh matrix made concept selection explicit instead of relying on taste alone.", image: "/assets/images/a3108No4fjugOpjetH5z8spz6gY.png" },
-  { title: "DLS alignment", desc: "Philips Consumer DLS kept the interface consistent, legible, and accessible.", image: "/assets/images/UVmMkAEgKUh8JWjxHwVDdOWOq00.png" },
-  { title: "Sprint rhythm", desc: "Regular reviews helped research, service logic, and interface details move together.", image: "/assets/images/ktUfjJR2NOSdqVtLyQyrrYvmu2w.png" },
-  { title: "Usability proof", desc: "The SUS score gave the team a practical read on whether the concept felt clear.", image: "/assets/images/XmzU9NdKM3kGZSGeAGzjGb6DGKs.png" },
+  { title: "Research depth", desc: "A wide research base helped separate medical facts from assumptions about behavior.", image: "/assets/images/b9OoNNeJac3xWYgEwwW5cDJO8.webp" },
+  { title: "Inductive coding", desc: "A structured codebook turned interviews into themes the team could make decisions from.", image: "/assets/images/TRd5S978oTc5ik4BexV9THbI.webp" },
+  { title: "Decision tools", desc: "The Pugh matrix made concept selection explicit instead of relying on taste alone.", image: "/assets/images/a3108No4fjugOpjetH5z8spz6gY.webp" },
+  { title: "DLS alignment", desc: "Philips Consumer DLS kept the interface consistent, legible, and accessible.", image: "/assets/images/UVmMkAEgKUh8JWjxHwVDdOWOq00.webp" },
+  { title: "Sprint rhythm", desc: "Regular reviews helped research, service logic, and interface details move together.", image: "/assets/images/ktUfjJR2NOSdqVtLyQyrrYvmu2w.webp" },
+  { title: "Usability proof", desc: "The SUS score gave the team a practical read on whether the concept felt clear.", image: "/assets/images/XmzU9NdKM3kGZSGeAGzjGb6DGKs.webp" },
 ]
 
 const META = [
@@ -251,7 +251,7 @@ export default function PhilipsPage() {
 
         <section className="pb-8">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
-            <SectionImage src="/assets/images/zmHb3X25M69yV81iHU14amDoU.png" alt="Philips Cardiocare" />
+            <SectionImage src="/assets/images/zmHb3X25M69yV81iHU14amDoU.webp" alt="Philips Cardiocare" />
           </div>
         </section>
 
@@ -268,13 +268,13 @@ export default function PhilipsPage() {
             <CaseEvidenceStrip items={OUTCOMES} />
             <motion.div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/oiW8eXHbvjUx2WW5fIiPIPypsZo.png" alt="Outcomes overview 1" />
+                <SectionImage src="/assets/images/oiW8eXHbvjUx2WW5fIiPIPypsZo.webp" alt="Outcomes overview 1" />
               </motion.div>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/60gbN3iRBXtWFOg8nb0sG08YlU.png" alt="Outcomes overview 2" />
+                <SectionImage src="/assets/images/60gbN3iRBXtWFOg8nb0sG08YlU.webp" alt="Outcomes overview 2" />
               </motion.div>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/fx07bQrlNg5sqn6wuPnUU4Qe1oU.png" alt="Outcomes overview 3" />
+                <SectionImage src="/assets/images/fx07bQrlNg5sqn6wuPnUU4Qe1oU.webp" alt="Outcomes overview 3" />
               </motion.div>
             </motion.div>
           </div>
@@ -288,16 +288,16 @@ export default function PhilipsPage() {
             </motion.h2>
             <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/EjkgQuLwQ7ag90M29P3Xx23x8.png" alt="Context overview 1" />
+                <SectionImage src="/assets/images/EjkgQuLwQ7ag90M29P3Xx23x8.webp" alt="Context overview 1" />
               </motion.div>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/4At8dv1k2CMfJgLk9dEOBxORyQ.png" alt="Context overview 2" />
+                <SectionImage src="/assets/images/4At8dv1k2CMfJgLk9dEOBxORyQ.webp" alt="Context overview 2" />
               </motion.div>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/f0tNHf76okLFl9ma1YdROf5FG4.png" alt="Context overview 3" />
+                <SectionImage src="/assets/images/f0tNHf76okLFl9ma1YdROf5FG4.webp" alt="Context overview 3" />
               </motion.div>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/Ip5ZgGQrbA8AN2IIfSpgmFtj1uQ.png" alt="Context overview 4" />
+                <SectionImage src="/assets/images/Ip5ZgGQrbA8AN2IIfSpgmFtj1uQ.webp" alt="Context overview 4" />
               </motion.div>
             </motion.div>
             <motion.p className="text-[15px] text-muted-foreground mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
@@ -313,7 +313,7 @@ export default function PhilipsPage() {
                 </motion.div>
               ))}
             </motion.div>
-            <SectionImage src="/assets/images/OjaomaIcjw7zg9CMMQk4NkDOhE.png" alt="CAD context synthesis" className="mb-6" />
+            <SectionImage src="/assets/images/OjaomaIcjw7zg9CMMQk4NkDOhE.webp" alt="CAD context synthesis" className="mb-6" />
             <div className="border-y border-border/60 py-5 md:py-6">
               <p className="text-[13px] text-muted-foreground font-semibold mb-3">Problem statement</p>
               <p className="text-[17px] md:text-[19px] font-medium leading-[1.6] tracking-tight">
@@ -335,22 +335,22 @@ export default function PhilipsPage() {
             </motion.p>
             <motion.div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/fKeYUp4JFUBo9lzG78yDwB2FE.png" alt="Research overview 1" />
+                <SectionImage src="/assets/images/fKeYUp4JFUBo9lzG78yDwB2FE.webp" alt="Research overview 1" />
               </motion.div>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/9jUCGRB1HSCARf006awm5YRirE.png" alt="Research overview 2" />
+                <SectionImage src="/assets/images/9jUCGRB1HSCARf006awm5YRirE.webp" alt="Research overview 2" />
               </motion.div>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/08YeGtXgECqYezRyaWV3KhnHAY.png" alt="Research overview 3" />
+                <SectionImage src="/assets/images/08YeGtXgECqYezRyaWV3KhnHAY.webp" alt="Research overview 3" />
               </motion.div>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/OTVTpRwpzlwC7can36hvpaVkiQ.png" alt="Research overview 4" />
+                <SectionImage src="/assets/images/OTVTpRwpzlwC7can36hvpaVkiQ.webp" alt="Research overview 4" />
               </motion.div>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/2myRWXxSO1JZLRoybrlrD8l7o5s.png" alt="Research overview 5" />
+                <SectionImage src="/assets/images/2myRWXxSO1JZLRoybrlrD8l7o5s.webp" alt="Research overview 5" />
               </motion.div>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/ndGimVdJQdbjximjW46GCXW2Kco.png" alt="Research overview 6" />
+                <SectionImage src="/assets/images/ndGimVdJQdbjximjW46GCXW2Kco.webp" alt="Research overview 6" />
               </motion.div>
             </motion.div>
 
@@ -373,7 +373,7 @@ export default function PhilipsPage() {
             <motion.p className="text-[15px] text-muted-foreground mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               Adjacent experiences revealed patterns, missing support, and whitespace for habit-forming care journeys.
             </motion.p>
-            <SectionImage src="/assets/images/3RKpKWtBNF2tnzlsjsm5pNPjSes.png" alt="Competitor research synthesis" className="mb-8" />
+            <SectionImage src="/assets/images/3RKpKWtBNF2tnzlsjsm5pNPjSes.webp" alt="Competitor research synthesis" className="mb-8" />
 
             <motion.h4 className="text-[22px] font-bold tracking-tight mb-2" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>User Interviews</motion.h4>
             <motion.p className="text-[15px] text-muted-foreground mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
@@ -389,7 +389,7 @@ export default function PhilipsPage() {
                 </motion.div>
               ))}
             </motion.div>
-            <SectionImage src="/assets/images/gHdDnmGFpBHbwr5BV0xh0DHxW4I.png" alt="User interview synthesis" />
+            <SectionImage src="/assets/images/gHdDnmGFpBHbwr5BV0xh0DHxW4I.webp" alt="User interview synthesis" />
           </div>
         </section>
 
@@ -404,22 +404,22 @@ export default function PhilipsPage() {
             </motion.p>
             <motion.div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/RzMKvtKV1VnbeHf6CEKn9RqPCU.png" alt="Analysis overview 1" />
+                <SectionImage src="/assets/images/RzMKvtKV1VnbeHf6CEKn9RqPCU.webp" alt="Analysis overview 1" />
               </motion.div>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/o46rgWPXBGbyO3GDHthLaXQzXg.png" alt="Analysis overview 2" />
+                <SectionImage src="/assets/images/o46rgWPXBGbyO3GDHthLaXQzXg.webp" alt="Analysis overview 2" />
               </motion.div>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/pcWOeZqZ9oKOs0Yos2nB3U6zl0.png" alt="Analysis overview 3" />
+                <SectionImage src="/assets/images/pcWOeZqZ9oKOs0Yos2nB3U6zl0.webp" alt="Analysis overview 3" />
               </motion.div>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/EsyxLpXeQJFahS2fuF1HItrCsM.png" alt="Analysis overview 4" />
+                <SectionImage src="/assets/images/EsyxLpXeQJFahS2fuF1HItrCsM.webp" alt="Analysis overview 4" />
               </motion.div>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/sj79LzZWkit9SJ0c7Cnva3pgofs.png" alt="Analysis overview 5" />
+                <SectionImage src="/assets/images/sj79LzZWkit9SJ0c7Cnva3pgofs.webp" alt="Analysis overview 5" />
               </motion.div>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/Pu2R8p8ofwH9sdLYBJafV4w60I.png" alt="Analysis overview 6" />
+                <SectionImage src="/assets/images/Pu2R8p8ofwH9sdLYBJafV4w60I.webp" alt="Analysis overview 6" />
               </motion.div>
             </motion.div>
 
@@ -433,25 +433,25 @@ export default function PhilipsPage() {
                   phase: "Phase 1/4",
                   title: "College Life (18-23Y)",
                   desc: "Poor diet, long sitting, late nights, smoking or alcohol, and ignored self care dominate.",
-                  image: "/assets/images/IgnkCq4U2ZO6KiRNsnFUJNTTQS0.jpg",
+                  image: "/assets/images/IgnkCq4U2ZO6KiRNsnFUJNTTQS0.webp",
                 },
                 {
                   phase: "Phase 2/4",
                   title: "Professional life (24-27Y)",
                   desc: "Work disrupts meals, extends sitting, adds parties, increases alcohol or smoking, and neglects self care.",
-                  image: "/assets/images/e4wzzmAPnQjECBs88VTnFreht10.jpg",
+                  image: "/assets/images/e4wzzmAPnQjECBs88VTnFreht10.webp",
                 },
                 {
                   phase: "Phase 3/4",
                   title: "Family (28-32Y)",
                   desc: "Diet improves slightly, but sitting persists, stress rises, weight increases, BP and cholesterol emerge.",
-                  image: "/assets/images/hhEPti9RdxDqITQaj0JAwaFKs.jpg",
+                  image: "/assets/images/hhEPti9RdxDqITQaj0JAwaFKs.webp",
                 },
                 {
                   phase: "Phase 4/4",
                   title: "CAD symptoms (35+Y)",
                   desc: "Better diet and walks start, less alcohol or smoking, chest pain leads to tests and treatment.",
-                  image: "/assets/images/VM7wfvwutt2dHqExq6ycfPZXSsM.jpg",
+                  image: "/assets/images/VM7wfvwutt2dHqExq6ycfPZXSsM.webp",
                 },
               ].map((item) => (
                 <motion.div key={item.phase} variants={fadeUp}>
@@ -465,7 +465,7 @@ export default function PhilipsPage() {
               ))}
             </motion.div>
             <motion.h4 className="text-[22px] font-bold tracking-tight mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Primary User Persona</motion.h4>
-            <SectionImage src="/assets/images/V0Hxyj2lxijTQbqkNGl3X9Uvqc.png" alt="Primary user persona" />
+            <SectionImage src="/assets/images/V0Hxyj2lxijTQbqkNGl3X9Uvqc.webp" alt="Primary user persona" />
           </div>
         </section>
 
@@ -480,20 +480,20 @@ export default function PhilipsPage() {
             </motion.p>
             <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/I1lppYC2pMjS4k8Fr7zEBCxbq7Q.png" alt="Define overview 1" />
+                <SectionImage src="/assets/images/I1lppYC2pMjS4k8Fr7zEBCxbq7Q.webp" alt="Define overview 1" />
               </motion.div>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/L9qbVEnSE4K0npKVMFtmoQT3A.png" alt="Define overview 2" />
+                <SectionImage src="/assets/images/L9qbVEnSE4K0npKVMFtmoQT3A.webp" alt="Define overview 2" />
               </motion.div>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/Oy41zORxVeNBc46CXIz2pHbM.png" alt="Define overview 3" />
+                <SectionImage src="/assets/images/Oy41zORxVeNBc46CXIz2pHbM.webp" alt="Define overview 3" />
               </motion.div>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/5wbpJ2oO60Wl4xSPn7eUlqyYPs.png" alt="Define overview 4" />
+                <SectionImage src="/assets/images/5wbpJ2oO60Wl4xSPn7eUlqyYPs.webp" alt="Define overview 4" />
               </motion.div>
             </motion.div>
             <motion.h4 className="text-[22px] font-bold tracking-tight mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Design Principles</motion.h4>
-            <SectionImage src="/assets/images/uP18d7ftpul2Q8z135WSeL4219c.png" alt="Design principles" />
+            <SectionImage src="/assets/images/uP18d7ftpul2Q8z135WSeL4219c.webp" alt="Design principles" />
           </div>
         </section>
 
@@ -508,22 +508,22 @@ export default function PhilipsPage() {
             </motion.p>
             <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/T9Om1XEaC8XxaKh1s1vtUqAE8.png" alt="Ideation overview 1" />
+                <SectionImage src="/assets/images/T9Om1XEaC8XxaKh1s1vtUqAE8.webp" alt="Ideation overview 1" />
               </motion.div>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/ac4LYMm9DDZ185e9jWF50Zms.png" alt="Ideation overview 2" />
+                <SectionImage src="/assets/images/ac4LYMm9DDZ185e9jWF50Zms.webp" alt="Ideation overview 2" />
               </motion.div>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/T4v0684xUYlK8mkYMKpY8DmBc.png" alt="Ideation overview 3" />
+                <SectionImage src="/assets/images/T4v0684xUYlK8mkYMKpY8DmBc.webp" alt="Ideation overview 3" />
               </motion.div>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/KuMHy0UqLiaM5e8J9b4rTYMVWEc.png" alt="Ideation overview 4" />
+                <SectionImage src="/assets/images/KuMHy0UqLiaM5e8J9b4rTYMVWEc.webp" alt="Ideation overview 4" />
               </motion.div>
             </motion.div>
             <motion.h4 className="text-[22px] font-bold tracking-tight mb-4" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>12 Concepts</motion.h4>
-            <SectionImage src="/assets/images/uv5PQCkDMWXLPYZAYdtdEobSsSU.png" alt="12 concepts" className="mb-8" />
+            <SectionImage src="/assets/images/uv5PQCkDMWXLPYZAYdtdEobSsSU.webp" alt="12 concepts" className="mb-8" />
             <motion.h4 className="text-[22px] font-bold tracking-tight mb-4" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Final Solution</motion.h4>
-            <SectionImage src="/assets/images/w1FtMWYv4E1BwI4OJTv0pSiw.png" alt="Final solution" />
+            <SectionImage src="/assets/images/w1FtMWYv4E1BwI4OJTv0pSiw.webp" alt="Final solution" />
           </div>
         </section>
 
@@ -539,16 +539,16 @@ export default function PhilipsPage() {
             </motion.p>
             <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/bPEhgyXwWdLeo3yJ7ZUVGPIUl0.png" alt="Design overview 1" />
+                <SectionImage src="/assets/images/bPEhgyXwWdLeo3yJ7ZUVGPIUl0.webp" alt="Design overview 1" />
               </motion.div>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/a6V6C1mKD5ymefXm3kHe6GOdaE.png" alt="Design overview 2" />
+                <SectionImage src="/assets/images/a6V6C1mKD5ymefXm3kHe6GOdaE.webp" alt="Design overview 2" />
               </motion.div>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/cWfzP5h6sbus048FwykJ7b0tQr4.png" alt="Design overview 3" />
+                <SectionImage src="/assets/images/cWfzP5h6sbus048FwykJ7b0tQr4.webp" alt="Design overview 3" />
               </motion.div>
               <motion.div variants={fadeUp}>
-                <SectionImage src="/assets/images/7g3fkIhbMUZ5k2QJxZFx2mYS6ws.png" alt="Design overview 4" />
+                <SectionImage src="/assets/images/7g3fkIhbMUZ5k2QJxZFx2mYS6ws.webp" alt="Design overview 4" />
               </motion.div>
             </motion.div>
 
@@ -558,7 +558,7 @@ export default function PhilipsPage() {
                 <p className="text-[15px] text-muted-foreground leading-[1.58] mb-5 max-w-[680px]">
                   A central web app that brings connected devices, apps, and bite-sized insights into one clear view.
                 </p>
-                <SectionImage src="/assets/images/pMkuCCsKbGGqDInFMLwJ0NQNww.png" alt="Cardiocare ecosystem" />
+                <SectionImage src="/assets/images/pMkuCCsKbGGqDInFMLwJ0NQNww.webp" alt="Cardiocare ecosystem" />
               </motion.div>
 
               <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
@@ -567,14 +567,14 @@ export default function PhilipsPage() {
                   <p className="text-[15px] text-muted-foreground leading-[1.58] mb-5">
                     Short videos, articles, and guides that explain coronary artery disease through trusted sources.
                   </p>
-                  <SectionImage src="/assets/images/OVkn4oZlYIpXiWhU2SDQNkqkScA.png" alt="Learn feature" className="max-h-[520px] object-top" />
+                  <SectionImage src="/assets/images/OVkn4oZlYIpXiWhU2SDQNkqkScA.webp" alt="Learn feature" className="max-h-[520px] object-top" />
                 </motion.div>
                 <motion.div variants={fadeUp}>
                   <h4 className="text-[20px] md:text-[24px] font-bold tracking-[-0.02em] mb-2">Routine</h4>
                   <p className="text-[15px] text-muted-foreground leading-[1.58] mb-5">
                     Tailored lifestyle suggestions that fit into everyday routines instead of asking for a complete reset.
                   </p>
-                  <SectionImage src="/assets/images/838Ltuj9ErqvqFvc42m3CNWw.png" alt="Routine feature" className="max-h-[520px] object-top" />
+                  <SectionImage src="/assets/images/838Ltuj9ErqvqFvc42m3CNWw.webp" alt="Routine feature" className="max-h-[520px] object-top" />
                 </motion.div>
               </motion.div>
 
@@ -584,14 +584,14 @@ export default function PhilipsPage() {
                   <p className="text-[15px] text-muted-foreground leading-[1.58] mb-5">
                     Track health across connected apps and services with personalized insights and lifestyle tips.
                   </p>
-                  <SectionImage src="/assets/images/prOHXP4zgbH8eaceY2oO6TShSk.png" alt="Track feature" className="max-h-[520px] object-top" />
+                  <SectionImage src="/assets/images/prOHXP4zgbH8eaceY2oO6TShSk.webp" alt="Track feature" className="max-h-[520px] object-top" />
                 </motion.div>
                 <motion.div variants={fadeUp}>
                   <h4 className="text-[20px] md:text-[24px] font-bold tracking-[-0.02em] mb-2">Health Wiz</h4>
                   <p className="text-[15px] text-muted-foreground leading-[1.58] mb-5">
                     An AI health companion that explains medical language, health activity, and next steps in plain words.
                   </p>
-                  <SectionImage src="/assets/images/GeDQDLqUkbz5f2uPhBkUXmjYI.png" alt="Health Wiz feature" className="max-h-[520px] object-top" />
+                  <SectionImage src="/assets/images/GeDQDLqUkbz5f2uPhBkUXmjYI.webp" alt="Health Wiz feature" className="max-h-[520px] object-top" />
                 </motion.div>
               </motion.div>
 
@@ -600,7 +600,7 @@ export default function PhilipsPage() {
                 <p className="text-[15px] text-muted-foreground leading-[1.58] mb-5 max-w-[680px]">
                   A WhatsApp prompt that turns health changes into clear next steps inside the central app.
                 </p>
-                <SectionImage src="/assets/images/SesFQCUIIDduKIA7xxJhrG1KKYM.png" alt="Lifestyle change feature" />
+                <SectionImage src="/assets/images/SesFQCUIIDduKIA7xxJhrG1KKYM.webp" alt="Lifestyle change feature" />
               </motion.div>
             </div>
           </div>

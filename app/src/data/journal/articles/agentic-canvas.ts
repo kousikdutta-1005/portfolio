@@ -33,7 +33,7 @@ export const agenticCanvas: Article = {
     { type: "h2", text: "The problem is not talking. It is the single line." },
     {
       type: "figure",
-      src: "/assets/journal/atc-room.jpg",
+      src: "/assets/journal/atc-room.webp",
       alt: "An air traffic control approach room. Controllers sit at large radar screens in a dim room of 1990s equipment, watching shared displays.",
       caption:
         "Nobody runs an airport through a chat window. The work is spread out in space so everyone can see the whole picture at once. That is the case for a canvas over a chat log.",

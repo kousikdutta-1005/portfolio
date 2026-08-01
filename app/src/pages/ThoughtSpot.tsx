@@ -70,12 +70,12 @@ const TENETS = [
 ]
 
 const LEARNINGS = [
-  { title: "Iteration discipline", desc: "Thirty to forty iterations per feature helped remove ambiguity before engineering picked up the work.", image: "/assets/images/uMp2AXVNrFmJN8ZwWLTd5j9p9A.png" },
-  { title: "Conceptual modeling", desc: "Conceptual and organizational models helped the team choose patterns before polishing screens.", image: "/assets/images/ZPT5OKjtkv10BDGkfgZFwVielA.png" },
-  { title: "Systems handoff", desc: "Specs, tokens, and state matrices made handoff calmer and reduced interpretation for engineers.", image: "/assets/images/XLRGR5JwEYOrajQIvZXjDHDupU.png" },
-  { title: "Edge readiness", desc: "Documenting empty, loading, error, and recovery states early kept the experience reliable.", image: "/assets/images/Z4QVhleSAUrUTJKhQDKwgSHrJM.png" },
-  { title: "Async clarity", desc: "Short Loom updates made decisions visible without slowing the team down.", image: "/assets/images/aNVv6LANXfb4E8jMjXuqrxfa48.png" },
-  { title: "Taste through critique", desc: "Regular critique cycles helped the work become simpler, sharper, and easier to ship.", image: "/assets/images/cKidWTTfgxLZMZ9hnwbnWQoTlM.png" },
+  { title: "Iteration discipline", desc: "Thirty to forty iterations per feature helped remove ambiguity before engineering picked up the work.", image: "/assets/images/uMp2AXVNrFmJN8ZwWLTd5j9p9A.webp" },
+  { title: "Conceptual modeling", desc: "Conceptual and organizational models helped the team choose patterns before polishing screens.", image: "/assets/images/ZPT5OKjtkv10BDGkfgZFwVielA.webp" },
+  { title: "Systems handoff", desc: "Specs, tokens, and state matrices made handoff calmer and reduced interpretation for engineers.", image: "/assets/images/XLRGR5JwEYOrajQIvZXjDHDupU.webp" },
+  { title: "Edge readiness", desc: "Documenting empty, loading, error, and recovery states early kept the experience reliable.", image: "/assets/images/Z4QVhleSAUrUTJKhQDKwgSHrJM.webp" },
+  { title: "Async clarity", desc: "Short Loom updates made decisions visible without slowing the team down.", image: "/assets/images/aNVv6LANXfb4E8jMjXuqrxfa48.webp" },
+  { title: "Taste through critique", desc: "Regular critique cycles helped the work become simpler, sharper, and easier to ship.", image: "/assets/images/cKidWTTfgxLZMZ9hnwbnWQoTlM.webp" },
 ]
 
 const RETRO: CaseRetroItem[] = [
@@ -349,10 +349,10 @@ export default function ThoughtSpotPage() {
             I keep the proof close to metrics teams already watch: adoption, app quality, acquisition, and core task coverage.
           </motion.p>
           <CaseEvidenceStrip items={OUTCOMES} />
-          <SectionImage src="/assets/images/uGueO4PFCfSuGeGcj4lbKrjB4Mg.png" alt="Outcomes navigation" className="mb-4" loading="eager" />
+          <SectionImage src="/assets/images/uGueO4PFCfSuGeGcj4lbKrjB4Mg.webp" alt="Outcomes navigation" className="mb-4" loading="eager" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <SectionImage src="/assets/images/jLhitZnlkZ9Y0R6MFifDKQr8NY.png" alt="Outcomes detail" />
-            <SectionImage src="/assets/images/3Df7nprnGZRaZrJyjcOxU2YVZY.png" alt="Outcomes metrics" />
+            <SectionImage src="/assets/images/jLhitZnlkZ9Y0R6MFifDKQr8NY.webp" alt="Outcomes detail" />
+            <SectionImage src="/assets/images/3Df7nprnGZRaZrJyjcOxU2YVZY.webp" alt="Outcomes metrics" />
           </div>
         </div>
       </section>
@@ -368,10 +368,10 @@ export default function ThoughtSpotPage() {
           <motion.p className="text-[15px] text-muted-foreground mb-5" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             Liveboards, natural-language answers, and KPI monitoring came together in a mobile experience built for quick, confident decisions.
           </motion.p>
-          <SectionImage src="/assets/images/b9abnddOjscCPgIGp9S4ltGVYt0.png" alt="Context overview" className="mb-4" />
+          <SectionImage src="/assets/images/b9abnddOjscCPgIGp9S4ltGVYt0.webp" alt="Context overview" className="mb-4" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-            <SectionImage src="/assets/images/Qtiy69qOTZTOI1o5KVMD9jpo1r0.png" alt="Context before" />
-            <SectionImage src="/assets/images/DkWSGCTDdRuWrzPZeMKKEBLg0ew.png" alt="Context after" />
+            <SectionImage src="/assets/images/Qtiy69qOTZTOI1o5KVMD9jpo1r0.webp" alt="Context before" />
+            <SectionImage src="/assets/images/DkWSGCTDdRuWrzPZeMKKEBLg0ew.webp" alt="Context after" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-7 gap-y-4">
             {[
@@ -408,7 +408,7 @@ export default function ThoughtSpotPage() {
           <motion.p className="text-[15px] text-muted-foreground mb-6" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             A six-stage path kept the work grounded: audit the gaps, map the system, explore the flows, test the states, refine the motion, and hand off with enough detail to build.
           </motion.p>
-          <SectionImage src="/assets/images/cgpyV6m3F7GbfMwo85VgSfLFrqs.png" alt="Six-stage design process" />
+          <SectionImage src="/assets/images/cgpyV6m3F7GbfMwo85VgSfLFrqs.webp" alt="Six-stage design process" />
         </div>
       </section>
 
@@ -439,8 +439,8 @@ export default function ThoughtSpotPage() {
             A faster, clearer launch moment used brand motion to communicate progress without adding noise.
           </motion.p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-            <SectionImage src="/assets/images/bqWNGldH6ksYT40vmjCt1jEazOo.png" alt="Splash screen design" />
-            <SectionImage src="/assets/images/DvLNSxogWdLeZZfn35uY9Qow.png" alt="Splash iterations" />
+            <SectionImage src="/assets/images/bqWNGldH6ksYT40vmjCt1jEazOo.webp" alt="Splash screen design" />
+            <SectionImage src="/assets/images/DvLNSxogWdLeZZfn35uY9Qow.webp" alt="Splash iterations" />
           </div>
           <SectionVideo src="/assets/videos/9bxlnoBWJxlLHAX8yU4BZd6QdHk.mp4" className="mb-6" />
           <FeatureDetail items={[
@@ -461,8 +461,8 @@ export default function ThoughtSpotPage() {
           </motion.p>
           <SectionVideo src="/assets/videos/tYvfu1glQQm57bgeQGXBusZ1xw.mp4" className="mb-4" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-            <SectionImage src="/assets/images/b7742pYl5LTqMshkmzd3upHOtw.png" alt="Watchlist explorations" />
-            <SectionImage src="/assets/images/CeluGI9etrRb63ETxUc1Q8OSo.png" alt="Watchlist final" />
+            <SectionImage src="/assets/images/b7742pYl5LTqMshkmzd3upHOtw.webp" alt="Watchlist explorations" />
+            <SectionImage src="/assets/images/CeluGI9etrRb63ETxUc1Q8OSo.webp" alt="Watchlist final" />
           </div>
           <FeatureDetail items={[
             { label: "Gap", text: "A view-only watchlist limited actionability and pushed users back to desktop." },
