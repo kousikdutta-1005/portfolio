@@ -6,6 +6,8 @@ import { SmoothScroll } from "./components/SmoothScroll"
 
 const HomePage = lazy(() => import("./pages/Home"))
 const AboutPage = lazy(() => import("./pages/About"))
+const JournalPage = lazy(() => import("./pages/Journal"))
+const JournalArticlePage = lazy(() => import("./pages/JournalArticle"))
 const ThoughtSpotPage = lazy(() => import("./pages/ThoughtSpot"))
 const PhilipsPage = lazy(() => import("./pages/Philips"))
 const PreciselyDevPortalPage = lazy(() => import("./pages/PreciselyDevPortal"))
@@ -24,6 +26,8 @@ function App() {
             <Route element={<Layout />}>
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
+              <Route path="/journal" element={<JournalPage />} />
+              <Route path="/journal/:id" element={<JournalArticlePage />} />
               <Route path="/case-study/thoughtspot" element={<ThoughtSpotPage />} />
               <Route path="/case-study/philips" element={<PhilipsPage />} />
               <Route path="/case-study/precisely-devportal" element={<PreciselyDevPortalPage />} />

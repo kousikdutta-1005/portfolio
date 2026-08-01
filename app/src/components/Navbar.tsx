@@ -16,6 +16,7 @@ export function Navbar() {
   const links = [
     { to: "/", label: "Work" },
     { to: "/about", label: "About" },
+    { to: "/journal", label: "Journal" },
   ]
 
   const isActiveLink = (to: string) =>
