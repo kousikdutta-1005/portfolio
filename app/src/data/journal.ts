@@ -1,4 +1,4 @@
-export type BlockType = 'p' | 'h2' | 'quote' | 'ul';
+export type BlockType = 'p' | 'h2' | 'quote' | 'ul' | 'code' | 'ascii';
 
 export interface ArticleBlock {
   type: BlockType;
@@ -6,6 +6,7 @@ export interface ArticleBlock {
   items?: string[];
   author?: string;
   source?: string;
+  language?: string;
 }
 
 export interface Article {
@@ -20,161 +21,174 @@ export interface Article {
 
 export const JOURNAL_ARTICLES: Article[] = [
   {
-    id: "architecture-of-uncertainty",
-    title: "The Architecture of Uncertainty",
+    id: "streaming-interfaces-rsc",
+    title: "Streaming Interfaces: The Death of Static Dashboards",
     date: "Aug 2026",
-    readTime: "6 min read",
-    excerpt: "Software used to be a contract. AI is a conversation. How we must shift from designing deterministic flows to probabilistic spaces.",
-    tags: ["Artificial Intelligence", "UX Strategy", "Future"],
+    readTime: "2 min read",
+    excerpt: "With React Server Components (RSCs) and Generative UI, we no longer stream JSON to the client. We stream raw, interactive interfaces. The paradigm has shifted.",
+    tags: ["Generative UI", "React", "Architecture"],
     content: [
-      { type: 'p', text: 'For fifty years, software has been deterministic. A user presses a button, and the system executes a predefined rule. Today, generative AI shatters that contract. The system now responds with probability, not certainty. For product designers, this represents a foundational shift in how we build trust.' },
-      { type: 'quote', text: 'A user interface is well-designed when the program behaves exactly how the user thought it would.', author: 'Joel Spolsky', source: 'Software Engineer & Writer' },
-      { type: 'p', text: 'But how do we design for a system that hallucinates? As Jakob Nielsen points out in his recent updates on AI usability, the core heuristics of user control and error recovery have never been more critical. We can no longer rely on rigid step-by-step flows.' },
-      { type: 'h2', text: 'Designing for the Ambient' },
-      { type: 'p', text: 'Instead of traditional forms, we are moving toward what researcher Linus Lee calls "generative interfaces"—UI that invents itself on the fly. To design for this, we must build spaces that are highly forgiving.' },
-      { type: 'ul', items: [
-        'Visibility of system confidence: The UI must visually articulate when the AI is certain and when it is guessing.',
-        'Steerability: Users must be able to course-correct the model mid-generation.',
-        'Graceful degradation: When the output is wrong, the path to a manual override must be frictionless.'
-      ]},
-      { type: 'p', text: 'The designers who will lead the next decade are those who treat AI not as a feature, but as a fluid material. We must sculpt uncertainty into clarity.' }
+      { type: 'p', text: 'For the last decade, the contract between the server and the client was JSON. The server sent data, and the client parsed it into a DOM. This was efficient, but it forced the client to hold the entire rendering logic in its bundle. In the age of AI, where outputs are non-deterministic, this model breaks.' },
+      { type: 'p', text: 'Enter Generative UI and React Server Components (RSCs). Instead of an LLM returning a JSON string that the client must safely parse, the server streams actual, executable UI components directly to the client.' },
+      { type: 'ascii', text: '[User Input]\n     |\n[Server/LLM]\n     |\n(React Component Stream)\n     |\n[Client UI]' },
+      { type: 'h2', text: 'Why This Matters for Design' },
+      { type: 'p', text: 'When the server streams UI, the interface becomes infinitely plastic. If a user asks an AI agent for a weather report, the server streams a <WeatherWidget>. If they ask for financial data, it streams a <StockChart>. The client bundle is virtually zero, and the design system lives entirely on the server.' },
+      { type: 'quote', text: 'We are no longer designing pages. We are designing conversational canvases that mutate based on semantic intent.', author: 'Kousik Dutta' },
+      { type: 'p', text: 'Takeaway: Stop designing rigid page layouts. Start designing robust, isolated components that can be streamed into any spatial context. The future of UI is not a page; it is a stream.' }
     ]
   },
   {
-    id: "roi-of-craft",
-    title: "The Economics of Polish",
+    id: "trust-in-rag",
+    title: "Designing for Provenance in RAG Architectures",
     date: "Jul 2026",
-    readTime: "5 min read",
-    excerpt: "Beauty is not superficial. It is a heuristic for safety. How aesthetic perfection directly drives enterprise revenue.",
-    tags: ["Business", "Craft", "Leadership"],
+    readTime: "2 min read",
+    excerpt: "Retrieval-Augmented Generation (RAG) solves LLM hallucinations, but it creates a massive UX problem: How do we visually prove provenance?",
+    tags: ["AI UX", "Trust", "RAG"],
     content: [
-      { type: 'p', text: 'In the boardroom, design is often mistaken for decoration. The assumption is that engineering makes it work, and design makes it pretty. This is a fundamental misunderstanding of human psychology and market economics.' },
-      { type: 'quote', text: 'The best design companies increase their revenues and shareholder returns at nearly twice the rate of their industry counterparts.', author: 'McKinsey & Company', source: 'The Business Value of Design' },
-      { type: 'p', text: 'Why does a polished interface drive revenue? Because humans use aesthetics as a shortcut for assessing safety. When a button has the perfect weight, when an animation resolves with physics-based precision, the user subconsciously registers: "If they care this much about the micro-interactions, they must care deeply about my data."' },
-      { type: 'h2', text: 'The Moat of Trust' },
-      { type: 'p', text: 'Trust lowers Customer Acquisition Cost (CAC). Trust increases Lifetime Value (LTV). When we reference the Apple Human Interface Guidelines, we are not just looking at visual rules; we are looking at an economic moat built entirely out of craft.' },
-      { type: 'p', text: 'For product managers and executives, the lesson is simple: craft is not a luxury afforded to successful companies. It is the catalyst that makes them successful in the first place.' }
+      { type: 'p', text: 'Large Language Models are not databases. They are reasoning engines. When we treat them as databases, they hallucinate. The industry solved this with RAG (Retrieval-Augmented Generation)—fetching factual data from a Vector DB and feeding it into the LLMs context window.' },
+      { type: 'p', text: 'But while the engineering problem is solved, the UX problem has just begun. If the AI gives an answer based on internal documents, how does the user know it isn’t hallucinating? Trust is a visual metric.' },
+      { type: 'ascii', text: '[Embeddings Model] -> [Vector Database]\n                           |\n                    [Context Window]\n                           |\n                         [LLM] -> [UI with Inline Citations]' },
+      { type: 'h2', text: 'The Visual Grammar of Truth' },
+      { type: 'p', text: 'In designing AI interfaces, provenance—showing where the data came from—is more important than the answer itself. This means integrating deep linking, inline citations, and "confidence scores" directly into the typography.' },
+      { type: 'ul', items: [
+        'Semantic Citations: Do not just link to a document; highlight the exact text chunk in the source.',
+        'Confidence Gradients: Use subtle color shifts (e.g., text opacity) to indicate the model’s certainty regarding a specific claim.',
+        'Fallback States: Make the raw search results easily accessible next to the generated summary.'
+      ]},
+      { type: 'p', text: 'Takeaway: An AI interface without citations is a black box. Design systems must now include patterns for provenance, treating truth as a core UI component.' }
     ]
   },
   {
-    id: "death-of-handoff",
-    title: "The Death of the Handoff",
+    id: "from-chat-to-canvas",
+    title: "From Chat to Canvas: The Agentic Interface",
     date: "Jun 2026",
-    readTime: "7 min read",
-    excerpt: "The traditional design-to-engineering transition is broken. When designers write code, we stop translating and start building.",
-    tags: ["Design Engineering", "Process", "React"],
+    readTime: "2 min read",
+    excerpt: "The chatbot is a transient phase in UX history. True human-AI collaboration requires a spatial, non-linear canvas.",
+    tags: ["Agentic UI", "Spatial", "Collaboration"],
     content: [
-      { type: 'p', text: 'The artifact of a designer is traditionally a static image. A Figma file is a beautiful promise, but it is a lie. It lacks the constraints of the browser, the variance of real data, and the reality of network latency.' },
-      { type: 'quote', text: 'You cannot design a great digital product without understanding the material it is built from.', author: 'Brad Frost', source: 'Creator of Atomic Design' },
-      { type: 'p', text: 'This is why the role of the "Design Engineer" is becoming the gold standard in high-performance teams, championed by organizations like Vercel and Linear. By blurring the line between CSS/React and Figma, we eliminate the "handoff."' },
-      { type: 'h2', text: 'Code is the Source of Truth' },
-      { type: 'p', text: 'When a designer commits to code, the prototype is the product. Animation curves, component states, and responsive breakpoints are solved in the medium where they will live. This doesn\'t mean every designer must be a senior software engineer. It means we must possess a deep empathy for the architecture of the DOM.' },
-      { type: 'p', text: 'The teams that ship the fastest, highest-quality products no longer throw designs over a wall. They build in the same room, speaking the same language.' }
+      { type: 'p', text: 'The chat interface—a vertical scrolling list of text bubbles—is the command-line interface of the AI era. It is linear, ephemeral, and terrible for complex work. Once an idea scrolls out of view, it ceases to exist in the user’s working memory.' },
+      { type: 'p', text: 'As AI transitions from simple question-answering to agentic workflows (where the AI performs multi-step actions autonomously), the UX must shift from "chat" to "canvas".' },
+      { type: 'code', text: 'interface CanvasState {\n  artifacts: Map<string, Artifact>;\n  agentThreads: Thread[];\n  activeContext: string[];\n}', language: 'typescript' },
+      { type: 'h2', text: 'Spatial Memory over Temporal Memory' },
+      { type: 'p', text: 'Human cognition is spatial. We organize our desks, our whiteboards, and our monitors spatially. An agentic UI allows the AI to generate "artifacts"—code blocks, diagrams, text documents—and pin them to a 2D canvas. The user and the AI then iterate on these artifacts concurrently.' },
+      { type: 'p', text: 'This breaks the rigid turn-taking of chat. The AI can be updating a document on the left, while the user modifies a parameter on the right.' },
+      { type: 'p', text: 'Takeaway: The chat box will shrink to a command palette. The primary interface for AI is a boundless spatial canvas where artifacts are generated, manipulated, and stored.' }
     ]
   },
   {
-    id: "managing-enterprise-complexity",
-    title: "Simplicity at Scale",
+    id: "compiling-design-asts",
+    title: "Compiling Design: ASTs for UI Generation",
     date: "May 2026",
-    readTime: "6 min read",
-    excerpt: "Complexity cannot be destroyed, only moved. The designer's job is to bear the burden so the user doesn't have to.",
-    tags: ["Enterprise", "UX", "Systems"],
+    readTime: "2 min read",
+    excerpt: "Design systems are failing because they rely on human translation. Abstract Syntax Trees (ASTs) allow us to compile design directly to code.",
+    tags: ["Design Engineering", "Compilers", "AST"],
     content: [
-      { type: 'p', text: 'Consumer apps solve simple problems for millions of people. Enterprise software solves highly specific, complex problems for specialized professionals. The instinct in enterprise design is often to expose all the complexity at once.' },
-      { type: 'quote', text: 'Every application has an inherent amount of complexity that cannot be removed or hidden. Instead, it must be dealt with, either in product development or in user interaction.', author: 'Larry Tesler', source: 'Tesler\'s Law of the Conservation of Complexity' },
-      { type: 'p', text: 'Tesler’s Law is the guiding principle of B2B software. As a designer, your job is not to pretend the complexity doesn\'t exist. Your job is to absorb it. If a user has to perform a 10-step configuration, can the system infer 7 of those steps?' },
-      { type: 'h2', text: 'Progressive Disclosure' },
-      { type: 'p', text: 'The most powerful tool in the enterprise designer\'s arsenal is progressive disclosure. We show the user exactly what they need at the moment of decision, and not a pixel more. By establishing intelligent defaults and clear hierarchies, we turn overwhelming dashboards into guided, quiet workflows.' }
+      { type: 'p', text: 'The traditional "handoff" from Figma to React is a process of manual translation. It is slow, error-prone, and inherently lossy. A designer nudges a padding value, and an engineer has to manually update a CSS variable. This is archaic.' },
+      { type: 'p', text: 'Design Engineers are solving this by treating design files not as images, but as syntax. By parsing a design file into an Abstract Syntax Tree (AST), we can write compilers that generate production-ready React code automatically.' },
+      { type: 'ascii', text: 'Figma API JSON -> [Parser] -> AST\n                               |\n                      [Transformation Plugins]\n                               |\n                   React JSX + Tailwind CSS' },
+      { type: 'h2', text: 'Deterministic UI' },
+      { type: 'p', text: 'When design is an AST, you can run linting on your design. You can programmatically enforce that all buttons use the correct color tokens before the code is even generated. The design file becomes the single source of truth, compiled just like TypeScript.' },
+      { type: 'p', text: 'Takeaway: Stop building component libraries by hand. Build compilers. The role of the Design Engineer is to write the infrastructure that translates visual logic into machine logic.' }
     ]
   },
   {
-    id: "beyond-component-libraries",
-    title: "Beyond Component Libraries",
+    id: "fluid-typography-calculus",
+    title: "The Calculus of Fluid Typography",
     date: "Apr 2026",
-    readTime: "5 min read",
-    excerpt: "A design system is not a sticker sheet. It is a shared vocabulary that scales culture, not just pixels.",
-    tags: ["Design Systems", "Architecture", "Scale"],
+    readTime: "2 min read",
+    excerpt: "Responsive breakpoints are dead. Fluid typography using linear interpolation creates perfectly scaled text across any viewport.",
+    tags: ["CSS", "Typography", "Math"],
     content: [
-      { type: 'p', text: 'Many organizations believe they have a design system because they have a Figma file full of buttons and inputs. This is a component library. A true design system is an operational framework.' },
-      { type: 'quote', text: 'A design system isn’t a project. It’s a product serving products.', author: 'Nathan Curtis', source: 'Design Systems Expert' },
-      { type: 'p', text: 'A living system bridges the gap between design tokens and React components. It includes guidelines on motion, accessibility standards, voice and tone, and contribution models. It dictates how a team resolves conflicts and pushes updates.' },
-      { type: 'h2', text: 'Scaling Culture' },
-      { type: 'p', text: 'When implemented correctly, a design system does not restrict creativity; it liberates it. By automating the mundane decisions (spacing, color contrast, typography scales), it frees the team\'s cognitive load to focus on the actual user experience. It is the infrastructure of rapid innovation.' }
+      { type: 'p', text: 'For years, we wrote media queries to snap font sizes at arbitrary viewport widths. Mobile gets 16px, tablet gets 18px, desktop gets 20px. This step-function approach creates jarring visual jumps and ignores the infinite spectrum of actual device sizes.' },
+      { type: 'p', text: 'Fluid typography solves this using CSS clamp() to perform linear interpolation (lerp). The font size scales seamlessly as the viewport grows, bounded by a minimum and maximum.' },
+      { type: 'code', text: '/* Linear interpolation: y = mx + b */\nfont-size: clamp(\n  var(--min-size),\n  var(--y-intercept) + var(--slope) * 100vw,\n  var(--max-size)\n);', language: 'css' },
+      { type: 'h2', text: 'Rhythm at Any Scale' },
+      { type: 'p', text: 'By mapping our typographic scale (e.g., a Major Third ratio) to fluid clamps, the entire vertical rhythm of the page breathes with the browser. The H1, the body text, and the margins all expand and contract in mathematical harmony.' },
+      { type: 'p', text: 'Takeaway: Hardcoded breakpoints are a hack for a fluid medium. Use linear interpolation to respect the continuous nature of the web. Math is the ultimate design tool.' }
     ]
   },
   {
-    id: "physics-of-interaction",
-    title: "Motion as Meaning",
+    id: "optimistic-ui-inp",
+    title: "Optimistic UI and the Psychology of INP",
     date: "Mar 2026",
-    readTime: "4 min read",
-    excerpt: "Animation is not decoration. It is spatial context. It tells the user where they are and what is possible.",
-    tags: ["Motion", "Interaction", "Craft"],
+    readTime: "2 min read",
+    excerpt: "Interaction to Next Paint (INP) is the new core web vital. Optimistic UI is how we fake zero-latency physics over unreliable networks.",
+    tags: ["Performance", "Psychology", "React"],
     content: [
-      { type: 'p', text: 'In the physical world, nothing appears instantly. Objects have mass, acceleration, and friction. When digital interfaces ignore these laws of physics, they feel jarring and disjointed.' },
-      { type: 'quote', text: 'Good design is unobtrusive. Products fulfilling a purpose are like tools. They are neither decorative objects nor works of art.', author: 'Dieter Rams', source: '10 Principles of Good Design' },
-      { type: 'p', text: 'Apple\'s fluid interface principles teach us that motion must be functional before it is delightful. A modal sliding up from the bottom of the screen tells the user intuitively that it can be dismissed by swiping down. The animation provides spatial mapping.' },
-      { type: 'h2', text: 'Springs over Easing' },
-      { type: 'p', text: 'We are moving away from fixed duration bezier curves and toward spring physics. A spring responds to velocity. If a user flicks a card away rapidly, it should fly off the screen with matching momentum. This continuous, interruptible motion creates an interface that feels like an extension of the user\'s hand.' }
+      { type: 'p', text: 'Latency is a psychological metric, not just a technical one. If an interface responds to a user action within 100 milliseconds, the human brain perceives the interaction as instantaneous. If it takes 300ms, it feels sluggish. If it takes 1 second, the user loses their train of thought.' },
+      { type: 'p', text: 'With Google enforcing INP (Interaction to Next Paint) as a ranking factor, we can no longer wait for server mutations to resolve before updating the UI.' },
+      { type: 'ascii', text: 'Pessimistic UI: Click -> Network -> Wait -> 200 OK -> Update UI\nOptimistic UI:  Click -> Update UI -> Network -> 200 OK (Silent)' },
+      { type: 'h2', text: 'Designing for the Revert' },
+      { type: 'p', text: 'Optimistic UI requires us to design the failure state first. When a user favorites an item, the heart icon must instantly turn red. But if the network request fails 2 seconds later, the UI must gracefully revert to outlined, accompanied by a non-intrusive toast.' },
+      { type: 'p', text: 'Takeaway: You cannot beat the speed of light, but you can beat human perception. Assume success, render instantly, and handle failures gracefully. Speed is a design principle.' }
     ]
   },
   {
-    id: "measuring-the-invisible",
-    title: "Measuring the Invisible",
+    id: "xstate-in-ai",
+    title: "Taming Non-Determinism with State Machines",
     date: "Feb 2026",
-    readTime: "6 min read",
-    excerpt: "Data tells you what is happening; design intuition tells you why. How to measure the unmeasurable.",
-    tags: ["Research", "Metrics", "Data"],
+    readTime: "2 min read",
+    excerpt: "You cannot build reliable software on top of probabilistic models. We must wrap AI in strict finite state machines.",
+    tags: ["State Management", "XState", "Reliability"],
     content: [
-      { type: 'p', text: 'The tension between qualitative intuition and quantitative metrics is as old as software. Stakeholders want dashboards; designers want empathy. The truth is, world-class products require both.' },
-      { type: 'quote', text: 'If you want to understand how a lion hunts, don\'t go to the zoo. Go to the jungle.', author: 'Jim Stengel', source: 'Lean Analytics' },
-      { type: 'p', text: 'Frameworks like Google’s HEART (Happiness, Engagement, Adoption, Retention, Task Success) or John Brooke’s System Usability Scale (SUS) give us standardized ways to measure friction. But we must be careful not to optimize solely for engagement.' },
-      { type: 'h2', text: 'The Quality Heuristic' },
-      { type: 'p', text: 'Sometimes, a faster completion time is a sign of success. Sometimes, it’s a sign of a user rushing through a confusing interface to get to the end. The best designers use quantitative data as a smoke detector, and qualitative user interviews as the fire extinguisher. Measure the clicks, but listen to the sighs.' }
+      { type: 'p', text: 'LLMs are incredibly powerful, but they are fundamentally unpredictable. Building a UI directly on top of an LLMs output is like building a house on water. To build reliable agentic workflows, we must enforce determinism.' },
+      { type: 'p', text: 'This is why Finite State Machines (FSMs), utilizing libraries like XState, are seeing a massive resurgence in AI engineering. By wrapping the AI in a strict state machine, we control exactly what the AI is allowed to do at any given moment.' },
+      { type: 'code', text: 'const aiAgentMachine = createMachine({\n  id: "agent",\n  initial: "idle",\n  states: {\n    idle: { on: { QUERY: "thinking" } },\n    thinking: { invoke: { src: callLLM, onDone: "validating" } },\n    validating: { invoke: { src: checkSchema, onDone: "rendering" } }\n  }\n});', language: 'typescript' },
+      { type: 'h2', text: 'The Schema Guard' },
+      { type: 'p', text: 'The machine guarantees that the UI will never attempt to render hallucinated or malformed JSON. The validating state acts as a guard, silently forcing the LLM to retry if it breaks the schema, completely shielding the user from the error.' },
+      { type: 'p', text: 'Takeaway: Do not trust the model. Use state machines to orchestrate the AI, ensuring the user experience remains perfectly deterministic.' }
     ]
   },
   {
-    id: "accessibility-is-innovation",
-    title: "Accessibility is Innovation",
+    id: "z-axis-spatial-computing",
+    title: "Z-Axis Ergonomics in Spatial Computing",
     date: "Jan 2026",
-    readTime: "5 min read",
-    excerpt: "Solving for the edge cases inevitably improves the core. Why accessible design is simply better design.",
-    tags: ["Accessibility", "Inclusive Design", "Ethics"],
+    readTime: "2 min read",
+    excerpt: "In spatial computing, glassmorphism isn't an aesthetic choice. It is a functional requirement for depth perception.",
+    tags: ["Spatial", "VisionOS", "Depth"],
     content: [
-      { type: 'p', text: 'Accessibility is often treated as a final checklist before launch. A contrast check here, an aria-label there. This is a failure of imagination. Accessibility is the genesis of innovation.' },
-      { type: 'quote', text: 'Designing for inclusion begins with recognizing exclusion.', author: 'Kat Holmes', source: 'Mismatch: How Inclusion Shapes Design' },
-      { type: 'p', text: 'Consider the typewriter, originally invented for a blind countess. Or the electric toothbrush, designed to be used with one hand. When we design for extreme constraints, we create solutions that benefit everyone. This is the core of Microsoft\'s Inclusive Design methodology: solve for one, extend to many.' },
-      { type: 'h2', text: 'The Baseline of Empathy' },
-      { type: 'p', text: 'High contrast text is easier for everyone to read in the sun. Closed captions are used by millions watching videos on mute. Building accessible software is not a legal obligation; it is the ultimate expression of user empathy and technical mastery.' }
+      { type: 'p', text: 'For thirty years, we have designed on a 2D plane. We faked depth using drop shadows and z-indexes. With the advent of spatial computing platforms like Apple VisionOS, the Z-axis is no longer an illusion; it is physical space.' },
+      { type: 'p', text: 'When designing for volumetric space, materials matter. The reason VisionOS uses heavy glassmorphism is not for style—it is for spatial ergonomics. Glass materials let the physical world bleed through, anchoring the digital UI to the user’s real environment.' },
+      { type: 'ul', items: [
+        'Dynamic Shadows: Shadows are no longer CSS properties. They are cast by the digital object onto the physical floor based on the room’s actual lighting.',
+        'Material Thickness: A modal is not just a layer on top of a window; it sits physically closer to the user, creating a volumetric hierarchy.',
+        'Gaze as Cursor: Target areas must be physically larger and have reactive hover states to accommodate eye-tracking variance.'
+      ]},
+      { type: 'h2', text: 'The End of the Pixel' },
+      { type: 'p', text: 'We must stop thinking in pixels and start thinking in physical units (points, millimeters). A button isn’t 48px tall; it is 15mm tall, which maps to the physical size of a human fingertip.' },
+      { type: 'p', text: 'Takeaway: In spatial design, light, shadow, and material are functional indicators of depth and interaction, not decorative flair.' }
     ]
   },
   {
-    id: "psychology-of-onboarding",
-    title: "The Psychology of the First Click",
+    id: "webgpu-edge-inference",
+    title: "Zero-Latency Intelligence: Designing for WebGPU",
     date: "Dec 2025",
-    readTime: "6 min read",
-    excerpt: "Onboarding is a fragile negotiation. How to balance motivation with ability to create habit-forming products.",
-    tags: ["Psychology", "Onboarding", "Growth"],
+    readTime: "2 min read",
+    excerpt: "Cloud inference is too slow for real-time UI. WebGPU allows us to run ML models locally, redefining the speed of thought.",
+    tags: ["WebGPU", "Edge AI", "Performance"],
     content: [
-      { type: 'p', text: 'The first five minutes a user spends in your product dictate their entire lifetime value. Yet, we often greet them with overwhelming tooltips, forced account creation, and blank empty states.' },
-      { type: 'quote', text: 'Behavior occurs when motivation, ability, and a prompt converge at the same moment.', author: 'BJ Fogg', source: 'Fogg Behavior Model' },
-      { type: 'p', text: 'When a user first arrives, their motivation is high, but their ability to use the software is low. Our job is to deliver a "magic moment"—the core value of the product—before their motivation runs out.' },
-      { type: 'h2', text: 'Reducing Cognitive Friction' },
-      { type: 'p', text: 'We must delay sign-ups until value is proven. We must replace static empty states with actionable starter content. We must reduce cognitive load by asking one question per screen. Onboarding is not about teaching the user how the UI works; it is about proving that the UI can solve their problem.' }
+      { type: 'p', text: 'Sending a network request to an API, waiting for an LLM to process, and streaming the response back takes time. Usually 500ms to 2 seconds. For a chatbot, this is acceptable. For an autocomplete interface or an inline code suggestion, it is unusable.' },
+      { type: 'p', text: 'The solution is running models on the edge. With the standardization of WebGPU in modern browsers, we can leverage the user’s local graphics card to run Small Language Models (SLMs) with near-zero latency.' },
+      { type: 'ascii', text: 'Cloud: Keystroke -> [Network] -> [Cloud GPU] -> UI Update (800ms)\nEdge:  Keystroke -> [Local WebGPU] -> UI Update (15ms)' },
+      { type: 'h2', text: 'The UX of Model Loading' },
+      { type: 'p', text: 'The design challenge shifts from waiting for inference to waiting for the initial model download. A 2GB model takes time to cache. We must design elegant "warm-up" states, utilizing Service Workers to cache models in the background while the user performs other tasks.' },
+      { type: 'p', text: 'Takeaway: The fastest API call is the one you don’t make. By moving intelligence to the edge via WebGPU, we can design AI interactions that feel as fast and native as typing on a keyboard.' }
     ]
   },
   {
-    id: "building-resilient-teams",
-    title: "Building Resilient Teams",
+    id: "physics-based-animation",
+    title: "The Economics of Micro-Interactions",
     date: "Nov 2025",
-    readTime: "5 min read",
-    excerpt: "The best products are built by teams with high psychological safety and a relentless focus on the user.",
-    tags: ["Leadership", "Culture", "Process"],
+    readTime: "2 min read",
+    excerpt: "Physics-based animations are not just delightful. They reduce cognitive load, decrease churn, and create economic moats.",
+    tags: ["Motion", "Economics", "Craft"],
     content: [
-      { type: 'p', text: 'You cannot ship a cohesive product from a fractured team. The architecture of the organization will inevitably mirror itself in the architecture of the software—a phenomenon known as Conway’s Law.' },
-      { type: 'quote', text: 'Design leadership is about creating the conditions where great design can happen.', author: 'Peter Merholz', source: 'Org Design for Design Orgs' },
-      { type: 'p', text: 'To build a resilient team, hiring managers and design leaders must prioritize psychological safety above pure technical output. A designer must feel safe presenting bad ideas to arrive at the great ones. Critique must be rigorous but never personal.' },
-      { type: 'h2', text: 'Cross-Functional Empathy' },
-      { type: 'p', text: 'The most valuable trait in a senior designer is not their Figma speed. It is their ability to sit with an engineer and compromise gracefully. It is their ability to show a product manager how a UX improvement directly impacts their OKRs. Great design culture is inherently collaborative.' }
+      { type: 'p', text: 'There is a persistent myth in software engineering that animations are "icing on the cake"—something to be added if there’s time left in the sprint. This treats motion as decoration. In reality, motion is spatial context.' },
+      { type: 'p', text: 'When a user taps a card and it expands to fill the screen, their brain does not have to parse a new context. They understand that they are looking at the inside of the object they just touched. When we cut abruptly from screen A to screen B, we force the brain to re-render its mental map.' },
+      { type: 'code', text: 'export const springConfig = {\n  type: "spring",\n  stiffness: 400,\n  damping: 30,\n  velocity: currentVelocity\n};', language: 'typescript' },
+      { type: 'h2', text: 'Friction and Churn' },
+      { type: 'p', text: 'Cognitive load causes fatigue. Fatigue causes churn. By utilizing spring physics (where UI elements respect momentum and velocity), interfaces feel like an extension of the human hand. It feels safe.' },
+      { type: 'p', text: 'Takeaway: Do not animate to entertain. Animate to explain. A UI that obeys the laws of physics is a UI that requires less mental energy to use.' }
     ]
   }
 ];

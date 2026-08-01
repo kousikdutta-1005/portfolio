@@ -45,6 +45,27 @@ function renderBlock(block: ArticleBlock, idx: number) {
           ))}
         </ul>
       )
+    case 'code':
+      return (
+        <div key={idx} className="my-10 rounded-2xl overflow-hidden border border-ink/10 bg-[#0A0A0A] shadow-xl">
+          {block.language && (
+            <div className="px-4 py-2 border-b border-white/10 text-xs font-mono text-white/50 bg-[#111]">
+              {block.language}
+            </div>
+          )}
+          <pre className="p-6 overflow-x-auto text-sm font-mono leading-relaxed text-blue-300">
+            <code>{block.text}</code>
+          </pre>
+        </div>
+      )
+    case 'ascii':
+      return (
+        <div key={idx} className="my-12 py-8 rounded-2xl bg-ink/[0.02] border border-ink/5 overflow-x-auto">
+          <pre className="px-8 text-[11px] md:text-xs font-mono leading-loose text-ink/70">
+            <code>{block.text}</code>
+          </pre>
+        </div>
+      )
     default:
       return null
   }
