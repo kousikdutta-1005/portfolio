@@ -189,9 +189,9 @@ export function GlobalParticleEngine() {
       let readingAlpha = 1
 
       if (readingProfile) {
-        // Sit clear of the reading measure rather than drifting through it.
-        // The measure is 680px wide and centred, so anchor to its outer edge.
-        centerX = width / 2 + 470
+        // Anchor in the outer margin, just past the 980px container edge, so the
+        // sphere's inner edge meets the clip line below rather than being cut.
+        centerX = width / 2 + 625
         centerY = height * 0.34
         baseZDepth = 120
 
@@ -379,6 +379,17 @@ export function GlobalParticleEngine() {
         targetPath.lineTo(item.px + dx, item.py + dy)
       }
 
+      // On reading surfaces, clip to the margin outside the 980px container.
+      // This makes overlap with content structurally impossible rather than a
+      // matter of tuning the position constant against the current layout.
+      if (readingProfile) {
+        ctx.save()
+        const contentRight = width / 2 + 450
+        ctx.beginPath()
+        ctx.rect(contentRight, 0, width - contentRight, height)
+        ctx.clip()
+      }
+
       // Draw Background Bucket
       ctx.beginPath()
       ctx.strokeStyle = `rgba(${colorBase}, ${0.12 * readingAlpha})`
@@ -396,6 +407,8 @@ export function GlobalParticleEngine() {
       ctx.strokeStyle = `rgba(${colorBase}, ${0.4 * readingAlpha})`
       ctx.lineWidth = 1.0
       ctx.stroke(pathForeground)
+
+      if (readingProfile) ctx.restore()
 
       animationFrameId = requestAnimationFrame(render)
     }
