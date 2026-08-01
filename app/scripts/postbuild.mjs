@@ -1,7 +1,8 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises"
+import { mkdir, readdir, readFile, writeFile } from "node:fs/promises"
 import { dirname } from "node:path"
 
 const dist = new URL("../dist/", import.meta.url)
+const articlesDir = new URL("../src/data/journal/articles/", import.meta.url)
 const siteUrl = "https://kousikdutta.com"
 const defaultImage = `${siteUrl}/assets/images/1GW8AENYNU5gayo8utt1YsKnfY.jpg`
 
@@ -56,6 +57,54 @@ const routes = [
   },
 ]
 
+async function readJournalRoutes() {
+  const order = (await readFile(new URL("../src/data/journal/index.ts", import.meta.url), "utf8"))
+    .match(/from "\.\/articles\/([^"]+)"/gu)
+    .map((line) => line.replace(/.*articles\/|"/gu, ""))
+
+  const available = new Set((await readdir(articlesDir)).map((name) => name.replace(/\.ts$/u, "")))
+  const journal = []
+
+  for (const name of order) {
+    if (!available.has(name)) continue
+
+    const source = await readFile(new URL(`${name}.ts`, articlesDir), "utf8")
+    const id = source.match(/\n {2}id: "([^"]+)"/u)?.[1]
+    const title = source.match(/\n {2}title: "([^"]+)"/u)?.[1]
+    const excerpt = source
+      .match(/\n {2}excerpt:\s*\n?\s*"((?:[^"\\]|\\.)*)"/u)?.[1]
+      ?.replace(/\\"/gu, "&quot;")
+
+    if (!id || !title || !excerpt) {
+      throw new Error(`Could not read journal metadata from ${name}.ts`)
+    }
+
+    journal.push({
+      path: `/journal/${id}`,
+      file: `journal/${id}/index.html`,
+      title: `${title} - Journal - Kousik Dutta`,
+      description: excerpt,
+      image: defaultImage,
+      priority: "0.6",
+    })
+  }
+
+  return journal
+}
+
+routes.push(
+  {
+    path: "/journal",
+    file: "journal/index.html",
+    title: "Journal - Kousik Dutta on AI interfaces, design engineering, and craft",
+    description:
+      "Long-form, referenced writing on generative interfaces, AI trust and provenance, design engineering, performance, motion, and accessibility as a design method.",
+    image: defaultImage,
+    priority: "0.7",
+  },
+  ...(await readJournalRoutes()),
+)
+
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
 }
@@ -88,5 +137,30 @@ for (const route of routes) {
   await mkdir(dirname(outputPath.pathname), { recursive: true })
   await writeFile(outputPath, applyMetadata(source, route))
 }
+
+const lastmod = new Date().toISOString().slice(0, 10)
+const priorities = {
+  "/": "1.0",
+  "/about": "0.8",
+}
+
+const sitemap = [
+  '<?xml version="1.0" encoding="UTF-8"?>',
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+  ...routes.map((route) =>
+    [
+      "  <url>",
+      `    <loc>${siteUrl}${route.path === "/" ? "/" : route.path}</loc>`,
+      `    <lastmod>${lastmod}</lastmod>`,
+      "    <changefreq>monthly</changefreq>",
+      `    <priority>${route.priority ?? priorities[route.path] ?? "0.9"}</priority>`,
+      "  </url>",
+    ].join("\n"),
+  ),
+  "</urlset>",
+  "",
+].join("\n")
+
+await writeFile(new URL("sitemap.xml", dist), sitemap)
 
 await writeFile(new URL("404.html", dist), source)

@@ -4175,3 +4175,1122 @@ html {
     display: none;
   }
 }
+
+/* ─── Journal ─── */
+
+.journal-masthead {
+  max-width: 40ch;
+}
+
+.journal-title {
+  font-size: clamp(2.25rem, 1.6rem + 2.6vw, 3.5rem);
+  line-height: 1.06;
+  letter-spacing: -0.032em;
+  font-weight: 600;
+  color: var(--color-foreground);
+  text-wrap: balance;
+}
+
+.journal-standfirst {
+  margin-top: 18px;
+  max-width: 54ch;
+  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+  line-height: 1.6;
+  color: var(--color-muted-foreground);
+  text-wrap: pretty;
+}
+
+.journal-index {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid color-mix(in oklab, var(--color-foreground) 10%, transparent);
+}
+
+.journal-index > li {
+  border-bottom: 1px solid color-mix(in oklab, var(--color-foreground) 10%, transparent);
+}
+
+.journal-entry {
+  display: grid;
+  grid-template-columns: 3.25rem minmax(0, 1fr);
+  gap: 0 24px;
+  padding: 30px 0;
+  text-decoration: none;
+  transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.journal-index:hover > li > .journal-entry {
+  opacity: 0.42;
+}
+
+.journal-index > li > .journal-entry:hover {
+  opacity: 1;
+}
+
+.journal-entry-index {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: color-mix(in oklab, var(--color-muted-foreground) 70%, transparent);
+  padding-top: 5px;
+}
+
+.journal-entry-body {
+  display: block;
+  min-width: 0;
+}
+
+.journal-entry-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--color-muted-foreground);
+}
+
+.journal-entry-title {
+  margin-top: 10px;
+  font-size: clamp(1.35rem, 1.15rem + 0.85vw, 1.875rem);
+  line-height: 1.16;
+  letter-spacing: -0.024em;
+  font-weight: 600;
+  color: var(--color-foreground);
+  text-wrap: balance;
+  transition: color 0.3s ease;
+}
+
+.journal-entry:hover .journal-entry-title {
+  color: var(--color-accent);
+}
+
+.journal-entry-subtitle {
+  margin-top: 7px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: color-mix(in oklab, var(--color-foreground) 62%, transparent);
+}
+
+.journal-entry-excerpt {
+  margin-top: 14px;
+  max-width: 66ch;
+  font-size: 0.9375rem;
+  line-height: 1.68;
+  color: var(--color-muted-foreground);
+  text-wrap: pretty;
+}
+
+.journal-entry-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 18px;
+}
+
+.journal-entry-tags.is-header {
+  margin-top: 26px;
+}
+
+.journal-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: var(--color-muted-foreground);
+  background: color-mix(in oklab, var(--color-foreground) 5%, var(--color-background));
+}
+
+@media (max-width: 640px) {
+  .journal-entry {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+  .journal-entry-index {
+    display: none;
+  }
+  .journal-index:hover > li > .journal-entry {
+    opacity: 1;
+  }
+}
+
+/* ─── Journal article ─── */
+
+.journal-reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 60;
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, var(--color-accent), rgba(94, 92, 230, 0.85));
+}
+
+.journal-measure {
+  max-width: 680px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.journal-measure.is-wide {
+  max-width: 880px;
+}
+
+.journal-article-header {
+  padding-top: 116px;
+  padding-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .journal-article-header {
+    padding-top: 148px;
+    padding-bottom: 52px;
+  }
+}
+
+.journal-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-muted-foreground);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.journal-back:hover {
+  color: var(--color-foreground);
+}
+
+.journal-article-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 30px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--color-muted-foreground);
+}
+
+.journal-article-title {
+  margin-top: 14px;
+  font-size: clamp(2.125rem, 1.5rem + 2.6vw, 3.25rem);
+  line-height: 1.06;
+  letter-spacing: -0.034em;
+  font-weight: 600;
+  color: var(--color-foreground);
+  text-wrap: balance;
+}
+
+.journal-article-subtitle {
+  margin-top: 14px;
+  font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  line-height: 1.5;
+  color: color-mix(in oklab, var(--color-foreground) 60%, transparent);
+  text-wrap: pretty;
+}
+
+.journal-body {
+  padding-bottom: 24px;
+}
+
+.journal-lede {
+  font-size: clamp(1.125rem, 1.05rem + 0.4vw, 1.3125rem);
+  line-height: 1.62;
+  letter-spacing: -0.012em;
+  color: var(--color-foreground);
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid color-mix(in oklab, var(--color-foreground) 9%, transparent);
+  text-wrap: pretty;
+}
+
+.journal-p {
+  font-size: 1.0625rem;
+  line-height: 1.78;
+  color: color-mix(in oklab, var(--color-foreground) 82%, transparent);
+  margin-bottom: 22px;
+  text-wrap: pretty;
+}
+
+.journal-h2 {
+  margin-top: 52px;
+  margin-bottom: 18px;
+  font-size: clamp(1.375rem, 1.25rem + 0.6vw, 1.625rem);
+  line-height: 1.22;
+  letter-spacing: -0.022em;
+  font-weight: 600;
+  color: var(--color-foreground);
+  text-wrap: balance;
+}
+
+.journal-quote {
+  margin: 40px 0;
+  padding: 0;
+  border: 0;
+}
+
+.journal-quote p {
+  font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.5rem);
+  line-height: 1.42;
+  letter-spacing: -0.022em;
+  font-weight: 500;
+  color: var(--color-foreground);
+  text-wrap: pretty;
+}
+
+.journal-quote p::before {
+  content: "\201C";
+}
+
+.journal-quote p::after {
+  content: "\201D";
+}
+
+.journal-quote footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid color-mix(in oklab, var(--color-foreground) 10%, transparent);
+}
+
+.journal-quote-author {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-foreground);
+}
+
+.journal-quote-source {
+  font-size: 12.5px;
+  color: var(--color-muted-foreground);
+}
+
+.journal-list {
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 14px;
+}
+
+.journal-list > li {
+  display: grid;
+  grid-template-columns: 1.65rem minmax(0, 1fr);
+  gap: 12px;
+  font-size: 1.0625rem;
+  line-height: 1.72;
+  color: color-mix(in oklab, var(--color-foreground) 82%, transparent);
+  text-wrap: pretty;
+}
+
+.journal-list:not(.is-ordered) > li::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  margin-top: 0.72em;
+  margin-left: 0.4rem;
+}
+
+.journal-list-index {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: color-mix(in oklab, var(--color-muted-foreground) 78%, transparent);
+  padding-top: 0.4em;
+}
+
+.journal-code {
+  margin: 34px 0;
+}
+
+.journal-code-frame {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--color-foreground) 10%, transparent);
+  background: color-mix(in oklab, var(--color-foreground) 3.5%, var(--color-background));
+}
+
+.journal-code-lang {
+  padding: 9px 16px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+  border-bottom: 1px solid color-mix(in oklab, var(--color-foreground) 8%, transparent);
+}
+
+.journal-code pre {
+  margin: 0;
+  padding: 18px 20px;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.72;
+  color: color-mix(in oklab, var(--color-foreground) 88%, transparent);
+  tab-size: 2;
+}
+
+.journal-code figcaption,
+.journal-diagram figcaption,
+.journal-chart figcaption {
+  margin-top: 12px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--color-muted-foreground);
+  text-wrap: pretty;
+}
+
+.journal-diagram {
+  margin: 40px 0;
+}
+
+.journal-diagram-frame {
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in oklab, var(--color-foreground) 9%, transparent);
+  background: color-mix(in oklab, var(--color-foreground) 2.5%, var(--color-background));
+  padding: 26px 18px;
+  overflow-x: auto;
+}
+
+.journal-diagram-svg svg {
+  display: block;
+  margin-inline: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.journal-diagram-skeleton {
+  height: 168px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--color-foreground) 4%, transparent),
+    color-mix(in oklab, var(--color-foreground) 7%, transparent),
+    color-mix(in oklab, var(--color-foreground) 4%, transparent)
+  );
+  background-size: 200% 100%;
+  animation: journal-shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes journal-shimmer {
+  0% { background-position: 0% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.journal-chart {
+  margin: 40px 0;
+  padding: 26px 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in oklab, var(--color-foreground) 9%, transparent);
+  background: color-mix(in oklab, var(--color-foreground) 2.5%, var(--color-background));
+}
+
+.journal-chart-rows {
+  display: grid;
+  gap: 14px;
+}
+
+.journal-chart-row {
+  display: grid;
+  grid-template-columns: minmax(0, 12rem) minmax(0, 1fr) max-content;
+  align-items: center;
+  gap: 14px;
+}
+
+.journal-chart-label {
+  font-size: 13px;
+  line-height: 1.4;
+  color: color-mix(in oklab, var(--color-foreground) 76%, transparent);
+}
+
+.journal-chart-track {
+  position: relative;
+  height: 8px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--color-foreground) 7%, transparent);
+  overflow: hidden;
+}
+
+.journal-chart-fill {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--color-foreground) 34%, transparent);
+}
+
+.journal-chart-fill.is-highlight {
+  background: linear-gradient(90deg, var(--color-accent), rgba(94, 92, 230, 0.9));
+}
+
+.journal-chart-value {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-foreground);
+  white-space: nowrap;
+}
+
+.journal-chart figcaption cite {
+  display: block;
+  margin-top: 5px;
+  font-style: normal;
+  font-size: 11.5px;
+  color: color-mix(in oklab, var(--color-muted-foreground) 82%, transparent);
+}
+
+@media (max-width: 640px) {
+  .journal-chart-row {
+    grid-template-columns: minmax(0, 1fr) max-content;
+    row-gap: 6px;
+  }
+  .journal-chart-label {
+    grid-column: 1 / -1;
+  }
+}
+
+.journal-callout {
+  margin: 34px 0;
+  padding: 20px 22px;
+  border-radius: var(--radius-lg);
+  background: color-mix(in oklab, var(--color-accent) 7%, var(--color-background));
+  border: 1px solid color-mix(in oklab, var(--color-accent) 18%, transparent);
+}
+
+.journal-callout-title {
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+}
+
+.journal-callout-text {
+  font-size: 1rem;
+  line-height: 1.68;
+  color: color-mix(in oklab, var(--color-foreground) 88%, transparent);
+  text-wrap: pretty;
+}
+
+.journal-takeaway {
+  margin: 44px 0 8px;
+  padding: 26px 24px;
+  border-radius: var(--radius-xl);
+  background: color-mix(in oklab, var(--color-foreground) 4%, var(--color-background));
+  border: 1px solid color-mix(in oklab, var(--color-foreground) 10%, transparent);
+}
+
+.journal-takeaway-label {
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+  margin-bottom: 10px;
+}
+
+.journal-takeaway-text {
+  font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.1875rem);
+  line-height: 1.6;
+  letter-spacing: -0.014em;
+  font-weight: 500;
+  color: var(--color-foreground);
+  text-wrap: pretty;
+}
+
+.journal-article-footer {
+  padding-top: 44px;
+  padding-bottom: 96px;
+}
+
+.journal-references-title {
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+  padding-bottom: 14px;
+  border-bottom: 1px solid color-mix(in oklab, var(--color-foreground) 10%, transparent);
+}
+
+.journal-references {
+  list-style: none;
+  margin: 0 0 52px;
+  padding: 0;
+}
+
+.journal-references > li {
+  border-bottom: 1px solid color-mix(in oklab, var(--color-foreground) 7%, transparent);
+}
+
+.journal-references a {
+  display: block;
+  padding: 14px 0;
+  text-decoration: none;
+}
+
+.journal-reference-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--color-foreground);
+  transition: color 0.25s ease;
+}
+
+.journal-references a:hover .journal-reference-label {
+  color: var(--color-accent);
+}
+
+.journal-reference-detail {
+  display: block;
+  margin-top: 3px;
+  font-size: 12.5px;
+  color: var(--color-muted-foreground);
+}
+
+.journal-pager {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  padding-top: 28px;
+  border-top: 1px solid color-mix(in oklab, var(--color-foreground) 10%, transparent);
+}
+
+.journal-pager-link {
+  display: block;
+  text-decoration: none;
+  padding: 16px 18px;
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in oklab, var(--color-foreground) 9%, transparent);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.journal-pager-link:hover {
+  background: color-mix(in oklab, var(--color-foreground) 4%, var(--color-background));
+  border-color: color-mix(in oklab, var(--color-foreground) 16%, transparent);
+}
+
+.journal-pager-link.is-next {
+  text-align: right;
+}
+
+.journal-pager-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+}
+
+.journal-pager-title {
+  display: block;
+  margin-top: 7px;
+  font-size: 15px;
+  font-weight: 550;
+  line-height: 1.35;
+  color: var(--color-foreground);
+  text-wrap: balance;
+}
+
+@media (max-width: 640px) {
+  .journal-pager {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .journal-pager-link.is-next {
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journal-diagram-skeleton {
+    animation: none;
+  }
+}
+
+.journal-diagram-fallback {
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in oklab, var(--color-foreground) 9%, transparent);
+  background: color-mix(in oklab, var(--color-foreground) 3%, var(--color-background));
+  padding: 18px 20px;
+  overflow-x: auto;
+}
+
+.journal-diagram-fallback pre {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--color-muted-foreground);
+}
+
+@media (max-width: 640px) {
+  .journal-measure,
+  .journal-measure.is-wide {
+    padding-inline: 20px;
+  }
+
+  .journal-diagram-frame {
+    padding: 18px 12px;
+  }
+
+  .journal-diagram-svg svg {
+    min-width: 460px;
+  }
+
+  .journal-code pre {
+    font-size: 11.5px;
+  }
+}
+
+/* Journal figures: tables, stat bands, threshold scales, compare panels */
+
+.journal-table,
+.journal-stats,
+.journal-scale,
+.journal-compare {
+  margin: 40px 0;
+}
+
+.journal-table-scroll {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in oklab, var(--color-foreground) 9%, transparent);
+}
+
+.journal-table table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.journal-table thead th {
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+  background: color-mix(in oklab, var(--color-foreground) 3.5%, var(--color-background));
+  border-bottom: 1px solid color-mix(in oklab, var(--color-foreground) 9%, transparent);
+  white-space: nowrap;
+}
+
+.journal-table tbody th {
+  text-align: left;
+  font-weight: 550;
+  color: var(--color-foreground);
+}
+
+.journal-table tbody th,
+.journal-table tbody td {
+  padding: 13px 16px;
+  vertical-align: top;
+  color: color-mix(in oklab, var(--color-foreground) 78%, transparent);
+  border-bottom: 1px solid color-mix(in oklab, var(--color-foreground) 6%, transparent);
+}
+
+.journal-table tbody tr:last-child th,
+.journal-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.journal-table th.is-emphasised,
+.journal-table td.is-emphasised {
+  background: color-mix(in oklab, var(--color-accent) 6%, var(--color-background));
+  color: var(--color-foreground);
+}
+
+.journal-table thead th.is-emphasised {
+  color: var(--color-accent);
+}
+
+.journal-stats-grid {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  background: color-mix(in oklab, var(--color-foreground) 9%, var(--color-background));
+  border: 1px solid color-mix(in oklab, var(--color-foreground) 9%, transparent);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.journal-stat {
+  padding: 22px 20px 20px;
+  background: var(--color-background);
+}
+
+.journal-stat-value {
+  font-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.375rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  color: var(--color-foreground);
+  font-variant-numeric: tabular-nums;
+}
+
+.journal-stat-label {
+  margin-top: 9px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: color-mix(in oklab, var(--color-foreground) 74%, transparent);
+  text-wrap: pretty;
+}
+
+.journal-stat-source {
+  margin-top: 8px;
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: var(--color-muted-foreground);
+}
+
+.journal-scale-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 24px 22px 20px;
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in oklab, var(--color-foreground) 9%, transparent);
+  background: color-mix(in oklab, var(--color-foreground) 2.5%, var(--color-background));
+}
+
+.journal-scale-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 7px;
+}
+
+.journal-scale-label {
+  font-size: 13.5px;
+  font-weight: 550;
+  line-height: 1.35;
+  color: var(--color-foreground);
+}
+
+.journal-scale-value {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-muted-foreground);
+}
+
+.journal-scale-row.tone-good .journal-scale-value {
+  color: var(--color-accent);
+}
+
+.journal-scale-row.tone-warn .journal-scale-value {
+  color: var(--color-warning);
+}
+
+.journal-scale-row.tone-bad .journal-scale-value {
+  color: var(--color-destructive);
+}
+
+.journal-scale-track {
+  position: relative;
+  height: 8px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: color-mix(in oklab, var(--color-foreground) 7%, transparent);
+}
+
+.journal-scale-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  transform-origin: left center;
+  background: color-mix(in oklab, var(--color-foreground) 34%, transparent);
+}
+
+.journal-scale-row.tone-good .journal-scale-fill {
+  background: var(--color-accent);
+}
+
+.journal-scale-row.tone-warn .journal-scale-fill {
+  background: var(--color-warning);
+}
+
+.journal-scale-row.tone-bad .journal-scale-fill {
+  background: var(--color-destructive);
+}
+
+.journal-scale-note {
+  display: block;
+  margin-top: 7px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--color-muted-foreground);
+  text-wrap: pretty;
+}
+
+.journal-scale-axis {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+  padding: 0 2px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: color-mix(in oklab, var(--color-muted-foreground) 76%, transparent);
+}
+
+.journal-scale-axis span:nth-child(2) {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.journal-compare-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.journal-compare-panel {
+  padding: 20px 20px 22px;
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in oklab, var(--color-foreground) 9%, transparent);
+  background: color-mix(in oklab, var(--color-foreground) 2.5%, var(--color-background));
+}
+
+.journal-compare-panel.is-after {
+  border-color: color-mix(in oklab, var(--color-accent) 22%, transparent);
+  background: color-mix(in oklab, var(--color-accent) 5%, var(--color-background));
+}
+
+.journal-compare-title {
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid color-mix(in oklab, var(--color-foreground) 8%, transparent);
+}
+
+.journal-compare-panel.is-after .journal-compare-title {
+  color: var(--color-accent);
+  border-bottom-color: color-mix(in oklab, var(--color-accent) 18%, transparent);
+}
+
+.journal-compare-panel ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.journal-compare-panel li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: color-mix(in oklab, var(--color-foreground) 80%, transparent);
+  text-wrap: pretty;
+}
+
+.journal-compare-panel li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: color-mix(in oklab, var(--color-foreground) 30%, transparent);
+}
+
+.journal-compare-panel.is-after li::before {
+  background: var(--color-accent);
+}
+
+.journal-table figcaption,
+.journal-stats figcaption,
+.journal-scale figcaption,
+.journal-compare figcaption {
+  margin-top: 12px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--color-muted-foreground);
+  text-wrap: pretty;
+}
+
+.journal-table cite,
+.journal-scale cite {
+  display: block;
+  margin-top: 4px;
+  font-style: normal;
+  color: color-mix(in oklab, var(--color-muted-foreground) 78%, transparent);
+}
+
+
+/* Journal: licensed photography and source link-out cards */
+
+.journal-figure {
+  margin: 44px 0;
+}
+
+.journal-figure-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in oklab, var(--color-foreground) 9%, transparent);
+  background: color-mix(in oklab, var(--color-foreground) 3%, var(--color-background));
+}
+
+.journal-figure-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.journal-figure figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.journal-figure-caption {
+  font-size: 13px;
+  line-height: 1.6;
+  color: color-mix(in oklab, var(--color-foreground) 76%, transparent);
+  text-wrap: pretty;
+}
+
+.journal-figure-credit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--color-muted-foreground);
+}
+
+.journal-figure-credit a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in oklab, var(--color-foreground) 18%, transparent);
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.journal-figure-credit a:hover {
+  color: var(--color-foreground);
+  border-bottom-color: color-mix(in oklab, var(--color-foreground) 40%, transparent);
+}
+
+.journal-figure-licence {
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  letter-spacing: 0.03em;
+  border: 1px solid color-mix(in oklab, var(--color-foreground) 12%, transparent);
+  color: color-mix(in oklab, var(--color-muted-foreground) 88%, transparent);
+}
+
+.journal-figure-licence a {
+  border-bottom: 0;
+}
+
+.journal-sourcecard {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 36px 0;
+  padding: 20px 22px;
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in oklab, var(--color-foreground) 10%, transparent);
+  background: color-mix(in oklab, var(--color-foreground) 2.5%, var(--color-background));
+  text-decoration: none;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.journal-sourcecard:hover {
+  border-color: color-mix(in oklab, var(--color-accent) 34%, transparent);
+  background: color-mix(in oklab, var(--color-accent) 5%, var(--color-background));
+  transform: translateY(-2px);
+}
+
+.journal-sourcecard-kicker {
+  font-size: 10.5px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.journal-sourcecard-title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  color: var(--color-foreground);
+  text-wrap: balance;
+}
+
+.journal-sourcecard-desc {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: color-mix(in oklab, var(--color-foreground) 72%, transparent);
+  text-wrap: pretty;
+}
+
+.journal-sourcecard-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 4px;
+  padding-top: 12px;
+  border-top: 1px solid color-mix(in oklab, var(--color-foreground) 8%, transparent);
+}
+
+.journal-sourcecard-publisher {
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: var(--color-muted-foreground);
+}
+
+.journal-sourcecard-arrow {
+  font-size: 14px;
+  color: var(--color-muted-foreground);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+.journal-sourcecard:hover .journal-sourcecard-arrow {
+  color: var(--color-accent);
+  transform: translate(2px, -2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journal-sourcecard,
+  .journal-sourcecard-arrow {
+    transition: none;
+  }
+  .journal-sourcecard:hover {
+    transform: none;
+  }
+}

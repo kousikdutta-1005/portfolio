@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { MotionConfig } from "framer-motion"
 import { lazy, Suspense } from "react"
 import { ThemeProvider } from "./components/ThemeProvider"
 import { Layout } from "./components/Layout"
@@ -19,24 +20,26 @@ const routerBasename =
 function App() {
   return (
     <ThemeProvider>
-      <BrowserRouter basename={routerBasename}>
-        <SmoothScroll />
-        <Suspense fallback={null}>
-          <Routes>
-            <Route element={<Layout />}>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/journal" element={<JournalPage />} />
-              <Route path="/journal/:id" element={<JournalArticlePage />} />
-              <Route path="/case-study/thoughtspot" element={<ThoughtSpotPage />} />
-              <Route path="/case-study/philips" element={<PhilipsPage />} />
-              <Route path="/case-study/precisely-devportal" element={<PreciselyDevPortalPage />} />
-              <Route path="/case-study/portfolio" element={<PortfolioCaseStudyPage />} />
-              <Route path="*" element={<HomePage />} />
-            </Route>
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
+      <MotionConfig reducedMotion="user">
+        <BrowserRouter basename={routerBasename}>
+          <SmoothScroll />
+          <Suspense fallback={null}>
+            <Routes>
+              <Route element={<Layout />}>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/journal" element={<JournalPage />} />
+                <Route path="/journal/:id" element={<JournalArticlePage />} />
+                <Route path="/case-study/thoughtspot" element={<ThoughtSpotPage />} />
+                <Route path="/case-study/philips" element={<PhilipsPage />} />
+                <Route path="/case-study/precisely-devportal" element={<PreciselyDevPortalPage />} />
+                <Route path="/case-study/portfolio" element={<PortfolioCaseStudyPage />} />
+                <Route path="*" element={<HomePage />} />
+              </Route>
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </MotionConfig>
     </ThemeProvider>
   )
 }
