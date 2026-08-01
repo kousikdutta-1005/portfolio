@@ -4,7 +4,7 @@ export const generativeUi: Article = {
   id: "generative-ui",
   title: "The Interface Is Now a Variable",
   subtitle: "Generative UI and the end of the fixed screen",
-  readTime: "5 min read",
+  readTime: "8 min read",
   excerpt:
     "For sixty years we drew every screen in advance. Generative UI ends that. Now the layout is built on the spot, from what the user asks for. Here is what really changes for designers.",
   tags: ["Generative UI", "AI", "React"],
@@ -42,8 +42,7 @@ export const generativeUi: Article = {
       licence: "Public domain",
       width: 876,
       height: 1200,
-    },
-    {
+    },    {
       type: "p",
       text: "The old way was a relay race. A designer drew a screen. An engineer rebuilt it in code. A server sent data, and the browser turned it into pixels. Every possible version had to be planned in advance. Empty state, loading state, error state, twelve versions of one table: all drawn, all shipped, most never seen.",
     },
@@ -94,6 +93,34 @@ export const generativeUi: Article = {
       },
       caption:
         "Same four steps, flipped ownership. You stop drawing finished screens. You start building the parts screens are made from.",
+    },
+    { type: "h2", text: "What actually forces the model to obey" },
+    {
+      type: "p",
+      text: "A language model does not draw a screen. It writes a list of choices: this component, these values, in this order. The registry only works because something stops the model from writing anything else. That something is constrained decoding.",
+    },
+    {
+      type: "p",
+      text: "Constrained decoding is a filter on the model's output. A model builds its answer one token at a time, and at each step it ranks every token it could write next. Constrained decoding blanks out any token that would break your schema before the model picks. So it can choose metricCard or lineChart, because both are in the box. It cannot choose a tag you never defined, because that token is not on the menu. A dropdown does the same thing for a person: you can only pick options that exist. This is a dropdown for the machine.",
+    },
+    {
+      type: "p",
+      text: "Researchers call the general technique grammar-constrained decoding. You hand the model a grammar of what counts as valid output, and it can only produce output that fits. The Vercel AI SDK does this with a function called generateObject, checked against a schema you write. The result is not the model trying to behave. It is the model being unable to misbehave.",
+    },
+    {
+      type: "sourcecard",
+      title: "Grammar-Constrained Decoding for Structured NLP Tasks",
+      publisher: "Geng et al., 2023",
+      description: "A clear account of forcing a model's output to fit a grammar, so it can only emit valid structures.",
+      href: "https://arxiv.org/abs/2305.13971",
+    },
+    {
+      type: "p",
+      text: "That is the entire safety story, and it is worth being blunt about why. Freeform output means the model could emit any markup, any script, any layout. You would be trusting a text generator with your document. A fixed registry means the worst it can do is choose a wrong part from a set you built and tested. The blast radius shrinks from anything to your own components.",
+    },
+    {
+      type: "p",
+      text: "The catch is that a valid choice is not the same as a good one. The schema guarantees the model picks real parts with real values. It does not guarantee the arrangement makes sense. The model can ask for eleven metric cards in a row, a bar chart for a single number, or a card nested inside a card the design never tested. Every part is legal. The screen is still broken. The registry constrains the vocabulary, not the taste. This is why composition rules matter as much as the schema. The maxSiblings and nestable limits are how you turn valid tokens into valid screens. Without them you have taught the model your words but not your grammar.",
     },
     { type: "h2", text: "The registry is the design work" },
     {
@@ -171,6 +198,46 @@ export const generativeUi: Article = {
       caption:
         "The fallback ladder. As the AI grows less sure, the screen trades polish for honesty one rung at a time. The building block decides which rung it stands on.",
     },
+    { type: "h2", text: "Most generative UI is not generative" },
+    {
+      type: "p",
+      text: "Here is the honest part most posts skip. Almost everything shipping under the name generative UI today is conditional rendering with a language model picking the branch. You built five components. The model reads the request and calls one of them with some arguments. That is a switch statement with a smarter switch. Useful, shippable, safe. But the layout was decided by you, in advance, the moment you wrote the five branches.",
+    },
+    {
+      type: "p",
+      text: "I do not say this to knock it. The branch-picking version delivers most of the value and carries almost none of the risk, which is exactly why it is what ships. If you only need the model to route a request to the right pre-built view, do that and stop. Do not reach for anything more generative than the problem needs.",
+    },
+    {
+      type: "p",
+      text: "Genuinely generative UI would mean the model composing arrangements you did not spell out. It would choose how to group, nest, and order parts from the shape of the data, not fill slots in a layout you already drew. Give it a list, a total, and three categories, and it decides a summary row above a grouped table is the right structure, with no branch written for that case. That is a real step up, and it is rare, because the moment the model owns structure you inherit every layout it can invent, including the ones you never tested.",
+    },
+    {
+      type: "compare",
+      left: {
+        title: "Model picks a branch",
+        items: [
+          "You wrote every layout in advance",
+          "Model routes the request to one of them",
+          "Safe, shippable, most of the value",
+          "A new layout means new code",
+        ],
+      },
+      right: {
+        title: "Model composes the layout",
+        items: [
+          "You wrote the parts and the rules",
+          "Model decides structure from the data's shape",
+          "Rare, riskier, where the research still is",
+          "A new layout means no new code",
+        ],
+      },
+      caption:
+        "Both get called generative UI. Only the right column earns the name. Most shipping products live in the left, and that is often the correct call.",
+    },
+    {
+      type: "p",
+      text: "So the ladder has three rungs. Pick a component, which everyone does. Fill a slot, which is common. Compose a novel layout from primitives, which is rare and where the real research sits. Know which rung you are on. Most products should stand happily on the second.",
+    },
     { type: "h2", text: "The uncomfortable part" },
     {
       type: "p",
@@ -179,6 +246,16 @@ export const generativeUi: Article = {
     {
       type: "p",
       text: "So the real skill is not building generative screens. It is knowing where the line is. Generation earns its keep when the problem is too big to list out. Think open exploration, rare support cases, or free-form making. Anywhere the number of possible questions is bigger than the number of screens you could ever draw.",
+    },
+    { type: "h2", text: "Where this idea came from" },
+    {
+      type: "p",
+      text: "None of this is new, only newly aimed at screens. Restricting a generator to legal moves is how a compiler works. Source code is valid only if it fits the grammar of the language, and the parser throws out everything else. It is how a web form works. A country dropdown offers the ten you support and no eleventh. Model function calling brought the same discipline to language models by making them return arguments that fit a named schema instead of free prose. Generative UI is that lineage pointed at layout. The parts are the vocabulary, the composition rules are the grammar, and the model is a fast, slightly unreliable author working inside both.",
+    },
+    { type: "h2", text: "What to do on Monday" },
+    {
+      type: "p",
+      text: "Do not start by building a generative screen. Start by writing the rules for one component you already ship, the way the code block above does. Its inputs, their limits, its confidence field, its fallback, and its composition rules. If you cannot fill every field in plain words the model could act on, the problem is the component, not the model. Put that one part in the registry, let the model choose it for a single narrow request, and watch what it does at the edges. You will learn more from one constrained part in real use than from a demo that generates a whole page and impresses nobody twice.",
     },
     {
       type: "takeaway",
@@ -205,6 +282,11 @@ export const generativeUi: Article = {
       label: "Generative User Interfaces",
       detail: "Vercel AI SDK documentation",
       href: "https://ai-sdk.dev/docs/ai-sdk-ui/generative-user-interfaces",
+    },
+    {
+      label: "Grammar-Constrained Decoding for Structured NLP Tasks",
+      detail: "Geng, Josifoski, Peyrard & West, 2023",
+      href: "https://arxiv.org/abs/2305.13971",
     },
     {
       label: "AI SDK 3.0: Generative UI",

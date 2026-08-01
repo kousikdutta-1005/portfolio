@@ -4,7 +4,7 @@ export const tasteAsMoat: Article = {
   id: "taste-is-the-moat",
   title: "When Everyone Can Generate, Taste Is the Moat",
   subtitle: "Good judgement is the last rare thing",
-  readTime: "5 min read",
+  readTime: "8 min read",
   excerpt:
     "Making a decent interface is now almost free. That does not make design worth less. It moves all the worth into the one thing that stayed hard: knowing which of a thousand decent options is the right one.",
   tags: ["Craft", "Strategy", "Career"],
@@ -29,6 +29,10 @@ export const tasteAsMoat: Article = {
       text: "First, what does moat mean? It is the thing that stops someone copying you. Here is the kitchen version. Anyone can buy the same ingredients, so the cook is the difference. A camera in every phone did not make everyone a photographer. A model can now build a decent landing page in twenty seconds. The contrast is readable, the spacing is sensible, the type looks fine. What it cannot do is know that this product should feel plain, not friendly. The buyer is a compliance officer. Their whole job is risk. To them, warmth reads like a sales pitch.",
     },
     {
+      type: "p",
+      text: "There is a mechanical reason a model cannot make that call. It works by predicting the most likely next thing, which is the middle of everything it was trained on. The middle is a sensible landing page for a generic company. It is the average of a million websites. Knowing that this buyer needs the opposite of the average means stepping outside the training data on purpose, and average is the one place a model always returns to. That gap, between the average and the right call for this exact person, is the whole moat.",
+    },
+    {
       type: "quote",
       text: "Design is not just what it looks like and feels like. Design is how it works.",
       author: "Steve Jobs",
@@ -37,11 +41,37 @@ export const tasteAsMoat: Article = {
     { type: "h2", text: "What taste actually is" },
     {
       type: "p",
-      text: "Taste sounds like a fancy word for personal preference. It is not. Taste is packed-down experience. You have seen a huge number of outcomes, and they collapse into a fast call you can no longer fully explain. Kahneman would call it fast thinking trained by slow thinking. It feels like a gut feeling. It behaves like a mind that has seen a lot of examples.",
+      text: "Taste is not a fancy word for personal preference. It is a large library of remembered examples plus the ability to compare a new thing against that library fast. That is the whole mechanism. You have seen thousands of outcomes, good and bad, and a new option gets matched against them in a fraction of a second. The match feels like a gut call because you cannot watch the library working. But it is memory doing a search, not magic.",
     },
     {
       type: "p",
-      text: "That is also why taste fades in the exact world AI creates. If you make a hundred options and never live with the one you ship, you never feel the result. And the result is what trains the judgement. Volume with no consequence is not experience. It is just scrolling.",
+      text: "The clearest proof comes from chess. In 1973 William Chase and Herbert Simon showed masters a board for five seconds, then hid it and asked them to rebuild it from memory. On a real game position the masters were almost perfect. On a board of randomly scattered pieces they were no better than beginners. Their edge was never raw memory. It was a stored library of thousands of real positions, and instant matching against it. Take away the familiar patterns and the gift vanishes.",
+    },
+    {
+      type: "sourcecard",
+      title: "Chunking in expert memory",
+      publisher: "Wikipedia",
+      description: "The Chase and Simon chess studies, where expert recall turned out to be a library of remembered patterns, not a bigger memory.",
+      href: "https://en.wikipedia.org/wiki/Chunking_(psychology)",
+    },
+    {
+      type: "p",
+      text: "Design taste works the same way. A strong designer is not born with a better eye. They have looked hard at a huge number of interfaces, layouts, and typefaces, and filed away what worked and what did not. When they glance at a new screen, they run it against that file. This is also why taste is domain bound. A brilliant photographer has no taste in database schemas. The library is specific to the thing you have studied.",
+    },
+    {
+      type: "p",
+      text: "The library is built on purpose, not by soaking it up. Anders Ericsson spent his career studying experts and found the same pattern everywhere. The people who got great did deliberate practice, which means working at the edge of your ability, comparing your output to a standard, and closing the gap on purpose. Scrolling a feed adds nothing, because there is no comparison and no feedback. Redrawing a layout you admire until you can say why each choice was made adds a lot. You are not collecting images. You are labelling them.",
+    },
+    {
+      type: "sourcecard",
+      title: "Deliberate practice",
+      publisher: "Wikipedia",
+      description: "Ericsson's finding that expertise is built by focused practice against a standard, not by passive exposure or raw hours.",
+      href: "https://en.wikipedia.org/wiki/Deliberate_practice",
+    },
+    {
+      type: "p",
+      text: "That is also why taste fades in the exact world AI creates. If you make a hundred options and never live with the one you ship, you never feel the result. And the result is what labels the example so it can join the library. Volume with no consequence is not experience. It is just scrolling with extra steps.",
     },
     {
       type: "diagram",
@@ -139,6 +169,10 @@ export const tasteAsMoat: Article = {
     },
     { type: "h2", text: "How I try to keep judgement sharp" },
     {
+      type: "p",
+      text: "The library grows fastest when you label examples instead of just saving them. Everyone keeps a folder of screens they admire. Almost nobody writes down why each one works, which is the part that makes it useful later. When I save a layout, I add one line: what problem it solves and the one move that makes it. Months on, that line is what my gut is really reading. A folder of unlabelled images trains nothing.",
+    },
+    {
       type: "ol",
       items: [
         "Commit before you generate. I write down how the thing should feel, three adjectives and one sentence about the person on the other side, before I open any tool. Then I use the tool to explore inside that promise, not to find it.",
@@ -169,15 +203,39 @@ export const tasteAsMoat: Article = {
     { type: "h2", text: "The honest risk" },
     {
       type: "p",
-      text: "There is a real danger here. Taste can turn into a shield. Some experienced designers use it to claim they are simply better, and to avoid tools that are making everyone faster. I have struck that pose myself, and it ages badly. The cure is rigour. If you cannot say why a choice is right for the user, the context, and the result, you do not have taste. You have a preference and an ego.",
+      text: "There is a real danger here. Taste can turn into a shield. Some experienced designers use it to claim they are simply better, and to dodge tools that are making everyone faster. I have struck that pose myself, and it ages badly. The word becomes a way to win an argument without having to explain anything.",
     },
     {
       type: "p",
-      text: "Dieter Rams said good design is as little design as possible. Back to purity. Back to simplicity. That is a call about what to leave out, made by someone who had shipped enough to know. No machine has ever done it, and I do not think that changes soon.",
+      text: "There is a second, sharper problem. A lot of what we call taste is really social signalling. The sociologist Pierre Bourdieu spent a whole book, Distinction, arguing that taste is often a badge that marks which group you belong to, not a judgement about quality. Design circles prove his point daily. Preferring a certain grid or a certain typeface can be less about the user and more about looking like the right kind of designer to other designers. When taste becomes a badge, it quietly stops serving the person on the other side of the screen.",
+    },
+    {
+      type: "p",
+      text: "Here is the test I use to tell real taste from dressed up preference. Ask what the choice is for. If the answer names the user, the context, and the result you expect, it is judgement. If the only reasons are that you like it or that it looks current, it is preference wearing a nicer coat. Paul Graham makes the same case in his essay on taste for makers: good design is not purely subjective, because you can point at principles it serves. The moment you cannot point at anything outside your own liking, be suspicious of yourself.",
+    },
+    {
+      type: "sourcecard",
+      title: "Taste for Makers",
+      publisher: "Paul Graham",
+      description: "The argument that good design is not merely a matter of opinion, and that taste can be reasoned about against real principles.",
+      href: "http://www.paulgraham.com/taste.html",
+    },
+    {
+      type: "p",
+      text: "You can run this test on a Monday. In your next review, pick the three choices you feel most strongly about and force yourself to write one sentence each, naming the user and the outcome you expect. The ones where the sentence comes easily are judgement you can stand behind. The ones where you stall, or where the sentence is really about you, are the preferences hiding inside your taste. Cutting those is how you keep the library honest and stop it curdling into a set of habits you defend out of pride.",
+    },
+    {
+      type: "callout",
+      title: "Prediction: hiring for design will test the library, not the folder of screens",
+      text: "My bet rests on generation being near free, which makes a portfolio of finished screens prove a little less each year. I expect strong teams to interview by handing candidates a set of options and asking them to choose and defend one under time pressure, because that reveals the remembered library and the matching speed a polished folder can hide. What would prove me wrong: if AI critique tools get good enough that a sharp eye stops being scarce, and choosing well becomes as cheap as generating. I do not think that lands soon, but I hold it loosely.",
+    },
+    {
+      type: "p",
+      text: "Dieter Rams said good design is as little design as possible. Back to purity. Back to simplicity. That is a call about what to leave out, made by someone who had shipped enough to fill a deep library and then trust it. No machine has ever made a cut like that on its own, and I do not think that changes soon.",
     },
     {
       type: "takeaway",
-      text: "Making things is free now, so stop competing there. The rare thing is a point of view you can defend about what should exist. You build it by shipping real work and living with the results long enough to learn.",
+      text: "Making things is free now, so stop competing there. The rare thing is a point of view you can defend about what should exist. You build it by shipping real work and living with the results long enough to file each one into the library your gut later reads.",
     },
   ],
   references: [
@@ -185,6 +243,26 @@ export const tasteAsMoat: Article = {
       label: "Aesthetic-Usability Effect",
       detail: "Kurosu & Kashimura, ACM CHI 1995",
       href: "https://lawsofux.com/aesthetic-usability-effect/",
+    },
+    {
+      label: "Chunking in Expert Memory",
+      detail: "Chase & Simon chess studies, via Wikipedia",
+      href: "https://en.wikipedia.org/wiki/Chunking_(psychology)",
+    },
+    {
+      label: "Deliberate Practice",
+      detail: "Anders Ericsson, via Wikipedia",
+      href: "https://en.wikipedia.org/wiki/Deliberate_practice",
+    },
+    {
+      label: "Taste for Makers",
+      detail: "Paul Graham",
+      href: "http://www.paulgraham.com/taste.html",
+    },
+    {
+      label: "Distinction: A Social Critique of the Judgement of Taste",
+      detail: "Pierre Bourdieu, via Wikipedia",
+      href: "https://en.wikipedia.org/wiki/Distinction_(book)",
     },
     {
       label: "AI: First New UI Paradigm in 60 Years",

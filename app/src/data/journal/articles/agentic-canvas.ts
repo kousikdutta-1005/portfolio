@@ -4,7 +4,7 @@ export const agenticCanvas: Article = {
   id: "agentic-canvas",
   title: "The Chat Box Is a Local Maximum",
   subtitle: "What replaces conversation when the machine can act",
-  readTime: "5 min read",
+  readTime: "8 min read",
   excerpt:
     "Chat was the fastest way to ship a language model. It is not the right tool for real work. What agentic software needs is space, memory, and a place to stand while the machine runs.",
   tags: ["Agentic UI", "Interaction", "Systems"],
@@ -94,6 +94,51 @@ export const agenticCanvas: Article = {
       caption:
         "The difference is not tone or wording. It is whether the work has a place to live outside the transcript.",
     },
+    { type: "h2", text: "Three things a transcript cannot do" },
+    {
+      type: "p",
+      text: "The chat log fails as a workspace for three specific reasons, and naming them tells you what to build instead. It is linear. It has no addressable state. And you cannot branch from it.",
+    },
+    {
+      type: "p",
+      text: "Linear means one axis, append-only. The transcript grows in a single direction, and the only move is to add another line at the bottom. There is no up, no sideways, no room to lay two attempts next to each other. A spreadsheet gives you a grid. A canvas gives you a plane. A chat gives you a rope, and you can only ever tie another knot at the end.",
+    },
+    {
+      type: "p",
+      text: "No addressable state means you cannot point at a past result and use it. A spreadsheet cell has an address, B7, and you can say add B7 to C7 and build on it forever. A chat line has no address. When the agent produced a good table six messages ago, you cannot hand that exact object back and say revise this. You retype it, or you scroll up, copy the text, and paste it into a new message. The result the agent already made is trapped in the scroll, unreachable by name.",
+    },
+    {
+      type: "p",
+      text: "No branching means you cannot fork. Say the agent drafts a plan and you want to try a cheaper variant without losing the first. In a chat you ask again, and the new answer buries the old one. The only fork is in your head, holding two versions in a memory that tops out at about four things. Research prototypes like Sensecape and Graphologue exist precisely to break this: they turn a model's linear replies into a space you can lay out, revisit, and split. That is the tell. The moment work gets real, people build a canvas around the chat.",
+    },
+    {
+      type: "sourcecard",
+      title: "Sensecape: Multilevel Exploration and Sensemaking with LLMs",
+      publisher: "Suh et al., UIST 2023",
+      description: "A research interface that turns linear model output into a space you can lay out, group, and revisit.",
+      href: "https://arxiv.org/abs/2305.11483",
+    },
+    {
+      type: "p",
+      text: "So a working surface has to supply exactly what the transcript withholds. Addressability, so every output is an object you and the agent can name and reference. Branching, so any result can fork into a variant while the original survives, the way Save As or a git branch keeps the old version alive. Reversibility, so you can walk any change back. Get those three and the rope becomes a workbench.",
+    },
+    {
+      type: "table",
+      head: ["Property", "Chat log", "Canvas"],
+      rows: [
+        ["Shape", "One line, append-only", "A plane you lay work out on"],
+        ["Addressable", "No handle on a past result", "Every output is a named object"],
+        ["Branchable", "New answer buries the old", "Fork a variant, keep the original"],
+        ["Reversible", "Undo means scroll and retype", "Walk any change back a step"],
+      ],
+      emphasiseColumn: 2,
+      caption:
+        "The three things a transcript cannot do, and what a canvas puts in their place. None of this is about tone. It is about whether work has a home outside the scroll.",
+    },
+    {
+      type: "p",
+      text: "Picture the difference with one task. You ask an agent to build a launch plan. On a canvas it drops a plan object on the board. You like the timeline but want a leaner budget, so you fork the plan into a second card and tell the agent to cut it by a third. Now two plans sit side by side, both live, both editable, and you compare them at a glance. In a chat, the leaner budget arrives as a wall of text below the first, which has already scrolled half off the screen. To compare them you hold both in your head, and your head holds about four things. The canvas does the remembering so you do not have to.",
+    },
     { type: "h2", text: "Three things any agentic surface needs" },
     {
       type: "ol",
@@ -178,6 +223,31 @@ const gate: Record<Consequence, Gate> = {
       type: "p",
       text: "Mostly, it asks us to design systems you can see the state of. That is an old craft. Don Norman has argued for showing system status since 1988, and it sits at number one in Nielsen's list of rules for a reason. Agentic software just raises the stakes. For the first time, the system is doing things while you look away.",
     },
+    { type: "h2", text: "This argument is older than chat" },
+    {
+      type: "p",
+      text: "Spatial working surfaces are not a reaction to chatbots. They are the main line of computing, and chat is the detour. Douglas Engelbart's 1968 demo, the one people call the mother of all demos, already had windows, linked documents, and two people editing a shared screen they could both point at. The direct manipulation work of the 1980s made the case plainly: people do better when they act on visible objects and see the result at once, instead of typing commands into a void and reading back a report. A chat log undoes both. It hides the objects and answers in prose. We did not discover a better interface. We shipped a worse one because it was faster to build.",
+    },
+    {
+      type: "sourcecard",
+      title: "The Mother of All Demos",
+      publisher: "Douglas Engelbart, 1968",
+      description: "The 1968 demonstration that introduced windows, hypertext links, and shared on-screen editing decades before chat.",
+      href: "https://en.wikipedia.org/wiki/The_Mother_of_All_Demos",
+    },
+    {
+      type: "p",
+      text: "The fair objection is that chat won for good reasons, not just laziness. It is the most forgiving interface ever made: one box that accepts anything, teaches itself, and never shows an error for the wrong button because there are no buttons. For a brand new capability nobody knows how to use yet, that forgiveness is priceless, and a canvas full of specialised controls would have scared people off. So chat was the right start. The claim is narrower than it sounds. Chat is the right way in and the wrong place to keep the work. Once you know what you are doing, blankness stops helping and starts hiding the state you need to see.",
+    },
+    {
+      type: "p",
+      text: "The lesson repeats every generation. Command lines gave way to windows and a mouse because pointing at a thing beats describing it. Then, for a while, windows gave way to the chat box, because describing a thing is the fastest way to use a power you do not yet understand. Now the power is understood well enough to point at again. The swing is not random. It moves toward talking when a tool is new and strange, and back toward pointing once the work turns routine and the objects worth naming pile up.",
+    },
+    { type: "h2", text: "What to do on Monday" },
+    {
+      type: "p",
+      text: "Take one thing your agent produces and stop treating it as a message. Give it an id, a name, and a place on screen that survives the next turn. Add two buttons: duplicate, so a result can fork without destroying the original, and undo, so any change walks back. That is the whole first step. You do not need a grand canvas to begin. You need one output that behaves like an object instead of a line in a transcript, and the rest of the surface tends to follow from that single decision.",
+    },
     {
       type: "takeaway",
       text: "Chat is a steering wheel, not a workspace. Give the agent a surface where its work becomes saved, visible, and undo-able. Match the friction to the consequence, not to how confident the model sounds.",
@@ -193,6 +263,21 @@ const gate: Record<Consequence, Gate> = {
       label: "Building Effective Agents",
       detail: "Anthropic Engineering",
       href: "https://www.anthropic.com/engineering/building-effective-agents",
+    },
+    {
+      label: "The Mother of All Demos",
+      detail: "Douglas Engelbart, 1968",
+      href: "https://en.wikipedia.org/wiki/The_Mother_of_All_Demos",
+    },
+    {
+      label: "Sensecape: Multilevel Exploration and Sensemaking with LLMs",
+      detail: "Suh, Min, Palani & Xia, UIST 2023",
+      href: "https://arxiv.org/abs/2305.11483",
+    },
+    {
+      label: "Graphologue: Exploring LLM Responses with Interactive Diagrams",
+      detail: "Jiang et al., UIST 2023",
+      href: "https://arxiv.org/abs/2305.11473",
     },
     {
       label: "10 Usability Heuristics for User Interface Design",

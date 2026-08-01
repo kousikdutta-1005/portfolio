@@ -92,17 +92,42 @@ async function readJournalRoutes() {
   return journal
 }
 
+const journalRoutes = await readJournalRoutes()
+
+const perPage = Number(
+  (await readFile(new URL("../src/data/journal/index.ts", import.meta.url), "utf8")).match(
+    /PER_PAGE\s*=\s*(\d+)/u,
+  )?.[1] ?? 5,
+)
+
+const journalPageCount = Math.max(1, Math.ceil(journalRoutes.length / perPage))
+
+const journalIndexDescription =
+  "Long-form, referenced writing on generative interfaces, AI trust and provenance, design engineering, performance, motion, and accessibility as a design method."
+
+const journalPageRoutes = []
+for (let page = 2; page <= journalPageCount; page += 1) {
+  journalPageRoutes.push({
+    path: `/journal/page/${page}`,
+    file: `journal/page/${page}/index.html`,
+    title: `Journal, page ${page} - Kousik Dutta`,
+    description: journalIndexDescription,
+    image: defaultImage,
+    priority: "0.5",
+  })
+}
+
 routes.push(
   {
     path: "/journal",
     file: "journal/index.html",
     title: "Journal - Kousik Dutta on AI interfaces, design engineering, and craft",
-    description:
-      "Long-form, referenced writing on generative interfaces, AI trust and provenance, design engineering, performance, motion, and accessibility as a design method.",
+    description: journalIndexDescription,
     image: defaultImage,
     priority: "0.7",
   },
-  ...(await readJournalRoutes()),
+  ...journalPageRoutes,
+  ...journalRoutes,
 )
 
 function escapeRegExp(value) {

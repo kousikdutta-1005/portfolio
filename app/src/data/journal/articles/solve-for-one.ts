@@ -4,7 +4,7 @@ export const accessibility: Article = {
   id: "solve-for-one",
   title: "Solve for One, Help Everyone",
   subtitle: "Accessibility as a design method, not a box to tick",
-  readTime: "5 min read",
+  readTime: "7 min read",
   excerpt:
     "The dropped kerb was built for wheelchairs. Now everyone uses it: the suitcase, the pram, the bad knee. Designing for one person at the edge is not charity. It is the most reliable way to make something better for everyone, and the data proves it.",
   tags: ["Accessibility", "Inclusive Design", "Method"],
@@ -73,6 +73,35 @@ export const accessibility: Article = {
       ],
       caption:
         "Each row started as a narrow fix for one group and became something everyone uses. The third column is where the payoff shows up.",
+      emphasiseColumn: 2,
+    },
+    { type: "h2", text: "Why the effect happens" },
+    {
+      type: "p",
+      text: "The curb cut effect is not luck and it is not generosity. It is a property of how constraints act on a design. When you design for someone with a hard limit, you are forced to strip out ambiguity, and stripped-out ambiguity is exactly what helps everyone else.",
+    },
+    {
+      type: "p",
+      text: "The reason sits in how different people meet a vague design. An average user hits an unlabelled icon, a low-contrast label, a button that could mean two things, and quietly copes. They squint, they guess, they hover to check, they shrug and move on. Because they cope, they never complain, so the flaw stays invisible to the team that shipped it. Nobody files a bug for a thing they managed to tolerate.",
+    },
+    {
+      type: "p",
+      text: "A person at the edge cannot cope, and that is the whole value of them. A screen reader reaches the unlabelled icon and can only announce button, so the task stops dead. The ambiguity the average user swallowed becomes a wall. The edge user is not a special case you are kindly accommodating. They are an instrument that makes hidden ambiguity loud enough to hear.",
+    },
+    {
+      type: "p",
+      text: "Fixing it for them means naming the control, raising the contrast, ordering the focus, saying plainly what a tap will do. Every one of those is just clarity, and clarity is what the coping majority quietly wanted the whole time but never put into words. The dropped kerb removes a decision, step up or not, for the wheelchair user. It removes the very same decision for the traveller with a suitcase, who could have managed the step and is still glad not to have to.",
+    },
+    {
+      type: "table",
+      head: ["A vague design detail", "Average user", "User at the edge"],
+      rows: [
+        ["Icon button with no name", "Guesses from the picture", "Screen reader says only button"],
+        ["Grey label at low contrast", "Squints and reads it anyway", "Cannot read it at all"],
+        ["Unclear focus order", "Reaches for the mouse", "Gets lost with no way back"],
+      ],
+      caption:
+        "The same flaw, two outcomes. The average user absorbs it silently, so it stays hidden. The edge user hits a wall, so the flaw finally becomes visible and gets fixed for both.",
       emphasiseColumn: 2,
     },
     { type: "h2", text: "Where the actual failures are" },
@@ -176,12 +205,40 @@ export const accessibility: Article = {
       type: "p",
       text: "That last point gets too little attention. An agent using your product for someone relies on accessible names, roles, and states. A product a screen reader cannot read is a product an agent cannot read. Accessibility has quietly become a requirement for working with machines at all.",
     },
+    { type: "h2", text: "The business case is real, and it is a trap" },
+    {
+      type: "p",
+      text: "There is an honest problem buried in everything I have said so far. The curb cut effect is the argument people reach for to sell accessibility to a business. Do it because everyone benefits, because it widens your market, because it lifts conversion. All of that is true. It is also fragile, because it quietly accepts a dangerous premise: that accessibility has to pay for itself to be worth doing.",
+    },
+    {
+      type: "p",
+      text: "The moment you win the room with a revenue chart, you have agreed to lose it the day the chart points the other way. If some fix helps a group too small to move the numbers, the same logic says skip it, and you have handed over the exact tool needed to justify exclusion. The curb cut effect is a happy fact. It is not a foundation.",
+    },
+    {
+      type: "p",
+      text: "The foundation is plainer than a spreadsheet. People have a right to use the things that run their lives: their bank, their government, their doctor, their kids' school. That does not stop being true when the addressable market is small. So I keep the numbers ready for the meeting, and I do not let them become the reason. The business case is a good thing to bring to a room. It is a bad thing to believe.",
+    },
+    {
+      type: "callout",
+      title: "How I hold both at once",
+      text: "Lead with the right to access, because that is the part that does not move. Keep the market size, the legal risk, and the conversion lift in your back pocket for the people who need them. Just never let the case rest on the money, or you have quietly agreed that the wrong number could end the argument.",
+    },
     {
       type: "takeaway",
       text: "Treat exclusion as a research signal, not a box to tick. Fix the five failures that cause nearly everything at the building-block level, check them automatically in the build, and you get a product that works better in sunlight, under stress, with one thumb, and for a machine reading it.",
     },
   ],
   references: [
+    {
+      label: "The Curb-Cut Effect",
+      detail: "Angela Glover Blackwell, Stanford Social Innovation Review, 2017",
+      href: "https://ssir.org/articles/entry/the_curb_cut_effect",
+    },
+    {
+      label: "The Business Case for Digital Accessibility",
+      detail: "W3C Web Accessibility Initiative",
+      href: "https://www.w3.org/WAI/business-case/",
+    },
     {
       label: "Mismatch: How Inclusion Shapes Design",
       detail: "Kat Holmes, MIT Press, 2018",

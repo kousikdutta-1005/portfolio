@@ -4,7 +4,7 @@ export const motion: Article = {
   id: "motion-is-physics",
   title: "Motion Is Not Decoration, It Is Physics",
   subtitle: "Why springs feel real and timed animations feel fake",
-  readTime: "5 min read",
+  readTime: "8 min read",
   excerpt:
     "A timed animation assumes the world will wait for it. Real things do not have a set time. They have weight and speed. That one difference is what separates interfaces that feel alive from ones that feel fake.",
   tags: ["Motion", "Interaction", "Craft"],
@@ -96,6 +96,72 @@ onDragEnd={(_, info) => {
     velocity: info.velocity.x,   // inherit the throw
   })
 }}`,
+    },
+    { type: "h2", text: "The maths, in plain words" },
+    {
+      type: "p",
+      text: "A spring is three forces added together. Stiffness pulls the object toward its target. Damping slows it down. Mass makes it resist being moved at all. Nothing else is in the model. Once you can feel what each one does, tuning stops being guesswork.",
+    },
+    {
+      type: "p",
+      text: "Stiffness is the pull. It works like a stretched rubber band. The further the object sits from where it belongs, the harder it gets yanked back. Move it twice as far and it pulls twice as hard. High stiffness snaps home fast and eager. Low stiffness drifts in like a leaf settling.",
+    },
+    {
+      type: "p",
+      text: "Damping is the brake. It is the force that bleeds energy out of the motion, the way a shock absorber on a car soaks up a bump instead of letting it bounce. With no damping a spring would swing past its target and oscillate forever. With too much, the object crawls the last stretch and never seems to arrive.",
+    },
+    {
+      type: "p",
+      text: "Mass is weight. A heavy object is slow to start and slow to stop, because it carries momentum once it is moving. Give a card more mass and it leans into the motion like a loaded trolley, then takes a moment to give that speed back up.",
+    },
+    {
+      type: "p",
+      text: "The feel of the whole thing comes from the balance between damping and stiffness. Engineers call that ratio the damping ratio, and it splits every spring into one of three behaviours. Too little damping and it overshoots and wobbles. The right amount and it arrives as fast as possible with no overshoot at all. Too much and it is smooth but sluggish. This is the same maths that decides whether a car door thunks shut cleanly or bounces on its seal.",
+    },
+    {
+      type: "table",
+      head: ["Damping ratio", "What happens", "When to use it"],
+      rows: [
+        ["Under 1 (underdamped)", "Overshoots, then wobbles back", "A little life on a confirmation"],
+        ["Exactly 1 (critical)", "Arrives fastest with no overshoot", "The safe default for daily UI"],
+        ["Over 1 (overdamped)", "No overshoot, but slow and heavy", "Large, calm, weighty surfaces"],
+      ],
+      caption:
+        "The damping ratio is damping measured against stiffness and mass. It is the one number that decides bounce versus composure. Most interface springs want to sit at or just below critical.",
+      emphasiseColumn: 2,
+    },
+    {
+      type: "p",
+      text: "Notice what is missing from all of this: a duration. You never tell a spring how long to take. You set the three forces, hand it a starting position and a starting speed, and the time it takes is simply whatever falls out of the maths. Josh Comeau's walk through the physics is the clearest version of this I have read, and it is worth doing once with the sliders in front of you.",
+    },
+    {
+      type: "sourcecard",
+      title: "A Friendly Introduction to Spring Physics",
+      publisher: "Josh W. Comeau",
+      description: "Stiffness, damping, and mass explained with sliders you can drag, so you feel what each one does to the curve.",
+      href: "https://www.joshwcomeau.com/animation/a-friendly-introduction-to-spring-physics/",
+    },
+    { type: "h2", text: "Why interruption is free for a spring" },
+    {
+      type: "p",
+      text: "A spring survives your finger because it is defined by two live numbers: where the object is right now, and how fast it is moving right now. Add a target and that is the whole state. Change the target while the object is mid-flight and nothing resets. It keeps its position, keeps its speed, and simply starts heading somewhere new. The redirect is smooth because the speed was never thrown away.",
+    },
+    {
+      type: "p",
+      text: "A timed curve has no room for that. It is a function of one input: how long since it started. To interrupt it you either restart the clock, which snaps the speed back to zero and jumps, or you let it run to the old target and ignore the person entirely. There is no slot in the model for the speed the object already has. That single gap is the whole reason one feels alive under your finger and the other feels like a recording.",
+    },
+    { type: "h2", text: "When a spring is the wrong tool" },
+    {
+      type: "p",
+      text: "Springs are not always right, and pretending otherwise is how you end up fighting the tool. The honest rule is this: use a spring when a human is touching the thing, and use a timed curve when a clock is in charge. Any motion that must finish at a known moment belongs to the clock.",
+    },
+    {
+      type: "p",
+      text: "A progress bar that has to reach the end exactly when the upload completes cannot be a spring, because a spring's finish time drifts with its inputs. A three second onboarding where several elements must land together needs a shared timeline, not three springs that each arrive whenever their maths says so. A countdown, a timeout ring, anything with a promised duration: timed curve.",
+    },
+    {
+      type: "p",
+      text: "The sharpest case is motion tied to a timeline you do not own, which means audio and video. If a caption must appear on a beat, or a character's mouth must match a soundtrack, every frame maps to a fixed timestamp. A spring, whose timing is emergent, cannot be pinned to frame 240 of a clip. There you want keyframes on a timeline, the same tool animation has used for a century. Springs are for touch. Timelines are for time.",
     },
     { type: "h2", text: "Tuning by feel, with a method" },
     {
@@ -204,6 +270,11 @@ const eased = {
     },
   ],
   references: [
+    {
+      label: "A Friendly Introduction to Spring Physics",
+      detail: "Josh W. Comeau, on stiffness, damping, and mass",
+      href: "https://www.joshwcomeau.com/animation/a-friendly-introduction-to-spring-physics/",
+    },
     {
       label: "Designing Interface Animation",
       detail: "Val Head, Rosenfeld Media, 2016",

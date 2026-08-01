@@ -4,7 +4,7 @@ export const localFirst: Article = {
   id: "local-first-intelligence",
   title: "The Fastest Network Request Is the One You Never Make",
   subtitle: "Keeping data and smarts on your own device, and why it changes the design",
-  readTime: "5 min read",
+  readTime: "9 min read",
   excerpt:
     "Cloud-first apps made a deal nobody asked you to sign. Your data lives on someone else's computer, and every click has to travel there and back. Local-first flips that. And it changes far more than speed.",
   tags: ["Local-first", "Performance", "Architecture"],
@@ -132,6 +132,69 @@ export const localFirst: Article = {
       title: "The new load state",
       text: "On-device models move the wait. Instead of waiting on every action, you wait once for a download of several hundred megabytes. Be honest about that warm-up. Let the product work in a basic mode right away, fetch in the background, and never block the first session on it.",
     },
+    { type: "h2", text: "Be honest: local-first is often the wrong choice" },
+    {
+      type: "p",
+      text: "The case above is real, but it is only half the ledger. A capable on-device model is big, and it has to live in the device's memory to be fast. Take Phi-3-mini, a small model built to run on a phone. It has 3.8 billion parameters. Squeezed down to four bits it still takes about 1.8 gigabytes, and Microsoft showed it running on an iPhone 14, fully offline, at over twelve words a second. That is a genuine achievement. It is also 1.8 gigabytes sitting in memory, a large slice of a phone that is also running everything else. Switch apps and the system can evict it, so you pay the load again. Anything much bigger than a few billion parameters does not fit at all.",
+    },
+    {
+      type: "sourcecard",
+      title: "Phi-3 Technical Report: A Capable Model Locally on Your Phone",
+      publisher: "Abdin et al., Microsoft, 2024",
+      description: "The report behind Phi-3-mini, including its size, its 4-bit footprint, and a demo running offline on an iPhone.",
+      href: "https://arxiv.org/abs/2404.14219",
+    },
+    {
+      type: "p",
+      text: "Cold start is the next bill. Before the first word, the device has to download that model, hundreds of megabytes to a couple of gigabytes, and compile it for the local chip. A server never charged the user for this. The first session on a new device does.",
+    },
+    {
+      type: "p",
+      text: "Then there is power. A cached read off local disk costs almost nothing. Sustained generation runs the GPU or neural chip hot, drains the battery, and warms the device in your hand. I will not pretend to a single universal number, because it depends on the chip and the model. But a laptop on battery throttles, and a phone gets warm, and users notice both.",
+    },
+    {
+      type: "p",
+      text: "Updating is the tradeoff people forget. A hosted model you improve once, for everyone, overnight. An on-device model is thousands of copies scattered across the world. Shipping a better version means every device re-downloads gigabytes, on its own schedule, and you keep supporting the old versions until they catch up. A flaw in the model stops being a deploy and becomes a fleet update.",
+    },
+    {
+      type: "p",
+      text: "So the round trip to a server is genuinely right more often than local-first fans admit. Send it away when the model has to be frontier quality, when it needs fresh or shared data the device cannot hold, when the task is rare enough that a short wait is fine, or when the device is too weak or too full to carry the model at all. Crossing the ocean is the correct call whenever what waits on the far side cannot fit on this side.",
+    },
+    {
+      type: "compare",
+      left: {
+        title: "Keep it on the device",
+        items: [
+          "Fast, repeated actions on personal data",
+          "Works offline and stays private",
+          "A small model that fits in memory",
+          "The same task, many times a minute",
+        ],
+      },
+      right: {
+        title: "Send it to a server",
+        items: [
+          "Frontier quality the device cannot match",
+          "Fresh or shared data the device lacks",
+          "A rare task where a short wait is fine",
+          "A weak or full device that cannot hold the model",
+        ],
+      },
+      caption:
+        "Local-first is a wrong default for anything needing a frontier model, shared truth, or a tiny install. It earns its keep for fast, private, repeated work over your own data.",
+    },
+    {
+      type: "p",
+      text: "One more tradeoff cuts against the privacy story. Putting the model on the device also hands the model to whoever owns the device. The weights ship with the app, and a determined person can pull them out. If the model is the product, on-device means giving away the thing you sell. A hosted model stays behind an interface you control. Local-first protects the user's data and exposes the maker's model. Which one matters more depends on whose secret you are keeping.",
+    },
+    {
+      type: "p",
+      text: "It is also worth puncturing the idea that local-first means no server. Most real local-first apps still run one, to relay changes between devices, to hold a backup, to serve people who share a document but are never online at the same time. Ink and Switch call it a sync server, and the honesty is in the name. It syncs, it does not own. But it is still infrastructure you build, pay for, and keep alive. Local-first moves the server off the path of your click. It does not always delete it. Anyone selling local-first as free of servers is selling the poster, not the product.",
+    },
+    {
+      type: "p",
+      text: "And building that sync is not a weekend. Merging edits correctly, handling a device that was offline for a month, migrating the data format after you have shipped, these are the hard, unglamorous parts, and they land on you instead of on a database vendor. The instant, offline, private product the user feels is bought with real engineering the user never sees. That is a fair trade for the right app. It is a waste for one that a plain server would have served just fine.",
+    },
     { type: "h2", text: "Why I think this becomes the default" },
     {
       type: "table",
@@ -154,6 +217,15 @@ export const localFirst: Article = {
     {
       type: "p",
       text: "That last point is the one that moves me. Almost everything we build today dies the moment a server is switched off. Local-first is the first approach in twenty years that takes one idea seriously: a person's work should outlive the product that made it.",
+    },
+    {
+      type: "p",
+      text: "The merge problem does not shrink as you grow. It grows. Two people editing rarely clash. A team of fifty editing one shared space, half of them offline on a train, produces clashes daily, and every clash is a small design problem you now own. The cost of a merge that needs a human is paid by your users, in confusion, unless you have designed the moment it happens. Local-first hands you a better default and a harder edge case in the same box.",
+    },
+    { type: "h2", text: "What to do on Monday" },
+    {
+      type: "p",
+      text: "Do not port your whole app to a local database this week. Take the single interaction people repeat most, a search, a filter, a re-sort, and move just its data onto the device so that one action lands instantly. Leave everything else on the server for now. Then measure whether people use that feature more once it stops asking the network for permission. If they do, you have earned the case to go further. If they do not, you just saved yourself a migration you did not need. Let where the truth lives be a decision you earn per feature, not a religion you adopt all at once.",
     },
     {
       type: "takeaway",
@@ -180,6 +252,11 @@ export const localFirst: Article = {
       label: "WebLLM: High-Performance In-Browser LLM Inference",
       detail: "MLC AI",
       href: "https://webllm.mlc.ai/",
+    },
+    {
+      label: "Phi-3 Technical Report: A Highly Capable Model Locally on Your Phone",
+      detail: "Abdin et al., Microsoft, 2024",
+      href: "https://arxiv.org/abs/2404.14219",
     },
     {
       label: "Designing Data-Intensive Applications",

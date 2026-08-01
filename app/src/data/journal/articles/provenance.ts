@@ -4,7 +4,7 @@ export const provenance: Article = {
   id: "provenance",
   title: "Trust Is a Rendering Problem",
   subtitle: "Designing provenance into retrieval-augmented systems",
-  readTime: "5 min read",
+  readTime: "9 min read",
   excerpt:
     "RAG fixed the engineering half of AI making things up. The human half is still wide open, and it is ours. Here is a simple way to show where an answer came from, and how much to trust it.",
   tags: ["AI UX", "Trust", "Research"],
@@ -43,6 +43,51 @@ export const provenance: Article = {
   W --> UI`,
       caption:
         "The map of where the answer came from is a real output, not a debug note. If you do not show it, it does not exist.",
+    },
+    { type: "h2", text: "Why citation is hard, not just important" },
+    {
+      type: "p",
+      text: "A model can write a perfect citation for a claim it never looked up. This is the part that catches teams out. The citation is generated the same way as the prose: a plausible source name, sometimes a plausible URL, predicted token by token because it fits the pattern of a citation. It looks retrieved. It was invented.",
+    },
+    {
+      type: "p",
+      text: "The numbers here are not reassuring. In 2023 a Stanford team audited four generative search engines, including Bing Chat and Perplexity, by hand. On average, only 51.5 percent of generated sentences were fully supported by their citations, and only 74.5 percent of citations actually supported the sentence they were attached to. So roughly a quarter of the citations pointed at something that did not back the claim. The systems looked trustworthy. That was the problem.",
+    },
+    {
+      type: "sourcecard",
+      title: "Evaluating Verifiability in Generative Search Engines",
+      publisher: "Liu, Zhang & Liang, Stanford, 2023",
+      description: "A hand audit of four generative search engines, measuring how often citations really support the sentence they sit under.",
+      href: "https://arxiv.org/abs/2304.09848",
+    },
+    {
+      type: "p",
+      text: "So the interface has one job before any other: keep retrieved and generated apart, and never let them look the same. Most products fail this. They render a model-written citation in the same blue as a real retrieved one, and the user cannot tell which is which. The fix is structural, not visual. The model is never allowed to write a citation string. Only the retrieval layer, the part that actually fetched a document, can attach a source. If a sentence has no fetched source behind it, it is unsupported, and it must look unsupported. The screen shows what was retrieved, not what was written to look retrieved.",
+    },
+    {
+      type: "stats",
+      items: [
+        { value: "51.5%", label: "of generated sentences fully supported by their citations", source: "Liu et al., Stanford, 2023" },
+        { value: "74.5%", label: "of citations that actually support their sentence", source: "Liu et al., Stanford, 2023" },
+        { value: "4", label: "generative search engines audited by hand", source: "Liu et al., Stanford, 2023" },
+      ],
+      caption:
+        "A plausible citation is not a real one. Roughly a quarter of citations in these systems did not back the claim they sat under.",
+    },
+    {
+      type: "p",
+      text: "The failure is not hypothetical. In 2023 a New York lawyer filed a court brief full of case citations that ChatGPT had invented, complete with fabricated quotes and fictitious airlines. A judge fined him and his firm 5,000 dollars. The model had done exactly what models do: produced text shaped like citations, because that is what the pattern called for. A reader who could not tell generated from retrieved took it at face value. Your users do the same, only faster and far more often.",
+    },
+    {
+      type: "sourcecard",
+      title: "Mata v. Avianca, Inc.",
+      publisher: "US District Court, SDNY, 2023",
+      description: "The case where lawyers were sanctioned for filing a brief built on fake citations a chatbot generated and no one checked.",
+      href: "https://en.wikipedia.org/wiki/Mata_v._Avianca,_Inc.",
+    },
+    {
+      type: "p",
+      text: "The distinction has to be built in early, because you cannot recover it later. Once the model has written a sentence, no inspection tells you for certain whether it came from the fetched document or from the model's memory. They are the same words on the page. The only reliable answer is to track it at the source. The retrieval step tags each fact with the document it came from, the model carries those tags through, and any sentence that arrives without one is marked unsupported by default. Trust you add after the fact is a guess. Trust you record at the moment of retrieval is a fact.",
     },
     { type: "h2", text: "Three levels of attribution" },
     {
@@ -131,7 +176,26 @@ export const provenance: Article = {
     { type: "h2", text: "Showing doubt without wrecking the page" },
     {
       type: "p",
-      text: "The naive move is a percentage. Ninety-two percent sure. Users cannot act on that. Worse, models are famously bad at judging their own odds. What works is simple ranking, shown visually, and tied to what is at stake.",
+      text: "The naive move is a percentage. Ninety-two percent sure. It fails for two reasons, and both matter. First, users read 92 percent as the chance the answer is correct. It is not that. It is the model's own guess about itself, which is a different thing. Second, that guess is usually wrong.",
+    },
+    {
+      type: "p",
+      text: "Models are badly calibrated, and this is measured, not folklore. Modern networks are systematically overconfident: a batch of answers a model rates 90 percent sure is right well under 90 percent of the time. When you ask a chat model to state its confidence in words, the same gap shows up. It clusters its bets high and rarely says it is unsure, even when it should be. A number that does not track reality is worse than no number, because it looks like data.",
+    },
+    {
+      type: "sourcecard",
+      title: "On Calibration of Modern Neural Networks",
+      publisher: "Guo, Pleiss, Sun & Weinberger, 2017",
+      description: "The paper that showed modern models are systematically overconfident: their stated probabilities run ahead of how often they are right.",
+      href: "https://arxiv.org/abs/1706.04599",
+    },
+    {
+      type: "p",
+      text: "So a good confidence signal is not a number. It is a small, honest ranking, shown visually, and tied to what is at stake. It should say where a claim sits, backed or unbacked or contested, and it should open into the evidence when tapped. It should never collapse three different questions, is there a source, how fresh is it, how sure is the model, into one figure that hides all three. Rank, do not score. Point at evidence, do not assert a percentage.",
+    },
+    {
+      type: "p",
+      text: "There is a simple test for whether a signal is honest. Can the user act on it, and does acting on it lead to evidence rather than another opinion. A backed claim opens to the exact passage that supports it. An unbacked one opens to a plain admission that the system is working from memory here, so check before you rely on it. A contested one opens to both sides. Every state resolves into something the reader can look at, not a mood the interface is in. The moment a signal cannot be opened into evidence, it is decoration, and decoration that looks like certainty is worse than silence.",
     },
     {
       type: "ul",
@@ -189,6 +253,15 @@ function Answer({ spans }: { spans: Span[] }) { /* ... */ }`,
       text: "This is why I think these source patterns will end up in design systems, the way focus states and empty states did. A citation is not a link. It is a component with states, thresholds, keyboard behaviour, and a clear story for when the source is deleted, locked, or wrong.",
     },
     {
+      type: "p",
+      text: "Conflict is the case that separates a research tool from an oracle, and it is the one most systems bury. When two sources disagree, the smooth move is to average them into one confident sentence. That is the most dangerous thing the interface can do, because it manufactures a certainty neither source supports. Show both. Name both. Let the reader see the disagreement and decide, the way they would with two colleagues who remember a meeting differently. An interface that hides conflict is not being helpful. It is quietly picking a side.",
+    },
+    { type: "h2", text: "What to do on Monday" },
+    {
+      type: "p",
+      text: "Pick one AI answer in your product and time it. Sit with a real user, give them a real answer, and measure how long it takes them to satisfy themselves it is true. That number is the feature's real score, not the accuracy on a slide. Then make one change. Render any sentence with no retrieved source in a visibly weaker style, and put the exact source passage one tap away on the rest. Do not touch the model. You will usually cut the checking time more with that one rendering change than with a bigger model, because you were never fighting accuracy. You were fighting the cost of trust.",
+    },
+    {
       type: "takeaway",
       text: "Stop designing the answer. Design the evidence around it. The goal you can measure is not accuracy. It is cutting the cost of checking until trusting the machine is faster than doubting it.",
     },
@@ -205,9 +278,29 @@ function Answer({ spans }: { spans: Span[] }) { /* ... */ }`,
       href: "https://arxiv.org/abs/2005.11401",
     },
     {
+      label: "Evaluating Verifiability in Generative Search Engines",
+      detail: "Liu, Zhang & Liang, Stanford, 2023",
+      href: "https://arxiv.org/abs/2304.09848",
+    },
+    {
+      label: "On Calibration of Modern Neural Networks",
+      detail: "Guo, Pleiss, Sun & Weinberger, 2017",
+      href: "https://arxiv.org/abs/1706.04599",
+    },
+    {
+      label: "Just Ask for Calibration: Eliciting Confidence from Language Models",
+      detail: "Tian et al., 2023",
+      href: "https://arxiv.org/abs/2305.14975",
+    },
+    {
       label: "AI Chat Is Not (Always) the Answer",
       detail: "Nielsen Norman Group",
       href: "https://www.nngroup.com/articles/ai-chat-not-the-answer/",
+    },
+    {
+      label: "Mata v. Avianca, Inc.",
+      detail: "US District Court, SDNY, 2023",
+      href: "https://en.wikipedia.org/wiki/Mata_v._Avianca,_Inc.",
     },
     {
       label: "Patterns for Building LLM-based Systems and Products",

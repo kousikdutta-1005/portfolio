@@ -4,7 +4,7 @@ export const material: Article = {
   id: "material-and-depth",
   title: "Glass Is Not a Style",
   subtitle: "How surfaces, depth, and real-world instincts help an interface make sense",
-  readTime: "5 min read",
+  readTime: "7 min read",
   excerpt:
     "See-through glass became a trend, so it became decoration. It was never meant to be that. In an interface, the look of a surface does real work: it tells you which layer you are on, where to look, and where you are.",
   tags: ["Material", "Spatial", "Craft"],
@@ -79,6 +79,27 @@ export const material: Article = {
       source: "Apple Human Interface Guidelines, Materials",
       emphasiseColumn: 1,
     },
+    { type: "h2", text: "Translucency is information, not decoration" },
+    {
+      type: "p",
+      text: "A see-through surface tells you two specific things at once. It says this layer is temporary, and it shows you what it is covering. Both are facts the user needs, and neither survives being flattened into a solid opaque panel.",
+    },
+    {
+      type: "p",
+      text: "The temporary part sets expectation. When a sheet slides up and you can still see your list softened behind it, you know your place is held. Dismiss the sheet and you drop straight back where you were. An opaque panel breaks that thread. It looks like a fresh page, so people brace for having navigated somewhere new. Translucency is a quiet promise that you have not actually left.",
+    },
+    {
+      type: "p",
+      text: "The covering part is orientation. A menu that lets a little of the page bleed through is telling you what it will hand you back to when you close it. That is the difference between a frosted bathroom door, where you know the room is still on the other side, and a solid wall, which could be hiding anything at all.",
+    },
+    {
+      type: "p",
+      text: "This is why glass turns load-bearing in spatial computing. On a phone the screen edge does most of the work. A panel reads as in front because it touches the frame and drops a shadow onto the page behind it. In a headset there is no page and no edge. Content floats in your real living room, and a drop shadow means nothing against a sofa. Translucency, and the way light passes through it, becomes the only dependable cue for what sits in front of what. Apple leans on glass in visionOS for that reason, not for the look of it.",
+    },
+    {
+      type: "p",
+      text: "You can watch this working on any phone. Pull down the control panel and the app underneath stays faintly visible through it, softened but present. That blur is doing a job. It tells you the panel is a passing overlay, not a new screen, so you swipe it away without a second thought and land exactly where you were. Swap that same panel for a solid sheet and people hesitate, because a solid sheet reads as a place you travelled to rather than a curtain you pulled across. The material is carrying the meaning, not the animation.",
+    },
     { type: "h2", text: "The mistake everyone makes" },
     {
       type: "p",
@@ -117,6 +138,22 @@ export const material: Article = {
       type: "callout",
       title: "The worst-case backdrop test",
       text: "Take your see-through surface and put the busiest, brightest image in your product behind it. If body text on that surface drops below 4.5:1 contrast, the material is just decoration and it is failing. Raise the tint until it passes. Then save that value as your standard.",
+    },
+    { type: "h2", text: "Most glass on the web is just decoration" },
+    {
+      type: "p",
+      text: "I have to be honest about my own field here. Almost all of the glass you see on the web fails the test I just set out. It is a fixed frosted panel with a pretty tint that never samples anything real, parked over a static gradient. It carries no information about layers, because there is only ever one layer. It is a texture wearing the costume of a material.",
+    },
+    {
+      type: "p",
+      text: "The look picked up a name around 2020, glassmorphism, and the name is most of what actually spread. The tell for whether a given surface earns its keep is simple. Move it, or move the content behind it, and watch. If nothing changes through the glass, it was decoration all along. A real material updates as the world behind it moves, the way a rain-streaked window keeps showing you the street shifting past.",
+    },
+    {
+      type: "sourcecard",
+      title: "Glassmorphism in User Interfaces",
+      publisher: "Michal Malewicz, UX Collective",
+      description: "The 2020 piece that named and popularised the trend, and set out the few rules that keep it from becoming pure decoration.",
+      href: "https://uxdesign.cc/glassmorphism-in-user-interfaces-1f39bb1308c9",
     },
     { type: "h2", text: "Depth on a flat screen" },
     {
@@ -175,7 +212,11 @@ export const material: Article = {
     },
     {
       type: "p",
-      text: "In practice that means putting each see-through surface on its own layer, never animating the blur amount itself, and instead fading a surface that is already blurred.",
+      text: "The mechanism is worth understanding, because it tells you where the cost hides. To draw a see-through surface the browser copies the pixels already painted behind it, then runs a blur over that copy. A blur is an averaging pass: every output pixel reads a patch of its neighbours. Widen the blur radius and that patch grows in two directions at once, so a 40 pixel blur is not twice the work of a 20 pixel blur, it is closer to four times. Add the saturation boost and it happens again, on every frame the backdrop changes.",
+    },
+    {
+      type: "p",
+      text: "In practice that means putting each see-through surface on its own compositing layer, never animating the blur amount itself, and instead fading a surface that is already blurred.",
     },
     { type: "h2", text: "Where this is heading" },
     {
@@ -188,6 +229,11 @@ export const material: Article = {
     },
   ],
   references: [
+    {
+      label: "Glassmorphism in User Interfaces",
+      detail: "Michal Malewicz, UX Collective, 2020",
+      href: "https://uxdesign.cc/glassmorphism-in-user-interfaces-1f39bb1308c9",
+    },
     {
       label: "Designing for visionOS: Materials",
       detail: "Apple Human Interface Guidelines",

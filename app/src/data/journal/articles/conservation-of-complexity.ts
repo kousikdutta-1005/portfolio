@@ -4,7 +4,7 @@ export const complexity: Article = {
   id: "conservation-of-complexity",
   title: "Somebody Has to Do the Hard Part",
   subtitle: "Tesler's Law and the real work of enterprise design",
-  readTime: "5 min read",
+  readTime: "9 min read",
   excerpt:
     "Every product has a hard part that will not go away. You cannot delete it. You can only choose who does the work: the person using it, the screen in front of them, or the engineers behind it. Most bad business software picks wrong.",
   tags: ["Enterprise", "Systems", "UX"],
@@ -42,6 +42,10 @@ export const complexity: Article = {
       publisher: "Laws of UX",
       description: "A short, clear write-up of the law this whole piece is built on, in Tesler's own words.",
       href: "https://lawsofux.com/teslers-law/",
+    },
+    {
+      type: "p",
+      text: "Tesler worked this out while at Xerox PARC in the mid-1980s, and it has a second name that explains it better: the waterbed theory. Press a waterbed down in one spot and it bulges up somewhere else. You never removed the water. You moved it. Complexity behaves the same way. His own framing was blunt. There are far more users than developers, so a week of the team's pain is worth a huge amount of saved user pain. And he chose one word on purpose. Irreducible. He meant the complexity you cannot delete, only relocate.",
     },
     { type: "h2", text: "Where enterprise design goes wrong" },
     {
@@ -107,6 +111,39 @@ export const complexity: Article = {
       source: "After Larry Tesler, Law of Conservation of Complexity",
       emphasiseColumn: 2,
     },
+    { type: "h2", text: "Where the complexity actually goes" },
+    {
+      type: "p",
+      text: "Moving complexity is not the same as deleting it, and every place it can land sends a bill to someone real. There are three landing spots. It helps to name the person who pays before you decide to move it.",
+    },
+    {
+      type: "p",
+      text: "Push it down to the platform and it lands on an engineer. Someone has to write the code that guesses and fills and checks, and then keep it alive for years. That is a maintenance cost, and it shows up later as pages at three in the morning, as changes that get slower because the smart code is fragile, and as a system only one person on the team understands. Absorbed complexity is not free. It is a debt the team pays in small instalments, forever.",
+    },
+    {
+      type: "p",
+      text: "Push it onto the user badly and it lands on a support team. Every confusing form becomes a ticket, a training session, a phone call, and a quiet fraction of people who give up and leave. In enterprise software the support cost of one bad screen usually dwarfs the engineering hour that would have fixed it. The user's pain does not vanish when you ignore it. It reappears further down the corridor as a cost centre nobody connects back to the design.",
+    },
+    {
+      type: "p",
+      text: "Push it into automation and it can land on infrastructure. Working things out for the user often means more computing, more storage, and more services to run and watch. A model that fills the form for you has a bill measured in compute and a fresh set of failure modes to monitor. The complexity turned into an operations cost. Someone still pays. It just wears a different uniform.",
+    },
+    {
+      type: "table",
+      head: ["Where it lands", "Who pays", "How the bill arrives"],
+      rows: [
+        ["The platform code", "An engineer, for years", "Night pages, slower changes, one-person systems"],
+        ["The user", "A support team", "Tickets, training, calls, quiet churn"],
+        ["The automation", "Infrastructure", "Compute, storage, new failure modes to watch"],
+      ],
+      caption:
+        "Complexity you relocate always lands on someone. Naming the payer before you move it is the difference between a real fix and a hidden bill charged to a team that never sat in the room.",
+      emphasiseColumn: 1,
+    },
+    {
+      type: "p",
+      text: "So the platform should absorb it is not a free win. It is a choice about who pays: the engineer in maintenance, the support team in tickets, or the infrastructure in running cost. The skill is picking the cheapest payer for the value at stake, with eyes open, not pretending the cost went away because you can no longer see it.",
+    },
     { type: "h2", text: "The three moves that actually work" },
     {
       type: "ol",
@@ -133,6 +170,30 @@ export const complexity: Article = {
       type: "callout",
       title: "The question I ask in every review",
       text: "Who is paying for this? Not in money. In attention. If the answer is the user, and the fix was two weeks of engineering, you are making a bad trade for someone who is not in the room.",
+    },
+    { type: "h2", text: "Sometimes the right move is to delete it" },
+    {
+      type: "p",
+      text: "There is an honest objection to all of this. Tesler's law can become an excuse. Someone has to deal with it is true, but it can quietly justify never simplifying at all. If you decide up front that the complexity is fixed, you stop asking the better question. Does this part need to exist.",
+    },
+    {
+      type: "p",
+      text: "Fred Brooks drew the line that matters. In his 1986 essay No Silver Bullet he split complexity into two kinds. Essential complexity is baked into the problem itself. Filing a tax return really is complicated, and no clever interface can delete the tax code. Accidental complexity is the mess we piled on top: the extra step, the field nobody reads, the feature one customer asked for in 2019 and no one has touched since. Tesler's law only covers the first kind. Remember, he chose the word irreducible.",
+    },
+    {
+      type: "sourcecard",
+      title: "No Silver Bullet: Essence and Accident in Software Engineering",
+      publisher: "Fred Brooks, via Wikipedia",
+      description: "The 1986 essay that split complexity into essential and accidental, the distinction that tells you when to move a problem and when to delete it.",
+      href: "https://en.wikipedia.org/wiki/No_Silver_Bullet",
+    },
+    {
+      type: "p",
+      text: "So before you move complexity, prove it is essential. Half the time the honest fix is not to relocate the hard part. It is to cut it. Delete the feature. Drop the option nobody picks. Kill the field the system does not truly need. Moving accidental complexity down to the platform just buries junk in a more expensive place, and now an engineer maintains that junk forever. The waterbed only conserves water you actually meant to keep.",
+    },
+    {
+      type: "p",
+      text: "My rule now runs in that order. First ask if the complexity is essential. If it is not, delete it and stop there. Only what survives that cut has earned the harder argument about who should carry it. Skip the first step and you spend real engineering moving weight that should never have been on the scale.",
     },
     { type: "h2", text: "Too simple is also a trap" },
     {
@@ -164,8 +225,13 @@ export const complexity: Article = {
         "The hard part moves right as you spend engineering. It never leaves the picture. The last fork is the whole game: absorbed means you can check it, hidden means it is just waiting.",
     },
     {
+      type: "callout",
+      title: "Prediction: enterprise software will compete on absorbed complexity, not features",
+      text: "My bet rests on models making it cheap to push work down onto the platform, so the winners over the next decade will be the tools that move the hard part off the user and can still prove it stayed correct. What would prove me wrong: if the running cost and the failure modes of that absorption stay high enough that buyers keep preferring software that shows every box and lets a trained expert drive. I lean the first way, but I have been surprised by this market before.",
+    },
+    {
       type: "takeaway",
-      text: "You cannot delete the hard part, only move it. Spend engineering to move it off the user. Spend design to keep the move visible when someone looks. And never mistake hiding it for solving it.",
+      text: "You cannot delete essential complexity, only move it, and every move bills an engineer, a support team, or your infrastructure. Cut the accidental parts first. Spend engineering to move what is left off the user. And never mistake hiding it for solving it.",
     },
   ],
   references: [
@@ -173,6 +239,16 @@ export const complexity: Article = {
       label: "Tesler's Law: The Law of Conservation of Complexity",
       detail: "Laws of UX",
       href: "https://lawsofux.com/teslers-law/",
+    },
+    {
+      label: "Law of Conservation of Complexity",
+      detail: "Waterbed theory and Tesler's framing, via Wikipedia",
+      href: "https://en.wikipedia.org/wiki/Law_of_conservation_of_complexity",
+    },
+    {
+      label: "No Silver Bullet: Essence and Accident in Software Engineering",
+      detail: "Fred Brooks, 1986, via Wikipedia",
+      href: "https://en.wikipedia.org/wiki/No_Silver_Bullet",
     },
     {
       label: "Living with Complexity",
