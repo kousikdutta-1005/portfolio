@@ -4,7 +4,6 @@ export const motion: Article = {
   id: "motion-is-physics",
   title: "Motion Is Not Decoration, It Is Physics",
   subtitle: "Why springs feel real and timed animations feel fake",
-  date: "Oct 2025",
   readTime: "5 min read",
   excerpt:
     "A timed animation assumes the world will wait for it. Real things do not have a set time. They have weight and speed. That one difference is what separates interfaces that feel alive from ones that feel fake.",
@@ -23,7 +22,8 @@ export const motion: Article = {
       credit: "Eadweard Muybridge, via Wikimedia Commons",
       creditHref: "https://commons.wikimedia.org/wiki/File:The_Horse_in_Motion_high_res.jpg",
       licence: "Public domain",
-      aspect: "2 / 1",
+      width: 1200,
+      height: 740,
     },
     { type: "h2", text: "The problem with fixed time" },
     {

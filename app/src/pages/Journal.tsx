@@ -1,8 +1,8 @@
 import { motion } from "framer-motion"
-import { Link } from "react-router-dom"
+import { Link, Navigate, useParams } from "react-router-dom"
 import { PageTransition } from "@/components/PageTransition"
 import { Seo } from "@/components/Seo"
-import { JOURNAL_ARTICLES } from "@/data/journal"
+import { JOURNAL_ARTICLES, PER_PAGE, getPageCount } from "@/data/journal"
 
 const EASE_ENTER = [0.25, 0.1, 0.25, 1] as const
 const DURATION_REVEAL = 0.6
@@ -18,12 +18,30 @@ const fadeUp = {
 }
 
 export default function JournalPage() {
+  const { page: pageParam } = useParams()
+  const pageCount = getPageCount()
+  const page = pageParam ? Number(pageParam) : 1
+
+  const isValid =
+    Number.isInteger(page) && page >= 1 && page <= pageCount
+
+  if (!isValid) return <Navigate to="/journal" replace />
+  if (pageParam === "1") return <Navigate to="/journal" replace />
+
+  const start = (page - 1) * PER_PAGE
+  const articles = JOURNAL_ARTICLES.slice(start, start + PER_PAGE)
+  const path = page === 1 ? "/journal" : `/journal/page/${page}`
+
   return (
     <PageTransition>
       <Seo
-        title="Journal - Kousik Dutta on AI interfaces, design engineering, and craft"
+        title={
+          page === 1
+            ? "Journal - Kousik Dutta on AI interfaces, design engineering, and craft"
+            : `Journal, page ${page} of ${pageCount} - Kousik Dutta`
+        }
         description="Long-form notes on generative UI, agentic interfaces, evals, latency, design systems, and the craft of product design."
-        path="/journal"
+        path={path}
       />
 
       <div className="journal-page relative">
@@ -53,7 +71,7 @@ export default function JournalPage() {
         <section className="pb-24 md:pb-32">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <ol className="journal-index">
-              {JOURNAL_ARTICLES.map((article, index) => (
+              {articles.map((article, index) => (
                 <motion.li
                   key={article.id}
                   initial="hidden"
@@ -68,13 +86,11 @@ export default function JournalPage() {
                     data-cursor="Read"
                   >
                     <span className="journal-entry-index">
-                      {String(index + 1).padStart(2, "0")}
+                      {String(start + index + 1).padStart(2, "0")}
                     </span>
 
                     <span className="journal-entry-body">
                       <span className="journal-entry-meta">
-                        <span>{article.date}</span>
-                        <span aria-hidden="true">·</span>
                         <span>{article.readTime}</span>
                       </span>
                       <h2 className="journal-entry-title">{article.title}</h2>
@@ -92,6 +108,60 @@ export default function JournalPage() {
                 </motion.li>
               ))}
             </ol>
+
+            {pageCount > 1 ? (
+              <nav className="journal-pagination" aria-label="Journal pages">
+                {page > 1 ? (
+                  <Link
+                    to={page === 2 ? "/journal" : `/journal/page/${page - 1}`}
+                    className="journal-pagination-step"
+                    rel="prev"
+                    data-cursor="Previous"
+                  >
+                    <span aria-hidden="true">&larr;</span> Newer
+                  </Link>
+                ) : (
+                  <span className="journal-pagination-step is-disabled" aria-hidden="true">
+                    <span>&larr;</span> Newer
+                  </span>
+                )}
+
+                <ol className="journal-pagination-pages">
+                  {Array.from({ length: pageCount }, (_, i) => i + 1).map((n) => (
+                    <li key={n}>
+                      <Link
+                        to={n === 1 ? "/journal" : `/journal/page/${n}`}
+                        className={
+                          n === page
+                            ? "journal-pagination-page is-current"
+                            : "journal-pagination-page"
+                        }
+                        aria-current={n === page ? "page" : undefined}
+                        aria-label={`Page ${n}`}
+                        data-cursor="none"
+                      >
+                        {n}
+                      </Link>
+                    </li>
+                  ))}
+                </ol>
+
+                {page < pageCount ? (
+                  <Link
+                    to={`/journal/page/${page + 1}`}
+                    className="journal-pagination-step"
+                    rel="next"
+                    data-cursor="Next"
+                  >
+                    Older <span aria-hidden="true">&rarr;</span>
+                  </Link>
+                ) : (
+                  <span className="journal-pagination-step is-disabled" aria-hidden="true">
+                    Older <span>&rarr;</span>
+                  </span>
+                )}
+              </nav>
+            ) : null}
           </div>
         </section>
       </div>

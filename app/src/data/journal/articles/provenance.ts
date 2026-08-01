@@ -4,7 +4,6 @@ export const provenance: Article = {
   id: "provenance",
   title: "Trust Is a Rendering Problem",
   subtitle: "Designing provenance into retrieval-augmented systems",
-  date: "Jul 2026",
   readTime: "5 min read",
   excerpt:
     "RAG fixed the engineering half of AI making things up. The human half is still wide open, and it is ours. Here is a simple way to show where an answer came from, and how much to trust it.",
@@ -56,7 +55,8 @@ export const provenance: Article = {
       creditHref: "https://commons.wikimedia.org/wiki/File:Card_catalog_at_the_Indiana_State_Library_-_interior_view_of_catalog_cards.jpg",
       licence: "CC BY-SA 4.0",
       licenceHref: "https://creativecommons.org/licenses/by-sa/4.0",
-      aspect: "3 / 2",
+      width: 900,
+      height: 1200,
     },
     {
       type: "p",

@@ -4,7 +4,6 @@ export const designEngineering: Article = {
   id: "design-engineering",
   title: "The Handoff Was Always a Translation Loss",
   subtitle: "Why design systems are turning into recipes a machine can follow",
-  date: "Mar 2026",
   readTime: "5 min read",
   excerpt:
     "A mockup is a picture of a decision, and a picture leaves things out. Every time it crosses to another team, more gets lost. Design engineering is not a job title. It is the removal of that gap.",
@@ -23,7 +22,8 @@ export const designEngineering: Article = {
       creditHref: "https://commons.wikimedia.org/wiki/File:Print_works_typesetting,_Beamish_Museum,_12_November_2011.jpg",
       licence: "CC BY 2.0",
       licenceHref: "https://creativecommons.org/licenses/by/2.0",
-      aspect: "3 / 2",
+      width: 1200,
+      height: 900,
     },
     {
       type: "p",

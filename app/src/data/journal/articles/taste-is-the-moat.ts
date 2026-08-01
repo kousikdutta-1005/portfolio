@@ -4,7 +4,6 @@ export const tasteAsMoat: Article = {
   id: "taste-is-the-moat",
   title: "When Everyone Can Generate, Taste Is the Moat",
   subtitle: "Good judgement is the last rare thing",
-  date: "Feb 2026",
   readTime: "5 min read",
   excerpt:
     "Making a decent interface is now almost free. That does not make design worth less. It moves all the worth into the one thing that stayed hard: knowing which of a thousand decent options is the right one.",
@@ -22,7 +21,8 @@ export const tasteAsMoat: Article = {
       credit: "White House Photographic Office (WHPO) - Schumacher, via Wikimedia Commons",
       creditHref: "https://commons.wikimedia.org/wiki/File:Ford_A1427_NLGRF_photo_contact_sheet_(1974-10-15)(Gerald_Ford_Library).jpg",
       licence: "Public domain",
-      aspect: "3 / 2",
+      width: 912,
+      height: 1200,
     },
     {
       type: "p",

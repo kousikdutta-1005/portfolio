@@ -4,7 +4,6 @@ export const complexity: Article = {
   id: "conservation-of-complexity",
   title: "Somebody Has to Do the Hard Part",
   subtitle: "Tesler's Law and the real work of enterprise design",
-  date: "Nov 2025",
   readTime: "5 min read",
   excerpt:
     "Every product has a hard part that will not go away. You cannot delete it. You can only choose who does the work: the person using it, the screen in front of them, or the engineers behind it. Most bad business software picks wrong.",
@@ -24,7 +23,8 @@ export const complexity: Article = {
       creditHref: "https://commons.wikimedia.org/wiki/File:Larry_Tesler_Smiles_at_Whisper_(cropped).jpeg",
       licence: "CC BY 2.0",
       licenceHref: "https://creativecommons.org/licenses/by/2.0",
-      aspect: "3 / 2",
+      width: 939,
+      height: 1200,
     },
     {
       type: "p",

@@ -4,7 +4,6 @@ export const evals: Article = {
   id: "evals-for-designers",
   title: "Evals Are the New User Research",
   subtitle: "How to hold AI to a standard when it never repeats itself",
-  date: "May 2026",
   readTime: "5 min read",
   excerpt:
     "You cannot test an AI the normal way, because it gives a different answer every time. An eval is a repeatable test built for exactly that problem. Right now engineers write these tests alone. Designers should be in the room.",
@@ -23,7 +22,8 @@ export const evals: Article = {
       creditHref: "https://commons.wikimedia.org/wiki/File:Bletchley_Park,_Hut_11a,_checking_machine_and_checking_machine_drum_-_geograph.org.uk_-_7896281.jpg",
       licence: "CC BY-SA 2.0",
       licenceHref: "https://creativecommons.org/licenses/by-sa/2.0",
-      aspect: "3 / 2",
+      width: 1200,
+      height: 800,
     },
     {
       type: "p",

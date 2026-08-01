@@ -158,7 +158,8 @@ function Block({ block }: { block: ArticleBlock }) {
           creditHref={block.creditHref}
           licence={block.licence}
           licenceHref={block.licenceHref}
-          aspect={block.aspect}
+          width={block.width}
+          height={block.height}
         />
       )
     case "sourcecard":
@@ -222,8 +223,6 @@ export default function JournalArticlePage() {
               variants={fadeUp}
               custom={1}
             >
-              <span>{article.date}</span>
-              <span aria-hidden="true">·</span>
               <span>{article.readTime}</span>
             </motion.p>
 

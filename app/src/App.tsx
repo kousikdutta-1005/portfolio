@@ -29,6 +29,7 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/journal" element={<JournalPage />} />
+                <Route path="/journal/page/:page" element={<JournalPage />} />
                 <Route path="/journal/:id" element={<JournalArticlePage />} />
                 <Route path="/case-study/thoughtspot" element={<ThoughtSpotPage />} />
                 <Route path="/case-study/philips" element={<PhilipsPage />} />

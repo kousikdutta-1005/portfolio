@@ -4,7 +4,6 @@ export const latency: Article = {
   id: "latency-is-a-feeling",
   title: "Latency Is a Feeling",
   subtitle: "What the science says about response time",
-  date: "Apr 2026",
   readTime: "5 min read",
   excerpt:
     "The limits on how fast a screen must respond were found in 1968 and confirmed in 1982. They have not moved, because human senses have not moved. How fast your product feels comes down to three numbers.",
@@ -23,7 +22,8 @@ export const latency: Article = {
       creditHref: "https://commons.wikimedia.org/wiki/File:IBM_3278_terminal.jpg",
       licence: "CC BY 2.0",
       licenceHref: "https://creativecommons.org/licenses/by/2.0",
-      aspect: "3 / 2",
+      width: 1200,
+      height: 900,
     },
     { type: "h2", text: "The three numbers" },
     {

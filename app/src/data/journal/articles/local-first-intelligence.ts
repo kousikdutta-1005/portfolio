@@ -4,7 +4,6 @@ export const localFirst: Article = {
   id: "local-first-intelligence",
   title: "The Fastest Network Request Is the One You Never Make",
   subtitle: "Keeping data and smarts on your own device, and why it changes the design",
-  date: "Jan 2026",
   readTime: "5 min read",
   excerpt:
     "Cloud-first apps made a deal nobody asked you to sign. Your data lives on someone else's computer, and every click has to travel there and back. Local-first flips that. And it changes far more than speed.",
@@ -22,7 +21,8 @@ export const localFirst: Article = {
       credit: "Bibliothèque nationale de France, via Wikimedia Commons",
       creditHref: "https://commons.wikimedia.org/wiki/File:The_telegraph_communications_of_the_world_-_afforded_by_the_submarine_cables,_the_principal_land_lines,_and_the_radio_stations_-_btv1b53158302t_(1_of_2).jpg",
       licence: "Public domain",
-      aspect: "2 / 1",
+      width: 1020,
+      height: 1200,
     },
     {
       type: "p",

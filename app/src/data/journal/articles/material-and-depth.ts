@@ -4,7 +4,6 @@ export const material: Article = {
   id: "material-and-depth",
   title: "Glass Is Not a Style",
   subtitle: "How surfaces, depth, and real-world instincts help an interface make sense",
-  date: "Dec 2025",
   readTime: "5 min read",
   excerpt:
     "See-through glass became a trend, so it became decoration. It was never meant to be that. In an interface, the look of a surface does real work: it tells you which layer you are on, where to look, and where you are.",
@@ -22,7 +21,8 @@ export const material: Article = {
       credit: "Titus Tscharntke, via Wikimedia Commons",
       creditHref: "https://commons.wikimedia.org/wiki/File:Opaque_glass.jpg",
       licence: "Public domain",
-      aspect: "3 / 2",
+      width: 1200,
+      height: 915,
     },
     {
       type: "p",

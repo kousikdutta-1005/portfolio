@@ -4,7 +4,6 @@ export const generativeUi: Article = {
   id: "generative-ui",
   title: "The Interface Is Now a Variable",
   subtitle: "Generative UI and the end of the fixed screen",
-  date: "Aug 2026",
   readTime: "5 min read",
   excerpt:
     "For sixty years we drew every screen in advance. Generative UI ends that. Now the layout is built on the spot, from what the user asks for. Here is what really changes for designers.",
@@ -41,7 +40,8 @@ export const generativeUi: Article = {
       credit: "Unknown engraver, via Wikimedia Commons",
       creditHref: "https://commons.wikimedia.org/wiki/File:La_casse_d%E2%80%99imprimerie_avec_ses_cassetins_ou_compartiments_pour_les_diverse_lettres.png",
       licence: "Public domain",
-      aspect: "3 / 2",
+      width: 876,
+      height: 1200,
     },
     {
       type: "p",

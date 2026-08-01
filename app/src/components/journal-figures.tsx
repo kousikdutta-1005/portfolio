@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import { cn } from "@/lib/utils"
 
 const EASE = [0.16, 1, 0.3, 1] as const
 
@@ -222,7 +223,8 @@ interface ArticleFigureProps {
   creditHref: string
   licence: string
   licenceHref?: string
-  aspect?: string
+  width: number
+  height: number
 }
 
 export function ArticleFigure({
@@ -233,19 +235,32 @@ export function ArticleFigure({
   creditHref,
   licence,
   licenceHref,
-  aspect,
+  width,
+  height,
 }: ArticleFigureProps) {
+  const isPortrait = height > width
+
   return (
     <figure className="journal-figure">
       <motion.div
-        className="journal-figure-frame"
-        style={aspect ? { aspectRatio: aspect } : undefined}
+        className={cn(
+          "journal-figure-frame",
+          isPortrait && "is-portrait",
+        )}
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.7, ease: EASE }}
       >
-        <img src={src} alt={alt} loading="lazy" decoding="async" />
+        <img
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          style={{ aspectRatio: `${width} / ${height}` }}
+          loading="lazy"
+          decoding="async"
+        />
       </motion.div>
       <figcaption>
         {caption ? <span className="journal-figure-caption">{caption}</span> : null}

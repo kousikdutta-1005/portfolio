@@ -4,7 +4,6 @@ export const agenticCanvas: Article = {
   id: "agentic-canvas",
   title: "The Chat Box Is a Local Maximum",
   subtitle: "What replaces conversation when the machine can act",
-  date: "Jun 2026",
   readTime: "5 min read",
   excerpt:
     "Chat was the fastest way to ship a language model. It is not the right tool for real work. What agentic software needs is space, memory, and a place to stand while the machine runs.",
@@ -42,7 +41,8 @@ export const agenticCanvas: Article = {
       creditHref: "https://commons.wikimedia.org/wiki/File:ATC_approach_room.jpg",
       licence: "CC BY-SA 2.5",
       licenceHref: "https://creativecommons.org/licenses/by-sa/2.5",
-      aspect: "3 / 2",
+      width: 1200,
+      height: 900,
     },
     {
       type: "p",

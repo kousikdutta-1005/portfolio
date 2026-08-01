@@ -45,3 +45,9 @@ export function getAdjacent(id: string) {
         : undefined,
   }
 }
+
+export const PER_PAGE = 5
+
+export function getPageCount() {
+  return Math.max(1, Math.ceil(JOURNAL_ARTICLES.length / PER_PAGE))
+}

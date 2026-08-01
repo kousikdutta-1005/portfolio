@@ -4,7 +4,6 @@ export const accessibility: Article = {
   id: "solve-for-one",
   title: "Solve for One, Help Everyone",
   subtitle: "Accessibility as a design method, not a box to tick",
-  date: "Sep 2025",
   readTime: "5 min read",
   excerpt:
     "The dropped kerb was built for wheelchairs. Now everyone uses it: the suitcase, the pram, the bad knee. Designing for one person at the edge is not charity. It is the most reliable way to make something better for everyone, and the data proves it.",
@@ -24,7 +23,8 @@ export const accessibility: Article = {
       creditHref: "https://commons.wikimedia.org/wiki/File:Long_gradual_sidewalk_ramp_to_tactile_paving_and_curb_cut_in_Colchester_VT.jpg",
       licence: "CC0",
       licenceHref: "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-      aspect: "3 / 2",
+      width: 1200,
+      height: 903,
     },
     {
       type: "p",

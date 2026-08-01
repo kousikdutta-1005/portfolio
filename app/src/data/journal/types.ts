@@ -60,7 +60,8 @@ export type ArticleBlock =
       creditHref: string
       licence: string
       licenceHref?: string
-      aspect?: string
+      width: number
+      height: number
     }
   | {
       type: "sourcecard"
@@ -80,7 +81,6 @@ export interface Article {
   id: string
   title: string
   subtitle: string
-  date: string
   readTime: string
   excerpt: string
   tags: string[]
