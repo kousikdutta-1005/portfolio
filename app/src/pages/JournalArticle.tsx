@@ -206,7 +206,7 @@ export default function JournalArticlePage() {
         aria-hidden="true"
       />
 
-      <article className="journal-article">
+      <article className="journal-article" data-particle-profile="reading">
         <header className="journal-article-header">
           <div className="journal-measure">
             <motion.div initial="hidden" animate="visible" variants={fadeUp} custom={0}>
@@ -262,7 +262,7 @@ export default function JournalArticlePage() {
           </div>
         </header>
 
-        <div className="journal-body">
+        <div className="journal-body" data-particle-fade>
           {article.content.map((block, index) => {
             const wide = WIDE_BLOCKS.has(block.type)
             return (

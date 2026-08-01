@@ -100,7 +100,11 @@ export function GlobalParticleEngine() {
     }
     
     let pageTargets: any[] = []
+    let readingProfile = false
+    let readingFadeEl: Element | null = null
     const updateTargets = () => {
+      readingProfile = document.querySelector('[data-particle-profile="reading"]') !== null
+      readingFadeEl = document.querySelector("[data-particle-fade]")
       const els = Array.from(document.querySelectorAll('.waypoint-3d'))
       pageTargets = els.map(el => {
         const rect = el.getBoundingClientRect()
@@ -123,8 +127,8 @@ export function GlobalParticleEngine() {
     window.addEventListener("resize", resize)
     resize()
     
-    // Periodically re-check targets in case of dynamic routing or lazy loading
-    const intervalId = setInterval(updateTargets, 1000)
+    // Re-check targets in case of dynamic routing or lazy loading
+    const intervalId = setInterval(updateTargets, 300)
 
     const render = () => {
       time += 1
@@ -164,18 +168,50 @@ export function GlobalParticleEngine() {
       const mappedScroll = Math.max(0, Math.min(1, scrollProgress)) * (shapeSequence.length - 1)
       const currentShapeIdx = Math.floor(mappedScroll)
       const nextShapeIdx = Math.min(currentShapeIdx + 1, shapeSequence.length - 1)
-      const shapeTransitionProgress = mappedScroll - currentShapeIdx
+      let shapeTransitionProgress = mappedScroll - currentShapeIdx
 
-      const currentModel = shapeSequence[currentShapeIdx]
-      const nextModel = shapeSequence[nextShapeIdx]
+      let currentModel = shapeSequence[currentShapeIdx]
+      let nextModel = shapeSequence[nextShapeIdx]
+
+      // Reading surfaces (the journal) hold a single calm sphere. Cycling through
+      // laptops and game controllers behind an essay is noise, not atmosphere.
+      if (readingProfile) {
+        currentModel = 'swarm_sphere'
+        nextModel = 'swarm_sphere'
+        shapeTransitionProgress = 0
+      }
 
       // Determine center position (waypoint tracking)
       let centerX = width * 0.5
       let centerY = height * 0.5
       let baseZDepth = 0
       let posTransitionProgress = 0
+      let readingAlpha = 1
 
-      if (pageTargets.length > 0) {
+      if (readingProfile) {
+        // Sit clear of the reading measure rather than drifting through it.
+        // The measure is 680px wide and centred, so anchor to its outer edge.
+        centerX = width / 2 + 470
+        centerY = height * 0.34
+        baseZDepth = 120
+
+        // Fade out as the prose reaches the top of the viewport. The swarm
+        // belongs to the title, not to the body copy.
+        if (readingFadeEl) {
+          const top = readingFadeEl.getBoundingClientRect().top
+          readingAlpha = Math.max(0, Math.min(1, top / (height * 0.55)))
+          readingAlpha = readingAlpha * readingAlpha
+        }
+
+        // Below the medium breakpoint there is no margin to sit in, so there is
+        // no honest place to put it.
+        if (isMobile) readingAlpha = 0
+
+        if (readingAlpha < 0.01) {
+          animationFrameId = requestAnimationFrame(render)
+          return
+        }
+      } else if (pageTargets.length > 0) {
         // Track the center of the viewport
         const scrollCenter = window.scrollY + height / 2
 
@@ -345,19 +381,19 @@ export function GlobalParticleEngine() {
 
       // Draw Background Bucket
       ctx.beginPath()
-      ctx.strokeStyle = `rgba(${colorBase}, 0.12)`
+      ctx.strokeStyle = `rgba(${colorBase}, ${0.12 * readingAlpha})`
       ctx.lineWidth = 0.5
       ctx.stroke(pathBackground)
 
       // Draw Midground Bucket
       ctx.beginPath()
-      ctx.strokeStyle = `rgba(${colorBase}, 0.25)`
+      ctx.strokeStyle = `rgba(${colorBase}, ${0.25 * readingAlpha})`
       ctx.lineWidth = 0.8
       ctx.stroke(pathMidground)
 
       // Draw Foreground Bucket
       ctx.beginPath()
-      ctx.strokeStyle = `rgba(${colorBase}, 0.40)`
+      ctx.strokeStyle = `rgba(${colorBase}, ${0.4 * readingAlpha})`
       ctx.lineWidth = 1.0
       ctx.stroke(pathForeground)
 

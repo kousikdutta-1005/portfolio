@@ -44,7 +44,7 @@ export default function JournalPage() {
         path={path}
       />
 
-      <div className="journal-page relative">
+      <div className="journal-page relative" data-particle-profile="reading">
         <section className="pt-28 pb-10 md:pt-36 md:pb-14">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <motion.div
@@ -68,7 +68,7 @@ export default function JournalPage() {
           </div>
         </section>
 
-        <section className="pb-24 md:pb-32">
+        <section className="pb-24 md:pb-32" data-particle-fade>
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
             <ol className="journal-index">
               {articles.map((article, index) => (
