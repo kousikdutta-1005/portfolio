@@ -44,6 +44,8 @@ const TARGETS = [
   ".back-link",
   ".journal-back",
   ".journal-pagination-step",
+  ".case-lock-input",
+  ".case-lock-submit",
 ]
 
 const TARGET_MIN_PX = 24
@@ -141,14 +143,21 @@ for (const [theme, tokens] of Object.entries(themes)) {
   }
 }
 
+// Collect every innermost rule (`selectors { declarations }`) once. Matching
+// on the rule itself rather than anchoring to the preceding `}` matters: a
+// global regex consumes that brace, so the rule following a multi-selector
+// block used to be skipped entirely, which can hide a real failure.
+const rules = Array.from(css.matchAll(/([^{}]+)\{([^{}]*)\}/g), (match) => ({
+  selectors: match[1].split(",").map((part) => part.trim()),
+  declarations: match[2],
+}))
+
 for (const selector of TARGETS) {
-  const pattern = new RegExp(
-    `(?:^|,|\\})[^{}]*\\${selector}(?![\\w-])[^{}]*\\{([^}]*)\\}`,
-    "g"
-  )
-  const heights = Array.from(css.matchAll(pattern), (match) =>
-    match[1].match(/min-height:\s*([\d.]+)px/)
-  ).filter(Boolean)
+  const token = new RegExp(`\\${selector}(?![\\w-])`)
+  const heights = rules
+    .filter((rule) => rule.selectors.some((one) => token.test(one)))
+    .map((rule) => rule.declarations.match(/min-height:\s*([\d.]+)px/))
+    .filter(Boolean)
 
   if (heights.length === 0) {
     failures.push(

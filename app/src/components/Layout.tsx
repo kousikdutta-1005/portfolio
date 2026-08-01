@@ -6,6 +6,7 @@ import { Footer } from "./Footer"
 import { CursorGlow } from "./CursorGlow"
 import { ScrollProgress } from "./ScrollProgress"
 import { GlobalParticleEngine } from "./GlobalParticleEngine"
+import { ContentProtection } from "./ContentProtection"
 import { cn } from "../lib/utils"
 
 function RouteLoadingState({ routeKey }: { routeKey: string }) {
@@ -79,6 +80,7 @@ export function Layout() {
   return (
     <div className={cn("min-h-screen flex flex-col relative", routeAccentClass)} style={{ overflowX: "clip" }}>
       <a href="#main-content" className="skip-link">Skip to content</a>
+      <ContentProtection />
       <ScrollProgress />
       <GlobalParticleEngine />
       <CursorGlow />

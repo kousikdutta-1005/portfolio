@@ -5523,3 +5523,192 @@ body:has(.case-study-nav) section[id] {
     scroll-margin-top: 132px;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Content protection
+   Casual-copy deterrents. Selection and dragging are off by default; anything
+   a visitor legitimately needs to copy opts back in with data-allow-select.
+   --------------------------------------------------------------------------- */
+
+body {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+input,
+textarea,
+select,
+[contenteditable],
+[data-allow-select],
+[data-allow-select] * {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+img,
+video,
+picture,
+svg {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+/* ---------------------------------------------------------------------------
+   Case study passphrase lock
+   --------------------------------------------------------------------------- */
+
+.case-lock {
+  position: relative;
+}
+
+.case-lock-body {
+  filter: blur(11px) saturate(0.7);
+  opacity: 0.5;
+  pointer-events: none;
+  transform: scale(1.012);
+  transform-origin: center top;
+}
+
+/* Zero height so the sticky card floats over the blurred region without
+   taking up layout space or pushing the content down. */
+.case-lock-panel {
+  position: sticky;
+  top: 50vh;
+  z-index: 20;
+  height: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-inline: 24px;
+}
+
+.case-lock-card {
+  transform: translateY(-50%);
+  width: 100%;
+  max-width: 420px;
+  padding: 26px 26px 22px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: color-mix(in oklab, var(--color-card) 88%, transparent);
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  box-shadow: 0 24px 60px -24px rgb(0 0 0 / 0.32);
+  text-align: left;
+}
+
+.case-lock-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+  color: var(--color-accent);
+  background: color-mix(in oklab, var(--color-accent) 12%, transparent);
+}
+
+.case-lock-title {
+  margin: 0 0 6px;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-foreground);
+}
+
+.case-lock-note {
+  margin: 0 0 18px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--color-muted-foreground);
+}
+
+.case-lock-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--color-foreground);
+}
+
+.case-lock-row {
+  display: flex;
+  gap: 8px;
+}
+
+.case-lock-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 40px;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-input);
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.case-lock-input:focus-visible,
+.case-lock-submit:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+}
+
+.case-lock-submit {
+  flex: 0 0 auto;
+  min-height: 40px;
+  padding: 9px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: var(--color-accent);
+  color: var(--color-accent-foreground);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.case-lock-submit:hover {
+  opacity: 0.88;
+}
+
+.case-lock-error {
+  min-height: 18px;
+  margin: 8px 0 0;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--color-destructive);
+}
+
+.case-lock-ask {
+  margin: 6px 0 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--color-muted-foreground);
+}
+
+.case-lock-ask a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .case-lock-row {
+    flex-wrap: wrap;
+  }
+
+  .case-lock-submit {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case-lock-body {
+    transform: none;
+  }
+}

@@ -10,6 +10,7 @@ import { PageTransition } from "@/components/PageTransition"
 import { CaseStudyNav, type CaseStudyNavSection } from "@/components/CaseStudyNav"
 import { CaseRetro, type CaseRetroItem } from "@/components/CaseRetro"
 import { Seo } from "@/components/Seo"
+import { CaseLock } from "@/components/CaseLock"
 
 const EASE_ENTER = [0.25, 0.1, 0.25, 1] as const
 const STAGGER = 0.08
@@ -769,150 +770,157 @@ export default function PreciselyDevPortalPage() {
 
         <CaseStudyNav sections={SECTIONS} />
 
-        <section className="py-10 md:py-14" id="outcomes">
-          <div className="max-w-[980px] mx-auto px-6 md:px-10">
-            <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              The demos became easier to <span className="heading-italic">follow</span>
-            </motion.h2>
-            <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[720px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              The proof stayed practical: baseline coverage, API coverage, task continuity, and reuse pipeline. Those are product metrics a developer platform team can keep tracking after launch.
-            </motion.p>
-            <EvidenceStrip items={OUTCOME_PROOF} />
-            <WhatChangedChart />
-          </div>
-        </section>
-
-        <section className="py-10 md:py-14 relative" id="context">
-          <div className="waypoint-3d" data-x-desktop="0.8" data-y-desktop="0.5" data-x-mobile="0.5" data-y-mobile="0.5" data-z-depth="-100" />
-          <div className="max-w-[980px] mx-auto px-6 md:px-10">
-            <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              The portal shift opened the right <span className="heading-italic">question</span>
-            </motion.h2>
-            <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[720px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              Precisely was moving from an older on-prem developer portal to a cloud portal. That migration created a clean moment to question the demos themselves: were they helping developers decide, or just showing that the APIs existed?
-            </motion.p>
-            <div className="precisely-context-stack">
-              <CompareMedia
-                screens={PLATFORM_SHIFT_SCREENS}
-                caption="The move to the cloud portal gave the team a clean moment to rethink API evaluation instead of simply porting old demo behavior forward."
-              />
-              <CompareMedia
-                screens={DEMO_ILLUSION_SCREENS}
-                caption="The old demos looked interactive, but fixed examples and locked fields meant developers could not test real scenarios or trust the result."
-              />
-              <BrokenFlowDiagram />
+        <CaseLock
+          storageKey="precisely-devportal-unlocked"
+          passphrase="kousik"
+          title="This case study is protected"
+          note="The rest of this page covers confidential client work, including internal screens and unreleased flows. Enter the passphrase I shared to read it."
+        >
+          <section className="py-10 md:py-14" id="outcomes">
+            <div className="max-w-[980px] mx-auto px-6 md:px-10">
+              <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                The demos became easier to <span className="heading-italic">follow</span>
+              </motion.h2>
+              <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[720px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                The proof stayed practical: baseline coverage, API coverage, task continuity, and reuse pipeline. Those are product metrics a developer platform team can keep tracking after launch.
+              </motion.p>
+              <EvidenceStrip items={OUTCOME_PROOF} />
+              <WhatChangedChart />
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section className="py-10 md:py-14 relative" id="diagnosis">
-          <div className="waypoint-3d" data-x-desktop="0.2" data-y-desktop="0.5" data-x-mobile="0.5" data-y-mobile="0.5" data-z-depth="100" />
-          <div className="max-w-[980px] mx-auto px-6 md:px-10">
-            <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              The same break kept appearing in the learning <span className="heading-italic">flow</span>
-            </motion.h2>
-            <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[720px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              The same failures appeared across portal versions and API types. That made the work bigger than cleanup. The demos needed a shared pattern that could teach developers how each API worked.
-            </motion.p>
-            <OpenGrid items={PATTERN_SMELLS} />
-            <motion.div className="mt-8 border-t border-border/55 pt-5" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              <h3 className="text-[18px] md:text-[20px] font-bold tracking-[-0.02em] mb-2">What had to be true</h3>
-              <p className="text-[14px] text-muted-foreground leading-relaxed mb-5 max-w-[660px]">
-                The story had to connect the timing, the design change, and the reason the pattern could carry future APIs.
-              </p>
-              <OpenGrid items={STORY_GUARDS} />
-            </motion.div>
-          </div>
-        </section>
+          <section className="py-10 md:py-14 relative" id="context">
+            <div className="waypoint-3d" data-x-desktop="0.8" data-y-desktop="0.5" data-x-mobile="0.5" data-y-mobile="0.5" data-z-depth="-100" />
+            <div className="max-w-[980px] mx-auto px-6 md:px-10">
+              <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                The portal shift opened the right <span className="heading-italic">question</span>
+              </motion.h2>
+              <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[720px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                Precisely was moving from an older on-prem developer portal to a cloud portal. That migration created a clean moment to question the demos themselves: were they helping developers decide, or just showing that the APIs existed?
+              </motion.p>
+              <div className="precisely-context-stack">
+                <CompareMedia
+                  screens={PLATFORM_SHIFT_SCREENS}
+                  caption="The move to the cloud portal gave the team a clean moment to rethink API evaluation instead of simply porting old demo behavior forward."
+                />
+                <CompareMedia
+                  screens={DEMO_ILLUSION_SCREENS}
+                  caption="The old demos looked interactive, but fixed examples and locked fields meant developers could not test real scenarios or trust the result."
+                />
+                <BrokenFlowDiagram />
+              </div>
+            </div>
+          </section>
 
-        <section className="py-10 md:py-14 relative" id="system">
-          <div className="waypoint-3d" data-x-desktop="0.8" data-y-desktop="0.5" data-x-mobile="0.5" data-y-mobile="0.5" data-z-depth="-150" />
-          <div className="max-w-[980px] mx-auto px-6 md:px-10">
-            <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              One workspace, flexible enough for each <span className="heading-italic">API</span>
-            </motion.h2>
-            <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[720px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              The pattern had to stay familiar from demo to demo, while still giving each API room to explain what made it different.
-            </motion.p>
-            <OpenGrid items={SYSTEM_RULES} />
-          </div>
-        </section>
-
-        <section className="py-10 md:py-14 relative" id="design">
-          <div className="waypoint-3d" data-x-desktop="0.2" data-y-desktop="0.5" data-x-mobile="0.5" data-y-mobile="0.5" />
-          <div className="max-w-[980px] mx-auto px-6 md:px-10">
-            <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              The pattern was tested against real API <span className="heading-italic">complexity</span>
-            </motion.h2>
-            <motion.p className="text-[15px] text-muted-foreground mb-8 max-w-[720px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              One polished demo would not have been enough. The pattern had to work across data discovery, a general tryout flow, simple geocoding, lightweight map APIs, dense tax setup, and emergency-service workflows.
-            </motion.p>
-            <div className="space-y-8">
-              <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                <h3 className="text-[20px] md:text-[24px] font-bold tracking-[-0.02em] mb-2">{DESIGN_STEPS[0].title}</h3>
-                <p className="text-[15px] text-muted-foreground leading-[1.58] mb-5 max-w-[680px]">{DESIGN_STEPS[0].desc}</p>
-                <CaseMedia item={DESIGN_STEPS[0].media} />
-              </motion.div>
-
-              <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                <h3 className="text-[20px] md:text-[24px] font-bold tracking-[-0.02em] mb-2">{DESIGN_STEPS[1].title}</h3>
-                <p className="text-[15px] text-muted-foreground leading-[1.58] mb-5 max-w-[680px]">{DESIGN_STEPS[1].desc}</p>
-                <CaseMedia item={DESIGN_STEPS[1].media} />
-              </motion.div>
-
-              <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                {DESIGN_STEPS.slice(2, 4).map((item) => (
-                  <motion.div key={item.title} variants={fadeUp}>
-                    <h3 className="text-[20px] md:text-[24px] font-bold tracking-[-0.02em] mb-2">{item.title}</h3>
-                    <p className="text-[15px] text-muted-foreground leading-[1.58] mb-5">{item.desc}</p>
-                    <CaseMedia item={item.media} />
-                  </motion.div>
-                ))}
-              </motion.div>
-
-              <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                {DESIGN_STEPS.slice(4).map((item) => (
-                  <motion.div key={item.title} variants={fadeUp}>
-                    <h3 className="text-[20px] md:text-[24px] font-bold tracking-[-0.02em] mb-2">{item.title}</h3>
-                    <p className="text-[15px] text-muted-foreground leading-[1.58] mb-5">{item.desc}</p>
-                    <CaseMedia item={item.media} />
-                  </motion.div>
-                ))}
+          <section className="py-10 md:py-14 relative" id="diagnosis">
+            <div className="waypoint-3d" data-x-desktop="0.2" data-y-desktop="0.5" data-x-mobile="0.5" data-y-mobile="0.5" data-z-depth="100" />
+            <div className="max-w-[980px] mx-auto px-6 md:px-10">
+              <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                The same break kept appearing in the learning <span className="heading-italic">flow</span>
+              </motion.h2>
+              <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[720px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                The same failures appeared across portal versions and API types. That made the work bigger than cleanup. The demos needed a shared pattern that could teach developers how each API worked.
+              </motion.p>
+              <OpenGrid items={PATTERN_SMELLS} />
+              <motion.div className="mt-8 border-t border-border/55 pt-5" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                <h3 className="text-[18px] md:text-[20px] font-bold tracking-[-0.02em] mb-2">What had to be true</h3>
+                <p className="text-[14px] text-muted-foreground leading-relaxed mb-5 max-w-[660px]">
+                  The story had to connect the timing, the design change, and the reason the pattern could carry future APIs.
+                </p>
+                <OpenGrid items={STORY_GUARDS} />
               </motion.div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section className="py-10 md:py-14 relative" id="scale">
-          <div className="waypoint-3d" data-x-desktop="0.8" data-y-desktop="0.5" data-x-mobile="0.5" data-y-mobile="0.5" data-z-depth="-100" />
-          <div className="max-w-[980px] mx-auto px-6 md:px-10">
-            <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              The next API had a place to <span className="heading-italic">go</span>
-            </motion.h2>
-            <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[720px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              Once the pattern worked across five APIs, the next question was scale. The same structure could carry in-progress, planned, and future APIs without redesigning the tryout experience each time.
-            </motion.p>
-            <SystemScaleChart />
-          </div>
-        </section>
+          <section className="py-10 md:py-14 relative" id="system">
+            <div className="waypoint-3d" data-x-desktop="0.8" data-y-desktop="0.5" data-x-mobile="0.5" data-y-mobile="0.5" data-z-depth="-150" />
+            <div className="max-w-[980px] mx-auto px-6 md:px-10">
+              <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                One workspace, flexible enough for each <span className="heading-italic">API</span>
+              </motion.h2>
+              <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[720px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                The pattern had to stay familiar from demo to demo, while still giving each API room to explain what made it different.
+              </motion.p>
+              <OpenGrid items={SYSTEM_RULES} />
+            </div>
+          </section>
 
-        <CaseRetro
-          id="retro"
-          lead="I am proud of the tryout pattern, but proud is not the same as proven. These are the four places where I mistook building the thing for showing it worked, and what I would test now."
-          items={RETRO}
-        />
+          <section className="py-10 md:py-14 relative" id="design">
+            <div className="waypoint-3d" data-x-desktop="0.2" data-y-desktop="0.5" data-x-mobile="0.5" data-y-mobile="0.5" />
+            <div className="max-w-[980px] mx-auto px-6 md:px-10">
+              <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                The pattern was tested against real API <span className="heading-italic">complexity</span>
+              </motion.h2>
+              <motion.p className="text-[15px] text-muted-foreground mb-8 max-w-[720px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                One polished demo would not have been enough. The pattern had to work across data discovery, a general tryout flow, simple geocoding, lightweight map APIs, dense tax setup, and emergency-service workflows.
+              </motion.p>
+              <div className="space-y-8">
+                <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                  <h3 className="text-[20px] md:text-[24px] font-bold tracking-[-0.02em] mb-2">{DESIGN_STEPS[0].title}</h3>
+                  <p className="text-[15px] text-muted-foreground leading-[1.58] mb-5 max-w-[680px]">{DESIGN_STEPS[0].desc}</p>
+                  <CaseMedia item={DESIGN_STEPS[0].media} />
+                </motion.div>
 
-        <section className="py-10 md:py-14" id="learnings">
-          <div className="max-w-[980px] mx-auto px-6 md:px-10">
-            <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              What the work <span className="heading-italic">shows</span>
-            </motion.h2>
-            <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[720px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              This case study is not about making API screens prettier. It is about making a complex product easier to understand, try, and trust.
-            </motion.p>
-            <OpenGrid items={LEARNINGS} />
-          </div>
-        </section>
+                <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                  <h3 className="text-[20px] md:text-[24px] font-bold tracking-[-0.02em] mb-2">{DESIGN_STEPS[1].title}</h3>
+                  <p className="text-[15px] text-muted-foreground leading-[1.58] mb-5 max-w-[680px]">{DESIGN_STEPS[1].desc}</p>
+                  <CaseMedia item={DESIGN_STEPS[1].media} />
+                </motion.div>
+
+                <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                  {DESIGN_STEPS.slice(2, 4).map((item) => (
+                    <motion.div key={item.title} variants={fadeUp}>
+                      <h3 className="text-[20px] md:text-[24px] font-bold tracking-[-0.02em] mb-2">{item.title}</h3>
+                      <p className="text-[15px] text-muted-foreground leading-[1.58] mb-5">{item.desc}</p>
+                      <CaseMedia item={item.media} />
+                    </motion.div>
+                  ))}
+                </motion.div>
+
+                <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                  {DESIGN_STEPS.slice(4).map((item) => (
+                    <motion.div key={item.title} variants={fadeUp}>
+                      <h3 className="text-[20px] md:text-[24px] font-bold tracking-[-0.02em] mb-2">{item.title}</h3>
+                      <p className="text-[15px] text-muted-foreground leading-[1.58] mb-5">{item.desc}</p>
+                      <CaseMedia item={item.media} />
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
+            </div>
+          </section>
+
+          <section className="py-10 md:py-14 relative" id="scale">
+            <div className="waypoint-3d" data-x-desktop="0.8" data-y-desktop="0.5" data-x-mobile="0.5" data-y-mobile="0.5" data-z-depth="-100" />
+            <div className="max-w-[980px] mx-auto px-6 md:px-10">
+              <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                The next API had a place to <span className="heading-italic">go</span>
+              </motion.h2>
+              <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[720px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                Once the pattern worked across five APIs, the next question was scale. The same structure could carry in-progress, planned, and future APIs without redesigning the tryout experience each time.
+              </motion.p>
+              <SystemScaleChart />
+            </div>
+          </section>
+
+          <CaseRetro
+            id="retro"
+            lead="I am proud of the tryout pattern, but proud is not the same as proven. These are the four places where I mistook building the thing for showing it worked, and what I would test now."
+            items={RETRO}
+          />
+
+          <section className="py-10 md:py-14" id="learnings">
+            <div className="max-w-[980px] mx-auto px-6 md:px-10">
+              <motion.h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] mb-3" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                What the work <span className="heading-italic">shows</span>
+              </motion.h2>
+              <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[720px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                This case study is not about making API screens prettier. It is about making a complex product easier to understand, try, and trust.
+              </motion.p>
+              <OpenGrid items={LEARNINGS} />
+            </div>
+          </section>
+        </CaseLock>
       </div>
     </PageTransition>
   )
