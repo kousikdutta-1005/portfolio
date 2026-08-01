@@ -8,6 +8,7 @@ import { VideoOverlay } from "@/components/VideoOverlay"
 import { PageTransition } from "@/components/PageTransition"
 import { CaseEvidenceStrip, CaseStory, type CaseEvidenceItem, type CaseStoryItem } from "@/components/CaseStory"
 import { CaseStudyNav, type CaseStudyNavSection } from "@/components/CaseStudyNav"
+import { CaseRetro, type CaseRetroItem } from "@/components/CaseRetro"
 import { Seo } from "@/components/Seo"
 
 const EASE_ENTER = [0.25, 0.1, 0.25, 1] as const
@@ -75,6 +76,41 @@ const LEARNINGS = [
   { title: "Edge readiness", desc: "Documenting empty, loading, error, and recovery states early kept the experience reliable.", image: "/assets/images/Z4QVhleSAUrUTJKhQDKwgSHrJM.png" },
   { title: "Async clarity", desc: "Short Loom updates made decisions visible without slowing the team down.", image: "/assets/images/aNVv6LANXfb4E8jMjXuqrxfa48.png" },
   { title: "Taste through critique", desc: "Regular critique cycles helped the work become simpler, sharper, and easier to ship.", image: "/assets/images/cKidWTTfgxLZMZ9hnwbnWQoTlM.png" },
+]
+
+const RETRO: CaseRetroItem[] = [
+  {
+    claim: "I treated adoption growth as proof the redesign worked",
+    shipped:
+      "The outcomes lead with a 3x rise in monthly active usage and a rating jump from 2.9 to 4.9, reported as the result of my work. Those are single headline numbers with no guardrail that could have said the redesign failed.",
+    better:
+      "Go from goal to signal to metric, not straight to whatever is easy to count. Pick one guardrail metric that is allowed to veto a launch, report every headline number with a percentile beside it, and write down before release what result would make me call it a failure.",
+    article: { title: "When the Metric Becomes the Target", to: "/journal/when-the-metric-lies" },
+  },
+  {
+    claim: "I redesigned an analytics app without auditing the charts",
+    shipped:
+      "I reworked headers, filters, watchlists, voice, and sharing, and said the redesign reduced interpretation work. I never questioned how the charts themselves encode values on a small screen, whether a pie or color scale was the wrong choice, or whether they showed any uncertainty.",
+    better:
+      "Rank encodings by how accurately eyes read them, so position and length carry the value and color carries only grouping. Start bars at zero, show a confidence band instead of a single point, and ship a data table under each chart so exact values and screen readers both work.",
+    article: { title: "Charts That Tell the Truth", to: "/journal/charts-that-tell-truth" },
+  },
+  {
+    claim: "I set a three second target that hides slowness",
+    shipped:
+      "On the splash screen I set a perceived sub-three-second target for time to first interaction, and listed it as something to track. Three seconds is many times past the point where an app stops feeling instant, so the target could pass while launch still felt slow.",
+    better:
+      "Budget to 100 milliseconds for feedback and 400 for flow, and measure interaction to next paint at the 75th percentile of real devices, not a single vague target. Show the result the instant a person taps and reconcile in the background, and use a skeleton only for the middle wait band.",
+    article: { title: "Latency Is a Feeling", to: "/journal/latency-is-a-feeling" },
+  },
+  {
+    claim: "I named accessibility as a goal but shipped no method",
+    shipped:
+      "The context section lists better accessibility as a targeted outcome, yet nothing in the work shows how I got there. The voice states and headers lean on color and audio cues, and there is no contrast rule, focus order, or screen reader path anywhere.",
+    better:
+      "Treat exclusion as a research signal and fix it at the token level: 4.5 to 1 contrast, named controls, a sensible focus order, and a second channel so meaning never rests on color or audio alone. Run the voice flow through a screen reader, and check contrast automatically in the build.",
+    article: { title: "Solve for One, Help Everyone", to: "/journal/solve-for-one" },
+  },
 ]
 
 function SectionImage({ src, alt, className, loading = "lazy" }: { src: string; alt: string; className?: string; loading?: "eager" | "lazy" }) {
@@ -240,7 +276,8 @@ const SECTIONS: CaseStudyNavSection[] = [
   { id: "process", num: 3, label: "Process" },
   { id: "tenets", num: 4, label: "Tenets" },
   { id: "design", num: 5, label: "Design" },
-  { id: "learnings", num: 6, label: "Learnings" },
+  { id: "retro", num: 6, label: "In hindsight" },
+  { id: "learnings", num: 7, label: "Learnings" },
 ]
 
 export default function ThoughtSpotPage() {
@@ -494,6 +531,12 @@ export default function ThoughtSpotPage() {
           ]} />
         </div>
       </section>
+
+      <CaseRetro
+        id="retro"
+        lead="I am proud of what shipped here, but a few calls do not hold up. I leaned on launch numbers, left the charts and accessibility unexamined, and set a speed target that was too soft to mean much."
+        items={RETRO}
+      />
 
       {/* Learnings */}
       <section className="py-10 md:py-14" id="learnings">

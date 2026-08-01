@@ -8,6 +8,7 @@ import { VideoToolbar } from "@/components/VideoToolbar"
 import { VideoOverlay } from "@/components/VideoOverlay"
 import { PageTransition } from "@/components/PageTransition"
 import { CaseStudyNav, type CaseStudyNavSection } from "@/components/CaseStudyNav"
+import { CaseRetro, type CaseRetroItem } from "@/components/CaseRetro"
 import { Seo } from "@/components/Seo"
 
 const EASE_ENTER = [0.25, 0.1, 0.25, 1] as const
@@ -285,6 +286,41 @@ const DESIGN_STEPS = [
   },
 ]
 
+const RETRO: CaseRetroItem[] = [
+  {
+    claim: "I reported coverage counts, not whether developers decided faster",
+    shipped:
+      "I presented five APIs on the pattern and three more mapped as proof it worked. Those are counts of what I built, not evidence that a single developer evaluated an API faster or reached a confident yes or no.",
+    better:
+      "Pick one activation signal, a developer reaching a result they trust, and define it before building. Watch it as a signal, not a target, and compare it against the old portal, so I learn whether evaluation got faster instead of counting APIs shipped.",
+    article: { title: "When the Metric Becomes the Target", to: "/journal/when-the-metric-lies" },
+  },
+  {
+    claim: "I never measured time to a developer's first real result",
+    shipped:
+      "The workspace lets a developer enter inputs, send a request, and read a result, but I never timed how long a new developer takes to reach a first correct response. I assumed the flow was fast enough and never checked.",
+    better:
+      "Instrument time to a first successful request and treat that moment as the point the demo earns its keep. Watch new developers reach it in a session, then cut or reorder every step before it that does not help them get there.",
+    article: { title: "The First Five Minutes", to: "/journal/the-first-five-minutes" },
+  },
+  {
+    claim: "I designed the tryout but not how developers find the right API",
+    shipped:
+      "I put my effort into the workspace inside each API and left the names and grouping that lead people to the right one as they were. A developer who does not already know that Reverse Geocode or GeoTAX fits can still walk the wrong way.",
+    better:
+      "Run an open card sort and a tree test on the API names and categories before design, so the words match what developers call the job. Then check first click success on a text only version of the menu before I style anything.",
+    article: { title: "Naming Is the Architecture", to: "/journal/naming-is-the-architecture" },
+  },
+  {
+    claim: "I called the pattern reusable but never designed its configuration",
+    shipped:
+      "I proved the pattern across five APIs and said the next demos would reuse the same page logic. I never defined the set of options the next engineer fills in, so each new API can bend the pattern a slightly different way.",
+    better:
+      "Define the pattern's inputs as a small closed set of named options instead of open flags, so a contradictory setup cannot be written down. Write out what the pattern will refuse to do before the next three APIs are added to it.",
+    article: { title: "A Component's Props Are a User Interface", to: "/journal/component-api-design" },
+  },
+]
+
 const SECTIONS: CaseStudyNavSection[] = [
   { id: "outcomes", num: 1, label: "Impact" },
   { id: "context", num: 2, label: "Context" },
@@ -292,7 +328,8 @@ const SECTIONS: CaseStudyNavSection[] = [
   { id: "system", num: 4, label: "System" },
   { id: "design", num: 5, label: "Execution" },
   { id: "scale", num: 6, label: "Scale" },
-  { id: "learnings", num: 7, label: "Takeaways" },
+  { id: "retro", num: 7, label: "In hindsight" },
+  { id: "learnings", num: 8, label: "Takeaways" },
 ]
 
 function OpenGrid({ items }: { items: { title: string; desc: string }[] }) {
@@ -858,6 +895,12 @@ export default function PreciselyDevPortalPage() {
             <SystemScaleChart />
           </div>
         </section>
+
+        <CaseRetro
+          id="retro"
+          lead="I am proud of the tryout pattern, but proud is not the same as proven. These are the four places where I mistook building the thing for showing it worked, and what I would test now."
+          items={RETRO}
+        />
 
         <section className="py-10 md:py-14" id="learnings">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">

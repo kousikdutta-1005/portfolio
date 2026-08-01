@@ -116,7 +116,7 @@
     --color-muted: #1c1c1e;
     --color-muted-foreground: #a1a1a6;
     --color-accent: #2997ff;
-    --color-accent-foreground: #ffffff;
+    --color-accent-foreground: #04101d;
     --color-destructive: #ff453a;
     --color-destructive-foreground: #ffffff;
     --color-border: rgba(255, 255, 255, 0.04);
@@ -3564,6 +3564,7 @@ a.apple-link:hover {
 .text-link {
   display: inline-flex;
   align-items: center;
+  min-height: 26px;
   gap: 0.35rem;
   border-radius: 999px;
   color: var(--color-accent);
@@ -3604,6 +3605,7 @@ a.apple-link:hover {
 .back-link {
   display: inline-flex;
   align-items: center;
+  min-height: 26px;
   border-radius: 999px;
   color: var(--color-muted-foreground);
   font-size: 14px;
@@ -3637,6 +3639,9 @@ a.apple-link:hover {
 }
 
 .footer-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
   color: color-mix(in oklab, var(--color-muted-foreground) 78%, transparent);
 }
 
@@ -4329,13 +4334,24 @@ html {
 }
 
 .journal-measure {
-  max-width: 680px;
+  max-width: 728px;
   margin-inline: auto;
   padding-inline: 24px;
 }
 
 .journal-measure.is-wide {
-  max-width: 880px;
+  max-width: 980px;
+}
+
+@media (min-width: 768px) {
+  .journal-measure {
+    max-width: 760px;
+    padding-inline: 40px;
+  }
+
+  .journal-measure.is-wide {
+    max-width: 980px;
+  }
 }
 
 .journal-article-header {
@@ -4353,6 +4369,7 @@ html {
 .journal-back {
   display: inline-flex;
   align-items: center;
+  min-height: 26px;
   gap: 7px;
   font-size: 13px;
   font-weight: 500;
@@ -4838,7 +4855,7 @@ html {
 @media (max-width: 640px) {
   .journal-measure,
   .journal-measure.is-wide {
-    padding-inline: 20px;
+    padding-inline: 24px;
   }
 
   .journal-diagram-frame {
@@ -5319,6 +5336,7 @@ html {
 .journal-pagination-step {
   display: inline-flex;
   align-items: center;
+  min-height: 26px;
   gap: 8px;
   font-family: var(--font-text);
   font-size: 14px;
@@ -5383,5 +5401,123 @@ html {
     order: -1;
     width: 100%;
     justify-content: center;
+  }
+}
+
+/* Case study retrospective */
+.case-retro {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  container-type: inline-size;
+  container-name: retro;
+  border-top: 1px solid color-mix(in oklab, var(--color-foreground) 10%, transparent);
+}
+
+.case-retro-item {
+  padding: clamp(1.4rem, 3vw, 1.9rem) 0;
+  border-bottom: 1px solid color-mix(in oklab, var(--color-foreground) 10%, transparent);
+}
+
+.case-retro-head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  column-gap: 14px;
+  row-gap: 6px;
+  margin-bottom: clamp(0.9rem, 2vw, 1.15rem);
+}
+
+.case-retro-index {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: color-mix(in oklab, var(--color-muted-foreground) 85%, transparent);
+  font-variant-numeric: tabular-nums;
+}
+
+.case-retro-claim {
+  font-size: clamp(1.05rem, 0.98rem + 0.35vw, 1.25rem);
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  line-height: 1.32;
+  color: var(--color-foreground);
+  text-wrap: balance;
+}
+
+.case-retro-link {
+  grid-column: 2;
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  gap: 5px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: opacity 180ms ease;
+}
+
+.case-retro-link:hover,
+.case-retro-link:focus-visible {
+  opacity: 0.75;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.case-retro-pair {
+  display: grid;
+  gap: clamp(0.9rem, 2.4vw, 1.6rem);
+  grid-column: 1 / -1;
+}
+
+.case-retro-cell p {
+  font-size: 14.5px;
+  line-height: 1.62;
+  color: var(--color-muted-foreground);
+  text-wrap: pretty;
+}
+
+.case-retro-cell.is-better p {
+  color: var(--color-foreground);
+}
+
+.case-retro-label {
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: color-mix(in oklab, var(--color-muted-foreground) 88%, transparent);
+}
+
+.case-retro-cell.is-better .case-retro-label {
+  color: var(--color-accent);
+}
+
+@container retro (min-width: 640px) {
+  .case-retro-head {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    column-gap: 18px;
+  }
+
+  .case-retro-link {
+    grid-column: 3;
+    justify-self: end;
+  }
+
+  .case-retro-pair {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    padding-left: 34px;
+  }
+}
+
+/* Anchor targets must clear the sticky case study nav */
+body:has(.case-study-nav) section[id] {
+  scroll-margin-top: 164px;
+}
+
+@media (max-width: 767px) {
+  body:has(.case-study-nav) section[id] {
+    scroll-margin-top: 132px;
   }
 }

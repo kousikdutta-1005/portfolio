@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import { PageTransition } from "@/components/PageTransition"
 import { CaseEvidenceStrip, CaseStory, type CaseEvidenceItem, type CaseStoryItem } from "@/components/CaseStory"
 import { CaseStudyNav, type CaseStudyNavSection } from "@/components/CaseStudyNav"
+import { CaseRetro, type CaseRetroItem } from "@/components/CaseRetro"
 import { Seo } from "@/components/Seo"
 import { MiniSwarm } from "@/components/MiniSwarm"
 
@@ -167,6 +168,41 @@ const BUILD_ARCHITECTURE = [
   { title: "Shipping layer", desc: "Production pieces that make the portfolio reliable.", items: ["Vite build", "Static routes", "SEO files", "GitHub Pages"] },
 ]
 
+const RETRO: CaseRetroItem[] = [
+  {
+    claim: "I sized layouts to the window, not the component",
+    shipped:
+      "Every responsive rule on this site, apart from this section, is a viewport breakpoint or a Tailwind one. The project cards and journal blocks render at several container widths, yet each still asks the whole window how wide it is.",
+    better:
+      "Mark the card and the journal block as containers, then size them against their own slot with container queries, and let an auto-fit grid drop columns instead of guessing device widths. The same card then works in a column or a drawer without a new breakpoint.",
+    article: { title: "The End of Breakpoint Driven Layout", to: "/journal/layout-without-breakpoints" },
+  },
+  {
+    claim: "My main call to action failed contrast for months",
+    shipped:
+      "The Schedule a call button shipped with white text on the dark mode accent blue at 3.02 to 1, well under the 4.5 to 1 minimum. It looked right to me, so nobody caught it. A contrast script did, months later, and it now clears 6.35 to 1.",
+    better:
+      "Treat contrast as a design input, not a final polish. Give each theme its own accent foreground token from the start, and build hierarchy from weight, size, and spacing instead of pale color, so the text a reviewer must read clears 4.5 to 1 by construction.",
+    article: { title: "Solve for One, Help Everyone", to: "/journal/solve-for-one" },
+  },
+  {
+    claim: "I claim the site works without measuring anything",
+    shipped:
+      "This case study says a reviewer can move from first impression to proof without losing context, and I believe it. But the site has no analytics and no view of where people drop off, so every claim about its effect is my taste stated as fact.",
+    better:
+      "Name one goal a reviewer would recognize, pick a signal, then a metric, in that order. Add privacy respecting analytics, read the drop off point at the 75th percentile rather than an average, and keep one guardrail that is allowed to tell me the redesign did not land.",
+    article: { title: "When the Metric Becomes the Target", to: "/journal/when-the-metric-lies" },
+  },
+  {
+    claim: "My build gates glass but never accessibility",
+    shipped:
+      "The build runs TypeScript, a Vite build, a sitemap step, oxlint, and a custom glass check. It has no accessibility gate at all, so a contrast failure or a link below the 24 pixel target size can ship, and did, while every check stayed green.",
+    better:
+      "Write a small golden set of the failures I have already seen, the low contrast pair and the tiny tap target, turn them into graders, and give the build a pass mark it refuses to ship below. Add each new real failure to the set the day it appears.",
+    article: { title: "Evals Are the New User Research", to: "/journal/evals-for-designers" },
+  },
+]
+
 const SECTIONS: CaseStudyNavSection[] = [
   { id: "outcomes", num: 1, label: "Outcomes" },
   { id: "context", num: 2, label: "Context" },
@@ -176,7 +212,8 @@ const SECTIONS: CaseStudyNavSection[] = [
   { id: "blocks", num: 6, label: "Blocks" },
   { id: "craft", num: 7, label: "Craft" },
   { id: "engine", num: 8, label: "The Engine" },
-  { id: "takeaways", num: 9, label: "Takeaways" },
+  { id: "retro", num: 9, label: "In hindsight" },
+  { id: "takeaways", num: 10, label: "Takeaways" },
 ]
 
 function ModelShowcase() {
@@ -548,6 +585,12 @@ export default function PortfolioCaseStudyPage() {
             </motion.div>
           </div>
         </section>
+
+        <CaseRetro
+          id="retro"
+          lead="This case study is about the site you are reading right now, so I owe you the parts I got wrong. Each item below is a real decision, what it cost, and the method I would use instead."
+          items={RETRO}
+        />
 
         <section className="py-10 md:py-14" id="takeaways">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">

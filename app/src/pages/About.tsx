@@ -288,7 +288,7 @@ export default function AboutPage() {
               viewport={{ once: true, margin: "-80px" }}
             >
               {AWARDS.map((award) => (
-                <motion.div key={award.title} variants={fadeUp} className="recognition-row">
+                <motion.div key={`${award.title} ${award.sub}`} variants={fadeUp} className="recognition-row">
                   <h3>{award.title}</h3>
                   <p>{award.sub}</p>
                 </motion.div>

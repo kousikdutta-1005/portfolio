@@ -6,6 +6,7 @@ import { assetPath } from "@/lib/assets"
 import { PageTransition } from "@/components/PageTransition"
 import { CaseEvidenceStrip, CaseStory, type CaseEvidenceItem, type CaseStoryItem } from "@/components/CaseStory"
 import { CaseStudyNav, type CaseStudyNavSection } from "@/components/CaseStudyNav"
+import { CaseRetro, type CaseRetroItem } from "@/components/CaseRetro"
 import { Seo } from "@/components/Seo"
 
 const EASE_ENTER = [0.25, 0.1, 0.25, 1] as const
@@ -96,7 +97,43 @@ const SECTIONS: CaseStudyNavSection[] = [
   { id: "define", num: 5, label: "Define" },
   { id: "ideation", num: 6, label: "Ideation" },
   { id: "design", num: 7, label: "Design" },
-  { id: "learnings", num: 8, label: "Learnings" },
+  { id: "retro", num: 8, label: "In hindsight" },
+  { id: "learnings", num: 9, label: "Learnings" },
+]
+
+const RETRO: CaseRetroItem[] = [
+  {
+    claim: "I reported one SUS score as proof of usability",
+    shipped:
+      "The concept scored 82.1 on the SUS, and I presented that single number as evidence the system was usable. The sample was small and self reported on a prototype, so the score has a wide margin I never showed.",
+    better:
+      "Agree the target score and minimum sample before testing, run task based sessions where I watch people succeed or fail, and report a confidence interval next to the number instead of one clean figure that hides how few people it came from.",
+    article: { title: "The A/B Test Is Not the Truth Machine You Think", to: "/journal/when-the-test-lies" },
+  },
+  {
+    claim: "I designed health data tracking without designing consent",
+    shipped:
+      "The system tracks health across connected devices and apps, sends WhatsApp prompts, and runs an AI companion on personal medical data. I designed all of that flow but never designed how the user agrees to it or turns it off.",
+    better:
+      "Design consent as a real screen, with a plain statement of what each data source is used for, granular opt ins per source, and a way out that is as easy as the way in. For health data I would treat that flow as core, not fine print.",
+    article: { title: "Consent Is a Design Problem", to: "/journal/consent-is-a-design-problem" },
+  },
+  {
+    claim: "I called the interface accessible because it matched the design system",
+    shipped:
+      "I wrote that the Philips design system kept the interface legible and accessible. That was a compliance claim, not a tested one. My users were adults over 30 with heart risk, and I never checked the design with older eyes or low health literacy.",
+    better:
+      "Recruit people at the edges, older adults, low vision, and low reading confidence, then watch them complete real tasks like reading a risk result. Fix what breaks for them, because the fixes that help the edge case usually help everyone else too.",
+    article: { title: "Solve for One, Help Everyone", to: "/journal/solve-for-one" },
+  },
+  {
+    claim: "I spread the hard part across too many surfaces",
+    shipped:
+      "The ecosystem asks the user to connect devices, use a web app, follow an AI companion, and act on WhatsApp prompts. The hard part, sticking with a routine, stayed with the user, spread across surfaces they had to link and manage themselves.",
+    better:
+      "Name the one irreducible job, helping someone keep a routine, and make the system carry the setup. Default the device connections, cut the number of surfaces the user juggles, and let one place absorb the integration so the person is not the glue.",
+    article: { title: "Somebody Has to Do the Hard Part", to: "/journal/conservation-of-complexity" },
+  },
 ]
 
 const DEFINE_CONTENT = {
@@ -568,6 +605,12 @@ export default function PhilipsPage() {
             </div>
           </div>
         </section>
+
+        <CaseRetro
+          id="retro"
+          lead="This project won awards and a strong usability score, and I still see four places where I claimed more than I had proven or left the user to carry work the system should have."
+          items={RETRO}
+        />
 
         <section className="py-10 md:py-14" id="learnings">
           <div className="max-w-[980px] mx-auto px-6 md:px-10">
