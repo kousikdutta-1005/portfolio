@@ -194,11 +194,11 @@ const RETRO: CaseRetroItem[] = [
     article: { title: "When the Metric Becomes the Target", to: "/journal/when-the-metric-lies" },
   },
   {
-    claim: "My build gates glass but never accessibility",
+    claim: "My build gated glass but never accessibility",
     shipped:
-      "The build runs TypeScript, a Vite build, a sitemap step, oxlint, and a custom glass check. It has no accessibility gate at all, so a contrast failure or a link below the 24 pixel target size can ship, and did, while every check stayed green.",
+      "The build ran TypeScript, a Vite build, a sitemap step, oxlint, and a custom glass check. It had no accessibility gate at all, so a contrast failure or a link below the 24 pixel target size could ship, and did, while every check stayed green.",
     better:
-      "Write a small golden set of the failures I have already seen, the low contrast pair and the tiny tap target, turn them into graders, and give the build a pass mark it refuses to ship below. Add each new real failure to the set the day it appears.",
+      "This one I went back and fixed. The build now runs a check that reads every colour token pair in both themes and every inline text control, and refuses to finish below the thresholds. The first run failed on four token pairs I had never noticed, including warning and error values rendered as small bold text at 2:1. The gate only exists because those failures shipped first, which is the honest order these things usually happen in.",
     article: { title: "Evals Are the New User Research", to: "/journal/evals-for-designers" },
   },
 ]
