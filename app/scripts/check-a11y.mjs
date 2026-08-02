@@ -46,6 +46,7 @@ const TARGETS = [
   ".journal-pagination-step",
   ".case-lock-input",
   ".case-lock-submit",
+  ".journal-feed-link",
 ]
 
 const TARGET_MIN_PX = 24

@@ -64,6 +64,13 @@ export default function JournalPage() {
                 what stays true regardless. Researched, referenced, and written
                 from the work.
               </p>
+              <a className="journal-feed-link" href="/rss.xml">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <circle cx="6.18" cy="17.82" r="2.18" />
+                  <path d="M4 10.1v2.9a8 8 0 0 1 8 8h2.9A10.9 10.9 0 0 0 4 10.1zm0-5.1v2.9A13.1 13.1 0 0 1 17.1 21H20A16 16 0 0 0 4 5z" />
+                </svg>
+                Subscribe by RSS
+              </a>
             </motion.div>
           </div>
         </section>

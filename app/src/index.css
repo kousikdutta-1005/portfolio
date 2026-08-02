@@ -5836,3 +5836,31 @@ svg {
     gap: 6px;
   }
 }
+
+/* Journal RSS link */
+.journal-feed-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 20px;
+  padding: 7px 13px;
+  min-height: 34px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: color-mix(in oklab, var(--color-card) 60%, transparent);
+  color: var(--color-muted-foreground);
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.journal-feed-link:hover {
+  color: var(--color-foreground);
+  border-color: color-mix(in oklab, var(--color-accent) 45%, var(--color-border));
+  background: color-mix(in oklab, var(--color-accent) 8%, transparent);
+}
+
+.journal-feed-link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}

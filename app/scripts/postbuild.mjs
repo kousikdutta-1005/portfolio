@@ -79,6 +79,12 @@ async function readJournalRoutes() {
       throw new Error(`Could not read journal metadata from ${name}.ts`)
     }
 
+    const readTime = source.match(/\n {2}readTime: "(\d+)[^"]*"/u)?.[1]
+    const tags = (source.match(/\n {2}tags: \[([^\]]*)\]/u)?.[1] ?? "")
+      .split(",")
+      .map((tag) => tag.trim().replace(/^"|"$/gu, ""))
+      .filter(Boolean)
+
     journal.push({
       path: `/journal/${id}`,
       file: `journal/${id}/index.html`,
@@ -86,6 +92,7 @@ async function readJournalRoutes() {
       description: excerpt,
       image: defaultImage,
       priority: "0.6",
+      article: { id, title, excerpt, readTime, tags },
     })
   }
 
@@ -138,6 +145,55 @@ function replaceTag(html, selector, content) {
   return html.replace(new RegExp(`(${escapeRegExp(selector)} content=")[^"]*(")`, "u"), `$1${content}$2`)
 }
 
+function xmlEscape(value) {
+  return value
+    .replace(/&(?!(?:amp|lt|gt|quot|apos|#\d+);)/gu, "&amp;")
+    .replace(/</gu, "&lt;")
+    .replace(/>/gu, "&gt;")
+}
+
+/**
+ * BlogPosting schema for a journal article.
+ *
+ * There is deliberately no datePublished. The articles carry no publication
+ * date anywhere on the site, and the only date available is the commit that
+ * added the file, which would tell search engines that twenty five long-form
+ * pieces were published within the same hour. An absent date is more honest
+ * and less damaging than a misleading one. readTime is real, so it ships as
+ * timeRequired instead.
+ */
+function articleJsonLd(route) {
+  const { title, excerpt, readTime, tags } = route.article
+  const url = `${siteUrl}${route.path}`
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title,
+    description: excerpt.replace(/&quot;/gu, '"'),
+    url,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    image: route.image,
+    author: {
+      "@type": "Person",
+      name: "Kousik Dutta",
+      url: `${siteUrl}/`,
+      jobTitle: "Senior Product Designer",
+    },
+    publisher: { "@type": "Person", name: "Kousik Dutta", url: `${siteUrl}/` },
+    isPartOf: { "@type": "Blog", name: "Journal", url: `${siteUrl}/journal` },
+    inLanguage: "en",
+  }
+
+  if (readTime) schema.timeRequired = `PT${readTime}M`
+  if (tags.length > 0) {
+    schema.keywords = tags.join(", ")
+    schema.articleSection = tags[0]
+  }
+
+  return `<script type="application/ld+json">${JSON.stringify(schema)}</script>`
+}
+
 function applyMetadata(html, route) {
   const url = `${siteUrl}${route.path}`
 
@@ -152,6 +208,13 @@ function applyMetadata(html, route) {
     (value) => replaceTag(value, '<meta name="twitter:title"', route.title),
     (value) => replaceTag(value, '<meta name="twitter:description"', route.description),
     (value) => replaceTag(value, '<meta name="twitter:image"', route.image),
+    (value) =>
+      route.article ? value.replace("</head>", `  ${articleJsonLd(route)}\n  </head>`) : value,
+    (value) =>
+      value.replace(
+        "</head>",
+        `  <link rel="alternate" type="application/rss+xml" title="Kousik Dutta - Journal" href="${siteUrl}/rss.xml" />\n  </head>`,
+      ),
   ].reduce((value, transform) => transform(value), html)
 }
 
@@ -187,5 +250,40 @@ const sitemap = [
 ].join("\n")
 
 await writeFile(new URL("sitemap.xml", dist), sitemap)
+
+/**
+ * RSS 2.0 feed for the journal.
+ *
+ * Items carry no pubDate for the same reason the pages carry no
+ * datePublished. Readers fall back to feed order, which is the curated
+ * journal order rather than an arbitrary one.
+ */
+const rss = [
+  '<?xml version="1.0" encoding="UTF-8"?>',
+  '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
+  "  <channel>",
+  "    <title>Kousik Dutta - Journal</title>",
+  `    <link>${siteUrl}/journal</link>`,
+  `    <description>${xmlEscape(journalIndexDescription)}</description>`,
+  "    <language>en</language>",
+  `    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>`,
+  `    <atom:link href="${siteUrl}/rss.xml" rel="self" type="application/rss+xml" />`,
+  ...journalRoutes.map((route) =>
+    [
+      "    <item>",
+      `      <title>${xmlEscape(route.article.title)}</title>`,
+      `      <link>${siteUrl}${route.path}</link>`,
+      `      <guid isPermaLink="true">${siteUrl}${route.path}</guid>`,
+      `      <description>${xmlEscape(route.article.excerpt.replace(/&quot;/gu, '"'))}</description>`,
+      ...route.article.tags.map((tag) => `      <category>${xmlEscape(tag)}</category>`),
+      "    </item>",
+    ].join("\n"),
+  ),
+  "  </channel>",
+  "</rss>",
+  "",
+].join("\n")
+
+await writeFile(new URL("rss.xml", dist), rss)
 
 await writeFile(new URL("404.html", dist), source)

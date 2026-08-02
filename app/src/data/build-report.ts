@@ -38,7 +38,7 @@ export const BUILD_REPORT: BuildReport = {
       "id": "check-a11y",
       "label": "Colour and target size",
       "summary": "Recomputes contrast for every colour token pair in both themes against WCAG AA, and requires interactive text controls to be at least 24px tall. It caught four real contrast defects when it was introduced.",
-      "metric": "35 checks"
+      "metric": "36 checks"
     },
     {
       "id": "check-weight",
