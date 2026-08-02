@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kousik Dutta - Journal</title>
+    <link>https://kousikdutta.com/journal</link>
+    <description>Long-form, referenced writing on generative interfaces, AI trust and provenance, design engineering, performance, motion, and accessibility as a design method.</description>
+    <language>en</language>
+    <lastBuildDate>Sun, 02 Aug 2026 15:49:27 GMT</lastBuildDate>
+    <atom:link href="https://kousikdutta.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Interface Is Now a Variable</title>
+      <link>https://kousikdutta.com/journal/generative-ui</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/generative-ui</guid>
+      <description>For sixty years we drew every screen in advance. Generative UI ends that. Now the layout is built on the spot, from what the user asks for. Here is what really changes for designers.</description>
+      <category>Generative UI</category>
+      <category>AI</category>
+      <category>React</category>
+    </item>
+    <item>
+      <title>When Everyone Can Generate, Taste Is the Moat</title>
+      <link>https://kousikdutta.com/journal/taste-is-the-moat</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/taste-is-the-moat</guid>
+      <description>Making a decent interface is now almost free. That does not make design worth less. It moves all the worth into the one thing that stayed hard: knowing which of a thousand decent options is the right one.</description>
+      <category>Craft</category>
+      <category>Strategy</category>
+      <category>Career</category>
+    </item>
+    <item>
+      <title>Trust Is a Rendering Problem</title>
+      <link>https://kousikdutta.com/journal/provenance</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/provenance</guid>
+      <description>RAG fixed the engineering half of AI making things up. The human half is still wide open, and it is ours. Here is a simple way to show where an answer came from, and how much to trust it.</description>
+      <category>AI UX</category>
+      <category>Trust</category>
+      <category>Research</category>
+    </item>
+    <item>
+      <title>Motion Is Not Decoration, It Is Physics</title>
+      <link>https://kousikdutta.com/journal/motion-is-physics</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/motion-is-physics</guid>
+      <description>A timed animation assumes the world will wait for it. Real things do not have a set time. They have weight and speed. That one difference is what separates interfaces that feel alive from ones that feel fake.</description>
+      <category>Motion</category>
+      <category>Interaction</category>
+      <category>Craft</category>
+    </item>
+    <item>
+      <title>A Component's Props Are a User Interface</title>
+      <link>https://kousikdutta.com/journal/component-api-design</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/component-api-design</guid>
+      <description>Every prop you add is a decision you push onto every future caller. The best component APIs say no on purpose. Maximum flexibility is not a virtue; it is a component that teaches nothing and guarantees an inconsistent product.</description>
+      <category>Components</category>
+      <category>Design Systems</category>
+      <category>API Design</category>
+    </item>
+    <item>
+      <title>The Chat Box Is a Local Maximum</title>
+      <link>https://kousikdutta.com/journal/agentic-canvas</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/agentic-canvas</guid>
+      <description>Chat was the fastest way to ship a language model. It is not the right tool for real work. What agentic software needs is space, memory, and a place to stand while the machine runs.</description>
+      <category>Agentic UI</category>
+      <category>Interaction</category>
+      <category>Systems</category>
+    </item>
+    <item>
+      <title>Typography on the Web Is an Engineering Problem</title>
+      <link>https://kousikdutta.com/journal/typography-as-engineering</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/typography-as-engineering</guid>
+      <description>Most type advice online is about picking a nice ratio. That is the least important decision you will make. The hard parts are how type behaves across every screen width, what it costs to load, and how many characters sit on a line.</description>
+      <category>Typography</category>
+      <category>CSS</category>
+      <category>Performance</category>
+    </item>
+    <item>
+      <title>Design Systems Do Not Die of Bad Design</title>
+      <link>https://kousikdutta.com/journal/why-design-systems-die</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/why-design-systems-die</guid>
+      <description>A design system is an internal product whose users can always choose not to use it. That makes it a distribution problem, not a craft problem. The graveyard is full of beautiful systems that nobody imported.</description>
+      <category>Design Systems</category>
+      <category>Adoption</category>
+      <category>Strategy</category>
+    </item>
+    <item>
+      <title>Latency Is a Feeling</title>
+      <link>https://kousikdutta.com/journal/latency-is-a-feeling</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/latency-is-a-feeling</guid>
+      <description>The limits on how fast a screen must respond were found in 1968 and confirmed in 1982. They have not moved, because human senses have not moved. How fast your product feels comes down to three numbers.</description>
+      <category>Performance</category>
+      <category>Psychology</category>
+      <category>Craft</category>
+    </item>
+    <item>
+      <title>When the Metric Becomes the Target</title>
+      <link>https://kousikdutta.com/journal/when-the-metric-lies</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/when-the-metric-lies</guid>
+      <description>The moment you pay people to move a number, the number stops telling you the truth. This is about why that happens, why averages hide the users you are failing, and how to tell measurement apart from a story told to justify a decision already made.</description>
+      <category>Metrics</category>
+      <category>Product</category>
+      <category>Research</category>
+    </item>
+    <item>
+      <title>Evals Are the New User Research</title>
+      <link>https://kousikdutta.com/journal/evals-for-designers</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/evals-for-designers</guid>
+      <description>You cannot test an AI the normal way, because it gives a different answer every time. An eval is a repeatable test built for exactly that problem. Right now engineers write these tests alone. Designers should be in the room.</description>
+      <category>Evals</category>
+      <category>Quality</category>
+      <category>AI</category>
+    </item>
+    <item>
+      <title>Color That Survives Dark Mode, Low Vision, and Real Screens</title>
+      <link>https://kousikdutta.com/journal/color-that-survives</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/color-that-survives</guid>
+      <description>Equal lightness in HSL does not mean equal brightness to the eye. That gap is why so many color systems look uneven, break in dark mode, and fail people with low vision. OKLCH closes it, and the rest is discipline.</description>
+      <category>Color</category>
+      <category>Accessibility</category>
+      <category>Design Systems</category>
+    </item>
+    <item>
+      <title>Somebody Has to Do the Hard Part</title>
+      <link>https://kousikdutta.com/journal/conservation-of-complexity</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/conservation-of-complexity</guid>
+      <description>Every product has a hard part that will not go away. You cannot delete it. You can only choose who does the work: the person using it, the screen in front of them, or the engineers behind it. Most bad business software picks wrong.</description>
+      <category>Enterprise</category>
+      <category>Systems</category>
+      <category>UX</category>
+    </item>
+    <item>
+      <title>Forms Deserve Better</title>
+      <link>https://kousikdutta.com/journal/forms-deserve-better</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/forms-deserve-better</guid>
+      <description>Every extra field costs completion, and you can measure it instead of arguing about it. Forms are where money changes hands, yet they get less design attention than a logo.</description>
+      <category>Forms</category>
+      <category>Conversion</category>
+      <category>Accessibility</category>
+    </item>
+    <item>
+      <title>The Fastest Network Request Is the One You Never Make</title>
+      <link>https://kousikdutta.com/journal/local-first-intelligence</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/local-first-intelligence</guid>
+      <description>Cloud-first apps made a deal nobody asked you to sign. Your data lives on someone else's computer, and every click has to travel there and back. Local-first flips that. And it changes far more than speed.</description>
+      <category>Local-first</category>
+      <category>Performance</category>
+      <category>Architecture</category>
+    </item>
+    <item>
+      <title>The Handoff Was Always a Translation Loss</title>
+      <link>https://kousikdutta.com/journal/design-engineering</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/design-engineering</guid>
+      <description>A mockup is a picture of a decision, and a picture leaves things out. Every time it crosses to another team, more gets lost. The fix is to write the decision as data a build can turn into code, so nobody has to guess it back.</description>
+      <category>Design Engineering</category>
+      <category>Systems</category>
+      <category>Tooling</category>
+    </item>
+    <item>
+      <title>Charts That Tell the Truth</title>
+      <link>https://kousikdutta.com/journal/charts-that-tell-truth</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/charts-that-tell-truth</guid>
+      <description>A chart inside a product is a control surface, not an illustration. The research on how people read visuals is 40 years old, it is settled, and most product charts still ignore it.</description>
+      <category>Data Visualisation</category>
+      <category>Craft</category>
+      <category>Accessibility</category>
+    </item>
+    <item>
+      <title>The A/B Test Is Not the Truth Machine You Think</title>
+      <link>https://kousikdutta.com/journal/when-the-test-lies</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/when-the-test-lies</guid>
+      <description>A/B testing is the closest thing product teams have to a truth machine, which is exactly why it is so easy to misuse. This is about what a p value really means, why most tests cannot see the effect they are chasing, and why a statistically significant result can be commercially worthless.</description>
+      <category>Experimentation</category>
+      <category>Statistics</category>
+      <category>Product</category>
+    </item>
+    <item>
+      <title>Glass Is Not a Style</title>
+      <link>https://kousikdutta.com/journal/material-and-depth</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/material-and-depth</guid>
+      <description>See-through glass became a trend, so it became decoration. It was never meant to be that. In an interface, the look of a surface does real work: it tells you which layer you are on, where to look, and where you are.</description>
+      <category>Material</category>
+      <category>Spatial</category>
+      <category>Craft</category>
+    </item>
+    <item>
+      <title>The First Five Minutes</title>
+      <link>https://kousikdutta.com/journal/the-first-five-minutes</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/the-first-five-minutes</guid>
+      <description>Onboarding is not a product tour. It is the shortest honest route to the moment a new user feels the product was worth signing up for. Everything else is decoration on top of that one job.</description>
+      <category>Onboarding</category>
+      <category>Activation</category>
+      <category>Product</category>
+    </item>
+    <item>
+      <title>The End of Breakpoint Driven Layout</title>
+      <link>https://kousikdutta.com/journal/layout-without-breakpoints</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/layout-without-breakpoints</guid>
+      <description>A breakpoint encodes a guess about which devices exist. A container query encodes a fact about how much space a component actually has. Once you can ask the second question, most of your media queries turn out to be answering the wrong one.</description>
+      <category>Layout</category>
+      <category>CSS</category>
+      <category>Responsive</category>
+    </item>
+    <item>
+      <title>Naming Is the Architecture</title>
+      <link>https://kousikdutta.com/journal/naming-is-the-architecture</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/naming-is-the-architecture</guid>
+      <description>A label is a promise. Get the words wrong and no layout, no animation, no colour can save the product. This is the design work that ships before a single pixel.</description>
+      <category>Information Architecture</category>
+      <category>Research</category>
+      <category>Naming</category>
+    </item>
+    <item>
+      <title>Interfaces Without Screens</title>
+      <link>https://kousikdutta.com/journal/interfaces-without-screens</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/interfaces-without-screens</guid>
+      <description>A screen shows you your options. Speech does not. That single difference breaks most of what visual interface design taught us, and it makes discoverability, not layout, the hard problem of screenless design.</description>
+      <category>Voice UI</category>
+      <category>Multimodal</category>
+      <category>Accessibility</category>
+    </item>
+    <item>
+      <title>Consent Is a Design Problem</title>
+      <link>https://kousikdutta.com/journal/consent-is-a-design-problem</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/consent-is-a-design-problem</guid>
+      <description>Dark patterns are no longer a matter of taste. There is a formal taxonomy, a body of research, and regulators handing out fines for specific interface choices. This is about where the line sits, and how to argue for the right side of it.</description>
+      <category>Ethics</category>
+      <category>Consent</category>
+      <category>Design Systems</category>
+    </item>
+    <item>
+      <title>Solve for One, Help Everyone</title>
+      <link>https://kousikdutta.com/journal/solve-for-one</link>
+      <guid isPermaLink="true">https://kousikdutta.com/journal/solve-for-one</guid>
+      <description>The dropped kerb was built for wheelchairs. Now everyone uses it: the suitcase, the pram, the bad knee. Designing for one person at the edge is not charity. It is the most reliable way to make something better for everyone, and the data proves it.</description>
+      <category>Accessibility</category>
+      <category>Inclusive Design</category>
+      <category>Method</category>
+    </item>
+  </channel>
+</rss>
