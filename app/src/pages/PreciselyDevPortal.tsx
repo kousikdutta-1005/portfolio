@@ -157,10 +157,10 @@ const SUMMARY: SummaryItem[] = [
 ]
 
 const OUTCOME_PROOF = [
-  { value: "2", label: "Baseline coverage", desc: "Old and cloud portals compared to find repeated evaluation friction." },
-  { value: "5", label: "API coverage", desc: "Pattern tested across five high-variance APIs before treating it as reusable." },
-  { value: "1", label: "Task continuity", desc: "Data, inputs, maps, requests, and results stay in one evaluation flow." },
-  { value: "3", label: "Reuse pipeline", desc: "Three next APIs already mapped to reduce future rollout and rework risk." },
+  { value: "5", label: "API demos rebuilt", desc: "Emergency Info, GeoTAX, Reverse Geocode, Time Zone, and Wi-Fi all moved onto one shared evaluation pattern." },
+  { value: "2", label: "Portals audited", desc: "The legacy and cloud portals were compared side by side to find where evaluation friction repeated." },
+  { value: "3", label: "Next APIs mapped", desc: "Three further APIs already fit the pattern, so the next rollouts do not start from zero." },
+  { value: "3 mo", label: "Design window", desc: "August to October 2025, from baseline audit through to the shared pattern shipping across all five demos." },
 ]
 
 const STORY_GUARDS = [
