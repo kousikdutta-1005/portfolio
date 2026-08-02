@@ -12,7 +12,8 @@
     "check:weight": "node scripts/check-weight.mjs",
     "optimize:images": "node scripts/optimize-images.mjs",
     "optimize:points": "node scripts/optimize-points.mjs",
-    "build:report": "node scripts/build-report.mjs"
+    "build:report": "node scripts/build-report.mjs",
+    "optimize:videos": "node scripts/optimize-videos.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",

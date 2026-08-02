@@ -25,6 +25,8 @@ const MAX_IMAGE_KB = 400
 const MAX_SOCIAL_KB = 700
 const MAX_IMAGES_TOTAL_MB = 15
 const MAX_POINTS_MB = 1.6
+const MAX_VIDEO_MB = 6
+const MAX_VIDEOS_TOTAL_MB = 20
 
 const walk = async (dir) => {
   const out = []
@@ -77,6 +79,22 @@ if (pointsMb > MAX_POINTS_MB) {
   failures.push(`points.json is ${pointsMb.toFixed(2)} MB, over the ${MAX_POINTS_MB} MB budget. Run \`npm run optimize:points\`.`)
 }
 
+// Videos are lazy-mounted, so they do not slow first load, but a 28 MB file
+// still means a long wait after the click that asks for it.
+const videos = await walk("public/assets/videos")
+let videoTotal = 0
+for (const file of videos.filter((name) => name.endsWith(".mp4"))) {
+  const mb = (await stat(file)).size / 1048576
+  videoTotal += mb
+  if (mb > MAX_VIDEO_MB) {
+    const rel = file.replace("public/assets/videos/", "")
+    failures.push(`${rel} is ${mb.toFixed(1)} MB, over the ${MAX_VIDEO_MB} MB per-video budget. Run \`npm run optimize:videos\`.`)
+  }
+}
+if (videoTotal > MAX_VIDEOS_TOTAL_MB) {
+  failures.push(`Videos total ${videoTotal.toFixed(1)} MB, over the ${MAX_VIDEOS_TOTAL_MB} MB budget.`)
+}
+
 if (failures.length > 0) {
   console.error(`\nAsset weight budget exceeded (${failures.length}):\n`)
   for (const failure of failures) console.error(`  - ${failure}`)
@@ -85,5 +103,5 @@ if (failures.length > 0) {
 }
 
 console.log(
-  `Asset budget passed (images ${totalMb.toFixed(1)} MB of ${MAX_IMAGES_TOTAL_MB} MB, points ${pointsMb.toFixed(2)} MB of ${MAX_POINTS_MB} MB).`
+  `Asset budget passed (images ${totalMb.toFixed(1)} MB of ${MAX_IMAGES_TOTAL_MB} MB, videos ${videoTotal.toFixed(1)} MB of ${MAX_VIDEOS_TOTAL_MB} MB, points ${pointsMb.toFixed(2)} MB of ${MAX_POINTS_MB} MB).`
 )

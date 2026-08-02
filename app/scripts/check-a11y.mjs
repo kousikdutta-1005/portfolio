@@ -47,6 +47,7 @@ const TARGETS = [
   ".case-lock-input",
   ".case-lock-submit",
   ".journal-feed-link",
+  ".case-evidence-caveat-link",
 ]
 
 const TARGET_MIN_PX = 24

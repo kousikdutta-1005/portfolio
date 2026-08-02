@@ -380,24 +380,47 @@ function CaseStory({ items }: { items: SummaryItem[] }) {
   )
 }
 
-function EvidenceStrip({ items }: { items: { value: string; label: string; desc: string }[] }) {
+function EvidenceStrip({
+  items,
+  caveat,
+}: {
+  items: { value: string; label: string; desc: string }[]
+  caveat?: string
+}) {
   return (
-    <motion.div
-      className="precisely-evidence-strip"
-      variants={staggerContainer}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      aria-label="Evidence from the case study"
-    >
-      {items.map((item) => (
-        <motion.div key={item.label} variants={fadeUp} className="precisely-evidence-item">
-          <span>{item.value}</span>
-          <h3>{item.label}</h3>
-          <p>{item.desc}</p>
-        </motion.div>
-      ))}
-    </motion.div>
+    <>
+      <motion.div
+        className="precisely-evidence-strip"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        aria-label="Evidence from the case study"
+      >
+        {items.map((item) => (
+          <motion.div key={item.label} variants={fadeUp} className="precisely-evidence-item">
+            <span>{item.value}</span>
+            <h3>{item.label}</h3>
+            <p>{item.desc}</p>
+          </motion.div>
+        ))}
+      </motion.div>
+      {caveat ? (
+        <motion.p
+          className="case-evidence-caveat"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <span className="case-evidence-caveat-label">What this does not prove</span>
+          {caveat}{" "}
+          <a className="case-evidence-caveat-link" href="#retro">
+            Read the full retrospective
+          </a>
+        </motion.p>
+      ) : null}
+    </>
   )
 }
 
@@ -784,7 +807,10 @@ export default function PreciselyDevPortalPage() {
               <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[720px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
                 The proof stayed practical: baseline coverage, API coverage, task continuity, and reuse pipeline. Those are product metrics a developer platform team can keep tracking after launch.
               </motion.p>
-              <EvidenceStrip items={OUTCOME_PROOF} />
+              <EvidenceStrip
+                items={OUTCOME_PROOF}
+                caveat="Every number here counts scope, not outcome. I never measured time to a developer's first successful call, so I cannot say whether any of this made evaluating an API faster."
+              />
               <WhatChangedChart />
             </div>
           </section>

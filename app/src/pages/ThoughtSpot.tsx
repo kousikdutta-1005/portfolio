@@ -348,7 +348,12 @@ export default function ThoughtSpotPage() {
           <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[680px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             I keep the proof close to metrics teams already watch: adoption, app quality, acquisition, and core task coverage.
           </motion.p>
-          <CaseEvidenceStrip items={OUTCOMES} />
+          <CaseEvidenceStrip
+            items={OUTCOMES}
+            caveat={{
+              text: "These are headline numbers with no guardrail beside them. I set nothing that was allowed to say the redesign had failed, and I cannot separate its effect from everything else that shipped in the same period.",
+            }}
+          />
           <SectionImage src="/assets/images/uGueO4PFCfSuGeGcj4lbKrjB4Mg.webp" alt="Outcomes navigation" className="mb-4" loading="eager" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <SectionImage src="/assets/images/jLhitZnlkZ9Y0R6MFifDKQr8NY.webp" alt="Outcomes detail" />

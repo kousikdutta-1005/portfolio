@@ -265,7 +265,12 @@ export default function PhilipsPage() {
             <motion.p className="text-[15px] text-muted-foreground mb-6 max-w-[680px]" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               The proof is strongest when read together: usability benchmark, validation sample, concept coverage, behavior themes, and the iF Design Award the Philips team received for Cardiocare.
             </motion.p>
-            <CaseEvidenceStrip items={OUTCOMES} />
+            <CaseEvidenceStrip
+            items={OUTCOMES}
+            caveat={{
+              text: "A SUS score of 82.1 came from a small, self-reported sample testing a prototype, so it carries a wide margin I never showed. The awards judged the concept, not whether it changed anyone's health behaviour.",
+            }}
+          />
             <motion.div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <motion.div variants={fadeUp}>
                 <SectionImage src="/assets/images/oiW8eXHbvjUx2WW5fIiPIPypsZo.webp" alt="Outcomes overview 1" />
