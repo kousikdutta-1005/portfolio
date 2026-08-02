@@ -5712,3 +5712,127 @@ svg {
     transform: none;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Build gates
+   Rendered from data the build generates about itself.
+   --------------------------------------------------------------------------- */
+
+.build-chain {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 22px;
+  padding: 0;
+  list-style: none;
+}
+
+.build-chain-step {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.build-chain-step:not(:last-child)::after {
+  content: "";
+  width: 12px;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.build-chain-step code {
+  display: inline-block;
+  padding: 4px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: color-mix(in oklab, var(--color-card) 70%, transparent);
+  font-size: 11.5px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--color-muted-foreground);
+  white-space: nowrap;
+}
+
+/* The gates themselves are the point, so give them more presence than the
+   pipeline they sit in. Keyed off the data attribute rather than position, so
+   removing a gate cannot accidentally highlight an ordinary build step. */
+.build-chain-step[data-gate] code {
+  color: var(--color-foreground);
+  border-color: color-mix(in oklab, var(--color-accent) 45%, var(--color-border));
+  background: color-mix(in oklab, var(--color-accent) 8%, transparent);
+}
+
+.build-gate-list {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .build-gate-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.build-gate {
+  padding: 16px 16px 14px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: color-mix(in oklab, var(--color-card) 60%, transparent);
+}
+
+.build-gate-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.build-gate-label {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-foreground);
+}
+
+.build-gate-metric {
+  flex: none;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--color-accent) 14%, transparent);
+  color: var(--color-accent);
+  font-size: 11px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.build-gate-summary {
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--color-muted-foreground);
+}
+
+.build-gate-file {
+  font-size: 11px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: color-mix(in oklab, var(--color-muted-foreground) 75%, transparent);
+}
+
+.build-gates-note {
+  margin: 18px 0 0;
+  max-width: 700px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-muted-foreground);
+}
+
+@media (max-width: 520px) {
+  .build-gate-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}

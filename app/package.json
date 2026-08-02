@@ -5,13 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && node scripts/postbuild.mjs && node scripts/check-glass.mjs && node scripts/check-a11y.mjs && node scripts/check-weight.mjs",
+    "build": "tsc -b && node scripts/build-report.mjs && vite build && node scripts/postbuild.mjs && node scripts/check-glass.mjs && node scripts/check-a11y.mjs && node scripts/check-weight.mjs",
     "lint": "oxlint",
     "check:a11y": "node scripts/check-a11y.mjs",
     "preview": "vite preview",
     "check:weight": "node scripts/check-weight.mjs",
     "optimize:images": "node scripts/optimize-images.mjs",
-    "optimize:points": "node scripts/optimize-points.mjs"
+    "optimize:points": "node scripts/optimize-points.mjs",
+    "build:report": "node scripts/build-report.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
