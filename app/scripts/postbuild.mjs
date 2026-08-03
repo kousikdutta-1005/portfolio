@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises"
 import { dirname } from "node:path"
 import { readJournalArticles, readPerPage } from "./lib/journal.mjs"
-import { cardUrl } from "./lib/og.mjs"
+import { cardAltBySlug, cardSlug, cardUrl } from "./lib/og.mjs"
 
 const dist = new URL("../dist/", import.meta.url)
 const siteUrl = "https://kousikdutta.com"
@@ -93,8 +93,10 @@ routes.push(
 // Every route gets its own social card, so a shared link says which page it is
 // rather than showing the same picture 32 times. check-og.mjs fails the build
 // if one is missing.
+const cardAlts = await cardAltBySlug()
 for (const route of routes) {
   route.image = cardUrl(siteUrl, route.path)
+  route.imageAlt = cardAlts.get(cardSlug(route.path))
 }
 
 function escapeRegExp(value) {
@@ -165,6 +167,7 @@ function applyMetadata(html, route) {
     (value) => replaceTag(value, '<meta property="og:description"', route.description),
     (value) => replaceTag(value, '<meta property="og:url"', url),
     (value) => replaceTag(value, '<meta property="og:image"', route.image),
+    (value) => replaceTag(value, '<meta property="og:image:alt"', route.imageAlt),
     (value) => replaceTag(value, '<meta name="twitter:title"', route.title),
     (value) => replaceTag(value, '<meta name="twitter:description"', route.description),
     (value) => replaceTag(value, '<meta name="twitter:image"', route.image),

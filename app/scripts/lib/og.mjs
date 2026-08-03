@@ -52,3 +52,21 @@ export async function cardSpecs() {
     })),
   ]
 }
+
+/**
+ * Alt text describing what the card actually shows. Derived from the same spec
+ * that draws it, so it cannot describe a card that is no longer there.
+ */
+export function cardAlt(spec) {
+  if (spec.kind === "home") {
+    return "Thinking becomes product. Kousik Dutta, product designer and UX engineer."
+  }
+  // Some titles are full sentences and already end in a stop.
+  const title = spec.title.replace(/\.$/u, "")
+  return `${spec.kicker}: ${title}. Kousik Dutta, product designer and UX engineer.`
+}
+
+/** Card slug to alt text, for the routes that need it at build time. */
+export async function cardAltBySlug() {
+  return new Map((await cardSpecs()).map((spec) => [spec.slug, cardAlt(spec)]))
+}
