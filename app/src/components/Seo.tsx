@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 
 const SITE_URL = "https://kousikdutta.com"
-const DEFAULT_IMAGE = `${SITE_URL}/assets/images/1GW8AENYNU5gayo8utt1YsKnfY.jpg`
+const DEFAULT_IMAGE = `${SITE_URL}/assets/og/home.jpg`
 
 type SeoProps = {
   title: string

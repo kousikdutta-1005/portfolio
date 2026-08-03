@@ -18,6 +18,7 @@
 
 import { execFileSync } from "node:child_process"
 import { readFile, writeFile, readdir, stat } from "node:fs/promises"
+import { cardSpecs } from "./lib/og.mjs"
 import { join } from "node:path"
 
 const run = (script) => {
@@ -51,6 +52,8 @@ const weightOut = run("scripts/check-weight.mjs")
 const a11ySource = await readFile("scripts/check-a11y.mjs", "utf8")
 const glassSource = await readFile("scripts/check-glass.mjs", "utf8")
 const weightSource = await readFile("scripts/check-weight.mjs", "utf8")
+const ogSource = await readFile("scripts/check-og.mjs", "utf8")
+const cardCount = (await cardSpecs()).length
 
 const walk = async (dir) => {
   const out = []
@@ -99,6 +102,14 @@ const report = {
         number(weightSource, /MAX_IMAGE_KB = (\d+)/) ?? 400
       }KB, any unconverted raster, and any source model left where it would be deployed. Added after the homepage was found shipping 8MB.`,
       metric: `${(imageBytes / 1048576).toFixed(1)}MB of ${number(weightSource, /MAX_IMAGES_TOTAL_MB = (\d+)/) ?? 15}MB budget`,
+    },
+    {
+      id: "check-og",
+      label: "Social cards",
+      summary: `Requires every route to ship its own social card, drawn from the site's own type and colour tokens and held under ${
+        number(ogSource, /MAX_CARD_KB = (\d+)/) ?? 400
+      }KB. Added after every route was found sharing a single image, so a shared link never showed the page it pointed at.`,
+      metric: `${cardCount} routes covered`,
     },
   ]
     // The chain is the source of truth. A gate that is no longer wired into the

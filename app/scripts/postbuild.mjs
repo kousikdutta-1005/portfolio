@@ -1,10 +1,10 @@
-import { mkdir, readdir, readFile, writeFile } from "node:fs/promises"
+import { mkdir, readFile, writeFile } from "node:fs/promises"
 import { dirname } from "node:path"
+import { readJournalArticles, readPerPage } from "./lib/journal.mjs"
+import { cardUrl } from "./lib/og.mjs"
 
 const dist = new URL("../dist/", import.meta.url)
-const articlesDir = new URL("../src/data/journal/articles/", import.meta.url)
 const siteUrl = "https://kousikdutta.com"
-const defaultImage = `${siteUrl}/assets/images/1GW8AENYNU5gayo8utt1YsKnfY.jpg`
 
 const routes = [
   {
@@ -13,7 +13,6 @@ const routes = [
     title: "Kousik Dutta - Product Designer & UX Engineer",
     description:
       "Product designer and UX engineer working on AI, analytics, and healthcare products. I design the interface, then build and test the front-end that ships it.",
-    image: defaultImage,
   },
   {
     path: "/about",
@@ -21,7 +20,6 @@ const routes = [
     title: "About Kousik Dutta - Product Design, Systems Thinking, AI Prototyping",
     description:
       "Learn how Kousik Dutta frames product problems, designs calm systems, and uses AI-assisted code to make product direction testable.",
-    image: defaultImage,
   },
   {
     path: "/case-study/thoughtspot",
@@ -29,7 +27,6 @@ const routes = [
     title: "ThoughtSpot Mobile Case Study - Kousik Dutta",
     description:
       "A product design case study on mobile analytics, AI input states, KPI watchlists, and decision-making workflows that helped ThoughtSpot mobile grow.",
-    image: defaultImage,
   },
   {
     path: "/case-study/philips",
@@ -37,7 +34,6 @@ const routes = [
     title: "Philips Cardiocare Case Study - Kousik Dutta",
     description:
       "A healthcare product design case study on preventive heart care, research synthesis, service systems, and action-oriented patient support.",
-    image: defaultImage,
   },
   {
     path: "/case-study/precisely-devportal",
@@ -45,7 +41,6 @@ const routes = [
     title: "Precisely Developer Portal Case Study - Kousik Dutta",
     description:
       "A product design case study draft on developer experience, API discovery, interactive demos, and map-first workflows for Precisely.",
-    image: `${siteUrl}/assets/images/precisely-devportal/api-catalog.png`,
   },
   {
     path: "/case-study/portfolio",
@@ -53,59 +48,19 @@ const routes = [
     title: "Portfolio Website Case Study - Kousik Dutta",
     description:
       "A product design case study on designing and building Kousik Dutta's portfolio as a clear, evidence-led, AI-assisted product experience.",
-    image: `${siteUrl}/assets/images/portfolio-case-study/card-placeholder.svg`,
   },
 ]
 
-async function readJournalRoutes() {
-  const order = (await readFile(new URL("../src/data/journal/index.ts", import.meta.url), "utf8"))
-    .match(/from "\.\/articles\/([^"]+)"/gu)
-    .map((line) => line.replace(/.*articles\/|"/gu, ""))
+const journalRoutes = (await readJournalArticles()).map((article) => ({
+  path: `/journal/${article.id}`,
+  file: `journal/${article.id}/index.html`,
+  title: `${article.title} - Journal - Kousik Dutta`,
+  description: article.excerpt,
+  priority: "0.6",
+  article,
+}))
 
-  const available = new Set((await readdir(articlesDir)).map((name) => name.replace(/\.ts$/u, "")))
-  const journal = []
-
-  for (const name of order) {
-    if (!available.has(name)) continue
-
-    const source = await readFile(new URL(`${name}.ts`, articlesDir), "utf8")
-    const id = source.match(/\n {2}id: "([^"]+)"/u)?.[1]
-    const title = source.match(/\n {2}title: "([^"]+)"/u)?.[1]
-    const excerpt = source
-      .match(/\n {2}excerpt:\s*\n?\s*"((?:[^"\\]|\\.)*)"/u)?.[1]
-      ?.replace(/\\"/gu, "&quot;")
-
-    if (!id || !title || !excerpt) {
-      throw new Error(`Could not read journal metadata from ${name}.ts`)
-    }
-
-    const readTime = source.match(/\n {2}readTime: "(\d+)[^"]*"/u)?.[1]
-    const tags = (source.match(/\n {2}tags: \[([^\]]*)\]/u)?.[1] ?? "")
-      .split(",")
-      .map((tag) => tag.trim().replace(/^"|"$/gu, ""))
-      .filter(Boolean)
-
-    journal.push({
-      path: `/journal/${id}`,
-      file: `journal/${id}/index.html`,
-      title: `${title} - Journal - Kousik Dutta`,
-      description: excerpt,
-      image: defaultImage,
-      priority: "0.6",
-      article: { id, title, excerpt, readTime, tags },
-    })
-  }
-
-  return journal
-}
-
-const journalRoutes = await readJournalRoutes()
-
-const perPage = Number(
-  (await readFile(new URL("../src/data/journal/index.ts", import.meta.url), "utf8")).match(
-    /PER_PAGE\s*=\s*(\d+)/u,
-  )?.[1] ?? 5,
-)
+const perPage = await readPerPage()
 
 const journalPageCount = Math.max(1, Math.ceil(journalRoutes.length / perPage))
 
@@ -119,7 +74,6 @@ for (let page = 2; page <= journalPageCount; page += 1) {
     file: `journal/page/${page}/index.html`,
     title: `Journal, page ${page} - Kousik Dutta`,
     description: journalIndexDescription,
-    image: defaultImage,
     priority: "0.5",
   })
 }
@@ -130,12 +84,18 @@ routes.push(
     file: "journal/index.html",
     title: "Journal - Kousik Dutta on AI interfaces, design engineering, and craft",
     description: journalIndexDescription,
-    image: defaultImage,
     priority: "0.7",
   },
   ...journalPageRoutes,
   ...journalRoutes,
 )
+
+// Every route gets its own social card, so a shared link says which page it is
+// rather than showing the same picture 32 times. check-og.mjs fails the build
+// if one is missing.
+for (const route of routes) {
+  route.image = cardUrl(siteUrl, route.path)
+}
 
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")

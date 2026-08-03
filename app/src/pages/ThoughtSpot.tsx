@@ -287,7 +287,7 @@ export default function ThoughtSpotPage() {
       title="ThoughtSpot Mobile Case Study - Kousik Dutta"
       description="A product design case study on mobile analytics, AI input states, KPI watchlists, and decision-making workflows that helped ThoughtSpot mobile grow."
       path="/case-study/thoughtspot"
-      image="https://kousikdutta.com/assets/images/1GW8AENYNU5gayo8utt1YsKnfY.jpg"
+      image="https://kousikdutta.com/assets/og/case-study-thoughtspot.jpg"
     />
     <div className="thoughtspot-case-study relative" style={{ overflowX: "clip" }}>
       {/* Back */}

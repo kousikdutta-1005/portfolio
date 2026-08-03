@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && node scripts/build-report.mjs && vite build && node scripts/postbuild.mjs && node scripts/check-glass.mjs && node scripts/check-a11y.mjs && node scripts/check-weight.mjs",
+    "build": "tsc -b && node scripts/build-report.mjs && vite build && node scripts/postbuild.mjs && node scripts/check-glass.mjs && node scripts/check-a11y.mjs && node scripts/check-weight.mjs && node scripts/check-og.mjs",
     "lint": "oxlint",
     "check:a11y": "node scripts/check-a11y.mjs",
     "preview": "vite preview",
@@ -13,7 +13,9 @@
     "optimize:images": "node scripts/optimize-images.mjs",
     "optimize:points": "node scripts/optimize-points.mjs",
     "build:report": "node scripts/build-report.mjs",
-    "optimize:videos": "node scripts/optimize-videos.mjs"
+    "optimize:videos": "node scripts/optimize-videos.mjs",
+    "og": "node scripts/og-cards.mjs",
+    "check:og": "node scripts/check-og.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
@@ -37,6 +39,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
     "oxlint": "^1.71.0",
+    "playwright-core": "^1.62.1",
     "sharp": "^0.34.5",
     "three": "^0.185.1",
     "typescript": "~6.0.2",

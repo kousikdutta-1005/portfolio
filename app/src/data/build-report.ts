@@ -25,7 +25,8 @@ export const BUILD_REPORT: BuildReport = {
     "postbuild",
     "check-glass",
     "check-a11y",
-    "check-weight"
+    "check-weight",
+    "check-og"
   ],
   "gates": [
     {
@@ -45,6 +46,12 @@ export const BUILD_REPORT: BuildReport = {
       "label": "Asset weight",
       "summary": "Fails on any image over 400KB, any unconverted raster, and any source model left where it would be deployed. Added after the homepage was found shipping 8MB.",
       "metric": "11.0MB of 15MB budget"
+    },
+    {
+      "id": "check-og",
+      "label": "Social cards",
+      "summary": "Requires every route to ship its own social card, drawn from the site's own type and colour tokens and held under 400KB. Added after every route was found sharing a single image, so a shared link never showed the page it pointed at.",
+      "metric": "32 routes covered"
     }
   ],
   "assets": {
