@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises"
 import { dirname } from "node:path"
 import { readJournalArticles, readPerPage } from "./lib/journal.mjs"
-import { cardAltBySlug, cardSlug, cardUrl } from "./lib/og.mjs"
+import { cardAltBySlug, cardSlug, cardUrl, loadManifest } from "./lib/og.mjs"
 
 const dist = new URL("../dist/", import.meta.url)
 const siteUrl = "https://kousikdutta.com"
@@ -94,8 +94,9 @@ routes.push(
 // rather than showing the same picture 32 times. check-og.mjs fails the build
 // if one is missing.
 const cardAlts = await cardAltBySlug()
+const cardManifest = await loadManifest()
 for (const route of routes) {
-  route.image = cardUrl(siteUrl, route.path)
+  route.image = cardUrl(siteUrl, route.path, cardManifest)
   route.imageAlt = cardAlts.get(cardSlug(route.path))
 }
 

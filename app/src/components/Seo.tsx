@@ -1,7 +1,9 @@
 import { useEffect } from "react"
 
+import { ogCardUrl } from "../data/og-cards"
+
 const SITE_URL = "https://kousikdutta.com"
-const DEFAULT_IMAGE = `${SITE_URL}/assets/og/home.jpg`
+const DEFAULT_IMAGE = ogCardUrl(SITE_URL, "home")
 
 type SeoProps = {
   title: string

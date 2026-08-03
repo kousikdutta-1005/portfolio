@@ -5,11 +5,18 @@
  * the single list of which cards exist and what they say, so postbuild (which
  * points og:image at them), the generator (which draws them) and check-og
  * (which refuses to ship a route without one) cannot disagree.
+ *
+ * Card filenames carry a content hash. Social platforms cache the copy they
+ * derive from a given image URL and do not re-derive it when the bytes behind
+ * that URL change, so a stable filename means a card can never be corrected
+ * once it has been shared. The hash makes every edit a new URL.
  */
 
+import { readFile } from "node:fs/promises"
 import { readJournalArticles } from "./journal.mjs"
 
 export const CARD_DIR = "assets/og"
+export const MANIFEST = new URL(`../../public/${CARD_DIR}/manifest.json`, import.meta.url).pathname
 
 /** Route path -> card slug. Paginated journal pages share the index card. */
 export function cardSlug(path) {
@@ -18,8 +25,15 @@ export function cardSlug(path) {
   return path.replace(/^\//u, "").replace(/\//gu, "-")
 }
 
-export function cardUrl(siteUrl, path) {
-  return `${siteUrl}/${CARD_DIR}/${cardSlug(path)}.jpg`
+export async function loadManifest() {
+  return JSON.parse(await readFile(MANIFEST, "utf8"))
+}
+
+export function cardUrl(siteUrl, path, manifest) {
+  const slug = cardSlug(path)
+  const file = manifest[slug]
+  if (!file) throw new Error(`No social card for "${slug}". Run \`npm run og\`.`)
+  return `${siteUrl}/${CARD_DIR}/${file}`
 }
 
 const STATIC_CARDS = [

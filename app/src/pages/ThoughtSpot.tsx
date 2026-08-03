@@ -10,6 +10,7 @@ import { CaseEvidenceStrip, CaseStory, type CaseEvidenceItem, type CaseStoryItem
 import { CaseStudyNav, type CaseStudyNavSection } from "@/components/CaseStudyNav"
 import { CaseRetro, type CaseRetroItem } from "@/components/CaseRetro"
 import { Seo } from "@/components/Seo"
+import { ogCardUrl } from "../data/og-cards"
 
 const EASE_ENTER = [0.25, 0.1, 0.25, 1] as const
 const STAGGER = 0.08
@@ -287,7 +288,7 @@ export default function ThoughtSpotPage() {
       title="ThoughtSpot Mobile Case Study - Kousik Dutta"
       description="A product design case study on mobile analytics, AI input states, KPI watchlists, and decision-making workflows that helped ThoughtSpot mobile grow."
       path="/case-study/thoughtspot"
-      image="https://kousikdutta.com/assets/og/case-study-thoughtspot.jpg"
+      image={ogCardUrl("https://kousikdutta.com", "case-study-thoughtspot")}
     />
     <div className="thoughtspot-case-study relative" style={{ overflowX: "clip" }}>
       {/* Back */}
