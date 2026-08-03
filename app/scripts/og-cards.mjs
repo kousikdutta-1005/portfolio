@@ -20,6 +20,11 @@ import { renderCard } from "./lib/og-template.mjs"
 const OUT = new URL("../public/assets/og/", import.meta.url).pathname
 const QUALITY = 88
 
+// Cards are drawn at 2x. Platforms re-encode what they fetch, and handing them
+// a 1200px JPEG to re-compress produced a visibly soft preview; giving them
+// twice the pixels means their downscale is the last lossy step, not the second.
+const SCALE = 2
+
 const CHROME_PATHS = [
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
   "/Applications/Chromium.app/Contents/MacOS/Chromium",
@@ -50,7 +55,10 @@ const specs = await cardSpecs()
 await mkdir(OUT, { recursive: true })
 
 const browser = await chromium.launch({ executablePath })
-const page = await browser.newPage({ viewport: { width: 1200, height: 630 } })
+const page = await browser.newPage({
+  viewport: { width: 1200, height: 630 },
+  deviceScaleFactor: SCALE,
+})
 
 const failures = []
 const written = new Set()

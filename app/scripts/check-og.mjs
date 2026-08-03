@@ -11,12 +11,32 @@
  * preview that is slow to load is a link preview nobody sees.
  */
 
-import { readdir, stat } from "node:fs/promises"
+import { readdir, readFile, stat } from "node:fs/promises"
 import { join } from "node:path"
 import { cardSpecs, CARD_DIR } from "./lib/og.mjs"
 
 const OUT = new URL(`../public/${CARD_DIR}/`, import.meta.url).pathname
 const MAX_CARD_KB = 400
+const CARD_WIDTH = 2400
+const CARD_HEIGHT = 1260
+
+/**
+ * JPEG dimensions from the frame header, so a card that silently drops back to
+ * 1x is caught. Walks the marker segments to the SOF, which carries the size.
+ */
+function jpegSize(buffer) {
+  let offset = 2
+  while (offset < buffer.length) {
+    if (buffer[offset] !== 0xff) return null
+    const marker = buffer[offset + 1]
+    // SOF0-SOF15, excluding the non-frame markers DHT, JPG and DAC.
+    if (marker >= 0xc0 && marker <= 0xcf && marker !== 0xc4 && marker !== 0xc8 && marker !== 0xcc) {
+      return { height: buffer.readUInt16BE(offset + 5), width: buffer.readUInt16BE(offset + 7) }
+    }
+    offset += 2 + buffer.readUInt16BE(offset + 2)
+  }
+  return null
+}
 
 const failures = []
 const specs = await cardSpecs()
@@ -38,6 +58,15 @@ for (const { slug } of specs) {
   if (kb > MAX_CARD_KB) {
     failures.push(`${CARD_DIR}/${name} is ${kb.toFixed(0)} KB, over the ${MAX_CARD_KB} KB card budget.`)
   }
+
+  const size = jpegSize(await readFile(join(OUT, name)))
+  if (!size) {
+    failures.push(`${CARD_DIR}/${name} is not a readable JPEG.`)
+  } else if (size.width !== CARD_WIDTH || size.height !== CARD_HEIGHT) {
+    failures.push(
+      `${CARD_DIR}/${name} is ${size.width}x${size.height}, expected ${CARD_WIDTH}x${CARD_HEIGHT}. Run \`npm run og\`.`
+    )
+  }
 }
 
 const expected = new Set(specs.map(({ slug }) => `${slug}.jpg`))
@@ -52,4 +81,4 @@ if (failures.length > 0) {
   process.exit(1)
 }
 
-console.log(`Social cards: ${specs.length} routes, each with its own card, all within budget.`)
+console.log(`Social cards: ${specs.length} routes, each with its own ${CARD_WIDTH}x${CARD_HEIGHT} card, all within budget.`)

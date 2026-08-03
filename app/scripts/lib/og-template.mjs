@@ -4,6 +4,13 @@
  * Colours, fonts and the body wash are the site's own dark-theme tokens from
  * src/index.css. If those change, change them here too — a card that no longer
  * looks like the site is worse than no card.
+ *
+ * The grain is deliberately much lighter here than on the site (0.03 against
+ * 0.11). Grain is high-frequency noise, which is the most expensive thing a
+ * JPEG can carry: at the site's opacity it tripled the file, crowding out the
+ * bits the text needed, and LinkedIn re-encodes what it fetches so that loss
+ * compounded into a visibly blurry preview. This is light enough to still
+ * dither the dark gradients and stop them banding.
  */
 
 const T = {
@@ -31,7 +38,7 @@ const BACKDROP = `
     radial-gradient(ellipse at 14% 4%, rgba(41,151,255,0.14), transparent 62%),
     radial-gradient(ellipse at 86% 12%, rgba(94,92,230,0.12), transparent 58%),
     radial-gradient(ellipse at 46% 96%, rgba(48,209,88,0.06), transparent 60%),
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='turbulence' baseFrequency='2.35' numOctaves='2' seed='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.11' fill='white'/%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='turbulence' baseFrequency='2.35' numOctaves='2' seed='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.03' fill='white'/%3E%3C/svg%3E");
 `
 
 const FOOTER = `<div class="foot">
