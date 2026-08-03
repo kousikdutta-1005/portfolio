@@ -10,9 +10,9 @@ const routes = [
   {
     path: "/",
     file: "index.html",
-    title: "Kousik Dutta - Senior Product Designer",
+    title: "Kousik Dutta - Product Designer & UX Engineer",
     description:
-      "Senior product designer shaping AI, analytics, healthcare, and systems-led product work with clear thinking, refined craft, and buildable prototypes.",
+      "Product designer and UX engineer working on AI, analytics, and healthcare products. I design the interface, then build and test the front-end that ships it.",
     image: defaultImage,
   },
   {
@@ -178,7 +178,7 @@ function articleJsonLd(route) {
       "@type": "Person",
       name: "Kousik Dutta",
       url: `${siteUrl}/`,
-      jobTitle: "Senior Product Designer",
+      jobTitle: "Product Designer & UX Engineer",
     },
     publisher: { "@type": "Person", name: "Kousik Dutta", url: `${siteUrl}/` },
     isPartOf: { "@type": "Blog", name: "Journal", url: `${siteUrl}/journal` },

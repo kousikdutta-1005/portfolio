@@ -58,9 +58,9 @@ const WORKING_PRINCIPLES = [
 const EXPERIENCE = [
   {
     period: "2024 to present",
-    role: "Senior Product Designer",
+    role: "UX Engineer",
     company: "Precisely",
-    desc: "Building B2B Spatial Analytics & Enrichment Software via scalable patterns for the Precisely Design System and GitHub Copilot.",
+    desc: "B2B spatial analytics and enrichment software. Moved from UX Designer 1 to UX Designer 2 to a full builder role: solving the UX problem, implementing it in code, and running its quality analysis.",
   },
   {
     period: "2023 to 2024",
@@ -166,7 +166,7 @@ export default function AboutPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: EASE_ENTER, delay: 0.12 }}
               >
-                <p className="about-role">I'm Kousik Dutta, a senior product designer.</p>
+                <p className="about-role">I'm Kousik Dutta, a product designer and UX engineer.</p>
                 <p>
                   I turn messy product systems into clear decisions and buildable interfaces.
                 </p>

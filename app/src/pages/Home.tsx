@@ -199,8 +199,8 @@ export default function HomePage() {
   return (
     <PageTransition>
     <Seo
-      title="Kousik Dutta - Senior Product Designer"
-      description="Senior product designer shaping AI, analytics, healthcare, and systems-led product work with clear thinking, refined craft, and buildable prototypes."
+      title="Kousik Dutta - Product Designer & UX Engineer"
+      description="Product designer and UX engineer working on AI, analytics, and healthcare products. I design the interface, then build and test the front-end that ships it."
       path="/"
     />
     <div className="overflow-hidden relative">
@@ -228,10 +228,10 @@ export default function HomePage() {
               transition={{ duration: 0.6, ease: EASE_ENTER, delay: 0.15 }}
             >
               <p className="text-[15px] font-semibold tracking-[-0.01em] text-foreground mb-3">
-                I'm Kousik Dutta, a senior product designer.
+                I'm Kousik Dutta, a product designer and UX engineer.
               </p>
               <p className="text-[17px] leading-[1.65] text-muted-foreground">
-                I think in systems, shape clear interfaces, and build working prototypes with AI-assisted code when it helps teams learn faster.
+                I think in systems, shape clear interfaces, and ship the front-end code myself, so what I design is what actually reaches people.
               </p>
               <div className="hero-stats mt-7" aria-label="Kousik's proof points">
                 {HERO_STATS.map((stat) => (
