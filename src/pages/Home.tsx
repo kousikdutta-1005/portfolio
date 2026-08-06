@@ -64,6 +64,17 @@ const PROJECTS = [
   },
 ]
 
+const EXPERIMENTS = [
+  {
+    title: "market-lab",
+    desc: "An Indian equity research terminal that scores every NSE stock from official exchange data and rebuilds itself daily. Free to use, free to run, no account.",
+    meta: "Data product, self-updating",
+    signal: "1,604 stocks scored daily",
+    image: "/assets/images/market-lab.png",
+    href: "https://experiments.kousikdutta.com",
+  },
+]
+
 const BRANDS = [
   { name: "Vedantu", src: "/assets/brands/vedantu.svg", height: 26 },
   { name: "Airtel", src: "/assets/brands/airtel.svg", height: 24 },
@@ -313,6 +324,53 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Experiments — things built to think with, rather than case studies of past work */}
+      <section id="experiments" className="py-16 md:py-20 scroll-mt-24">
+        <div className="max-w-[980px] mx-auto px-6 md:px-10">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mb-8"
+          >
+            <p className="section-kicker mb-1.5">
+              Experiments
+            </p>
+            <h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em]">
+              Things I build to <span className="heading-italic">think</span> with
+            </h2>
+            <p className="mt-2.5 text-[15px] leading-[1.58] text-muted-foreground max-w-[560px]">
+              Working products, not prototypes. The fastest way I know to find out whether an
+              idea survives contact with real data.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-1 gap-4 md:gap-5"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+          >
+            {EXPERIMENTS.map((project, i) => (
+              <motion.div key={project.title} variants={fadeUp} custom={i}>
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-card-link group block"
+                  aria-label={`Open ${project.title} in a new tab`}
+                  data-cursor="none"
+                >
+                  <ProjectCard project={project} />
+                </a>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       <section className="py-14 md:py-18">
         <div className="max-w-[980px] mx-auto px-6 md:px-10">
           <div className="method-panel">
@@ -409,8 +467,18 @@ function TestimonialCard({ t }: { t: typeof TESTIMONIALS[0] }) {
   )
 }
 
-function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
-  const actionLabel = project.external ? "Open" : "View"
+type CardProject = {
+  title: string
+  desc: string
+  meta: string
+  signal: string
+  image: string
+  href: string
+  external?: boolean
+}
+
+function ProjectCard({ project }: { project: CardProject }) {
+  const actionLabel = project.external || project.href.startsWith("http") ? "Open" : "View"
 
   return (
     <div className="project-card-shell">
