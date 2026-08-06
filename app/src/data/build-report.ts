@@ -17,7 +17,7 @@ export type BuildReport = {
 }
 
 export const BUILD_REPORT: BuildReport = {
-  "generatedAt": "2026-08-03",
+  "generatedAt": "2026-08-06",
   "chain": [
     "tsc -b",
     "build-report",
@@ -39,7 +39,7 @@ export const BUILD_REPORT: BuildReport = {
       "id": "check-a11y",
       "label": "Colour and target size",
       "summary": "Recomputes contrast for every colour token pair in both themes against WCAG AA, and requires interactive text controls to be at least 24px tall. It caught four real contrast defects when it was introduced.",
-      "metric": "37 checks"
+      "metric": "35 checks"
     },
     {
       "id": "check-weight",

@@ -44,8 +44,6 @@ const TARGETS = [
   ".back-link",
   ".journal-back",
   ".journal-pagination-step",
-  ".case-lock-input",
-  ".case-lock-submit",
   ".journal-feed-link",
   ".case-evidence-caveat-link",
 ]
